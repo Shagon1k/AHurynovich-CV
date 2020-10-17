@@ -1,0 +1,31 @@
+{
+  "name": "aliaksei-hurynovich-cv",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "echo no build setup yet",
+    "deploy:s3": "sls client deploy --no-config-change --no-policy-change --no-cors-change",
+    "deploy:s3:nc": "npm run deploy:s3 -- --no-confirm"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "serverless-finch": "^2.6.0"
+  },
+  "devDependencies": {
+    "serverless": "^2.8.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
