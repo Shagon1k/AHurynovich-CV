@@ -1,7 +1,7 @@
 import fse from 'fs-extra';
 import ReactDOMServer from 'react-dom/server';
 
-import { SRC_APP_TEMPLATE } from '../../../../config/environment';
+import { SRC_APP_TEMPLATE } from '@config/environment';
 
 /**
  * Get rendering template

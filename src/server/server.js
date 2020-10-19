@@ -3,9 +3,9 @@ import express from 'express';
 import apiRouter from './api';
 import { createRenderMiddleware } from './middleware';
 
-import { DIST_CLIENT_DIR, SERVER_PORT } from '../../config/environment';
-import { createApp } from '../client/application';
-import { createAppStore } from '../client/store/store';
+import { DIST_CLIENT_DIR, SERVER_PORT } from '@config/environment';
+import { createApp } from '@client/application';
+import { createAppStore } from '@client/store/store';
 
 export const startServer = () => {
   const server = express();

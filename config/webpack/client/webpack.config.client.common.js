@@ -1,5 +1,6 @@
 import { SRC_CLIENT_ENTRY, DIST_CLIENT_DIR, WITH_SSR } from '../../environment';
 import { htmlPlugin, definePlugin } from '../plugins';
+import { getAlias } from '../resolve';
 
 const commonConfig = {
   entry: [SRC_CLIENT_ENTRY],
@@ -29,6 +30,9 @@ const commonConfig = {
         loader: 'babel-loader',
       },
     ],
+  },
+  resolve: {
+    alias: getAlias(),
   },
 };
 

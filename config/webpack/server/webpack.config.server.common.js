@@ -1,5 +1,6 @@
 import { SRC_SERVER_ENTRY, DIST_SERVER_DIR, WITH_SSR } from '../../environment';
 import { definePlugin } from '../plugins';
+import { getAlias } from '../resolve';
 
 const commonConfig = {
   entry: [SRC_SERVER_ENTRY],
@@ -27,6 +28,9 @@ const commonConfig = {
         loader: 'babel-loader',
       },
     ],
+  },
+  resolve: {
+    alias: getAlias(),
   },
 };
 
