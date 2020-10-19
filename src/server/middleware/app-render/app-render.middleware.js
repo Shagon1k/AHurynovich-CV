@@ -17,6 +17,21 @@ const getTemplate = async () => {
   }
 };
 
+const getAppStateStr = (state) => {
+  const stringifiedAppState = `
+    <script type="text/javascript">
+	    // WARNING: See the following for security issues around embedding JSON in HTML:
+	    // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
+	    window.__PRELOADED_STATE__ = ${JSON.stringify(state).replace(
+        /</g,
+        '\\u003c'
+      )}
+	  </script>
+  `;
+
+  return stringifiedAppState;
+};
+
 /**
  * Process template with data to be rendered
  *
@@ -25,9 +40,11 @@ const getTemplate = async () => {
  * @param {String} options.app - stringified application
  */
 const processTemplate = (tpl, options) => {
-  const { app } = options;
+  const { app, state } = options;
 
-  const processedTemplate = tpl.replace(/<!--TEMPLATE_APP-->/, app);
+  const processedTemplate = tpl
+    .replace(/<!--SSR_TEMPLATE_APP-->/, app)
+    .replace(/<!--SSR_TEMPLATE_APP_STATE-->/, state);
 
   return processedTemplate;
 };
@@ -39,20 +56,24 @@ const processTemplate = (tpl, options) => {
  * @return {Function}
  */
 const createRenderMiddleware = (options) => async (req, res, next) => {
-  const { createApp } = options;
+  const { createApp, createAppStore } = options;
   const requestPath = req.path || (req.url && req.url.path);
+  const store = createAppStore({ isServer: true });
   const app = createApp({
     isServer: true,
+    store,
     path: requestPath,
   });
 
   const template = await getTemplate();
 
   const stringifiedApp = ReactDOMServer.renderToString(app);
+  const stringifiedAppState = getAppStateStr(store.getState());
 
   // Replace template placeholders with appropriate data
   const responseBody = processTemplate(template, {
     app: stringifiedApp,
+    state: stringifiedAppState,
   });
 
   res.setHeader('Content-Type', 'text/html');
