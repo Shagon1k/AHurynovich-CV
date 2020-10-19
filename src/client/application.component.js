@@ -1,10 +1,11 @@
 import React from 'react';
+import { Provider as ReduxStateProvider } from 'react-redux';
 import { BrowserRouter, StaticRouter } from 'react-router-dom';
 
 import Routes from './components/routes';
 
 const Application = ({ options }) => {
-  const { isServer, path } = options;
+  const { isServer, path, store } = options;
   const AppRouter = isServer ? StaticRouter : BrowserRouter;
   const routerProps = isServer
     ? {
@@ -16,11 +17,13 @@ const Application = ({ options }) => {
       };
 
   return (
-    <AppRouter {...routerProps}>
-      <div className="appContainer">
-        <Routes />
-      </div>
-    </AppRouter>
+    <ReduxStateProvider store={store}>
+      <AppRouter {...routerProps}>
+        <div className="appContainer">
+          <Routes />
+        </div>
+      </AppRouter>
+    </ReduxStateProvider>
   );
 };
 
