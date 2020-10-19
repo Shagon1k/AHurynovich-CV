@@ -1,9 +1,10 @@
-import { WEBPACK_MODE_DEV } from '../environment';
-import { progressBarPlugin, definePlugin, hmrPlugin } from './plugins';
+import { WEBPACK_MODE_DEV, DIST_DIR } from '../../environment';
+import { progressBarPlugin, definePlugin, hmrPlugin } from '../plugins';
 
 const devConfig = {
   mode: WEBPACK_MODE_DEV,
-  devtool: 'inline-source-map',
+  devtool: 'eval-source-map',
+  watch: true,
   plugins: [
     hmrPlugin(),
     definePlugin({
@@ -11,7 +12,7 @@ const devConfig = {
       DEV: true,
     }),
     progressBarPlugin({
-      name: 'build:dev',
+      name: 'build:client:dev',
       minimal: true,
     }),
   ],
@@ -23,11 +24,8 @@ const devConfig = {
     historyApiFallback: true,
     compress: true,
     port: 1337,
-  },
-  watchOptions: {
-    aggregateTimeout: 800,
-    poll: 2000,
-  },
+    contentBase: DIST_DIR
+  }
 };
 
 export default devConfig;

@@ -1,17 +1,17 @@
-import { WEBPACK_MODE_PROD } from '../environment';
-import { progressBarPlugin, definePlugin } from './plugins';
+import { WEBPACK_MODE_PROD } from '../../environment';
+import { progressBarPlugin, definePlugin } from '../plugins';
 
 const prodConfig = {
   mode: WEBPACK_MODE_PROD,
   devtool: 'eval-cheap-module-source-map',
-  watch: true,
+  watch: false,
   plugins: [
     definePlugin({
       PRODUCTION: true,
       DEV: false
     }),
     progressBarPlugin({
-      name: 'build:prod',
+      name: 'build:client:prod',
       minimal: false,
     }),
   ],

@@ -14,7 +14,7 @@ custom:
   client:
     bucketName: ahurynovich-cv-s3-bucket
     # [other configuration parameters]
-    distributionFolder: dist
+    distributionFolder: dist/client
     indexDocument: index.html
 
 plugins:
