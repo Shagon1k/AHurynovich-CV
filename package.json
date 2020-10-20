@@ -18,7 +18,7 @@
     "build:client:wssr:prod": "cross-env NODE_ENV=production npm run build:client:wssr",
     "build:server": "cross-env WITH_SSR=true webpack --config config/webpack/server/webpack.config.server.babel.js",
     "build:server:dev": "cross-env NODE_ENV=development npm run build:server",
-    "build:server:prod": "cross-env NODE_ENV=development npm run build:server",
+    "build:server:prod": "cross-env NODE_ENV=production npm run build:server",
     "build:app:wssr:dev": "npm run build:client:wssr:dev && npm run build:server:dev",
     "build:app:wssr:prod": "npm run build:client:wssr:prod && npm run build:server:prod",
     "start:app": "node dist/server",
@@ -32,14 +32,24 @@
     "build:and:deploy:s3:nc": "npm run build:clean && npm run build:client:prod && npm run deploy:s3:nc"
   },
   "dependencies": {
+    "autoprefixer": "^10.0.1",
+    "autoprefixer-core": "^6.0.1",
+    "css-loader": "^5.0.0",
     "fs-extra": "^9.0.1",
+    "incstr": "^1.2.3",
+    "mini-css-extract-plugin": "^1.1.0",
+    "node-sass": "^4.14.1",
+    "postcss-color-rebeccapurple": "^6.0.0",
+    "postcss-loader": "^4.0.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
-    "serverless-finch": "^2.6.0"
+    "sass-loader": "^10.0.3",
+    "serverless-finch": "^2.6.0",
+    "style-loader": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",

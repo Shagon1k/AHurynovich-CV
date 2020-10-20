@@ -4,7 +4,7 @@ import {
   SRC_CLIENT_DIR,
   SRC_SERVER_DIR,
   CONFIG_DIR,
-} from '../../environment';
+} from '../../../environment';
 
 const getAlias = () => ({
   src: path.resolve(SRC_DIR),

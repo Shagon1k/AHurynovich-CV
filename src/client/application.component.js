@@ -4,6 +4,8 @@ import { BrowserRouter, StaticRouter } from 'react-router-dom';
 
 import Routes from './components/routes';
 
+import './application.module.scss';
+
 const Application = ({ options }) => {
   const { isServer, path, store } = options;
   const AppRouter = isServer ? StaticRouter : BrowserRouter;

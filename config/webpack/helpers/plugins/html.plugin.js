@@ -1,6 +1,6 @@
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 
-import { SRC_APP_TEMPLATE, DIST_CLIENT_DIR } from '../../environment';
+import { SRC_APP_TEMPLATE, DIST_CLIENT_DIR } from '../../../environment';
 
 export default () =>
   new HTMLWebpackPlugin({

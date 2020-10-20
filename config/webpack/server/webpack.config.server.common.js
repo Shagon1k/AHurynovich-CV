@@ -1,6 +1,13 @@
-import { SRC_SERVER_ENTRY, DIST_SERVER_DIR, WITH_SSR } from '../../environment';
-import { definePlugin } from '../plugins';
-import { getAlias } from '../resolve';
+import { SRC_SERVER_ENTRY, DIST_SERVER_DIR, WITH_SSR, DEV } from '../../environment';
+import { getWebpackDefinePlugin, getWebpackMiniCssExtractPlugin } from '../helpers/plugins';
+import {
+  getWebpackMiniCssExtractLoader,
+  getWebpackBabelLoader,
+  getWebpackCssLoader,
+  getWebpackCssModulesLoader,
+  getWebpackSassLoader,
+} from '../helpers/loaders';
+import { getAlias } from '../helpers/resolve';
 
 const commonConfig = {
   entry: [SRC_SERVER_ENTRY],
@@ -14,7 +21,8 @@ const commonConfig = {
     alias: {},
   },
   plugins: [
-    definePlugin({
+    getWebpackMiniCssExtractPlugin(),
+    getWebpackDefinePlugin({
       IS_SERVER: true,
       IS_CLIENT: false,
       WITH_SSR,
@@ -25,7 +33,27 @@ const commonConfig = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: [getWebpackBabelLoader()],
+      },
+      {
+        test: /\.s?css$/,
+        oneOf: [
+          {
+            test: /\.module\.s?css$/,
+            use: [
+              getWebpackMiniCssExtractLoader(),
+              getWebpackCssModulesLoader(DEV),
+              getWebpackSassLoader(),
+            ],
+          },
+          {
+            use: [
+              getWebpackMiniCssExtractLoader(),
+              getWebpackCssLoader(),
+              getWebpackSassLoader(),
+            ],
+          },
+        ],
       },
     ],
   },

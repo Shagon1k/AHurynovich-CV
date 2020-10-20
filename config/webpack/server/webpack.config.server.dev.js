@@ -1,16 +1,16 @@
 import { WEBPACK_MODE_DEV } from '../../environment';
-import { progressBarPlugin, definePlugin } from '../plugins';
+import { getWebpackProgressBarPlugin, getWebpackDefinePlugin } from '../helpers/plugins';
 
 const devConfig = {
   mode: WEBPACK_MODE_DEV,
   devtool: 'eval-source-map',
   watch: true,
   plugins: [
-    definePlugin({
+    getWebpackDefinePlugin({
       PRODUCTION: false,
       DEV: true,
     }),
-    progressBarPlugin({
+    getWebpackProgressBarPlugin({
       name: 'build:server:dev',
       minimal: true,
     }),
