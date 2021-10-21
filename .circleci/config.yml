@@ -46,10 +46,10 @@ workflows:
   test_and_build_and_deploy:
     jobs:
       - install-packages
-      - test
+      - test:
           requires:
             - install-packages
-      - build-clean
+      - build-clean:
           requires:
             - install-packages
       - build:
