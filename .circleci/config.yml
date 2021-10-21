@@ -83,12 +83,12 @@ workflows:
           requires:
             - build
             - test
+      - deploy:
+          requires:
+            - hold
           filters:
             branches:
               only:
                 - main
-      - deploy:
-          requires:
-            - hold
 
 
