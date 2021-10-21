@@ -92,8 +92,6 @@ workflows:
               ignore:
                 - main
       - deploy:
-          requires:
-            - hold
           filters:
             branches:
               only:
