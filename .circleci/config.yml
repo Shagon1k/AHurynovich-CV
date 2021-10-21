@@ -71,6 +71,10 @@ workflows:
       - test:
           requires:
             - install-packages
+          filters:
+            branches:
+              ignore:
+                - main
       - build-clean:
           requires:
             - install-packages
@@ -83,6 +87,10 @@ workflows:
           requires:
             - build
             - test
+          filters:
+            branches:
+              ignore:
+                - main
       - deploy:
           requires:
             - hold
