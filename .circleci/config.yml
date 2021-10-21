@@ -65,11 +65,7 @@ jobs:
 
 workflows:
   version: 2.1
-  test_and_build_and_deploy:
-    filters:
-      branches:
-        only:
-          - main
+  Test, Build and Deploy if needed:
     jobs:
       - install-packages
       - test:
