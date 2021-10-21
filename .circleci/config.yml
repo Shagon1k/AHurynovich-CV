@@ -15,13 +15,20 @@ jobs:
       - run:
           name: Testing
           command: npm run test
+  build-clean:
+    executor: node/default
+    steps:
+      - checkout
+      - run:
+          name: Build Clean
+          command: npm run build:clean
   build:
     executor: node/default
     steps:
       - checkout
       - run:
-          name: Build
-          command: npm run build
+          name: Building
+          command: npm run build:client:prod
   deploy:
     executor: node/default
     steps:
@@ -35,9 +42,11 @@ workflows:
   test_and_build_and_deploy:
     jobs:
       - test
+      - build-clean
       - build:
           requires:
             - test
+            - build-clean
       - hold:
           type: approval
           requires:
