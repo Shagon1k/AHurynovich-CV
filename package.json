@@ -22,6 +22,7 @@
     "build:app:wssr:dev": "npm run build:client:wssr:dev && npm run build:server:dev",
     "build:app:wssr:prod": "npm run build:client:wssr:prod && npm run build:server:prod",
     "start:app": "node dist/server",
+    "rimraf": "./node_modules/rimraf/bin.js",
     "build:clean": "rimraf ./dist",
     "test": "jest --config config/jest/jest.config.js --notify",
     "lint": "eslint ./src",
