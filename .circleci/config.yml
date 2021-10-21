@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  aws-cli: circleci/aws-cli@2.0
 jobs:
   install-packages:
     docker:
@@ -56,12 +58,18 @@ jobs:
     docker:
       - image: cimg/node:17.0.1
     steps:
+      - aws-cli/setup:
+        profile-name: AHurynovichCV_Profile
+        aws-access-key-id: AWS_ACCESS_KEY_ID
+        aws-region: AWS_REGION
       - checkout
+      - restore_cache:
+          key: packages-cache-{{ checksum "package-lock.json" }}
       - restore_cache:
           key: build-cache-ahurynovich-cv
       - run:
-          name: Deploy
-          command: echo "hello world"
+          name: Deploying
+          command: npm run deploy:s3:nc
 
 workflows:
   version: 2.1
