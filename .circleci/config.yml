@@ -48,7 +48,7 @@ jobs:
           name: Building
           command: npm run build:client:prod
       - save_cache:
-          key: build-cache-{{ checksum "package-lock.json" }}
+          key: build-cache-ahurynovich-cv
           paths:
             - node_modules
             - dist
@@ -58,14 +58,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: build-cache-{{ checksum "package-lock.json" }}
+          key: build-cache-ahurynovich-cv
       - run:
           name: Deploy
           command: echo "hello world"
 
 workflows:
   version: 2.1
-  test_and_build_and_deploy:
+  Test, Build and Deploy if needed:
     jobs:
       - install-packages
       - test:
