@@ -4,12 +4,23 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'airbnb',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
+    'plugin:import/warnings',
     'prettier/react',
   ],
+  globals: {
+    PRODUCTION: 'readonly',
+    WITH_SSR: 'readonly',
+    jest: 'readonly',
+    describe: 'readonly',
+    beforeEach: 'readonly',
+    afterEach: 'readonly',
+    it: 'readonly',
+    expect: 'readonly',
+    process: 'readonly',
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -17,11 +28,5 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
-  rules: {
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'windows'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
-  },
+  plugins: ['react', 'prettier']
 };

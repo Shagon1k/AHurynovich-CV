@@ -22,6 +22,7 @@
     "build:app:wssr:dev": "npm run build:client:wssr:dev && npm run build:server:dev",
     "build:app:wssr:prod": "npm run build:client:wssr:prod && npm run build:server:prod",
     "start:app": "node dist/server",
+    "rimraf": "./node_modules/rimraf/bin.js",
     "build:clean": "rimraf ./dist",
     "test": "jest --config config/jest/jest.config.js --notify",
     "lint": "eslint ./src",
@@ -38,7 +39,8 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -54,7 +56,6 @@
     "@babel/preset-react": "^7.12.1",
     "@babel/register": "^7.12.1",
     "@webpack-cli/serve": "^1.0.1",
-    "airbnb": "0.0.2",
     "autoprefixer": "^10.3.7",
     "autoprefixer-core": "^6.0.1",
     "babel-jest": "^26.5.2",
@@ -67,6 +68,8 @@
     "eslint": "^7.11.0",
     "eslint-config": "^0.3.0",
     "eslint-config-prettier": "^6.13.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.21.4",
     "html-webpack-plugin": "^4.5.0",
     "incstr": "^1.2.3",

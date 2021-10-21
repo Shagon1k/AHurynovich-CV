@@ -4,7 +4,10 @@ import { createAppStore } from './store/store';
 
 const startClientApp = () => {
   const preloadedState = window?.__PRELOADED_STATE__ || {};
-  const appStore = createAppStore({ isServer: false, initialState: preloadedState, });
+  const appStore = createAppStore({
+    isServer: false,
+    initialState: preloadedState,
+  });
   delete window.PRELOADED_STATE;
 
   const app = createApp({ isServer: false, store: appStore });
