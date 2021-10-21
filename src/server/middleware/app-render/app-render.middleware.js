@@ -17,6 +17,7 @@ const getTemplate = async () => {
   }
 };
 
+/* eslint-disable indent */
 const getAppStateStr = (state) => {
   const stringifiedAppState = `
     <script type="text/javascript">
@@ -31,6 +32,7 @@ const getAppStateStr = (state) => {
 
   return stringifiedAppState;
 };
+/* eslint-enable indent */
 
 /**
  * Process template with data to be rendered
@@ -79,6 +81,7 @@ const createRenderMiddleware = (options) => async (req, res, next) => {
   res.setHeader('Content-Type', 'text/html');
   res.status(200);
   res.send(responseBody);
+  next();
 };
 
 export default createRenderMiddleware;

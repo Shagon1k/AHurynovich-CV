@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider as ReduxStateProvider } from 'react-redux';
 import { BrowserRouter, StaticRouter } from 'react-router-dom';
 
@@ -27,6 +28,18 @@ const Application = ({ options }) => {
       </AppRouter>
     </ReduxStateProvider>
   );
+};
+
+Application.propTypes = {
+  /** Application creation options */
+  options: PropTypes.shape({
+    /** Whether application should be created on server side (SSR case) */
+    isServer: PropTypes.bool,
+    /** Current location path if exists */
+    path: PropTypes.string,
+    /** Application store */
+    store: PropTypes.shape({}),
+  }),
 };
 
 export default Application;
