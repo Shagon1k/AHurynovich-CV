@@ -1,8 +1,0 @@
-@import '@client/styles/common/mixins/make-red';
-
-.hello {
-  @include makeRed();
-
-  color: red;
-  font-weight: 600;
-}
