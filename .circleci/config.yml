@@ -1,22 +1,22 @@
 version: 2.1
-orbs:
-  node: circleci/node@4.7.0
 jobs:
   install-packages:
-    executor: node/default
+    docker:
+      - image: cimg/node:17.0.1
     steps:
       - checkout
       - restore_cache:
           key: packages-cache-{{ checksum "package-lock.json" }}
-      - node/install-packages:
-          cache-path: ~project/node_modules
-          override-ci-command: npm install
+      - run:
+          name: Install packages
+          command: npm install
       - save_cache:
           key: packages-cache-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
   test:
-    executor: node/default
+    docker:
+      - image: cimg/node:17.0.1
     steps:
       - checkout
       - restore_cache:
@@ -28,7 +28,8 @@ jobs:
           name: Testing
           command: npm run test
   build-clean:
-    executor: node/default
+    docker:
+      - image: cimg/node:17.0.1
     steps:
       - checkout
       - restore_cache:
@@ -37,7 +38,8 @@ jobs:
           name: Build Clean
           command: npm run build:clean
   build:
-    executor: node/default
+    docker:
+      - image: cimg/node:17.0.1
     steps:
       - checkout
       - restore_cache:
@@ -51,7 +53,8 @@ jobs:
             - node_modules
             - dist
   deploy:
-    executor: node/default
+    docker:
+      - image: cimg/node:17.0.1
     steps:
       - checkout
       - restore_cache:
