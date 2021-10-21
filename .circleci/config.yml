@@ -2,13 +2,17 @@ version: 2.1
 orbs:
   node: circleci/node@4.7.0
 jobs:
-  test:
+  install-packages:
     executor: node/default
     steps:
       - checkout
       - node/install-packages:
           cache-path: ~project/node_modules
           override-ci-command: npm install
+  test:
+    executor: node/default
+    steps:
+      - checkout
       - run:
           name: Linting
           command: npm run lint
@@ -41,8 +45,13 @@ workflows:
   version: 2.1
   test_and_build_and_deploy:
     jobs:
+      - install-packages
       - test
+          requires:
+            - install-packages
       - build-clean
+          requires:
+            - install-packages
       - build:
           requires:
             - test
