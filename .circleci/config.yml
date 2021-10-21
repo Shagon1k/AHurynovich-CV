@@ -23,6 +23,7 @@ jobs:
           name: Build
           command: npm run build
   deploy:
+    executor: node/default
     steps:
       - checkout
       - run:
