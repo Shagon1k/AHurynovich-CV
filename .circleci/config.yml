@@ -4,7 +4,7 @@ orbs:
 jobs:
   install-packages:
     docker:
-      - image: cimg/node:17.0.1
+      - image: cimg/node:14.8.1
     steps:
       - checkout
       - restore_cache:
@@ -18,7 +18,7 @@ jobs:
             - node_modules
   test:
     docker:
-      - image: cimg/node:17.0.1
+      - image: cimg/node:14.8.1
     steps:
       - checkout
       - restore_cache:
@@ -31,7 +31,7 @@ jobs:
           command: npm run test
   build-clean:
     docker:
-      - image: cimg/node:17.0.1
+      - image: cimg/node:14.8.1
     steps:
       - checkout
       - restore_cache:
@@ -41,7 +41,7 @@ jobs:
           command: npm run build:clean
   build:
     docker:
-      - image: cimg/node:17.0.1
+      - image: cimg/node:14.8.1
     steps:
       - checkout
       - restore_cache:
@@ -58,7 +58,7 @@ jobs:
             - 'tmp-build'
   deploy:
     docker:
-      - image: cimg/node:17.0.1
+      - image: cimg/node:14.8.1
     steps:
       - aws-cli/setup:
           profile-name: AHurynovichCV_Profile
