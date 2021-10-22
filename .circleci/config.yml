@@ -4,11 +4,11 @@ orbs:
 jobs:
   install-packages:
     docker:
-      - image: cimg/node:14.18.1
+      - image: cimg/node:16.11.1
     steps:
       - checkout
-      # - restore_cache:
-      #     key: package-cache-{{ checksum "package-lock.json" }}
+      - restore_cache:
+          key: package-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Install packages
           command: npm install
@@ -18,7 +18,7 @@ jobs:
             - node_modules
   test:
     docker:
-      - image: cimg/node:14.18.1
+      - image: cimg/node:16.11.1
     steps:
       - checkout
       - restore_cache:
@@ -31,7 +31,7 @@ jobs:
           command: npm run test
   build-clean:
     docker:
-      - image: cimg/node:14.18.1
+      - image: cimg/node:16.11.1
     steps:
       - checkout
       - restore_cache:
@@ -41,7 +41,7 @@ jobs:
           command: npm run build:clean
   build:
     docker:
-      - image: cimg/node:14.18.1
+      - image: cimg/node:16.11.1
     steps:
       - checkout
       - restore_cache:
@@ -58,7 +58,7 @@ jobs:
             - 'tmp-build'
   deploy:
     docker:
-      - image: cimg/node:14.18.1
+      - image: cimg/node:16.11.1
     steps:
       - aws-cli/setup:
           profile-name: AHurynovichCV_Profile
