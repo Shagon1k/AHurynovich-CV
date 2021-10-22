@@ -4,25 +4,25 @@ orbs:
 jobs:
   install-packages:
     docker:
-      - image: cimg/node:17.0.1
+      - image: cimg/node:16.11.1
     steps:
       - checkout
       - restore_cache:
-          key: packages-cache-{{ checksum "package-lock.json" }}
+          key: package-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Install packages
           command: npm install
       - save_cache:
-          key: packages-cache-{{ checksum "package-lock.json" }}
+          key: package-cache-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
   test:
     docker:
-      - image: cimg/node:17.0.1
+      - image: cimg/node:16.11.1
     steps:
       - checkout
       - restore_cache:
-          key: packages-cache-{{ checksum "package-lock.json" }}
+          key: package-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Linting
           command: npm run lint
@@ -31,32 +31,34 @@ jobs:
           command: npm run test
   build-clean:
     docker:
-      - image: cimg/node:17.0.1
+      - image: cimg/node:16.11.1
     steps:
       - checkout
       - restore_cache:
-          key: packages-cache-{{ checksum "package-lock.json" }}
+          key: package-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Build Clean
           command: npm run build:clean
   build:
     docker:
-      - image: cimg/node:17.0.1
+      - image: cimg/node:16.11.1
     steps:
       - checkout
       - restore_cache:
-          key: packages-cache-{{ checksum "package-lock.json" }}
+          key: package-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Building
           command: npm run build:client:prod
-      - save_cache:
-          key: build-cache-ahurynovich-cv
+      - run:
+          name: Archiving and saving build
+          command: mkdir tmp-build && zip -r tmp-build/dist.zip dist
+      - persist_to_workspace:
+          root: .
           paths:
-            - node_modules
-            - dist
+            - 'tmp-build'
   deploy:
     docker:
-      - image: cimg/node:17.0.1
+      - image: cimg/node:16.11.1
     steps:
       - aws-cli/setup:
           profile-name: AHurynovichCV_Profile
@@ -64,9 +66,9 @@ jobs:
           aws-region: AWS_REGION
       - checkout
       - restore_cache:
-          key: packages-cache-{{ checksum "package-lock.json" }}
-      - restore_cache:
-          key: build-cache-ahurynovich-cv
+          key: package-cache-{{ checksum "package-lock.json" }}
+      - attach_workspace:
+            at: .
       - run:
           name: Deploying
           command: npm run deploy:s3:nc
