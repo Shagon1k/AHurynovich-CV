@@ -49,9 +49,6 @@ jobs:
       - run:
           name: Building
           command: npm run build:client:prod
-      # - run:
-      #     name: Archiving and saving build
-      #     command: mkdir tmp-build && zip -r tmp-build/dist.zip dist
       - persist_to_workspace:
           root: .
           paths:
