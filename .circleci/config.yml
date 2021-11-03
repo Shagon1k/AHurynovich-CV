@@ -59,8 +59,8 @@ jobs:
     steps:
       - aws-cli/setup:
           profile-name: AHurynovichCV_Profile
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-region: AWS_REGION
+          aws-access-key-id: ${AWS_ACCESS_KEY_ID}
+          aws-region: ${AWS_REGION}
       - checkout
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
