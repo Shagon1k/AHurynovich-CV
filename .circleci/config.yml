@@ -57,6 +57,9 @@ jobs:
     docker:
       - image: cimg/node:16.11.1
     steps:
+      - run:
+          name: CHECK
+          command: echo ${AWS_ACCESS_KEY_ID}
       - aws-cli/setup:
           profile-name: AHurynovichCV_Profile
           aws-access-key-id: AWS_ACCESS_KEY_ID
