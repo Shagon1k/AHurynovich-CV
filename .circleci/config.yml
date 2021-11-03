@@ -75,10 +75,8 @@ workflows:
   version: 2.1
   Test, Build and Deploy if needed:
     jobs:
-      - install-packages:
-          name: Install Packages
+      - install-packages
       - test:
-          name: Testing
           requires:
             - install-packages
           filters:
@@ -86,16 +84,13 @@ workflows:
               ignore:
                 - main
       - build-clean:
-          name: Cleaning existing build
           requires:
             - install-packages
       - build:
-          name: Building
           requires:
             - test
             - build-clean
       - hold:
-          name: Approve check
           type: approval
           requires:
             - build
@@ -105,7 +100,6 @@ workflows:
               ignore:
                 - main
       - deploy:
-          name: Deploying
           requires:
             - build
           filters:
