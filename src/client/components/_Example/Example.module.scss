@@ -1,8 +1,8 @@
 @import '@client/styles/common/mixins/_example/make-blue';
 
 .hello {
-  @include makeBlue();
+    @include makeBlue();
 
-  color: red;
-  font-weight: 600;
+    color: red;
+    font-weight: 600;
 }
