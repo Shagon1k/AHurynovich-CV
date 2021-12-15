@@ -73,7 +73,7 @@ jobs:
 
 workflows:
   version: 2.1
-  Test, Build and Deploy if needed:
+  Common workflow:
     jobs:
       - install-packages
       - test:
@@ -83,6 +83,17 @@ workflows:
             branches:
               ignore:
                 - main
+                - develop
+  Pre-commitment (develop) workflow:
+    jobs:
+      - install-packages
+      - test:
+          requires:
+            - install-packages
+          filters:
+            branches:
+              only:
+                - develop
       - build-clean:
           requires:
             - install-packages
@@ -90,7 +101,6 @@ workflows:
             branches:
               only:
                 - develop
-                - main
       - build:
           requires:
             - test
@@ -99,6 +109,30 @@ workflows:
             branches:
               only:
                 - develop
+  Commitment (main) workflow:
+    jobs:
+      - install-packages
+      - test:
+          requires:
+            - install-packages
+          filters:
+            branches:
+              only:
+                - main
+      - build-clean:
+          requires:
+            - install-packages
+          filters:
+            branches:
+              only:
+                - main
+      - build:
+          requires:
+            - test
+            - build-clean
+          filters:
+            branches:
+              only:
                 - main
       - hold:
           type: approval
@@ -108,10 +142,10 @@ workflows:
           filters:
             branches:
               only:
-                - develop
+                - main
       - deploy:
           requires:
-            - build
+            - hold
           filters:
             branches:
               only:
