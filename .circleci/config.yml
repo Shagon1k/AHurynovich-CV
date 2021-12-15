@@ -86,10 +86,20 @@ workflows:
       - build-clean:
           requires:
             - install-packages
+          filters:
+            branches:
+              only:
+                - develop
+                - main
       - build:
           requires:
             - test
             - build-clean
+          filters:
+            branches:
+              only:
+                - develop
+                - main
       - hold:
           type: approval
           requires:
@@ -97,8 +107,8 @@ workflows:
             - test
           filters:
             branches:
-              ignore:
-                - main
+              only:
+                - develop
       - deploy:
           requires:
             - build
