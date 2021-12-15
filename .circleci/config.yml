@@ -76,6 +76,11 @@ workflows:
   Common workflow:
     jobs:
       - install-packages
+          filters:
+            branches:
+              ignore:
+                - main
+                - develop
       - test:
           requires:
             - install-packages
@@ -87,6 +92,10 @@ workflows:
   Pre-commitment (develop) workflow:
     jobs:
       - install-packages
+          filters:
+            branches:
+              only:
+                - develop
       - test:
           requires:
             - install-packages
@@ -112,6 +121,10 @@ workflows:
   Commitment (main) workflow:
     jobs:
       - install-packages
+          filters:
+            branches:
+              only:
+                - main
       - test:
           requires:
             - install-packages
