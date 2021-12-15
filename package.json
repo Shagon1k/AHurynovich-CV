@@ -91,16 +91,10 @@
     "webpack-merge": "^5.2.0",
     "webpackbar": "^4.0.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "browserslist": [
+    "last 2 years",
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }
