@@ -75,7 +75,7 @@ workflows:
   version: 2.1
   Common workflow:
     jobs:
-      - install-packages
+      - install-packages:
           filters:
             branches:
               ignore:
@@ -91,7 +91,7 @@ workflows:
                 - develop
   Pre-commitment (develop) workflow:
     jobs:
-      - install-packages
+      - install-packages:
           filters:
             branches:
               only:
@@ -120,7 +120,7 @@ workflows:
                 - develop
   Commitment (main) workflow:
     jobs:
-      - install-packages
+      - install-packages:
           filters:
             branches:
               only:
