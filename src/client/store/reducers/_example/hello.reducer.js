@@ -7,22 +7,22 @@ import constants from './hello.constants';
 const { MAKE_HELLO, MAKE_BYE } = constants;
 
 const initialState = {
-  isHello: false,
+    isHello: false,
 };
 
 const hello = (state = initialState, action) => {
-  switch (action.type) {
-    case MAKE_HELLO: {
-      return { ...state, isHello: true };
-    }
+    switch (action.type) {
+        case MAKE_HELLO: {
+            return { ...state, isHello: true };
+        }
 
-    case MAKE_BYE: {
-      return { ...state, isHello: false };
-    }
+        case MAKE_BYE: {
+            return { ...state, isHello: false };
+        }
 
-    default:
-      return state;
-  }
+        default:
+            return state;
+    }
 };
 
 export default hello;
