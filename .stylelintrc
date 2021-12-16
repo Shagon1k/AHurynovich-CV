@@ -1,3 +1,0 @@
-{
-    "extends": "./config/lint/stylelint/stylelint.config.js"
-}

@@ -42,6 +42,14 @@
         "build:and:deploy:s3:nc": "npm run build:clean && npm run build:client:prod && npm run deploy:s3:nc",
         "prepare": "husky install"
     },
+    "eslintConfig": {
+        "extends": "./config/lint/eslint/eslint.config.js",
+        "ignorePatterns": ["__snapshots__"]
+    },
+    "stylelint": {
+        "extends": "./config/lint/stylelint/stylelint.config.js",
+        "ignoreFiles": ["src/**/**/reset.scss"]
+    },
     "lint-staged": {
         "*.js": [
             "eslint --fix"

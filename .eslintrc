@@ -1,3 +1,0 @@
-{
-  "extends": "./config/lint/eslint/eslint.config.js"
-}

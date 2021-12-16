@@ -4,9 +4,9 @@
  */
 
 describe('Dummy Test', () => {
-  describe('when all is ok', () => {
-    it('should return true be truthy', () => {
-      expect(true).toBeTruthy()
-    })
-  })
-})
+    describe('when all is ok', () => {
+        it('should return true be truthy', () => {
+            expect(true).toBeTruthy();
+        });
+    });
+});
