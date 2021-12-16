@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo 'ololo'; exit 0;
+echo 'TODO: Provide commit message linting'; exit 0;

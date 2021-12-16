@@ -8,5 +8,5 @@
     "bracketSameLine": false,
     "arrowParens": "always",
     "tabWidth": 4,
-    "useTabs": false,
+    "useTabs": false
 }

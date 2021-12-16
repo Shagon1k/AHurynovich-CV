@@ -35,7 +35,11 @@
     "deploy:s3": "sls client deploy --no-config-change --no-policy-change --no-cors-change",
     "deploy:s3:nc": "npm run deploy:s3 -- --no-confirm",
     "build:and:deploy:s3": "npm run build:clean && npm run build:client:prod && npm run deploy:s3",
-    "build:and:deploy:s3:nc": "npm run build:clean && npm run build:client:prod && npm run deploy:s3:nc"
+    "build:and:deploy:s3:nc": "npm run build:clean && npm run build:client:prod && npm run deploy:s3:nc",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+      "*.js": ["eslint --fix"]
   },
   "dependencies": {
     "fs-extra": "^9.0.1",
@@ -81,6 +85,7 @@
     "jest": "^26.5.3",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
+    "lint-staged": "^12.1.2",
     "mini-css-extract-plugin": "^1.6.2",
     "postcss-loader": "^4.3.0",
     "prettier": "^2.1.2",
@@ -95,12 +100,6 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.2.0",
     "webpackbar": "^4.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "echo '@todo: should be added commit message validation'; exit 0;",
-      "pre-push": "npm run lint"
-    }
   },
   "browserslist": [
     "last 3 versions",
