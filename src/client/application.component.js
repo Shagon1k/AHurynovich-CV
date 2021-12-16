@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider as ReduxStateProvider } from 'react-redux';
 import { BrowserRouter, StaticRouter } from 'react-router-dom';

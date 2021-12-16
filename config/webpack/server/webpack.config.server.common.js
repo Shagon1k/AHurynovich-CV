@@ -1,5 +1,9 @@
 import { SRC_SERVER_ENTRY, DIST_SERVER_DIR, WITH_SSR, DEV } from '../../environment';
-import { getWebpackDefinePlugin, getWebpackMiniCssExtractPlugin } from '../helpers/plugins';
+import {
+    getWebpackDefinePlugin,
+    getWebpackProvidePlugin,
+    getWebpackMiniCssExtractPlugin
+} from '../helpers/plugins';
 import {
   getWebpackMiniCssExtractLoader,
   getWebpackBabelLoader,
@@ -27,6 +31,7 @@ const commonConfig = {
       IS_CLIENT: false,
       WITH_SSR,
     }),
+    getWebpackProvidePlugin(),
   ],
   module: {
     rules: [

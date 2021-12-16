@@ -7,6 +7,7 @@ import {
 import {
   getWebpackHtmlPlugin,
   getWebpackDefinePlugin,
+  getWebpackProvidePlugin,
   getWebpackMiniCssExtractPlugin,
 } from '../helpers/plugins';
 import {
@@ -40,6 +41,7 @@ const commonConfig = {
       IS_CLIENT: true,
       WITH_SSR,
     }),
+    getWebpackProvidePlugin(),
   ],
   module: {
     rules: [

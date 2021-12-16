@@ -16,7 +16,7 @@ jobs:
           key: package-cache-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-  test:
+  lint-test:
     docker:
       - image: cimg/node:16.11.1
     steps:
@@ -81,7 +81,7 @@ workflows:
               ignore:
                 - main
                 - develop
-      - test:
+      - lint-test:
           requires:
             - install-packages
           filters:
@@ -96,7 +96,7 @@ workflows:
             branches:
               only:
                 - develop
-      - test:
+      - lint-test:
           requires:
             - install-packages
           filters:
@@ -112,7 +112,7 @@ workflows:
                 - develop
       - build:
           requires:
-            - test
+            - lint-test
             - build-clean
           filters:
             branches:
@@ -125,7 +125,7 @@ workflows:
             branches:
               only:
                 - main
-      - test:
+      - lint-test:
           requires:
             - install-packages
           filters:
@@ -141,7 +141,7 @@ workflows:
                 - main
       - build:
           requires:
-            - test
+            - lint-test
             - build-clean
           filters:
             branches:
@@ -151,7 +151,7 @@ workflows:
           type: approval
           requires:
             - build
-            - test
+            - lint-test
           filters:
             branches:
               only:
