@@ -9,6 +9,10 @@
     "email": "shagon1k@gmail.com",
     "url": "https://ahurynovich.com/"
   },
+  "engines": {
+    "node": "14.x",
+    "npm": "8.x"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development WITH_SSR=false webpack serve --config config/webpack/client/webpack.config.client.babel.js",
     "build:client": "cross-env WITH_SSR=false webpack --config config/webpack/client/webpack.config.client.babel.js",
@@ -72,6 +76,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.21.4",
     "html-webpack-plugin": "^4.5.0",
+    "husky": "^7.0.4",
     "incstr": "^1.2.3",
     "jest": "^26.5.3",
     "jest-environment-enzyme": "^7.1.2",
@@ -91,10 +96,19 @@
     "webpack-merge": "^5.2.0",
     "webpackbar": "^4.0.0"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "echo '@todo: should be added commit message validation'; exit 0;",
+      "pre-push": "npm run lint"
+    }
+  },
   "browserslist": [
-    "last 2 years",
-    ">0.2%",
+    "last 3 versions",
+    ">2%",
     "not dead",
-    "not op_mini all"
+    "not op_mini all",
+    "not ie < 11",
+    "not safari < 11",
+    "not IOS < 11"
   ]
 }

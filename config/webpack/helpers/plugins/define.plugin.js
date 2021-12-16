@@ -1,7 +1,7 @@
 import { DefinePlugin } from 'webpack';
 
-const defaultConfig = {
+const DEFAULT_CONFIG = {
   PRODUCTION: true,
 };
 
-export default (config) => new DefinePlugin({ ...defaultConfig, ...config });
+export default (config) => new DefinePlugin({ ...DEFAULT_CONFIG, ...config });

@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom';
 import { createApp } from './application';
 import { createAppStore } from './store/store';
 
