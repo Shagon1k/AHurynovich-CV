@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo 'TODO: Provide commit message linting'; exit 0;
+echo 'NOTE: Dont forget to follow pattern: [AH-X] Commit message'; exit 0;

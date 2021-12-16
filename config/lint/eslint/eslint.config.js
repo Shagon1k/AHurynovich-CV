@@ -10,6 +10,15 @@ module.exports = {
         'plugin:import/warnings',
         'prettier/react',
     ],
+    rules: {
+        'no-var': 'error',
+        'prefer-destructuring': 'warn',
+        'react/prop-types': 'warn',
+        'react/destructuring-assignment': 'off',
+        'react/jsx-key': 'warn',
+        'import/no-duplicates': 'warn',
+        'import/no-cycle': 'warn',
+    },
     globals: {
         /** Global environment variables */
         PRODUCTION: 'readonly',

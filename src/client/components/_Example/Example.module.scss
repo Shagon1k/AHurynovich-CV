@@ -3,6 +3,6 @@
 .hello {
     @include make-blue();
 
-    color: red;
+    color: #f00;
     font-weight: 600;
 }
