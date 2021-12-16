@@ -11,7 +11,7 @@ const Example = () => {
     return (
         <>
             <button onClick={onMakeHelloClick}> Make Hello </button>
-            <div className={styles.hello}> {isHello ? 'Hello!!' : 'Bye!!'} </div>
+            <div className={styles.hello}> {isHello ? 'Hello there!!' : 'Bye!!'} </div>
         </>
     );
 };
