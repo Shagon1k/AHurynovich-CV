@@ -104,7 +104,7 @@
   },
   "browserslist": [
     "last 3 versions",
-    ">2%",
+    ">3%",
     "not dead",
     "not op_mini all",
     "not ie < 11",
