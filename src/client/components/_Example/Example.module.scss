@@ -1,8 +1,13 @@
-@import '@client/styles/common/mixins/_example/make-blue';
+@use '@base-styles-mixins/_example/make-blue';
+@use '@base-styles-mixins/bp';
 
 .hello {
-    @include make-blue();
+    @include make-blue.make-blue;
 
     color: #f00;
     font-weight: 600;
+
+    @include bp.lw(m) {
+        color: #000;
+    }
 }
