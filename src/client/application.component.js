@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
 import { Provider as ReduxStateProvider } from 'react-redux';
 import { BrowserRouter, StaticRouter } from 'react-router-dom';
 
+import { ServicesProvider } from '@reusables/services-context';
 import Routes from './components/routes';
 
 import './application.module.scss';
 
 const Application = ({ options }) => {
-    const { isServer, path, store } = options;
+    const { isServer, path, store, services } = options;
     const AppRouter = isServer ? StaticRouter : BrowserRouter;
     const routerProps = isServer
         ? {
@@ -20,11 +20,13 @@ const Application = ({ options }) => {
 
     return (
         <ReduxStateProvider store={store}>
-            <AppRouter {...routerProps}>
-                <div className="appContainer">
-                    <Routes />
-                </div>
-            </AppRouter>
+            <ServicesProvider value={services}>
+                <AppRouter {...routerProps}>
+                    <div className="appContainer">
+                        <Routes />
+                    </div>
+                </AppRouter>
+            </ServicesProvider>
         </ReduxStateProvider>
     );
 };
@@ -38,6 +40,8 @@ Application.propTypes = {
         path: PropTypes.string,
         /** Application store */
         store: PropTypes.shape({}),
+        /** Application services */
+        services: PropTypes.shape({}),
     }),
 };
 

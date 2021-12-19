@@ -1,0 +1,101 @@
+@use 'sass:map';
+@use 'sass:list';
+@use '@base-styles-variables/bp';
+
+@mixin xs {
+    @media screen and (max-width: map.get(bp.$screen-max, xs)) {
+        @content;
+    }
+}
+
+@mixin s {
+    @media screen and (min-width: map.get(bp.$screen-min, s)) and (max-width: map.get(bp.$screen-max, s)) {
+        @content;
+    }
+}
+
+@mixin m {
+    @media screen and (min-width: map.get(bp.$screen-min, m)) and (max-width: map.get(bp.$screen-max, m)) {
+        @content;
+    }
+}
+
+@mixin l {
+    @media screen and (min-width: map.get(bp.$screen-min, l)) and (max-width: map.get(bp.$screen-max, l)) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media screen and (min-width: map.get(bp.$screen-min, xl)) and (max-width: map.get(bp.$screen-max, xl)) {
+        @content;
+    }
+}
+
+@mixin xxl {
+    @media screen and (min-width: map.get(bp.$screen-min, xxl)) {
+        @content;
+    }
+}
+
+@mixin lw($bp) {
+    @if map.has-key(bp.$screen-max, $bp) {
+        $max-keys: map.keys(bp.$screen-max);
+        $width: map.get(bp.$screen-max, list.nth($max-keys, list.index($max-keys, $bp) - 1));
+
+        @media screen and (max-width: #{$width}) {
+            @content;
+        }
+    } @else {
+        @warn 'No min breakpoint value for `#{$bp}`. Available values are: `#{map.keys(bp.$screen-max)}`.';
+    }
+}
+
+@mixin lwe($bp) {
+    @if map.has-key(bp.$screen-max, $bp) {
+        $width: map.get(bp.$screen-max, $bp);
+
+        @media screen and (max-width: #{$width}) {
+            @content;
+        }
+    } @else {
+        @warn 'No min breakpoint value for `#{$bp}`. Available values are: `#{map.keys(bp.$screen-max)}`.';
+    }
+}
+
+@mixin gr($bp) {
+    @if map.has-key(bp.$screen-min, $bp) {
+        $min-keys: map.keys(bp.$screen-min);
+        $width: map.get(bp.$screen-min, list.nth($min-keys, list.index($min-keys, $bp) + 1));
+
+        @media screen and (min-width: #{$width}) {
+            @content;
+        }
+    } @else {
+        @warn 'No min breakpoint value for `#{$bp}`. Available values are: `#{map.keys(bp.$screen-min)}`.';
+    }
+}
+
+@mixin gre($bp) {
+    @if map.has-key(bp.$screen-min, $bp) {
+        $width: map.get(bp.$screen-min, $bp);
+
+        @media screen and (min-width: #{$width}) {
+            @content;
+        }
+    } @else {
+        @warn 'No min breakpoint value for `#{$bp}`. Available values are: `#{map.keys(bp.$screen-min)}`.';
+    }
+}
+
+@mixin landscape {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin portrait {
+    @media (orientation: portrait) {
+        @content;
+    }
+}
