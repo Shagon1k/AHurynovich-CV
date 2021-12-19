@@ -1,0 +1,1 @@
+export const SET_DEVICE_INFO = 'SET_DEVICE_INFO';

@@ -1,4 +1,5 @@
-const ALLOWED_BREAKPOINTS_PX = [320, 768, 1024, 1366, 1920]; // [small, medium, large, xlarge, xxlarge]
+// [xsmall-max, small-min, small-max, medium-min, medium-max, large-min, large-max, xlarge-min, xlarge-max, xxlarge-min]
+const ALLOWED_BREAKPOINTS_PX = [319, 320, 767, 768, 1023, 1024, 1365, 1366, 1919, 1920];
 const VARIABLE_REGEX = [/\$.*/];
 const ALLOWED_BREAKPOINTS_MIN_MAX_WIDTH = ALLOWED_BREAKPOINTS_PX.map((v) => `${v}px`).concat(
     VARIABLE_REGEX
@@ -14,7 +15,7 @@ module.exports = {
         'prettier/prettier': true,
         'string-quotes': 'single',
         indentation: 4,
-        'scss/at-mixin-argumentless-call-parentheses': 'always',
+        'scss/at-mixin-argumentless-call-parentheses': 'never',
         'unit-allowed-list': ['px', '%', 'vh', 'vw', 'pt', 's', 'ms', 'deg', 'fr'],
         'unit-no-unknown': true,
         'declaration-no-important': true,

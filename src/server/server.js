@@ -1,7 +1,7 @@
 import express from 'express';
 
 import apiRouter from './api';
-import { createRenderMiddleware } from './middleware';
+import { createRenderMiddleware, createServicesMiddleware } from './middleware';
 
 import { DIST_CLIENT_DIR, SERVER_PORT } from '@config/environment';
 import { createApp } from '@client/application';
@@ -16,6 +16,7 @@ export const startServer = () => {
         })
     );
 
+    server.use([createServicesMiddleware()]);
     server.use('/api', apiRouter);
 
     server.get(/.*/, createRenderMiddleware({ createApp, createAppStore }));
