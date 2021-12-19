@@ -1,10 +1,4 @@
-/*
- * Actions hello
- */
-
-import constants from './hello.constants';
-
-const { MAKE_HELLO, MAKE_BYE } = constants;
+import { MAKE_HELLO, MAKE_BYE } from './hello.constants';
 
 export const makeHello = () => ({
     type: MAKE_HELLO,

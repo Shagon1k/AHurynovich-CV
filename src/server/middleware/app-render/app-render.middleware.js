@@ -57,11 +57,13 @@ const processTemplate = (tpl, options) => {
 const createRenderMiddleware = (options) => async (req, res, next) => {
     const { createApp, createAppStore } = options;
     const requestPath = req.path || (req.url && req.url.path);
-    const store = createAppStore({ isServer: true });
+    const { services } = res.locals;
+    const store = createAppStore({ isServer: true, services });
     const app = createApp({
         isServer: true,
         store,
         path: requestPath,
+        services,
     });
 
     const template = await getTemplate();
@@ -78,6 +80,7 @@ const createRenderMiddleware = (options) => async (req, res, next) => {
     res.setHeader('Content-Type', 'text/html');
     res.status(200);
     res.send(responseBody);
+
     next();
 };
 

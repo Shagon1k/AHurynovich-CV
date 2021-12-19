@@ -1,6 +1,6 @@
 import path from 'path';
 
-export const WITH_SSR = process.env.WITH_SSR;
+export const { WITH_SSR } = process.env;
 
 export const DEV = process.env.NODE_ENV !== 'production';
 export const WEBPACK_MODE_DEV = 'development';
@@ -15,6 +15,7 @@ export const SRC_CLIENT_DIR = path.resolve(SRC_DIR, './client');
 export const SRC_CLIENT_ENTRY = path.resolve(SRC_CLIENT_DIR, './index.js');
 export const SRC_SERVER_DIR = path.resolve(SRC_DIR, './server');
 export const SRC_SERVER_ENTRY = path.resolve(SRC_SERVER_DIR, './index.js');
+export const SRC_COMMON_DIR = path.resolve(SRC_DIR, './common');
 
 export const SRC_APP_TEMPLATE = path.resolve(SRC_DIR, './index.html');
 
