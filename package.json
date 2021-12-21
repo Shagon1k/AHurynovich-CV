@@ -64,6 +64,7 @@
     },
     "dependencies": {
         "fs-extra": "^9.0.1",
+        "i18next": "^21.6.3",
         "mobile-detect": "^1.4.5",
         "prop-types": "^15.7.2",
         "react": "^16.13.1",
@@ -89,6 +90,7 @@
         "@webpack-cli/serve": "^1.0.1",
         "autoprefixer": "^10.3.7",
         "autoprefixer-core": "^6.0.1",
+        "babel-eslint": "^10.1.0",
         "babel-jest": "^26.5.2",
         "babel-loader": "^8.1.0",
         "cross-env": "^7.0.2",
@@ -99,6 +101,7 @@
         "eslint": "^7.11.0",
         "eslint-config": "^0.3.0",
         "eslint-config-prettier": "^6.13.0",
+        "eslint-plugin-babel": "^5.3.1",
         "eslint-plugin-import": "^2.25.2",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.21.4",

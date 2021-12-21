@@ -58,7 +58,7 @@ const createRenderMiddleware = (options) => async (req, res, next) => {
     const { createApp, createAppStore } = options;
     const requestPath = req.path || (req.url && req.url.path);
     const { services } = res.locals;
-    const store = createAppStore({ isServer: true, services });
+    const store = await createAppStore({ isServer: true, services });
     const app = createApp({
         isServer: true,
         store,

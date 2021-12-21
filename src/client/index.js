@@ -12,10 +12,10 @@ const getClientServices = () => {
     return createServices({ userAgent });
 };
 
-const startClientApp = () => {
+const startClientApp = async () => {
     const preloadedState = window?.__PRELOADED_STATE__ || {};
     const services = getClientServices();
-    const appStore = createAppStore({
+    const appStore = await createAppStore({
         isServer: false,
         initialState: preloadedState,
         services,

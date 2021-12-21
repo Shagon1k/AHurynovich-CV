@@ -5,7 +5,16 @@ import { getSagaMiddleware } from './middlewares';
 const reduxDevtoolsCompose =
     typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
-export const createAppStore = ({ initialState, isServer, services } = {}) => {
+/**
+ * Creates application store
+ * Note: Used asynchronous flow as application main saga should be completed before main render happened to fill all start data (language, device info, etc.)
+ * @param {Object} options - application store creation options
+ * @param {Object} initialState - store initial state
+ * @param {Boolean} isServer - whether store created on server side or not
+ * @param {Object} services - application services instance
+ * @returns
+ */
+export const createAppStore = async ({ initialState, isServer, services } = {}) => {
     /**
      * Compose function
      * Example of use: composeFn(applyMiddleware(thunk, loggerMiddleware))
@@ -19,7 +28,7 @@ export const createAppStore = ({ initialState, isServer, services } = {}) => {
     const middlewareEnhancer = Redux.applyMiddleware(sagaMiddleware);
     const store = Redux.createStore(appReducer, initialState, composeFn(middlewareEnhancer));
 
-    sagaMiddleware.run(rootSaga);
+    await sagaMiddleware.run(rootSaga).toPromise();
 
     return store;
 };
