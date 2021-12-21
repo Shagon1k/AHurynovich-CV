@@ -1,9 +1,10 @@
 import { fork, spawn, all } from 'redux-saga/effects';
 
 import { initAppInfo } from '@reducers/app-info/app-info.saga';
+import { initI18n, watchI18n } from '@reducers/i18n/i18n.saga';
 
-const watchSagas = [];
-const startSagas = [initAppInfo];
+const watchSagas = [watchI18n];
+const startSagas = [initAppInfo, initI18n];
 
 /**
  * Application watch sagas
@@ -24,7 +25,7 @@ export function* startSaga() {
  */
 function* rootSaga() {
     yield spawn(watchSaga);
-    yield spawn(startSaga);
+    yield fork(startSaga);
 }
 
 export default rootSaga;

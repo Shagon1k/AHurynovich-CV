@@ -1,9 +1,11 @@
-import { SET_DEVICE_INFO } from './app-info.constants';
+import { SET_DEVICE_INFO, SET_APP_LANGUAGE } from './app-info.constants';
+import { DEFAULT_LANGUAGE } from '@services/i18n/config/i18n.config';
 
 const initialState = Object.freeze({
     isMobile: undefined,
     isTablet: undefined,
     isDesktop: undefined,
+    language: DEFAULT_LANGUAGE,
 });
 
 const appInfoReducer = (state = initialState, action) => {
@@ -18,7 +20,12 @@ const appInfoReducer = (state = initialState, action) => {
                 isDesktop: payload.isDesktop || false,
             };
         }
-
+        case SET_APP_LANGUAGE: {
+            return {
+                ...state,
+                language: payload,
+            };
+        }
         default:
             return state;
     }
