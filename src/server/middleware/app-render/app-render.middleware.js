@@ -37,11 +37,14 @@ const getAppStateStr = (state) => {
  * @param {String} tpl - template string
  * @param {Object} options
  * @param {String} options.app - stringified application
+ * @param {String} options.store - stringified application Redux store
+ * @param {String} options.htmlAttributes - stringified HTML attributes (e.g. language)
  */
 const processTemplate = (tpl, options) => {
-    const { app, state } = options;
+    const { app, state, htmlAttributes } = options;
 
     const processedTemplate = tpl
+        .replace(/<html(.*)>/, `<html ${htmlAttributes}>`)
         .replace(/<!--SSR_TEMPLATE_APP-->/, app)
         .replace(/<!--SSR_TEMPLATE_APP_STATE-->/, state);
 
@@ -59,22 +62,26 @@ const createRenderMiddleware = (options) => async (req, res, next) => {
     const requestPath = req.path || (req.url && req.url.path);
     const { services } = res.locals;
     const store = await createAppStore({ isServer: true, services });
+    const helmetContext = {};
     const app = createApp({
         isServer: true,
         store,
         path: requestPath,
         services,
+        helmetContext,
     });
 
     const template = await getTemplate();
 
     const stringifiedApp = ReactDOMServer.renderToString(app);
     const stringifiedAppState = getAppStateStr(store.getState());
+    const { helmet } = helmetContext;
 
     // Replace template placeholders with appropriate data
     const responseBody = processTemplate(template, {
         app: stringifiedApp,
         state: stringifiedAppState,
+        htmlAttributes: helmet.htmlAttributes.toString(), // updated Helmet generated HTML attributes
     });
 
     res.setHeader('Content-Type', 'text/html');

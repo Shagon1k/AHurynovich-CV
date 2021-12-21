@@ -10,6 +10,8 @@ export function* initI18n() {
 
     try {
         yield call(i18n.init);
+        const currentLanguageCode = yield call(i18n.getLanguageCode);
+        yield put(setAppLanguage(currentLanguageCode));
     } catch (e) {
         // TODO: Provide Store-specific error handling
         console.error(e);

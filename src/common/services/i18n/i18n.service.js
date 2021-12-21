@@ -14,12 +14,13 @@ import {
 } from './i18n.constants';
 
 class I18n {
-    constructor() {
+    constructor(baseLanguage) {
         this._i18nInstance = null;
         this._supportedLanguages = null;
+        this._baseLanguage = this._transformBaseLanguage(baseLanguage) || DEFAULT_LANGUAGE;
     }
 
-    init = async (languageCode = DEFAULT_LANGUAGE) => {
+    init = async (languageCode) => {
         let initLanguageCode = '';
         const translationsOptions = await this._getTranslationsOptions();
         const {
@@ -32,6 +33,8 @@ class I18n {
 
         if (checkedSupportedLanguages.includes(languageCode)) {
             initLanguageCode = languageCode;
+        } else if (checkedSupportedLanguages.includes(this._baseLanguage)) {
+            initLanguageCode = this._baseLanguage;
         } else {
             initLanguageCode = fallbackLanguage;
             console.warn(
@@ -60,6 +63,16 @@ class I18n {
             }
         );
     };
+
+    _transformBaseLanguage(baseLanguage) {
+        if (typeof baseLanguage !== 'string') {
+            return '';
+        }
+
+        const transformedBaseLanguage = baseLanguage.slice(0, 2).toLowerCase();
+
+        return transformedBaseLanguage;
+    }
 
     _getTranslationsOptions = async () => {
         let languagesResources = {};
@@ -99,6 +112,8 @@ class I18n {
 
         return `{Missed translation for ${key}}`;
     };
+
+    getLanguageCode = () => this._i18nInstance.language;
 
     checkLanguageSupported = (languageCode) => {
         return this._supportedLanguages.includes(languageCode);

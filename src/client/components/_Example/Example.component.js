@@ -1,5 +1,6 @@
 import { getIsHelloSelector } from '@selectors/_example/hello.selector';
 import { makeHello } from '@reducers/_example/hello.actions';
+import { changeLanguage } from '@reducers/i18n/i18n.actions';
 import { useTranslate } from '@reusables/custom-hooks/use-translate.hook';
 
 import styles from './Example.module.scss';
@@ -8,9 +9,9 @@ const Example = () => {
     const dispatch = ReactRedux.useDispatch();
     const onMakeHelloClick = () => {
         dispatch(makeHello());
+        dispatch(changeLanguage('en'));
     };
     const isHello = ReactRedux.useSelector(getIsHelloSelector);
-
     const t = useTranslate();
 
     return (

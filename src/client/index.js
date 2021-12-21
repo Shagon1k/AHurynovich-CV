@@ -8,8 +8,9 @@ import { createServices } from '@services';
  */
 const getClientServices = () => {
     const userAgent = window?.navigator?.userAgent;
+    const baseLanguage = window?.navigator?.userLanguage || window?.navigator?.language || null;
 
-    return createServices({ userAgent });
+    return createServices({ userAgent, baseLanguage });
 };
 
 const startClientApp = async () => {
