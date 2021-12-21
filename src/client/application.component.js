@@ -1,13 +1,15 @@
 import { Provider as ReduxStateProvider } from 'react-redux';
+import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, StaticRouter } from 'react-router-dom';
 
 import { ServicesProvider } from '@reusables/services-context';
+import Head from './components/base/app-head';
 import Routes from './components/routes';
 
 import './application.module.scss';
 
 const Application = ({ options }) => {
-    const { isServer, path, store, services } = options;
+    const { isServer, path, store, services, helmetContext } = options;
     const AppRouter = isServer ? StaticRouter : BrowserRouter;
     const routerProps = isServer
         ? {
@@ -18,16 +20,23 @@ const Application = ({ options }) => {
               path: '/',
           };
 
-    return (
+    const renderApplication = () => (
         <ReduxStateProvider store={store}>
             <ServicesProvider value={services}>
                 <AppRouter {...routerProps}>
+                    <Head />
                     <div className="appContainer">
                         <Routes />
                     </div>
                 </AppRouter>
             </ServicesProvider>
         </ReduxStateProvider>
+    );
+
+    return WITH_SSR ? (
+        <HelmetProvider context={helmetContext}>{renderApplication()}</HelmetProvider>
+    ) : (
+        renderApplication()
     );
 };
 
@@ -42,6 +51,8 @@ Application.propTypes = {
         store: PropTypes.shape({}),
         /** Application services */
         services: PropTypes.shape({}),
+        /** React Helmet context (used for async SSR flow) */
+        helmetContext: PropTypes.shape({}),
     }),
 };
 

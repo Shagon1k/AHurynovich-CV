@@ -8,14 +8,15 @@ import { createServices } from '@services';
  */
 const getClientServices = () => {
     const userAgent = window?.navigator?.userAgent;
+    const baseLanguage = window?.navigator?.userLanguage || window?.navigator?.language || null;
 
-    return createServices({ userAgent });
+    return createServices({ userAgent, baseLanguage });
 };
 
-const startClientApp = () => {
+const startClientApp = async () => {
     const preloadedState = window?.__PRELOADED_STATE__ || {};
     const services = getClientServices();
-    const appStore = createAppStore({
+    const appStore = await createAppStore({
         isServer: false,
         initialState: preloadedState,
         services,

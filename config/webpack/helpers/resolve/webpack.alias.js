@@ -12,6 +12,7 @@ const getAlias = () => ({
     '@client': path.resolve(SRC_CLIENT_DIR),
     '@server': path.resolve(SRC_SERVER_DIR),
     '@common': path.resolve(SRC_COMMON_DIR),
+    '@utils': path.resolve(SRC_COMMON_DIR, 'utils'),
     '@services': path.resolve(SRC_COMMON_DIR, 'services'),
     '@components': path.resolve(SRC_CLIENT_DIR, 'components'),
     '@pages': path.resolve(SRC_CLIENT_DIR, 'components/pages'),
