@@ -9,7 +9,7 @@ const Example = () => {
     const dispatch = ReactRedux.useDispatch();
     const onMakeHelloClick = () => {
         dispatch(makeHello());
-        dispatch(changeLanguage('en'));
+        dispatch(changeLanguage('ru'));
     };
     const isHello = ReactRedux.useSelector(getIsHelloSelector);
     const t = useTranslate();
