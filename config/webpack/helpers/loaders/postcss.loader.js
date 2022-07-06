@@ -1,9 +1,9 @@
 export default () => ({
-  loader: 'postcss-loader',
-  options: {
-    postcssOptions: {
-      parser: false,
-      plugins: ['autoprefixer'],
+    loader: 'postcss-loader',
+    options: {
+        postcssOptions: {
+            parser: false,
+            plugins: ['autoprefixer'],
+        },
     },
-  },
 });
