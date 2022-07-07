@@ -1,3 +1,3 @@
 export default () => ({
-  loader: 'babel-loader',
+    loader: 'babel-loader',
 });

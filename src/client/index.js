@@ -1,6 +1,7 @@
 import { createApp } from './application';
 import { createAppStore } from './store/store';
 import { createServices } from '@services';
+import { APP_ROOT_ID } from '@config/application';
 
 /**
  * Get services created and handled on client side
@@ -26,7 +27,7 @@ const startClientApp = async () => {
     const app = createApp({ isServer: false, store: appStore, services });
     const renderFunc = WITH_SSR ? ReactDOM.hydrate : ReactDOM.render;
 
-    renderFunc(app, document.getElementById('root'));
+    renderFunc(app, document.getElementById(APP_ROOT_ID));
 };
 
 if (typeof window !== 'undefined') {

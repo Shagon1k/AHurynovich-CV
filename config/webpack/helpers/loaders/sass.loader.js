@@ -1,3 +1,3 @@
 export default () => ({
-  loader: 'sass-loader',
+    loader: 'sass-loader',
 });
