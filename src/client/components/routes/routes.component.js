@@ -1,13 +1,13 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import MainPage from '@pages/MainPage';
 
-const Routes = () => {
+const RoutesComponent = () => {
     return (
-        <Switch>
-            <Route key="main" exact path="/" component={MainPage} />
-        </Switch>
+        <Routes>
+            <Route key="main" path="/" element={<MainPage />} />
+        </Routes>
     );
 };
 
-export default Routes;
+export default RoutesComponent;

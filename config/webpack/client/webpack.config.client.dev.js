@@ -8,7 +8,6 @@ import {
 const devConfig = {
     mode: WEBPACK_MODE_DEV,
     devtool: 'eval-source-map',
-    watch: true,
     plugins: [
         getWebpackHmrPlugin(),
         getWebpackDefinePlugin({

@@ -4,7 +4,6 @@ import { getWebpackProgressBarPlugin, getWebpackDefinePlugin } from '../helpers/
 const prodConfig = {
     mode: WEBPACK_MODE_PROD,
     devtool: 'eval-cheap-module-source-map',
-    watch: false,
     plugins: [
         getWebpackDefinePlugin({
             PRODUCTION: true,

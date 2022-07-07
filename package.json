@@ -10,7 +10,7 @@
         "url": "https://ahurynovich.com/"
     },
     "engines": {
-        "node": "14.x",
+        "node": "16.x",
         "npm": "8.x"
     },
     "scripts": {
@@ -76,7 +76,7 @@
         "react-helmet": "^6.1.0",
         "react-helmet-async": "^1.2.2",
         "react-redux": "^7.2.1",
-        "react-router-dom": "^5.2.0",
+        "react-router-dom": "^6.3.0",
         "redux": "^4.0.5",
         "redux-saga": "^1.1.3"
     },
