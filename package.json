@@ -10,7 +10,7 @@
         "url": "https://ahurynovich.com/"
     },
     "engines": {
-        "node": "14.x",
+        "node": "16.x",
         "npm": "8.x"
     },
     "scripts": {
@@ -24,11 +24,11 @@
         "build:server": "cross-env WITH_SSR=true webpack --config config/webpack/server/webpack.config.server.babel.js",
         "build:server:dev": "cross-env NODE_ENV=development npm run build:server",
         "build:server:prod": "cross-env NODE_ENV=production npm run build:server",
-        "build:app:wssr:dev": "npm run build:client:wssr:dev && npm run build:server:dev",
-        "build:app:wssr:prod": "npm run build:client:wssr:prod && npm run build:server:prod",
+        "build:app:wssr:dev": "npm run build:client:wssr:dev & npm run build:server:dev",
+        "build:app:wssr:prod": "npm run build:client:wssr:prod & npm run build:server:prod",
         "start": "npm run dev",
-        "start:wssr": "node dist/server",
-        "start:wssr:debug": "nodemon --inspect dist/server",
+        "start:wssr": "npm run build:app:wssr:dev && node dist/server",
+        "start:wssr:debug": "npm run build:app:wssr:dev && nodemon --inspect dist/server",
         "rimraf": "./node_modules/rimraf/bin.js",
         "build:clean": "rimraf ./dist",
         "test": "jest --config config/jest/jest.config.js --notify",
@@ -56,6 +56,7 @@
             "src/**/**/reset.scss"
         ]
     },
+    "prettier": "./config/prettier/prettier.config.js",
     "lint-staged": {
         "*.js": [
             "eslint --fix"
@@ -75,7 +76,7 @@
         "react-helmet": "^6.1.0",
         "react-helmet-async": "^1.2.2",
         "react-redux": "^7.2.1",
-        "react-router-dom": "^5.2.0",
+        "react-router-dom": "^6.3.0",
         "redux": "^4.0.5",
         "redux-saga": "^1.1.3"
     },
