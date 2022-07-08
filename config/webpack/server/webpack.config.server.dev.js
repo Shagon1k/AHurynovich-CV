@@ -7,8 +7,8 @@ const devConfig = {
     watch: true,
     plugins: [
         getWebpackDefinePlugin({
-            PRODUCTION: false,
-            DEV: true,
+            IS_PRODUCTION: false,
+            IS_DEV: true,
         }),
         getWebpackProgressBarPlugin({
             name: 'build:server:dev',

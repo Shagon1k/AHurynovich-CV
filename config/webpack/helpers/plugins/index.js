@@ -4,3 +4,4 @@ export { default as getWebpackMiniCssExtractPlugin } from './mini-css-extract.pl
 export { default as getWebpackDefinePlugin } from './define.plugin';
 export { default as getWebpackProvidePlugin } from './provide.plugin';
 export { default as getWebpackHmrPlugin } from './hmr.plugin';
+export { default as getWebpackFaviconPlugin } from './favicon.plugin';
