@@ -26,7 +26,7 @@ const Application = ({ options }) => {
             <ServicesProvider value={services}>
                 <AppRouter {...routerProps}>
                     <Head />
-                    <div className="appContainer">
+                    <div className='appContainer'>
                         <Routes />
                     </div>
                 </AppRouter>

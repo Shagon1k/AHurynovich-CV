@@ -5,7 +5,7 @@ import MainPage from '@pages/MainPage';
 const RoutesComponent = () => {
     return (
         <Routes>
-            <Route key="main" path="/" element={<MainPage />} />
+            <Route key='main' path='/' element={<MainPage />} />
         </Routes>
     );
 };

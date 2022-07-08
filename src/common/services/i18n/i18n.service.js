@@ -23,8 +23,7 @@ class I18n {
     init = async (languageCode) => {
         let initLanguageCode = '';
         const translationsOptions = await this._getTranslationsOptions();
-        const { languagesResources, checkedSupportedLanguages, fallbackLanguage } =
-            translationsOptions;
+        const { languagesResources, checkedSupportedLanguages, fallbackLanguage } = translationsOptions;
 
         this._supportedLanguages = checkedSupportedLanguages;
 
@@ -35,10 +34,7 @@ class I18n {
         } else {
             initLanguageCode = fallbackLanguage;
             console.warn(
-                ERROR_MSG_TEMPLATE_TRANSLATIONS_SETUP.replace(
-                    ERROR_MSG_KEY_TRANSLATIONS_SETUP,
-                    languageCode
-                )
+                ERROR_MSG_TEMPLATE_TRANSLATIONS_SETUP.replace(ERROR_MSG_KEY_TRANSLATIONS_SETUP, languageCode)
             );
         }
 
@@ -76,9 +72,7 @@ class I18n {
         const checkedSupportedLanguages = [];
 
         for (const languageCode of SUPPORTED_LANGUAGES) {
-            const languageTranslationsFile = await import(
-                `./config/languages/${languageCode}.json`
-            );
+            const languageTranslationsFile = await import(`./config/languages/${languageCode}.json`);
             const languageTranslations = languageTranslationsFile?.default || null;
 
             if (languageTranslations) {
