@@ -5,7 +5,9 @@
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "html.format.endWithNewline": true,
+    "[html]": {
+        "files.insertFinalNewline": true
+    },
     "javascript.preferences.quoteStyle": "single",
     "typescript.preferences.quoteStyle": "single",
 }
