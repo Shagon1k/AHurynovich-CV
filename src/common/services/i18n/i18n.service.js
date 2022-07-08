@@ -23,11 +23,8 @@ class I18n {
     init = async (languageCode) => {
         let initLanguageCode = '';
         const translationsOptions = await this._getTranslationsOptions();
-        const {
-            languagesResources,
-            checkedSupportedLanguages,
-            fallbackLanguage,
-        } = translationsOptions;
+        const { languagesResources, checkedSupportedLanguages, fallbackLanguage } =
+            translationsOptions;
 
         this._supportedLanguages = checkedSupportedLanguages;
 
