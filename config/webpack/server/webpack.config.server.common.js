@@ -1,11 +1,6 @@
-import { SRC_SERVER_ENTRY, DIST_SERVER_DIR, WITH_SSR, DEV } from '../../environment';
+import { SRC_SERVER_ENTRY, DIST_SERVER_DIR, WITH_SSR, IS_DEV } from '../../environment';
+import { getWebpackDefinePlugin, getWebpackProvidePlugin } from '../helpers/plugins';
 import {
-    getWebpackDefinePlugin,
-    getWebpackProvidePlugin,
-    getWebpackMiniCssExtractPlugin,
-} from '../helpers/plugins';
-import {
-    getWebpackMiniCssExtractLoader,
     getWebpackBabelLoader,
     getWebpackCssLoader,
     getWebpackCssModulesLoader,
@@ -22,7 +17,6 @@ const commonConfig = {
     },
     target: 'node',
     plugins: [
-        getWebpackMiniCssExtractPlugin(),
         getWebpackDefinePlugin({
             IS_SERVER: true,
             IS_CLIENT: false,
@@ -42,18 +36,14 @@ const commonConfig = {
                 oneOf: [
                     {
                         test: /\.module\.s?css$/,
-                        use: [
-                            getWebpackMiniCssExtractLoader(),
-                            getWebpackCssModulesLoader(DEV),
-                            getWebpackSassLoader(),
-                        ],
+                        /**
+                         * NOTE: Extract loader is redundant for server side as there are no CSS bundles generated there.
+                         * Only CSS Modules loader needed for selectors names generation (e.g. class names) to have consistency with those which are created in client-side bundle.
+                         */
+                        use: [getWebpackCssModulesLoader(IS_DEV, true), getWebpackSassLoader()],
                     },
                     {
-                        use: [
-                            getWebpackMiniCssExtractLoader(),
-                            getWebpackCssLoader(),
-                            getWebpackSassLoader(),
-                        ],
+                        use: [getWebpackCssLoader(), getWebpackSassLoader()],
                     },
                 ],
             },

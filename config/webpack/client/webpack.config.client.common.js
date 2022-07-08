@@ -1,9 +1,10 @@
-import { SRC_CLIENT_ENTRY, DIST_CLIENT_DIR, WITH_SSR, DEV } from '../../environment';
+import { SRC_CLIENT_ENTRY, DIST_CLIENT_DIR, WITH_SSR, IS_DEV } from '../../environment';
 import {
     getWebpackHtmlPlugin,
     getWebpackDefinePlugin,
     getWebpackProvidePlugin,
     getWebpackMiniCssExtractPlugin,
+    getWebpackFaviconPlugin,
 } from '../helpers/plugins';
 import {
     getWebpackBabelLoader,
@@ -28,6 +29,7 @@ const commonConfig = {
             filename: 'styles.css',
         }),
         getWebpackHtmlPlugin(),
+        getWebpackFaviconPlugin(),
         getWebpackDefinePlugin({
             IS_SERVER: false,
             IS_CLIENT: true,
@@ -49,7 +51,7 @@ const commonConfig = {
                         test: /\.module\.s?css$/,
                         use: [
                             getWebpackMiniCssExtractLoader(),
-                            getWebpackCssModulesLoader(DEV),
+                            getWebpackCssModulesLoader(IS_DEV),
                             getWebpackSassLoader(),
                         ],
                     },

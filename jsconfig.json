@@ -2,6 +2,8 @@
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
+            "@config/*": ["./config/*"],
+            "@config": ["./config/*"],
             "@client/*": ["./src/client/*"],
             "@server/*": ["./src/server/*"],
             "@common/*": ["./src/common/*"],
@@ -9,14 +11,14 @@
             "@utils": ["./src/common/utils"],
             "@services/*": ["./src/common/services/*"],
             "@services": ["./src/common/services"],
+            "@api": ["./src/client/api/"],
+            "@api/*": ["./src/client/api/*"],
             "@components/*":  ["./src/client/components/*"],
             "@pages/*": ["./src/client/components/pages/*"],
             "@base/*": ["./src/client/components/base/*"],
             "@reusables/*": ["./src/client/reusables/*"],
             "@reducers/*": ["./src/client/store/reducers/*"],
-            "@selectors/*": ["./src/client/store/selectors/*"],
-            "@config/*": ["./config/*"],
-            "@config": ["./config/*"]
+            "@selectors/*": ["./src/client/store/selectors/*"]
         }
     },
     "include": ["src/**/*", "config/**/*/*"]
