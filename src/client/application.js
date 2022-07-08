@@ -12,9 +12,7 @@ import Application from './application.component';
  */
 export const createApp = ({ isServer, path, store, services, helmetContext } = {}) => {
     const app = (
-        <Application
-            options={{ isServer: isServer, path: path, store: store, services, helmetContext }}
-        />
+        <Application options={{ isServer: isServer, path: path, store: store, services, helmetContext }} />
     );
 
     return app;
