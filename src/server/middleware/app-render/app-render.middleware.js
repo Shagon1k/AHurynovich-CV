@@ -1,7 +1,7 @@
 import fse from 'fs-extra';
 import ReactDOMServer from 'react-dom/server';
 
-import { SRC_APP_TEMPLATE } from '@config/environment';
+import { DIST_APP_TEMPLATE } from '@config/environment';
 
 /**
  * Get rendering template
@@ -9,7 +9,7 @@ import { SRC_APP_TEMPLATE } from '@config/environment';
  */
 const getTemplate = async () => {
     try {
-        const templateSrc = await fse.readFile(SRC_APP_TEMPLATE, 'utf-8');
+        const templateSrc = await fse.readFile(DIST_APP_TEMPLATE, 'utf-8');
 
         return templateSrc;
     } catch (err) {
@@ -81,7 +81,7 @@ const createRenderMiddleware = (options) => async (req, res, next) => {
     const responseBody = processTemplate(template, {
         app: stringifiedApp,
         state: stringifiedAppState,
-        htmlAttributes: helmet.htmlAttributes.toString(), // updated Helmet generated HTML attributes
+        htmlAttributes: helmet.htmlAttributes.toString(), // NOTE: Updated Helmet generated HTML attributes
     });
 
     res.setHeader('Content-Type', 'text/html');

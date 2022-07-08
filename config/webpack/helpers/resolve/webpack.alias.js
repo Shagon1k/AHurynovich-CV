@@ -9,11 +9,13 @@ import {
 
 const getAlias = () => ({
     src: path.resolve(SRC_DIR),
+    '@config': path.resolve(CONFIG_DIR),
     '@client': path.resolve(SRC_CLIENT_DIR),
     '@server': path.resolve(SRC_SERVER_DIR),
     '@common': path.resolve(SRC_COMMON_DIR),
     '@utils': path.resolve(SRC_COMMON_DIR, 'utils'),
     '@services': path.resolve(SRC_COMMON_DIR, 'services'),
+    '@api': path.resolve(SRC_CLIENT_DIR, 'api'),
     '@components': path.resolve(SRC_CLIENT_DIR, 'components'),
     '@pages': path.resolve(SRC_CLIENT_DIR, 'components/pages'),
     '@base': path.resolve(SRC_CLIENT_DIR, 'components/base'),
@@ -24,7 +26,6 @@ const getAlias = () => ({
     '@common-styles': path.resolve(SRC_CLIENT_DIR, 'styles/common'),
     '@base-styles-mixins': path.resolve(SRC_CLIENT_DIR, 'styles/base/_mixins'),
     '@base-styles-variables': path.resolve(SRC_CLIENT_DIR, 'styles/base/_variables'),
-    '@config': path.resolve(CONFIG_DIR),
 });
 
 export default getAlias;

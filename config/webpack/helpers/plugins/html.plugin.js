@@ -6,9 +6,9 @@ export default () =>
     new HTMLWebpackPlugin({
         filename: `${DIST_CLIENT_DIR}/index.html`,
         template: SRC_APP_TEMPLATE,
+        inject: true,
         hash: false,
         minify: {
             minifyJS: true,
         },
-        inject: false,
     });

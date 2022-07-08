@@ -13,6 +13,9 @@ export const startServer = () => {
 
     server.use(
         express.static(DIST_CLIENT_DIR, {
+            /**
+             * NOTE: No need in index.html as index markup generated on SSR (see app-render.middleware)
+             */
             index: false,
         })
     );

@@ -8,11 +8,12 @@ import {
 const devConfig = {
     mode: WEBPACK_MODE_DEV,
     devtool: 'eval-source-map',
+    watch: true,
     plugins: [
         getWebpackHmrPlugin(),
         getWebpackDefinePlugin({
-            PRODUCTION: false,
-            DEV: true,
+            IS_PRODUCTION: false,
+            IS_DEV: true,
         }),
         getWebpackProgressBarPlugin({
             name: 'build:client:dev',
@@ -26,7 +27,7 @@ const devConfig = {
         open: true,
         historyApiFallback: true,
         port: 1337,
-        contentBase: DIST_DIR,
+        static: DIST_DIR,
     },
 };
 

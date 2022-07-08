@@ -6,8 +6,8 @@ const prodConfig = {
     devtool: 'eval-cheap-module-source-map',
     plugins: [
         getWebpackDefinePlugin({
-            PRODUCTION: true,
-            DEV: false,
+            IS_PRODUCTION: true,
+            IS_DEV: false,
         }),
         getWebpackProgressBarPlugin({
             name: 'build:client:prod',
