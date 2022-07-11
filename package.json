@@ -13,6 +13,14 @@
         "node": "16.x",
         "npm": "8.x"
     },
+    "browserslist": [
+        "last 4 versions",
+        ">5%",
+        "not dead",
+        "not op_mini all",
+        "not safari < 11",
+        "not IOS < 11"
+    ],
     "scripts": {
         "dev": "cross-env NODE_ENV=development WITH_SSR=false webpack serve --config config/webpack/client/webpack.config.client.babel.js",
         "build:client": "cross-env WITH_SSR=false webpack --config config/webpack/client/webpack.config.client.babel.js",
@@ -66,6 +74,7 @@
         ]
     },
     "dependencies": {
+        "core-js": "^3.23.4",
         "fs-extra": "^9.0.1",
         "helmet": "^4.6.0",
         "i18next": "^21.6.3",
@@ -83,12 +92,6 @@
     "devDependencies": {
         "@babel/cli": "^7.12.1",
         "@babel/core": "^7.12.3",
-        "@babel/plugin-proposal-class-properties": "^7.12.1",
-        "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
-        "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
-        "@babel/plugin-proposal-optional-chaining": "^7.12.1",
-        "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-        "@babel/plugin-transform-regenerator": "^7.12.1",
         "@babel/plugin-transform-runtime": "^7.12.1",
         "@babel/preset-env": "^7.15.8",
         "@babel/preset-react": "^7.12.1",
@@ -141,14 +144,5 @@
         "webpack-dev-server": "^4.9.3",
         "webpack-merge": "^5.8.0",
         "webpackbar": "^5.0.2"
-    },
-    "browserslist": [
-        "last 3 versions",
-        ">3%",
-        "not dead",
-        "not op_mini all",
-        "not ie < 11",
-        "not safari < 11",
-        "not IOS < 11"
-    ]
+    }
 }

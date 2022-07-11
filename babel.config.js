@@ -6,24 +6,18 @@ module.exports = {
         [
             '@babel/preset-env',
             {
-                useBuiltIns: 'entry',
-                targets: {
-                    browsers: ['last 2 versions', 'safari >= 7'],
-                    node: 'current',
-                },
+                /**
+                 * NOTE: With useBuiltIns 'usage' option Babel goes through targets (specified in package.json "browserslist") and
+                 * uses 'core-js' package to add specific polyfills in bundle when they are needed based on that targets.
+                 * Alternatively, 'entry' option could be used but it will require add core-js polyfills directly in entry file.
+                 * As all of them will be included in that case bundle size increases.
+                 */
+                useBuiltIns: 'usage',
                 corejs: 3,
             },
         ],
     ],
-    plugins: [
-        '@babel/plugin-proposal-optional-chaining',
-        '@babel/plugin-proposal-nullish-coalescing-operator',
-        '@babel/plugin-transform-runtime',
-        '@babel/plugin-proposal-class-properties',
-        '@babel/plugin-syntax-dynamic-import',
-        '@babel/plugin-proposal-object-rest-spread',
-        '@babel/plugin-transform-regenerator',
-    ],
+    plugins: ['@babel/plugin-transform-runtime'],
     env: {
         production: {
             plugins: [],
@@ -34,7 +28,7 @@ module.exports = {
             babelrcRoots: BABELRC_ROOTS,
         },
         test: {
-            plugins: ['dynamic-import-node'],
+            plugins: [],
         },
     },
 };
