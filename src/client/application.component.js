@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
 
 import { ServicesProvider } from '@reusables/services-context';
-import Head from './components/base/app-head';
+import Head from './components/base/AppHead';
 import Routes from './components/routes';
 
 import './application.module.scss';

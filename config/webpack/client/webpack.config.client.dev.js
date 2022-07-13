@@ -1,9 +1,5 @@
 import { WEBPACK_MODE_DEV, DIST_DIR } from '../../environment';
-import {
-    getWebpackProgressBarPlugin,
-    getWebpackDefinePlugin,
-    getWebpackHmrPlugin,
-} from '../helpers/plugins';
+import { getWebpackProgressBarPlugin, getWebpackDefinePlugin, getWebpackHmrPlugin } from '../helpers/plugins';
 
 const devConfig = {
     mode: WEBPACK_MODE_DEV,
