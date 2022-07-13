@@ -28,5 +28,3 @@ export const DIST_ASSETS_DIR = path.resolve(DIST_CLIENT_DIR, './assets');
 export const DIST_FAVICONS_PREFIX = 'assets/favicons/';
 export const DIST_APP_TEMPLATE = path.resolve(DIST_CLIENT_DIR, './index.html');
 export const DIST_SERVER_DIR = path.resolve(DIST_DIR, './server');
-
-export const SERVER_PORT = '3000';
