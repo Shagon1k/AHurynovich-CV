@@ -1,7 +1,7 @@
 # Config documentation
 Documentation and guidelines for application's config.
 
-### Main areas
+## Main areas
 - **[Application config](/config/application/application.config.js)** - (*/application*) - used for storing application configuration like React's root element ID, Server default port, etc;
 - **[Environment config](/config/environment/environment.config.js)** - (*/environment*) - used for storing environment configuration like project's main folders routes and entries, information about CSR/SSR flow, current environment type, etc;
 - **[Unit Tests config](/config/jest/jest.config.js)** - (*/jest*) - used for storing Unit Tests framework configuration (jest config);
@@ -11,8 +11,7 @@ Documentation and guidelines for application's config.
 
 > ***Note**: **JS compiler config** ([Babel config](/babel.config.js)) is located in project root folder.*
 
----
-### Folder's Conventions
+## Folder's Conventions
 - Adding new **Configuration Main area**:
     - add it in new specific folder;
     - if configuration is assumed to be used in general application flow (*/src* folder) - add index export file;
@@ -22,8 +21,7 @@ Documentation and guidelines for application's config.
     - if config has sub-types - according files names should follow template: `[name].config.[sub-type][...].js`;
     - if new Webpack helpers (loaders, plugins, resolve) need to be added - files names should follow according template, e.g. `[name].loader.js`;
 
----
-### Folder's Structure
+## Folder's Structure
 ```
 ./
 │

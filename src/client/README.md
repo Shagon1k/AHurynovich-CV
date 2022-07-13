@@ -2,7 +2,7 @@
 Documentation and guidelines for application's Client.
 > ***Note:** Client supports both CSR (for static hosting) and SSR approaches which are separated using **WITH_SSR** environment variable.*
 
-### General
+## General
 - Client uses:
     - React for **View rendering**;
     - Redux for **Global State Management**;
@@ -16,8 +16,7 @@ Documentation and guidelines for application's Client.
 - Client Global State main file - */store/store.js*;
 - Application's Root element ID (APP_ROOT_ID) is configured and comes from **[Application's configuration](/config/application/application.config.js)**;
 
----
-### Main areas
+## Main areas
 - **[API](/src/client/api/index.js)** - (*/api*) - used to handle different API calls;
     > ***Note:** For CSR approach it calls external API directly, for SSR approach it calls Server side (BFF).*
 - **[Assets](/src/client/assets/)** - (*/assets*) - used to collect application's assets (fonts, images, favicon, etc.);
@@ -37,8 +36,7 @@ Documentation and guidelines for application's Client.
     - **[Selectors](/src/client/store/selectors/)** - (*/store/selectors*) - Redux's state selectors;
 - **[Styles](/src/client/styles/)** - (*/styles*) - used to collect general styles;
 
----
-### Folder's Conventions
+## Folder's Conventions
 - Adding new **Client Main area**:
     - add it in new specific folder;
     - once finished - update this README with new area;
@@ -72,8 +70,7 @@ Documentation and guidelines for application's Client.
     - each new folder/file name should follow kebab-case rule EXCEPT Components (*/components*) which should follow CamelCase rule;
     - each new entity file name should follow according entity template: `[name].reducer.js`, `[name].actions.js`, `[name].middleware.js`, `[SomeName].component.js`, [SomeName].container.js`, etc;
 
----
-### Folder's Structure
+## Folder's Structure
 ```
 ./
 │
@@ -131,6 +128,5 @@ Documentation and guidelines for application's Client.
 └───
 ```
 
----
-### [!] To Consider
+## [!] To Consider
 - Think about styles sub-Folder conventions.

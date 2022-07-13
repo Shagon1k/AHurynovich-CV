@@ -2,7 +2,6 @@
 My personal **CV Web Application** + **React boilerplate**.
 Generally CV application follows CSR approach deploying final built to AWS S3. Than it is hosted using AWS S3 Static Web Hosting feature.
 
----
 ## Project's Goals
 1) Create personal CV-based web application;
 2) Project could be also used as general React-based boilerplate (see [Boilerplate Guide](#boilerplate-guide) for more details)
@@ -10,14 +9,12 @@ Generally CV application follows CSR approach deploying final built to AWS S3. T
 
 Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ability to support SSR) were added mostly not to achieve the final working result, but either for creation of more unified boilerplate approach or just for learning purpose.
 
----
 ## Additional info
 - [Config README](/config/README.md) - general configuration setup;
 - [Client README](/src/client/README.md) - major source of truth for CSR approach, also used for SSR approach;
 - [Common README](/src/common/README.md) - application common staff (services, utils) which could be used both on Client and Server;
 - [Server README](/src/server/README.md) - server main folder, used only for SSR approach;
 
----
 ## Technology Stack
 ### Project Bundling
 - **Application bundler** - [Webpack](https://webpack.js.org/)
@@ -52,7 +49,6 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - **AWS Serverless deployment** - [Serverless](https://www.serverless.com/)
 - **Git Hooks utility** - [Husky](https://typicode.github.io/husky/#/)
 
----
 ## Project Structure
 ```
 ./
@@ -211,7 +207,6 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 └───
 ```
 
----
 ## Run tasks
 > ***Note**: Even though CSR approach is used as primary, application is also able to follow SSR approach.*
 

@@ -1,20 +1,18 @@
 # Server documentation
 Documentation and guidelines for application's Server.
 
-### General
+## General
 - Server uses Express as **NodeJS framework**;
 - Server entry file - *index.js*;
 - Server main file - *server.js*;
 - Port (SERVER_PORT) is configured and comes from **[Application's configuration](/config/application/application.config.js)**;
 
----
-### Main areas
+## Main areas
 - **[API](/src/server/api/index.js)** - (*/api*) - used to handle different API calls, uses /api sub-route for them;
     > ***Note:** Could be used as BFF layer.*
 - **[Middlewares](/src/server/middlewares/index.js)** - (*/middlewares*) - used to handle Server middlewares;
 
----
-### Folder's Conventions
+## Folder's Conventions
 - Adding new **Server Main area**:
     - add it in new specific folder;
     - once finished - update this README with new area;
@@ -32,8 +30,7 @@ Documentation and guidelines for application's Server.
     - each new API endpoint's main file name should follow template: `[name].api.js`;
     - each new middleware's main file name should follow template: `[name].middleware.js`;
 
----
-### Folder's Structure
+## Folder's Structure
 ```
 ./
 │

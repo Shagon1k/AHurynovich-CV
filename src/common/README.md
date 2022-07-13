@@ -2,14 +2,13 @@
 Documentation and guidelines for application's Client and Server common staff.
 > ***Note**: If application is used only as static CSR and there are no need in Server - consider moving '/common' folder content into '/client' folder.*
 
-### Main areas
+## Main areas
 - **[Services](/src/common/services/index.js)** - (*/services*) - used for storing application services like i18n, Device Detect, etc;
     > ***Note**: As application uses Redux, some of services could be used on State Management side (e.g. Redux-Saga's side effects). For example, i18n service is used to correctly update Application language. Thus they were moved to separate Facade entity which is injected to Redux-Saga's context OR for specific Component (using Custom Hook/HOC).
 Services are initiated with User specific config (base language, userAgent, etc) and potentially could depend one on each other (so main Facade could be used as IoC container).*
 - **[Utils](/src/common/utils/index.js)** - (*/utils*) - used for storing application utils;
 
----
-### Folder's Conventions
+## Folder's Conventions
 - Adding new **Common Main area**:
     - add it in new specific folder;
     - once finished - update this README with new area;
@@ -25,8 +24,7 @@ Services are initiated with User specific config (base language, userAgent, etc)
     - each new util/service folder/file name should follow kebab-case rule;
     - each new service's main file name should follow template: `[name].service.js`;
 
----
-### Folder's Structure
+## Folder's Structure
 ```
 ./
 │
@@ -38,6 +36,5 @@ Services are initiated with User specific config (base language, userAgent, etc)
 └───
 ```
 
----
-### [!] To Consider
+## [!] To Consider
 - Move same area services (functions, strings, numbers, etc.) to specific folders.
