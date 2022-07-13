@@ -1,12 +1,14 @@
 import express from 'express';
 import helmet from 'helmet';
 
-import apiRouter from './api';
-import { createRenderMiddleware, createServicesMiddleware } from './middleware';
+import { DIST_CLIENT_DIR } from '@config/environment';
+import { SERVER_PORT } from '@config/application';
 
-import { DIST_CLIENT_DIR, SERVER_PORT } from '@config/environment';
 import { createApp } from '@client/application';
 import { createAppStore } from '@client/store/store';
+
+import apiRouter from './api';
+import { createRenderMiddleware, createServicesMiddleware } from './middlewares';
 
 export const startServer = () => {
     const server = express();
