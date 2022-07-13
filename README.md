@@ -3,7 +3,7 @@ My personal **CV Web Application** + **React boilerplate**.
 Generally CV application follows CSR approach deploying final built to AWS S3. Than it is hosted using AWS S3 Static Web Hosting feature.
 
 ---
-### Project's Goals
+## Project's Goals
 1) Create personal CV-based web application;
 2) Project could be also used as general React-based boilerplate (see [Boilerplate Guide](#boilerplate-guide) for more details)
 3) Learning, renewing and testing some FrontEnd application tools and features;
@@ -11,20 +11,20 @@ Generally CV application follows CSR approach deploying final built to AWS S3. T
 Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ability to support SSR) were added mostly not to achieve the final working result, but either for creation of more unified boilerplate approach or just for learning purpose.
 
 ---
-### Additional info
+## Additional info
 - [Config README](/config/README.md) - general configuration setup;
 - [Client README](/src/client/README.md) - major source of truth for CSR approach, also used for SSR approach;
 - [Common README](/src/common/README.md) - application common staff (services, utils) which could be used both on Client and Server;
 - [Server README](/src/server/README.md) - server main folder, used only for SSR approach;
 
 ---
-### Technology Stack
-#### Project Bundling
+## Technology Stack
+### Project Bundling
 - **Application bundler** - [Webpack](https://webpack.js.org/)
 - **JS compiler** - [Babel](https://babeljs.io/) (using Webpack ['babel-loader'](https://www.npmjs.com/package/babel-loader))
 - **Styles compiler** - Webpack [sass-loader](https://www.npmjs.com/package/sass-loader) + [postcss-loader](https://www.npmjs.com/package/postcss-loader) with [autoprefixer](https://www.npmjs.com/package/autoprefixer)
 
-#### Application
+### Application
 - **View rendering** - [React](https://reactjs.org/)
 - **View styling** - [SCSS](https://sass-lang.com/) + [CSS-Modules](https://webpack.js.org/loaders/css-loader/#modules)
 - **Routing** - [React-Router](https://reactrouter.com/)
@@ -33,27 +33,27 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - **Document Head management** - [React-Helmet](https://www.npmjs.com/package/react-helmet) OR [React-Helmet-Async](https://www.npmjs.com/package/react-helmet-async) (SSR approach)
 - **Device Detection utility** - [Mobile Detect](https://www.npmjs.com/package/mobile-detect)
 
-#### Server
+### Server
 > ***Note**: SSR approach only*
 
 - **Server Application framework** - [Express](https://expressjs.com/)
 - **Server Secureness utility** - [Helmet](https://helmetjs.github.io/)
 
-#### Code Styling
+### Code Styling
 - **Static Code analyzer** - [ESLint](https://eslint.org/) + [StyleLint](https://stylelint.io/)
 - **Code formatter** - [Prettier](https://prettier.io/)
 
-#### Testing
+### Testing
 - **Testing framework** - [Jest](https://jestjs.io/)
 - **React Components testing utility** - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
 
-#### Other
+### Other
 - **Application CI/CD utility** - [CircleCI](https://circleci.com/)
 - **AWS Serverless deployment** - [Serverless](https://www.serverless.com/)
 - **Git Hooks utility** - [Husky](https://typicode.github.io/husky/#/)
 
 ---
-### Project Structure
+## Project Structure
 ```
 ./
 │
@@ -212,10 +212,10 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 ```
 
 ---
-### Run tasks
+## Run tasks
 > ***Note**: Even though CSR approach is used as primary, application is also able to follow SSR approach.*
 
-#### CSR approach's tasks:
+### CSR approach's tasks:
 **Start:**
 - `npm start` (`npm run dev`) - Client development build task -> start with Watcher
 
@@ -230,7 +230,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run build:and:deploy:s3` - Client production build task -> deployment task for static AWS S3 hosting
 - `npm run build:and:deploy:s3:nc` - Client production build task -> deployment task for static AWS S3 hosting (no confirm)
 
-#### SSR approach's tasks:
+### SSR approach's tasks:
 **Start:**
 - `npm run start:wssr` - Server start
 - `npm run start:wssr:debug` - Server start with Debug
@@ -245,7 +245,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run build:app:wssr:dev` - Application (Client + Server) development build task
 - `npm run build:app:wssr:prod` - Application (Client + Server) production build task
 
-#### General tasks:
+### General tasks:
 - `npm run build:clean` - Clean build ("dist") folder
 
 **Test:**
@@ -259,5 +259,5 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run lint` - Lint all (JS+Styles) files
 - `npm run lint:fix` - Lint all (JS+Styles) files with autofix
 
-### Boilerplate Guide
+## Boilerplate Guide
 TBD once general setup be finished

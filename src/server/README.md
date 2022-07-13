@@ -2,7 +2,7 @@
 Documentation and guidelines for application's Server.
 
 ### General
-- Server uses Express as NodeJS framework;
+- Server uses Express as **NodeJS framework**;
 - Server entry file - *index.js*;
 - Server main file - *server.js*;
 - Port (SERVER_PORT) is configured and comes from **[Application's configuration](/config/application/application.config.js)**;

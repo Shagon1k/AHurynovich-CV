@@ -4,11 +4,11 @@ Documentation and guidelines for application's Client.
 
 ### General
 - Client uses:
-    - React for View rendering;
-    - Redux for Global State Management;
-    - Redux-Saga for Redux's side-effects;
-    - React-Router for routing;
-    - SCSS + CSS Modules for styling;
+    - React for **View rendering**;
+    - Redux for **Global State Management**;
+    - Redux-Saga for **Redux's side-effects**;
+    - React-Router for **routing**;
+    - SCSS + CSS Modules for **styling**;
 - Client entry file - *index.js*;
 - Client main application's file - *application.js*;
 - Client main application's Component - *application.component.js*;
