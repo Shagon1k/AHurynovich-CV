@@ -1,4 +1,4 @@
-# Common staff documentation
+# Common documentation
 Documentation and guidelines for application's Client and Server common staff.
 > ***Note**: If application is used only as static CSR and there are no need in Server - consider moving '/common' folder content into '/client' folder.*
 

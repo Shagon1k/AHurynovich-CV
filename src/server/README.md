@@ -42,5 +42,4 @@ Documentation and guidelines for application's Server.
 │   index.js
 │   README.md
 └───
-
 ```
