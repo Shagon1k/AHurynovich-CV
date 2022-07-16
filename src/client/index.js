@@ -24,10 +24,15 @@ const startClientApp = async () => {
     });
     delete window.PRELOADED_STATE;
 
+    const appContainer = document.getElementById(APP_ROOT_ID);
     const app = createApp({ isServer: false, store: appStore, services });
-    const renderFunc = WITH_SSR ? ReactDOM.hydrate : ReactDOM.render;
 
-    renderFunc(app, document.getElementById(APP_ROOT_ID));
+    if (WITH_SSR) {
+        ReactDOMClient.hydrateRoot(appContainer, app);
+    } else {
+        const appRoot = ReactDOMClient.createRoot(appContainer);
+        appRoot.render(app);
+    }
 };
 
 if (typeof window !== 'undefined') {

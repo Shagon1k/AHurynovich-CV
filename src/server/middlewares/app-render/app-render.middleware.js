@@ -1,5 +1,4 @@
 import fse from 'fs-extra';
-import ReactDOMServer from 'react-dom/server';
 
 import { DIST_APP_TEMPLATE } from '@config/environment';
 

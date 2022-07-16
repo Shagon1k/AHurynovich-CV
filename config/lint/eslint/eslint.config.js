@@ -34,7 +34,8 @@ module.exports = {
         expect: 'readonly',
         /** Webpack Provide plugin variables */
         React: 'readonly',
-        ReactDOM: 'readonly',
+        ReactDOMClient: 'readonly',
+        ReactDOMServer: 'readonly',
         ReactRedux: 'readonly',
         Redux: 'readonly',
         PropTypes: 'readonly',
