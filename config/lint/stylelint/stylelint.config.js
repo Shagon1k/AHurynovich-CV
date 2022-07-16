@@ -1,9 +1,7 @@
 // [xsmall-max, small-min, small-max, medium-min, medium-max, large-min, large-max, xlarge-min, xlarge-max, xxlarge-min]
 const ALLOWED_BREAKPOINTS_PX = [319, 320, 767, 768, 1023, 1024, 1365, 1366, 1919, 1920];
 const VARIABLE_REGEX = [/\$.*/];
-const ALLOWED_BREAKPOINTS_MIN_MAX_WIDTH = ALLOWED_BREAKPOINTS_PX.map((v) => `${v}px`).concat(
-    VARIABLE_REGEX
-);
+const ALLOWED_BREAKPOINTS_MIN_MAX_WIDTH = ALLOWED_BREAKPOINTS_PX.map((v) => `${v}px`).concat(VARIABLE_REGEX);
 
 module.exports = {
     extends: ['stylelint-config-standard-scss'],
@@ -127,14 +125,7 @@ module.exports = {
                 },
                 {
                     groupName: 'dimension',
-                    properties: [
-                        'width',
-                        'min-width',
-                        'max-width',
-                        'height',
-                        'min-height',
-                        'max-height',
-                    ],
+                    properties: ['width', 'min-width', 'max-width', 'height', 'min-height', 'max-height'],
                 },
                 {
                     groupName: 'boxModel',
@@ -188,12 +179,7 @@ module.exports = {
                 },
                 {
                     groupName: 'list',
-                    properties: [
-                        'list-style',
-                        'list-style-image',
-                        'list-style-position',
-                        'list-style-type',
-                    ],
+                    properties: ['list-style', 'list-style-image', 'list-style-position', 'list-style-type'],
                 },
                 {
                     groupName: 'visibility',
