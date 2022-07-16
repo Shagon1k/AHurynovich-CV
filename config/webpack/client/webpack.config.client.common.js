@@ -1,9 +1,10 @@
-import { SRC_CLIENT_ENTRY, DIST_CLIENT_DIR, WITH_SSR, IS_DEV } from '../../environment';
+import { SRC_CLIENT_ENTRY, DIST_CLIENT_DIR, WITH_SSR, IS_DEV, SRC_ROBOTS_ENTRY } from '../../environment';
 import {
     getWebpackHtmlPlugin,
     getWebpackDefinePlugin,
     getWebpackProvidePlugin,
     getWebpackMiniCssExtractPlugin,
+    getWebpackCopyPlugin,
     getWebpackFaviconPlugin,
 } from '../helpers/plugins';
 import {
@@ -19,16 +20,19 @@ const commonConfig = {
     entry: [SRC_CLIENT_ENTRY],
     output: {
         path: DIST_CLIENT_DIR,
-        filename: 'index.js',
         publicPath: '/',
+        filename: 'js/index.js',
+        chunkFilename: 'js/chunks/[name].[chunkhash].js',
     },
     target: 'web',
     externals: ['jsdom'],
     plugins: [
         getWebpackMiniCssExtractPlugin({
-            filename: 'styles.css',
+            filename: 'css/styles.css',
+            chunkFilename: 'css/chunks/[name].[chunkhash].css',
         }),
         getWebpackHtmlPlugin(),
+        getWebpackCopyPlugin([{ from: SRC_ROBOTS_ENTRY, to: 'robots.txt' }]),
         getWebpackFaviconPlugin(),
         getWebpackDefinePlugin({
             IS_SERVER: false,
