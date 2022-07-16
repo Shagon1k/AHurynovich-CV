@@ -67,10 +67,10 @@
     "prettier": "./config/prettier/prettier.config.js",
     "lint-staged": {
         "*.js": [
-            "eslint --fix"
+            "eslint ./src --fix"
         ],
         "*.(s)css": [
-            "stylelint --fix"
+            "stylelint ./src/**/**/*.scss --fix"
         ]
     },
     "dependencies": {
