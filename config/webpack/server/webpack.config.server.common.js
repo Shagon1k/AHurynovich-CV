@@ -12,8 +12,9 @@ const commonConfig = {
     entry: [SRC_SERVER_ENTRY],
     output: {
         path: DIST_SERVER_DIR,
-        filename: 'index.js',
         publicPath: '/',
+        filename: 'index.js',
+        chunkFilename: 'js/chunks/[name].[chunkhash].js',
     },
     target: 'node',
     plugins: [

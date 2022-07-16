@@ -48,6 +48,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - **Application CI/CD utility** - [CircleCI](https://circleci.com/)
 - **AWS Serverless deployment** - [Serverless](https://www.serverless.com/)
 - **Git Hooks utility** - [Husky](https://typicode.github.io/husky/#/)
+- **Search Engine configuration** - [Robots](https://www.robotstxt.org/)
 
 ## Project Structure
 ```
@@ -90,6 +91,11 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   └───resolve   // webpack resolves (aliases, etc.)
 │   │   │
 │   │   └───server   // webpack Server configuration
+│   │
+│   ├───robots
+│   │   │
+│   │   │   robots.txt   // Robots configuration to enhance Web crawlers search
+│   │   └───
 │   │
 │   │   README.md   // Config folder info
 │   └───
@@ -256,3 +262,13 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 
 ## Boilerplate Guide
 TBD once general setup be finished
+Consider:
+- index html content
+- serverless file replace
+- robots.txt file replace
+- circleci config replace
+- application config
+- adapt environment config
+- change favicon
+- adapt lint (stylelint BPs must!)
+- scss variables BP
