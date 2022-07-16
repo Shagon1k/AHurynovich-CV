@@ -272,3 +272,4 @@ Consider:
 - change favicon
 - adapt lint (stylelint BPs must!)
 - scss variables BP
+- !!! Consider SSR + Lazy Loading (React18 Suspense usage + renderToPipeableStream, Loadable-Components package, etc.)
