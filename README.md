@@ -141,7 +141,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   ├───base   // base styles (mixins, functions, variables, etc.)
 │   │   │   │
 │   │   │   │   main.scss   // main styles file
-│   │   │   │   reset.scss
+│   │   │   │   reset-normalize.scss
 │   │   │   └───
 │   │   │
 │   │   │   application.component.js   // main application Component

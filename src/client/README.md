@@ -117,7 +117,7 @@ Documentation and guidelines for application's Client.
 │   ├───base
 │   │
 │   │   main.scss
-│   │   reset.scss
+│   │   reset-normalize.scss
 │   └───
 │
 │   application.component.js

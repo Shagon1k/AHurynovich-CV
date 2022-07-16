@@ -61,7 +61,7 @@
     "stylelint": {
         "extends": "./config/lint/stylelint/stylelint.config.js",
         "ignoreFiles": [
-            "src/**/**/reset.scss"
+            "src/**/**/reset-normalize.scss"
         ]
     },
     "prettier": "./config/prettier/prettier.config.js",
