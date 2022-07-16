@@ -14,10 +14,14 @@ export default () =>
             appName: 'Aliaksei-Hurynovich-CV',
             appDescription: 'Aliaksei Hurynovichs CV app',
             developerName: 'Aliaksei Hurynovich',
+            developerURL: null,
+            background: '#ddd',
+            theme_color: '#333',
+            // NOTE: We should align application start url based on it's root route.
+            start_url: '../../',
             icons: {
                 favicons: true,
                 appleIcon: true,
-                android: false,
                 appleStartup: false,
                 coast: false,
                 yandex: false,
