@@ -4,7 +4,7 @@ Documentation and guidelines for application's config.
 ## Main areas
 - **[Application config](/config/application/application.config.js)** - (*/application*) - used for storing application configuration like React's root element ID, Server default port, etc;
 - **[Environment config](/config/environment/environment.config.js)** - (*/environment*) - used for storing environment configuration like project's main folders routes and entries, information about CSR/SSR flow, current environment type, etc;
-- **[Unit Tests config](/config/jest/jest.config.js)** - (*/jest*) - used for storing Unit Tests framework configuration (jest config);
+- **[Unit Tests config](/config/jest/jest.config.js)** - (*/jest*) - used for storing Unit Tests framework configuration (Jest config) and custom testing utils setup (e.g. RTL custom utils);
 - **[Code Styling config](/config/lint/)** - (*/lint*) - used for storing Code Styling tools configuration (**[ESlint config](/config/lint/eslint/eslint.config.js)** and **[Stylelint config](/config/lint/stylelint/stylelint.config.js)**);
 - **[Code Formatting config](/config/prettier/prettier.config.js)** - (*/prettier*) - used for storing Code Formatter tool configuration (Prettier);
 - **[Application bundler config](/config/webpack/)** - (*/webpack*) - used for storing Bundler configuration (Webpack). **[Client config](/config/webpack/client/webpack.config.client.babel.js)** and **[Server config](/config/webpack/server/webpack.config.server.babel.js)** are separated, reusable **[Webpack utilities](/config/webpack/helpers/)** ([loaders](/config/webpack/helpers/loaders/index.js), [resolvers](/config/webpack/helpers/resolve/index.js), [plugins](/config/webpack/helpers/plugins/index.js)) moved to specific folder;
@@ -31,6 +31,18 @@ Documentation and guidelines for application's config.
 ├───environment
 │
 ├───jest
+│   │
+│   ├───test-utils
+│   │   │
+│   │   ├───custom-utils
+│   │   │
+│   │   │   test-utils.js
+│   │   │   index.js
+│   │   └───
+│   │
+│   │   jest.config.js
+│   │   jest.setup.js
+│   └───
 │
 ├───lint
 │   │

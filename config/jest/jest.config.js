@@ -1,5 +1,10 @@
-// eslint-disable-next-line no-undef
-const path = require('path');
+// NOTE: As Environment config use ES6 modules, Babel Register usage here is required to transform
+require('@babel/register'); // eslint-disable-line no-undef
+
+const path = require('path'); // eslint-disable-line no-undef
+const environmentConfig = require('../environment/environment.config.js'); // eslint-disable-line no-undef
+const { SRC_DIR, SRC_CLIENT_DIR, SRC_SERVER_DIR, SRC_COMMON_DIR, CONFIG_DIR } = environmentConfig;
+
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
@@ -81,13 +86,38 @@ module.exports = {
     // ],
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-    // moduleNameMapper: {},
+    moduleNameMapper: {
+        '^test-utils': `${path.resolve(CONFIG_DIR)}/jest/test-utils`,
+        '^.+\\.s?css$': 'identity-obj-proxy',
+        '^src/(.*)$': `${path.resolve(SRC_DIR)}/$1`,
+        '^@config/(.*)$': `${path.resolve(CONFIG_DIR)}/$1`,
+        '^@config': path.resolve(CONFIG_DIR),
+        '^@client/(.*)$': `${path.resolve(SRC_CLIENT_DIR)}/$1`,
+        '^@server/(.*)$': `${path.resolve(SRC_SERVER_DIR)}/$1`,
+        '^@common/(.*)$': `${path.resolve(SRC_COMMON_DIR)}/$1`,
+        '^@utils/(.*)$': `${path.resolve(SRC_COMMON_DIR, 'utils')}/$1`,
+        '^@utils': path.resolve(SRC_COMMON_DIR, 'utils'),
+        '^@services/(.*)$': `${path.resolve(SRC_COMMON_DIR, 'services')}/$1`,
+        '^@services': path.resolve(SRC_COMMON_DIR, 'services'),
+        '^@api/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'api')}/$1`,
+        '^@api': path.resolve(SRC_CLIENT_DIR, 'api'),
+        '^@components/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'components')}/$1`,
+        '^@pages/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'components/pages')}/$1`,
+        '^@base/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'components/base')}/$1`,
+        '^@reusables/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'reusables')}/$1`,
+        '^@reducers/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'store/reducers')}/$1`,
+        '^@selectors/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'store/selectors')}/$1`,
+        '^@styles/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'styles')}/$1`,
+        '^@common-styles/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'styles/common')}/$1`,
+        '^@base-styles-mixins/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'styles/base/_mixins')}/$1`,
+        '^@base-styles-variables/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'styles/base/_variables')}/$1`,
+    },
 
     // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
     // modulePathIgnorePatterns: [],
 
     // Activates notifications for test results
-    // notify: false,
+    notify: true,
 
     // An enum that specifies notification mode. Requires { notify: true }
     // notifyMode: "failure-change",
@@ -124,24 +154,22 @@ module.exports = {
     // runner: "jest-runner",
 
     // The paths to modules that run some code to configure or set up the testing environment before each test
-    // setupFiles: [],
+    setupFiles: [`${path.resolve(CONFIG_DIR)}/jest/jest.setup.js`],
 
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
-    setupFilesAfterEnv: ['jest-enzyme'],
+    setupFilesAfterEnv: ['@testing-library/jest-dom'],
 
     // The number of seconds after which a test is considered as slow and reported as such in the results.
-    // slowTestThreshold: 5,
+    slowTestThreshold: 2,
 
     // A list of paths to snapshot serializer modules Jest should use for snapshot testing
     // snapshotSerializers: [],
 
     // The test environment that will be used for testing
-    testEnvironment: 'enzyme',
+    testEnvironment: 'jsdom',
 
     // Options that will be passed to the testEnvironment
-    testEnvironmentOptions: {
-        enzymeAdapter: 'react16',
-    },
+    testEnvironmentOptions: {},
 
     // Adds a location field to test results
     // testLocationInResults: false,
@@ -168,7 +196,10 @@ module.exports = {
     // testURL: "http://localhost",
 
     // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
-    // timers: "real",
+    fakeTimers: {
+        enableGlobally: true,
+        timerLimit: 1000,
+    },
 
     // A map from regular expressions to paths to transformers
     transform: {

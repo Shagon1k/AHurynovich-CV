@@ -1,21 +1,13 @@
-import { getIsHelloSelector } from '@selectors/_example/hello.selector';
-import { makeHello } from '@reducers/_example/hello.actions';
-import { changeLanguage } from '@reducers/i18n/i18n.actions';
 import { useTranslate } from '@reusables/custom-hooks/use-translate.hook';
 
 import styles from './Example.module.scss';
 
-const Example = () => {
-    const dispatch = ReactRedux.useDispatch();
-    const onMakeHelloClick = () => {
-        dispatch(makeHello());
-        dispatch(changeLanguage('ru'));
-    };
-    const isHello = ReactRedux.useSelector(getIsHelloSelector);
+const ExampleComponent = ({ onMakeHelloClick, isHello }) => {
     const t = useTranslate();
 
     return (
         <>
+            <div>Test</div>
             <button onClick={onMakeHelloClick}> Make Hello </button>
             <div>{t('test.test')}</div>
             <div className={styles.hello}> {isHello ? 'Hello there!' : 'Bye!!'} </div>
@@ -23,4 +15,9 @@ const Example = () => {
     );
 };
 
-export default Example;
+ExampleComponent.propTypes = {
+    onMakeHelloClick: PropTypes.func.isRequired,
+    isHello: PropTypes.bool,
+};
+
+export default ExampleComponent;

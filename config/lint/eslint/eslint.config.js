@@ -30,14 +30,12 @@ module.exports = {
         describe: 'readonly',
         beforeEach: 'readonly',
         afterEach: 'readonly',
+        beforeAll: 'readonly',
+        afterAll: 'readonly',
         it: 'readonly',
         expect: 'readonly',
         /** Webpack Provide plugin variables */
         React: 'readonly',
-        ReactDOMClient: 'readonly',
-        ReactDOMServer: 'readonly',
-        ReactRedux: 'readonly',
-        Redux: 'readonly',
         PropTypes: 'readonly',
         /** Other variables */
         process: 'readonly',
@@ -49,6 +47,11 @@ module.exports = {
             jsx: true,
         },
         sourceType: 'module',
+    },
+    settings: {
+        react: {
+            version: 'detect',
+        },
     },
     plugins: ['babel', 'react', 'prettier'],
 };

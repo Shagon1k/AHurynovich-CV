@@ -69,6 +69,18 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   ├───environment
 │   │
 │   ├───jest
+│   │   │
+│   │   ├───test-utils   // Testing utils enhancement (e.g. RTL custom "render" util)
+│   │   │   │
+│   │   │   ├───custom-utils
+│   │   │   │
+│   │   │   │   test-utils.js
+│   │   │   │   index.js
+│   │   │   └───
+│   │   │
+│   │   │   jest.config.js   // Jest config file
+│   │   │   jest.setup.js   // Jest tests pre-setup execution
+│   │   └───
 │   │
 │   ├───lint
 │   │   │

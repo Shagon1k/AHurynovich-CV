@@ -1,11 +1,5 @@
 import path from 'path';
-import {
-    SRC_DIR,
-    SRC_CLIENT_DIR,
-    SRC_SERVER_DIR,
-    SRC_COMMON_DIR,
-    CONFIG_DIR,
-} from '../../../environment';
+import { SRC_DIR, SRC_CLIENT_DIR, SRC_SERVER_DIR, SRC_COMMON_DIR, CONFIG_DIR } from '../../../environment';
 
 const getAlias = () => ({
     src: path.resolve(SRC_DIR),
