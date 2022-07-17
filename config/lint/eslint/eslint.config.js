@@ -34,6 +34,9 @@ module.exports = {
         afterAll: 'readonly',
         it: 'readonly',
         expect: 'readonly',
+        cy: 'readonly',
+        before: 'readonly',
+        after: 'readonly',
         /** Webpack Provide plugin variables */
         React: 'readonly',
         PropTypes: 'readonly',

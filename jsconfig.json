@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
-            "test-utils": ["./config/jest/test-utils"],
+            "test-utils/unit": ["./config/test/jest/test-utils"],
             "@config/*": ["./config/*"],
             "@config": ["./config"],
             "@client/*": ["./src/client/*"],

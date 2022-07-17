@@ -1,6 +1,6 @@
 import { useTranslate } from '@reusables/custom-hooks/use-translate.hook';
 
-import styles from './Example.module.scss';
+import styles from './_Example.module.scss';
 
 const ExampleComponent = ({ onMakeHelloClick, isHello }) => {
     const t = useTranslate();
@@ -8,7 +8,9 @@ const ExampleComponent = ({ onMakeHelloClick, isHello }) => {
     return (
         <>
             <div>Test</div>
-            <button onClick={onMakeHelloClick}> Make Hello </button>
+            <button name='Make Hello' onClick={onMakeHelloClick}>
+                Make Hello
+            </button>
             <div>{t('test.test')}</div>
             <div className={styles.hello}> {isHello ? 'Hello there!' : 'Bye!!'} </div>
         </>

@@ -87,7 +87,7 @@ module.exports = {
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
     moduleNameMapper: {
-        '^test-utils': `${path.resolve(CONFIG_DIR)}/jest/test-utils`,
+        '^test-utils/unit': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils`,
         '^.+\\.s?css$': 'identity-obj-proxy',
         '^src/(.*)$': `${path.resolve(SRC_DIR)}/$1`,
         '^@config/(.*)$': `${path.resolve(CONFIG_DIR)}/$1`,
@@ -154,7 +154,7 @@ module.exports = {
     // runner: "jest-runner",
 
     // The paths to modules that run some code to configure or set up the testing environment before each test
-    setupFiles: [`${path.resolve(CONFIG_DIR)}/jest/jest.setup.js`],
+    setupFiles: [`${path.resolve(CONFIG_DIR)}/test/jest/jest.setup.js`],
 
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
     setupFilesAfterEnv: ['@testing-library/jest-dom'],

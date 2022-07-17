@@ -1,12 +1,9 @@
-import { getRenderWithProviders, screen } from 'test-utils';
-import Example from '../Example.component';
+// NOTE: Gherkin style is recommended.
+
+import { getRenderWithProviders, screen } from 'test-utils/unit';
+import Example from '../_Example.component';
 
 const render = getRenderWithProviders();
-
-/**
- * NOTE: Tests should be written with BDD principle.
- * Gherkin style is recommended.
- */
 
 describe('RTL test Example', () => {
     describe('when Example component was rendered', () => {

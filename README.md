@@ -41,8 +41,12 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - **Code formatter** - [Prettier](https://prettier.io/)
 
 ### Testing
-- **Testing framework** - [Jest](https://jestjs.io/)
+#### Unit Testing
+- **Unit Testing framework** - [Jest](https://jestjs.io/)
 - **React Components testing utility** - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+#### E2E testing
+- **E2E Testing framework** - [Cypress](https://www.cypress.io/)
+- **Test Cases commands extend utility** - [Cypress Testing Library](https://testing-library.com/docs/cypress-testing-library/intro/)
 
 ### Other
 - **Application CI/CD utility** - [CircleCI](https://circleci.com/)
@@ -68,18 +72,32 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │
 │   ├───environment
 │   │
-│   ├───jest
+│   ├───test
 │   │   │
-│   │   ├───test-utils   // Testing utils enhancement (e.g. RTL custom "render" util)
+│   │   ├───jest   // Unit Tests configuration folder
 │   │   │   │
-│   │   │   ├───custom-utils
+│   │   │   ├───test-utils   // Testing utils enhancement (e.g. RTL custom "render" util)
+│   │   │   │   │
+│   │   │   │   ├───custom-utils
+│   │   │   │   │
+│   │   │   │   │   test-utils.js
+│   │   │   │   │   index.js
+│   │   │   │   └───
 │   │   │   │
-│   │   │   │   test-utils.js
-│   │   │   │   index.js
+│   │   │   │   jest.setup.js   // Jest tests pre-setup execution
 │   │   │   └───
+│   │   ├───cypress   // E2E Tests configuration folder
+│   │   │   │
+│   │   │   ├───downloads
+│   │   │   │
+│   │   │   ├───e2e
+│   │   │   │
+│   │   │   ├───fixtures
+│   │   │   │
+│   │   │   └───support
 │   │   │
-│   │   │   jest.config.js   // Jest config file
-│   │   │   jest.setup.js   // Jest tests pre-setup execution
+│   │   │   cypress.config.js   // E2E Tests (Cypress) main config file
+│   │   │   jest.config.js   // Unit Tests (Jest) main config file
 │   │   └───
 │   │
 │   ├───lint
