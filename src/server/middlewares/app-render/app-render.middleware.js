@@ -1,4 +1,5 @@
 import fse from 'fs-extra';
+import { renderToString } from 'react-dom/server';
 
 import { DIST_APP_TEMPLATE } from '@config/environment';
 
@@ -72,7 +73,7 @@ const createRenderMiddleware = (options) => async (req, res, next) => {
 
     const template = await getTemplate();
 
-    const stringifiedApp = ReactDOMServer.renderToString(app);
+    const stringifiedApp = renderToString(app);
     const stringifiedAppState = getAppStateStr(store.getState());
     const { helmet } = helmetContext;
 

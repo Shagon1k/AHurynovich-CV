@@ -2,8 +2,9 @@
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
+            "test-utils/unit": ["./config/test/jest/test-utils"],
             "@config/*": ["./config/*"],
-            "@config": ["./config/*"],
+            "@config": ["./config"],
             "@client/*": ["./src/client/*"],
             "@server/*": ["./src/server/*"],
             "@common/*": ["./src/common/*"],
@@ -11,8 +12,8 @@
             "@utils": ["./src/common/utils"],
             "@services/*": ["./src/common/services/*"],
             "@services": ["./src/common/services"],
-            "@api": ["./src/client/api/"],
             "@api/*": ["./src/client/api/*"],
+            "@api": ["./src/client/api"],
             "@components/*":  ["./src/client/components/*"],
             "@pages/*": ["./src/client/components/pages/*"],
             "@base/*": ["./src/client/components/base/*"],

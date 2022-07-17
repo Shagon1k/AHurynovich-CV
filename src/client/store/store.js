@@ -1,3 +1,5 @@
+import { compose, applyMiddleware, createStore } from 'redux';
+
 import appReducer from './store.reducer';
 import rootSaga from './store.saga';
 import { getSagaMiddleware } from './middlewares';
@@ -19,11 +21,11 @@ export const createAppStore = async ({ initialState, isServer, services } = {}) 
      * Example of use: composeFn(applyMiddleware(thunk, loggerMiddleware))
      */
     const composeFn =
-        !isServer && typeof reduxDevtoolsCompose === 'function' ? reduxDevtoolsCompose : Redux.compose;
+        !isServer && typeof reduxDevtoolsCompose === 'function' ? reduxDevtoolsCompose : compose;
 
     const sagaMiddleware = getSagaMiddleware({ services });
-    const middlewareEnhancer = Redux.applyMiddleware(sagaMiddleware);
-    const store = Redux.createStore(appReducer, initialState, composeFn(middlewareEnhancer));
+    const middlewareEnhancer = applyMiddleware(sagaMiddleware);
+    const store = createStore(appReducer, initialState, composeFn(middlewareEnhancer));
 
     await sagaMiddleware.run(rootSaga).toPromise();
 

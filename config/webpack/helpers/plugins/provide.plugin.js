@@ -2,10 +2,6 @@ import { ProvidePlugin } from 'webpack';
 
 const DEFAULT_CONFIG = {
     React: 'react',
-    ReactDOMClient: 'react-dom/client',
-    ReactDOMServer: 'react-dom/server',
-    ReactRedux: 'react-redux',
-    Redux: 'redux',
     PropTypes: 'prop-types',
 };
 
