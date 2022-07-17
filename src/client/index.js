@@ -1,3 +1,4 @@
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { createApp } from './application';
 import { createAppStore } from './store/store';
 import { createServices } from '@services';
@@ -28,9 +29,9 @@ const startClientApp = async () => {
     const app = createApp({ isServer: false, store: appStore, services });
 
     if (WITH_SSR) {
-        ReactDOMClient.hydrateRoot(appContainer, app);
+        hydrateRoot(appContainer, app);
     } else {
-        const appRoot = ReactDOMClient.createRoot(appContainer);
+        const appRoot = createRoot(appContainer);
         appRoot.render(app);
     }
 };
