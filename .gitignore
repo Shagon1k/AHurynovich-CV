@@ -9,6 +9,7 @@ jspm_packages
 
 # testing
 /coverage
+/**/**/cypress/videos
 
 # production
 build

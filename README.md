@@ -247,8 +247,11 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 > ***Note**: Even though CSR approach is used as primary, application is also able to follow SSR approach.*
 
 ### CSR approach's tasks:
+> ***Note**: Default CSR approach Client host port: 1337.*
+
 **Start:**
-- `npm start` (`npm run dev`) - Client development build task -> start with Watcher
+- `npm start` (`npm run build:client:and:start:dev`) - Client development build task -> start with Webpack Watcher
+- `npm run build:client:and:start:prod` - Client production build task -> start hosting (using [http-server](https://www.npmjs.com/package/http-server))
 
 **Build:**
 - `npm run build:client` - Client general build task (development is default)
@@ -262,6 +265,8 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run build:and:deploy:s3:nc` - Client production build task -> deployment task for static AWS S3 hosting (no confirm)
 
 ### SSR approach's tasks:
+> ***Note**: Default SSR approach Server host port: 3000.*
+
 **Start:**
 - `npm run start:wssr` - Server start
 - `npm run start:wssr:debug` - Server start with Debug
@@ -280,7 +285,13 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run build:clean` - Clean build ("dist") folder
 
 **Test:**
-- `npm test` (`npm run test`) - run Application Unit Tests
+- Unit Testing
+    - `npm test` (`npm run test:unit`) - run Application Unit Tests
+- E2E Testing
+    - `npm test:e2e` (`npm run test:e2e:prod`) - run Application E2E Tests (production build used)
+    - `npm run test:e2e:dev` - open launcher of Application E2E Tests (development build used)
+    - `npm run test:e2e:run` - run Application E2E Tests (preliminary Application build REQUIRED (1337 port))
+    - `npm run test:e2e:open` - open launcher of Application E2E Tests (preliminary Application build REQUIRED (1337 port))
 
 **Lint:**
 - `npm run lint:scripts` - Lint JS files
