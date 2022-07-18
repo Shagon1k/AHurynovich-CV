@@ -311,5 +311,7 @@ Consider:
 - change favicon
 - adapt lint (stylelint BPs must!)
 - scss variables BP
+- adapt .vscode settings/launch files
+- setup GTM
 - !!! Consider SSR + Lazy Loading (React18 Suspense usage + renderToPipeableStream, Loadable-Components package, etc.)
 - PWA support: manifest.json is already created. However, in case application need to have full PWA support - ServiceWorker should be added.
