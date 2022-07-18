@@ -7,15 +7,24 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Client CSR host",
+            "name": "[CSR] Run Client host",
             "url": "http://localhost:1337",
             "webRoot": "${workspaceFolder}"
         },
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Server",
-            "program": "${workspaceFolder}\\dist\\server\\index.js"
+            "name": "[SSR] Run Server",
+            "program": "${workspaceRoot}/dist/server/index.js"
+        },
+        {
+            "type": "node",
+            "name": "Run Unit Tests",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+            "args": ["--config", "./config/test/jest.config.js"],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
         }
     ]
 }
