@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getIsHelloSelector } from '@selectors/_example/hello.selector';
-import { makeHello } from '@reducers/_example/hello.actions';
-import { changeLanguage } from '@reducers/i18n/i18n.actions';
+import { selectIsHello } from '@slices/_example/hello.selector';
+import { makeHello } from '@slices/_example/hello.slice';
+import { changeLanguage } from '@slices/i18n/i18n.slice';
 import ExampleComponent from './_Example.component';
 
 const ExampleContainer = () => {
@@ -11,7 +11,7 @@ const ExampleContainer = () => {
         dispatch(makeHello());
         dispatch(changeLanguage('ru'));
     };
-    const isHello = useSelector(getIsHelloSelector);
+    const isHello = useSelector(selectIsHello);
 
     return <ExampleComponent onMakeHelloClick={handleMakeHelloClick} isHello={isHello} />;
 };

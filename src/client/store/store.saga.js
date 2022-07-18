@@ -1,7 +1,7 @@
 import { fork, spawn, all } from 'redux-saga/effects';
 
-import { initAppInfo } from '@reducers/app-info/app-info.saga';
-import { initI18n, watchI18n } from '@reducers/i18n/i18n.saga';
+import { initAppInfo } from '@slices/app-info/app-info.saga';
+import { initI18n, watchI18n } from '@slices/i18n/i18n.saga';
 
 const watchSagas = [watchI18n];
 const startSagas = [initAppInfo, initI18n];

@@ -18,8 +18,7 @@
             "@pages/*": ["./src/client/components/pages/*"],
             "@base/*": ["./src/client/components/base/*"],
             "@reusables/*": ["./src/client/reusables/*"],
-            "@reducers/*": ["./src/client/store/reducers/*"],
-            "@selectors/*": ["./src/client/store/selectors/*"]
+            "@slices/*": ["./src/client/store/slices/*"],
         }
     },
     "include": ["src/**/*", "config/**/*/*"]

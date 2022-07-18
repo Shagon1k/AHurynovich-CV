@@ -32,8 +32,7 @@ Documentation and guidelines for application's Client.
     - **[some-name]** - (*/reusables/[some-name].js*) - reusables common (e.g. React Context files reused both for Custom Hook and HOC);
 - **[Store](/src/client/store/store.js)** - (*/store*) - used to handle Global State Management (Redux);
     - **[Middlewares](/src/client/store/middlewares/index.js)** - (*/store/middlewares*) - Redux middlewares (e.g. saga.middleware.js);
-    - **[Reducers](/src/client/store/reducers/)** - (*/store/reducers*) - Redux reducers with according Actions/Sagas;
-    - **[Selectors](/src/client/store/selectors/)** - (*/store/selectors*) - Redux's state selectors;
+    - **[Slices](/src/client/store/slices/)** - (*/store/slices*) - Redux (Redux-Toolkit) slices with according Reducers/Actions/Sagas/Selectors;
 - **[Styles](/src/client/styles/)** - (*/styles*) - used to collect general styles;
 
 ## Folder's Conventions
@@ -58,17 +57,19 @@ Documentation and guidelines for application's Client.
     - Custom Hook/HOC should have consistent name with each other (e.g. use-services.hook.js and with-services.hoc.js);
     - if added Custom Hook/HOC need something common (rare case, e.g. React Context) - add it to */reusables* root folder;
 - Adding new **Store** slice:
-    - add specific reducer to */reducers* folder;
-    - new folder name should be consistent with inner file names (e.g. app-info/app-info.reducer.js);
-    - do not forget to update *store/sore.reducer.js* and *store/sore.saga.js*;
-    - consider whether selectors need, if yes - selector file name should be consistent with according reducer (e.g. app-info.reducer.js and app-info.selector.js);
+    - add specific slice to */store/slices* folder;
+    - new folder name should be consistent with inner file names (e.g. app-info/app-info.slice.js);
+    - in [name].slice.js Redux's slice "actions" should be independent exports when Redux's slice "reducer" should be default export;
+    - consider whether selectors need, if yes - selector file name should be consistent with according slice (e.g. app-info.selector.js);
+    - consider whether side-effects handling need, if yes - saga file name should be consistent with according slice (e.g. app-info.saga.js);
+    - do not forget to update *store/store.reducer.js*, *store/store.saga.js* and *store/store.js*;
 - Adding new **Store** Middleware:
-    - add specific middleware to */middlewares* folder;
+    - add specific middleware to */store/middlewares* folder;
     - do not forget to add index export file;
     - do not forget to update *store/store.js*;
 - Follow **files naming conventions**:
     - each new folder/file name should follow kebab-case rule EXCEPT Components (*/components*) which should follow CamelCase rule;
-    - each new entity file name should follow according entity template: `[name].reducer.js`, `[name].actions.js`, `[name].middleware.js`, `[SomeName].component.js`, [SomeName].container.js`, etc;
+    - each new entity file name should follow according entity template: `[name].slice.js`, `[name].saga.js`, `[name].middleware.js`, `[SomeName].component.js`, `[SomeName].container.js`, etc;
 
 ## Folder's Structure
 ```
@@ -103,9 +104,7 @@ Documentation and guidelines for application's Client.
 │   │
 │   ├───middlewares
 │   │
-│   ├───reducers
-│   │
-│   ├───selectors
+│   ├───slices
 │   │
 │   │   store.js
 │   │   store.reducer.js

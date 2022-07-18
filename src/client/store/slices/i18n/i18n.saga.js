@@ -1,6 +1,8 @@
 import { call, getContext, put, takeLatest } from 'redux-saga/effects';
-import { setAppLanguage } from '@reducers/app-info/app-info.actions';
-import { CHANGE_LANGUAGE } from './i18n.constants';
+import { setAppLanguage } from '@slices/app-info/app-info.slice';
+import { ACTION_TYPES } from './i18n.slice';
+
+const { CHANGE_LANGUAGE } = ACTION_TYPES;
 
 /**
  * Initializes application i18n

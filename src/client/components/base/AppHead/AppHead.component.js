@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Helmet as HelmetAsync } from 'react-helmet-async';
 import HelmetSync from 'react-helmet';
 
-import { getLanguage } from '@selectors/app-info.selector';
+import { getLanguage } from '@slices/app-info/app-info.selector';
 
 const AppHead = () => {
     const languageCode = useSelector(getLanguage);
