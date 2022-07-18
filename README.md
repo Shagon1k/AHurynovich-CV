@@ -25,7 +25,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - **View rendering** - [React](https://reactjs.org/)
 - **View styling** - [SCSS](https://sass-lang.com/) + [CSS-Modules](https://webpack.js.org/loaders/css-loader/#modules)
 - **Routing** - [React-Router](https://reactrouter.com/)
-- **Application State management** - [Redux](https://redux.js.org/) + [Redux-Saga](https://redux-saga.js.org/)
+- **Application State management** - [Redux](https://redux.js.org/) (through [Redux-Toolkit](https://redux-toolkit.js.org/)) + [Redux-Saga](https://redux-saga.js.org/)
 - **I18n utility** - [i18next](https://www.i18next.com/)
 - **Document Head management** - [React-Helmet](https://www.npmjs.com/package/react-helmet) OR [React-Helmet-Async](https://www.npmjs.com/package/react-helmet-async) (SSR approach)
 - **Device Detection utility** - [Mobile Detect](https://www.npmjs.com/package/mobile-detect)
@@ -163,9 +163,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   │
 │   │   │   ├───middlewares
 │   │   │   │
-│   │   │   ├───reducers
-│   │   │   │
-│   │   │   ├───selectors
+│   │   │   ├───slices
 │   │   │   │
 │   │   │   │   store.js   // main Store setup file (used for both CSR and SSR approaches)
 │   │   │   │   store.reducer.js   // main reducer setup file

@@ -1,5 +1,5 @@
 import { getContext, put } from 'redux-saga/effects';
-import { setDeviceInfo } from './app-info.actions';
+import { setDeviceInfo } from './app-info.slice';
 
 /**
  * Enhances store with base application information (e.g. device type, language, etc.)

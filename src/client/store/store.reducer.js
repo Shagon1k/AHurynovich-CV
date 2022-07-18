@@ -1,14 +1,12 @@
-import { combineReducers } from 'redux';
-
-import hello from './reducers/_example/hello.reducer';
-import appInfo from '@reducers/app-info/app-info.reducer';
+import hello from '@slices/_example/hello.slice';
+import appInfo from '@slices/app-info/app-info.slice';
 
 /**
  * Main application reducer
  */
-const appReducer = combineReducers({
+const appReducer = {
     hello,
     appInfo,
-});
+};
 
 export default appReducer;

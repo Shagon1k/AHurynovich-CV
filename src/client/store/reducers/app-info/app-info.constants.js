@@ -1,2 +1,0 @@
-export const SET_DEVICE_INFO = 'SET_DEVICE_INFO';
-export const SET_APP_LANGUAGE = 'SET_LANGUAGE';
