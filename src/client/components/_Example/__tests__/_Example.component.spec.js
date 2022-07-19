@@ -1,6 +1,7 @@
 // NOTE: Gherkin style is recommended.
 
 import { getRenderWithProviders, screen } from 'test-utils/unit';
+
 import Example from '../_Example.component';
 
 const render = getRenderWithProviders();

@@ -156,7 +156,7 @@ module.exports = {
     setupFiles: [`${path.resolve(CONFIG_DIR)}/test/jest/jest.setup.js`],
 
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
-    setupFilesAfterEnv: ['@testing-library/jest-dom'],
+    setupFilesAfterEnv: [`${path.resolve(CONFIG_DIR)}/test/jest/jest.setupAfterEnv.js`],
 
     // The number of seconds after which a test is considered as slow and reported as such in the results.
     slowTestThreshold: 2,
@@ -195,10 +195,10 @@ module.exports = {
     // testURL: "http://localhost",
 
     // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
-    fakeTimers: {
-        enableGlobally: true,
-        timerLimit: 1000,
-    },
+    // fakeTimers: {
+    //     enableGlobally: true,
+    //     timerLimit: 1000,
+    // },
 
     // A map from regular expressions to paths to transformers
     transform: {
