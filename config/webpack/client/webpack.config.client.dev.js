@@ -3,7 +3,7 @@ import { getWebpackProgressBarPlugin, getWebpackDefinePlugin, getWebpackHmrPlugi
 
 const devConfig = {
     mode: WEBPACK_MODE_DEV,
-    devtool: 'eval-source-map',
+    devtool: 'inline-source-map',
     watch: true,
     plugins: [
         getWebpackHmrPlugin(),
