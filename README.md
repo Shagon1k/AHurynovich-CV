@@ -44,9 +44,11 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 #### Unit Testing
 - **Unit Testing framework** - [Jest](https://jestjs.io/)
 - **React Components testing utility** - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+- **Unit Testing A11y** - [Jest-Axe](https://www.npmjs.com/package/jest-axe)
 #### E2E testing
 - **E2E Testing framework** - [Cypress](https://www.cypress.io/)
 - **Test Cases commands extend utility** - [Cypress Testing Library](https://testing-library.com/docs/cypress-testing-library/intro/)
+- **E2E Testing A11y** - [Cypress-Axe](https://www.npmjs.com/package/cypress-axe)
 
 ### Other
 - **Application CI/CD utility** - [CircleCI](https://circleci.com/)
@@ -84,7 +86,8 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   │   │   index.js
 │   │   │   │   └───
 │   │   │   │
-│   │   │   │   jest.setup.js   // Jest tests pre-setup execution
+│   │   │   │   jest.setupAfterEnv.js   // Jest pre-setup execution (after installed to environment)
+│   │   │   │   jest.setup.js   // Jest pre-setup execution (before installed to environment)
 │   │   │   └───
 │   │   ├───cypress   // E2E Tests configuration folder
 │   │   │   │
@@ -94,7 +97,11 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   │
 │   │   │   ├───fixtures
 │   │   │   │
-│   │   │   └───support
+│   │   │   ├───support
+│   │   │   │
+│   │   │   │   cypress.config.a11y.json   // E2E A11y Tests override configuration
+│   │   │   │   cypress.config.e2e.json   // E2E General Tests override configuration
+│   │   │   └───
 │   │   │
 │   │   │   cypress.config.js   // E2E Tests (Cypress) main config file
 │   │   │   jest.config.js   // Unit Tests (Jest) main config file
@@ -283,13 +290,13 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run build:clean` - Clean build ("dist") folder
 
 **Test:**
-- Unit Testing
-    - `npm test` (`npm run test:unit`) - run Application Unit Tests
-- E2E Testing
-    - `npm test:e2e` (`npm run test:e2e:prod`) - run Application E2E Tests (production build used)
-    - `npm run test:e2e:dev` - open launcher of Application E2E Tests (development build used)
-    - `npm run test:e2e:run` - run Application E2E Tests (preliminary Application build REQUIRED (1337 port))
-    - `npm run test:e2e:open` - open launcher of Application E2E Tests (preliminary Application build REQUIRED (1337 port))
+- **Unit Testing**
+    - `npm test` (`npm run test:unit`) - run Application Unit Tests (Common + A11y)
+- **E2E Testing**
+    - `npm run test:e2e` (`npm run test:e2e:dev`) - run All (Common + A11y) E2E Tests (development build used)
+    - `npm run test:e2e:dev:open` - open launcher of All (Common + A11y) E2E Tests (development build used)
+    - `npm run test:e2e:common:prod` - run Common E2E Tests (production build used)
+    - `npm run test:e2e:a11y:prod` - run A11y E2E Tests (production build used)
 
 **Lint:**
 - `npm run lint:scripts` - Lint JS files

@@ -1,4 +1,14 @@
 const { defineConfig } = require('cypress'); // eslint-disable-line no-undef
+const fs = require('fs-extra'); // eslint-disable-line no-undef
+const path = require('path'); // eslint-disable-line no-undef
+
+const TYPE_ALL = 'all';
+
+function getConfigurationByFile(file) {
+    const pathToConfigFile = path.resolve('cypress', `${file}.json`);
+
+    return fs.readJson(pathToConfigFile);
+}
 
 module.exports = defineConfig({
     e2e: {
@@ -8,9 +18,17 @@ module.exports = defineConfig({
          */
         baseUrl: 'http://localhost:1337',
         port: 3005,
-        // eslint-disable-next-line no-unused-vars
         setupNodeEvents(on, config) {
-            // implement node event listeners here
+            const type = config.env.configType || TYPE_ALL;
+
+            if (type === TYPE_ALL) {
+                return {};
+            }
+
+            const fileName = `cypress.config.${type}`;
+            const overrideConfig = getConfigurationByFile(fileName);
+
+            return overrideConfig;
         },
     },
 });

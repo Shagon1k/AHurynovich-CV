@@ -28,6 +28,7 @@ module.exports = {
         /** Tests variables */
         jest: 'readonly',
         describe: 'readonly',
+        xdescribe: 'readonly',
         beforeEach: 'readonly',
         afterEach: 'readonly',
         beforeAll: 'readonly',
