@@ -3,7 +3,7 @@ import { getWebpackProgressBarPlugin, getWebpackDefinePlugin } from '../helpers/
 
 const prodConfig = {
     mode: WEBPACK_MODE_PROD,
-    devtool: 'eval-cheap-module-source-map',
+    devtool: 'source-map',
     plugins: [
         getWebpackDefinePlugin({
             IS_PRODUCTION: true,

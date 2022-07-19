@@ -310,6 +310,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 TBD once general setup be finished
 Consider:
 - index html content
+- Add note about SourceMaps for production build: was decided to use them ('source-map' webpack "devtool" value): 1) easy debug potential error; 2) it could potentially help others to learn/advice, there is MIT License for code => who cares about stealing? :D. Alternatively sourcemaps generation could be configured to be hosted to some authentication-based URL so be used only with access provided.
 - serverless file replace
 - robots.txt file replace
 - circleci config replace
