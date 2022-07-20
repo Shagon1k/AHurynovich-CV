@@ -16,7 +16,7 @@ jobs:
           key: package-cache-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-  lint-test:
+  lint-and-test:
     docker:
       - image: cimg/node:16.11.1
     steps:
@@ -36,6 +36,9 @@ jobs:
       - checkout
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: Snyk Authentication
+          command: snyk auth SNYK_TOKEN
       - run:
           name: Code Vulnerabilities Scan
           command: npm run sca:test
@@ -91,7 +94,7 @@ workflows:
               ignore:
                 - main
                 - develop
-      - lint-test:
+      - lint-and-test:
           requires:
             - install-packages
           filters:
@@ -114,7 +117,7 @@ workflows:
             branches:
               only:
                 - develop
-      - lint-test:
+      - lint-and-test:
           requires:
             - install-packages
           filters:
@@ -130,7 +133,7 @@ workflows:
                 - develop
       - build:
           requires:
-            - lint-test
+            - lint-and-test
             - build-clean
           filters:
             branches:
@@ -143,7 +146,7 @@ workflows:
             branches:
               only:
                 - main
-      - lint-test:
+      - lint-and-test:
           requires:
             - install-packages
           filters:
@@ -159,7 +162,7 @@ workflows:
                 - main
       - build:
           requires:
-            - lint-test
+            - lint-and-test
             - build-clean
           filters:
             branches:
@@ -169,7 +172,7 @@ workflows:
           type: approval
           requires:
             - build
-            - lint-test
+            - lint-and-test
           filters:
             branches:
               only:
