@@ -35,10 +35,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        key: package-cache-{{ checksum "package-lock.json" }}
+          key: package-cache-{{ checksum "package-lock.json" }}
       - run:
-        name: Code vulnerabilities Scan
-        command: npm run sca:test
+          name: Code Vulnerabilities Scan
+          command: npm run sca:test
   build-clean:
     docker:
       - image: cimg/node:16.11.1
