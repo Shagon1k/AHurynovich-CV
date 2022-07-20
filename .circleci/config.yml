@@ -38,7 +38,7 @@ jobs:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Show Token
-          command: echo SNYK_TOKEN
+          command: echo $SNYK_TOKEN
       - run:
           name: Snyk Authentication
           command: npm run sca:auth ${{ secrets.SNYK_TOKEN }}
