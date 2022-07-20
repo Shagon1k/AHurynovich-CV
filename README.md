@@ -311,6 +311,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run sca:test` - Scan for vulnerabilities for known issues (with disrupting processes) - CI/CD integration
 - `npm run sca:test:dev` - Scan for vulnerabilities for known issues (with disrupting processes), include dev dependencies
 - `npm run sca:monitor` - Scan for vulnerabilities with exposing and storing results snapshot (without disrupting processes)
+- `npm run sca:auth` - SCA tool (Snyk) authenticate (auth token required)
 
 ## Boilerplate Guide
 TBD once general setup be finished
