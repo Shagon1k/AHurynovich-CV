@@ -29,7 +29,7 @@ jobs:
       - run:
           name: Testing (Unit Tests)
           command: npm run test:unit
-  sca:test:
+  sca-test:
     docker:
       - image: cimg/node:16.11.1
     steps:
@@ -38,8 +38,8 @@ jobs:
         key: package-cache-{{ checksum "package-lock.json" }}
       - run:
         name: Code vulnerabilities Scan
-        command: npm run sca:test
-  build:clean:
+        command: npm run sca-test
+  build-clean:
     docker:
       - image: cimg/node:16.11.1
     steps:
@@ -48,7 +48,7 @@ jobs:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Build Clean
-          command: npm run build:clean
+          command: npm run build-clean
   build:
     docker:
       - image: cimg/node:16.11.1
@@ -99,7 +99,7 @@ workflows:
               ignore:
                 - main
                 - develop
-      - sca:test:
+      - sca-test:
           requires:
             - install-packages
           filters:
@@ -121,7 +121,7 @@ workflows:
             branches:
               only:
                 - develop
-      - build:clean:
+      - build-clean:
           requires:
             - install-packages
           filters:
@@ -131,7 +131,7 @@ workflows:
       - build:
           requires:
             - lint-test
-            - build:clean
+            - build-clean
           filters:
             branches:
               only:
@@ -150,7 +150,7 @@ workflows:
             branches:
               only:
                 - main
-      - build:clean:
+      - build-clean:
           requires:
             - install-packages
           filters:
@@ -160,7 +160,7 @@ workflows:
       - build:
           requires:
             - lint-test
-            - build:clean
+            - build-clean
           filters:
             branches:
               only:
