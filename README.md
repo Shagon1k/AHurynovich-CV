@@ -55,6 +55,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - **AWS Serverless deployment** - [Serverless](https://www.serverless.com/)
 - **Git Hooks utility** - [Husky](https://typicode.github.io/husky/#/)
 - **Search Engine configuration** - [Robots](https://www.robotstxt.org/)
+- **Code vulnerabilities Scan tool** - [Snyk](https://snyk.io/)
 
 ## Project Structure
 ```
@@ -306,6 +307,12 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run lint` - Lint all (JS+Styles) files
 - `npm run lint:fix` - Lint all (JS+Styles) files with autofix
 
+**Code vulnerabilities scan/monitor:**
+- `npm run sca:test` - Scan for vulnerabilities for known issues (with disrupting processes) - CI/CD integration
+- `npm run sca:test:dev` - Scan for vulnerabilities for known issues (with disrupting processes), include dev dependencies
+- `npm run sca:monitor` - Scan for vulnerabilities with exposing and storing results snapshot (without disrupting processes)
+- `npm run sca:auth` - SCA tool (Snyk) authenticate (auth token required)
+
 ## Boilerplate Guide
 TBD once general setup be finished
 Consider:
@@ -323,3 +330,4 @@ Consider:
 - setup GTM
 - !!! Consider SSR + Lazy Loading (React18 Suspense usage + renderToPipeableStream, Loadable-Components package, etc.)
 - PWA support: manifest.json is already created. However, in case application need to have full PWA support - ServiceWorker should be added.
+- Add vulnerabilities scan (snyk) auth notes

@@ -16,7 +16,7 @@ jobs:
           key: package-cache-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-  lint-test:
+  lint:
     docker:
       - image: cimg/node:16.11.1
     steps:
@@ -26,9 +26,29 @@ jobs:
       - run:
           name: Linting
           command: npm run lint
+  test-unit:
+    docker:
+      - image: cimg/node:16.11.1
+    steps:
+      - checkout
+      - restore_cache:
+          key: package-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Testing (Unit Tests)
           command: npm run test:unit
+  test-sca:
+    docker:
+      - image: cimg/node:16.11.1
+    steps:
+      - checkout
+      - restore_cache:
+          key: package-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: Snyk Authentication
+          command: npm run sca:auth $SNYK_TOKEN
+      - run:
+          name: Code Vulnerabilities Scan
+          command: npm run sca:test
   build-clean:
     docker:
       - image: cimg/node:16.11.1
@@ -81,7 +101,15 @@ workflows:
               ignore:
                 - main
                 - develop
-      - lint-test:
+      - lint:
+          requires:
+            - install-packages
+          filters:
+            branches:
+              ignore:
+                - main
+                - develop
+      - test-unit:
           requires:
             - install-packages
           filters:
@@ -96,7 +124,14 @@ workflows:
             branches:
               only:
                 - develop
-      - lint-test:
+      - lint:
+          requires:
+            - install-packages
+          filters:
+            branches:
+              only:
+                - develop
+      - test-unit:
           requires:
             - install-packages
           filters:
@@ -112,7 +147,8 @@ workflows:
                 - develop
       - build:
           requires:
-            - lint-test
+            - lint
+            - test-unit
             - build-clean
           filters:
             branches:
@@ -125,7 +161,21 @@ workflows:
             branches:
               only:
                 - main
-      - lint-test:
+      - lint:
+          requires:
+            - install-packages
+          filters:
+            branches:
+              only:
+                - main
+      - test-unit:
+          requires:
+            - install-packages
+          filters:
+            branches:
+              only:
+                - main
+      - test-sca:
           requires:
             - install-packages
           filters:
@@ -141,7 +191,9 @@ workflows:
                 - main
       - build:
           requires:
-            - lint-test
+            - lint
+            - test-unit
+            - test-sca
             - build-clean
           filters:
             branches:
@@ -151,7 +203,6 @@ workflows:
           type: approval
           requires:
             - build
-            - lint-test
           filters:
             branches:
               only:
