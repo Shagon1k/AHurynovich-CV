@@ -58,7 +58,7 @@ jobs:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Build Clean
-          command: npm run build-clean
+          command: npm run build:clean
   build:
     docker:
       - image: cimg/node:16.11.1
