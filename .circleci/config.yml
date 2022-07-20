@@ -29,7 +29,17 @@ jobs:
       - run:
           name: Testing (Unit Tests)
           command: npm run test:unit
-  build-clean:
+  sca:test:
+    docker:
+      - image: cimg/node:16.11.1
+    steps:
+      - checkout
+      - restore_cache:
+        key: package-cache-{{ checksum "package-lock.json" }}
+      -run:
+        name: Code vulnerabilities Scan
+        command: npm run sca:test
+  build:clean:
     docker:
       - image: cimg/node:16.11.1
     steps:
@@ -89,6 +99,14 @@ workflows:
               ignore:
                 - main
                 - develop
+      - sca:test:
+          requires:
+            - install-packages
+          filters:
+            branches:
+              ignore:
+                - main
+                - develop
   Pre-commitment (develop) workflow:
     jobs:
       - install-packages:
@@ -103,7 +121,7 @@ workflows:
             branches:
               only:
                 - develop
-      - build-clean:
+      - build:clean:
           requires:
             - install-packages
           filters:
@@ -113,7 +131,7 @@ workflows:
       - build:
           requires:
             - lint-test
-            - build-clean
+            - build:clean
           filters:
             branches:
               only:
@@ -132,7 +150,7 @@ workflows:
             branches:
               only:
                 - main
-      - build-clean:
+      - build:clean:
           requires:
             - install-packages
           filters:
@@ -142,7 +160,7 @@ workflows:
       - build:
           requires:
             - lint-test
-            - build-clean
+            - build:clean
           filters:
             branches:
               only:

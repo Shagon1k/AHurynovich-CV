@@ -61,6 +61,9 @@
         "lint:scripts:fix": "eslint ./src --fix",
         "lint:styles": "stylelint ./src/**/**/*.scss",
         "lint:styles:fix": "stylelint ./src/**/**/*.scss --fix",
+        "sca:test": "snyk test --org=shagon1k-jlf",
+        "sca:test:dev": "snyk test --org=shagon1k-jlf --dev",
+        "sca:monitor": "snyk monitor --org=shagon1k-jlf",
         "prepare": "husky install"
     },
     "eslintConfig": {
@@ -151,6 +154,7 @@
         "sass-loader": "^10.2.0",
         "serverless": "^2.8.0",
         "serverless-finch": "^2.6.0",
+        "snyk": "^1.976.0",
         "start-server-and-test": "^1.14.0",
         "style-loader": "^2.0.0",
         "stylelint": "^14.1.0",
