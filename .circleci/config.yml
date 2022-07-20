@@ -117,14 +117,6 @@ workflows:
               ignore:
                 - main
                 - develop
-      - test-sca:
-          requires:
-            - install-packages
-          filters:
-            branches:
-              ignore:
-                - main
-                - develop
   Pre-commitment (develop) workflow:
     jobs:
       - install-packages:
@@ -210,9 +202,6 @@ workflows:
       - hold:
           type: approval
           requires:
-            - lint
-            - test-unit
-            - test-sca
             - build
           filters:
             branches:
