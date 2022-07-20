@@ -61,6 +61,7 @@
         "lint:scripts:fix": "eslint ./src --fix",
         "lint:styles": "stylelint ./src/**/**/*.scss",
         "lint:styles:fix": "stylelint ./src/**/**/*.scss --fix",
+        "sca:auth": "snyk auth",
         "sca:test": "snyk test --org=shagon1k-jlf",
         "sca:test:dev": "snyk test --org=shagon1k-jlf --dev",
         "sca:monitor": "snyk monitor --org=shagon1k-jlf",

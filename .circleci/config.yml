@@ -37,6 +37,9 @@ jobs:
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
+          name: Snyk Authentication
+          command: npm run sca:auth SNYK_TOKEN
+      - run:
           name: Code Vulnerabilities Scan
           command: npm run sca:test
   build-clean:
