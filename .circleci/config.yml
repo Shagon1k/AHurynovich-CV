@@ -244,7 +244,7 @@ workflows:
                 - main
       - deploy-app:
           requires:
-            - hold-deploy-app
+            - Approve Application Deploy
           filters:
             branches:
               only:
@@ -258,7 +258,7 @@ workflows:
                 - main
       - build-components-library:
           requires:
-            - hold-deploy-components-library
+            - Approve Components Library Deploy
           filters:
             branches:
               only:
