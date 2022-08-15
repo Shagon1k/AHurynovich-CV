@@ -4,6 +4,7 @@ import { SRC_DIR, SRC_CLIENT_DIR, SRC_SERVER_DIR, SRC_COMMON_DIR, CONFIG_DIR } f
 const getAlias = () => ({
     src: path.resolve(SRC_DIR),
     '@config': path.resolve(CONFIG_DIR),
+    '@sb-constants': path.resolve(CONFIG_DIR, 'storybook/constants.js'),
     '@client': path.resolve(SRC_CLIENT_DIR),
     '@server': path.resolve(SRC_SERVER_DIR),
     '@common': path.resolve(SRC_COMMON_DIR),

@@ -9,9 +9,12 @@ Documentation and guidelines for application's config.
 - **[E2E Tests config](/config/test/cypress.config.js)** - (*/test/cypress*) - used for storing E2E Tests framework configuration (Cypress config) and E2E test cases;
     - **[E2E Common Tests config](/config/test/cypress/cypress.config.a11y.json)** - Common E2E tests configuration;
     - **[E2E A11y Tests config](/config/test/cypress/cypress.config.e2e.json)** - A11y E2E tests configuration;
+    > ***Note**: Adding new **E2E Tests** please follow **Folder's Conventions** (see below).*
 - **[Code Styling config](/config/lint/)** - (*/lint*) - used for storing Code Styling tools configuration (**[ESlint config](/config/lint/eslint/eslint.config.js)** and **[Stylelint config](/config/lint/stylelint/stylelint.config.js)**);
 - **[Code Formatting config](/config/prettier/prettier.config.js)** - (*/prettier*) - used for storing Code Formatter tool configuration (Prettier);
 - **[Application bundler config](/config/webpack/)** - (*/webpack*) - used for storing Bundler configuration (Webpack). **[Client config](/config/webpack/client/webpack.config.client.babel.js)** and **[Server config](/config/webpack/server/webpack.config.server.babel.js)** are separated, reusable **[Webpack utilities](/config/webpack/helpers/)** ([loaders](/config/webpack/helpers/loaders/index.js), [resolvers](/config/webpack/helpers/resolve/index.js), [plugins](/config/webpack/helpers/plugins/index.js)) moved to specific folder;
+    > ***Note**: **[StoryBook Webpack config](/config/webpack/storybook/)** is also located here. After it is used in **[StoryBook config folder](/config/storybook/)**.*
+- **[UI Components Library](/config/storybook/main.js)** - (*/storybook*) - general configuration for Components Library (StoryBook);
 - **[Search Engines traversing config](/config/robots/robots.txt)** - (*/robots*) - configuration to enhance Web Crawlers search engine (setup, restrictions, sitemap, etc.);
 
 > ***Note**: **JS compiler config** ([Babel config](/babel.config.js)) is located in project root folder.*
@@ -25,6 +28,12 @@ Documentation and guidelines for application's config.
     - each new main config name should follow template: `[name].config.js`;
     - if config has sub-types - according files names should follow template: `[name].config.[sub-type][...].{js,json}`;
     - if new Webpack helpers (loaders, plugins, resolve) need to be added - files names should follow according template, e.g. `[name].loader.js`;
+- Adding new **E2E tests**:
+    - if new general E2E test should be added, add it in scope of */test/cypress/e2e* folder;
+    - if new A11y E2E test should be added, add it in scope of */test/cypress/e2e/a11y* folder;
+    - Follow **E2E tests files naming conventions**:
+        - general E2E test file name should follow template: `[name].cy.js`;
+        - A11y E2E test file name should follow template: `[name].a11y.cy.js`;
 
 ## Folder's Structure
 ```
@@ -36,7 +45,7 @@ Documentation and guidelines for application's config.
 │
 ├───test
 │   │
-│   ├───jest   // Unit Tests configuration folder
+│   ├───jest
 │   │   │
 │   │   ├───test-utils
 │   │   │   │
@@ -49,7 +58,7 @@ Documentation and guidelines for application's config.
 │   │   │   jest.setupAfterEnv.js
 │   │   │   jest.setup.js
 │   │   └───
-│   ├───cypress   // E2E Tests configuration folder
+│   ├───cypress
 │   │   │
 │   │   ├───downloads
 │   │   │
@@ -59,12 +68,12 @@ Documentation and guidelines for application's config.
 │   │   │
 │   │   ├───support
 │   │   │
-│   │   │   cypress.config.a11y.json   // E2E A11y Tests override configuration
-│   │   │   cypress.config.e2e.json   // E2E General Tests override configuration
+│   │   │   cypress.config.a11y.json
+│   │   │   cypress.config.e2e.json
 │   │   └───
 │   │
-│   │   cypress.config.js   // E2E Tests (Cypress) main config file
-│   │   jest.config.js   // Unit Tests (Jest) main config file
+│   │   cypress.config.js
+│   │   jest.config.js
 │   └───
 │
 ├───lint
@@ -87,7 +96,26 @@ Documentation and guidelines for application's config.
 │   │   │
 │   │   └───resolve
 │   │
-│   └───server
+│   ├───server
+│   │
+│   └───storybook
+│
+├───storybook
+│   │
+│   ├───docs
+│   │
+│   ├───helpers
+│   │   │
+│   │   ├───argTypes
+│   │   │
+│   │   └───decorators
+│   │
+│   │   constants.js
+│   │   main.js
+│   │   preview.js
+│   │   webpack.config.storybook.es5.js
+│   │   serverless.yml
+│   └───
 │
 ├───robots
 │   │

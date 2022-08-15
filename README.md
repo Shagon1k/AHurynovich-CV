@@ -56,6 +56,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - **Git Hooks utility** - [Husky](https://typicode.github.io/husky/#/)
 - **Search Engine configuration** - [Robots](https://www.robotstxt.org/)
 - **Code vulnerabilities Scan tool** - [Snyk](https://snyk.io/)
+- **UI Components Library tool** - [StoryBook](https://storybook.js.org/)
 
 ## Project Structure
 ```
@@ -118,17 +119,40 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │
 │   ├───webpack
 │   │   │
-│   │   ├───client   // webpack Client configuration
+│   │   ├───client   // Webpack Client configuration
 │   │   │
 │   │   ├───helpers
 │   │   │   │
-│   │   │   ├───loaders   // webpack loaders (babel-loader, sass-loader, etc.)
+│   │   │   ├───loaders   // Webpack loaders (babel-loader, sass-loader, etc.)
 │   │   │   │
-│   │   │   ├───plugins   // webpack plugins (Favicon plugin, HTML plugin, etc.)
+│   │   │   ├───plugins   // Webpack plugins (Favicon plugin, HTML plugin, etc.)
 │   │   │   │
-│   │   │   └───resolve   // webpack resolves (aliases, etc.)
+│   │   │   └───resolve   // Webpack resolves (aliases, etc.)
 │   │   │
-│   │   └───server   // webpack Server configuration
+│   │   ├───server   // Webpack Server configuration
+│   │   │
+│   │   └───storybook   // Webpack Components Library (StoryBook) configuration
+│   │
+│   ├───storybook   // UI Components Library configuration
+│   │   │
+│   │   ├───docs
+│   │   │
+│   │   ├───helpers
+│   │   │   │
+│   │   │   ├───argTypes   // StoryBook global argTypes and args (e.g. device type)
+│   │   │   │
+│   │   │   └───decorators   // StoryBook global decorators (e.g. Providers wrapper)
+│   │   │
+│   │   │   constants.js   // StoryBook sharable constants
+│   │   │   main.js   // StoryBook main config file
+│   │   │   preview.js   // StoryBook global stories setup (decorators, parameters, args, etc.)
+│   │   │   webpack.config.storybook.es5.js   // StoryBook Webpack config loader (use Babel transpiler to provide ES6 Webpack config usage)
+│   │   │   serverless.yml   // AWS Serverless Components Library deployment configuration
+│   │   └───
+│   │
+│   │   cypress.config.js   // E2E Tests (Cypress) main config file
+│   │   jest.config.js   // Unit Tests (Jest) main config file
+│   ├───
 │   │
 │   ├───robots
 │   │   │
@@ -240,7 +264,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   .editorconfig   // editor basic setup for IDE
 │   babel.config.js   // Babel configuration
 │   jsconfig.json   // VSCode JS configuration file for indicating directory root, aliases setup, etc.
-│   serverless.yml   // AWS Serverless deployment configuration
+│   serverless.yml   // AWS Serverless Application deployment configuration
 │   package.json
 │   package-lock.json
 │   .gitignore
@@ -265,10 +289,8 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run build:client:prod` - Client production build task
 
 **Deploy:**
-- `npm run deploy:s3` - deployment task for static AWS S3 hosting (default)
-- `npm run deploy:s3:nc` - deployment task for static AWS S3 hosting (no confirm)
-- `npm run build:and:deploy:s3` - Client production build task -> deployment task for static AWS S3 hosting
-- `npm run build:and:deploy:s3:nc` - Client production build task -> deployment task for static AWS S3 hosting (no confirm)
+- `npm run deploy:s3` - deployment task for Application static AWS S3 hosting (no confirm)
+- `npm run build:and:deploy:s3` - Client production build task -> deployment task for static AWS S3 hosting (no confirm)
 
 ### SSR approach's tasks:
 > ***Note**: Default SSR approach Server host port: 3000.*
@@ -300,25 +322,32 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
     - `npm run test:e2e:a11y:prod` - run A11y E2E Tests (production build used)
 
 **Lint:**
-- `npm run lint:scripts` - Lint JS files
-- `npm run lint:scripts:fix` - Lint JS files with autofix
-- `npm run lint:styles` - Lint Styles files
-- `npm run lint:styles:fix` - Lint Styles files with autofix
-- `npm run lint` - Lint all (JS+Styles) files
-- `npm run lint:fix` - Lint all (JS+Styles) files with autofix
+- `npm run lint:scripts` - lint JS files
+- `npm run lint:scripts:fix` - lint JS files with autofix
+- `npm run lint:styles` - lint Styles files
+- `npm run lint:styles:fix` - lint Styles files with autofix
+- `npm run lint` - lint all (JS+Styles) files
+- `npm run lint:fix` - lint all (JS+Styles) files with autofix
 
 **Code vulnerabilities scan/monitor:**
-- `npm run sca:test` - Scan for vulnerabilities for known issues (with disrupting processes) - CI/CD integration
-- `npm run sca:test:dev` - Scan for vulnerabilities for known issues (with disrupting processes), include dev dependencies
-- `npm run sca:monitor` - Scan for vulnerabilities with exposing and storing results snapshot (without disrupting processes)
+- `npm run sca:test` - scan for vulnerabilities for known issues (with disrupting processes) - CI/CD integration
+- `npm run sca:test:dev` - scan for vulnerabilities for known issues (with disrupting processes), include dev dependencies
+- `npm run sca:monitor` - scan for vulnerabilities with exposing and storing results snapshot (without disrupting processes)
 - `npm run sca:auth` - SCA tool (Snyk) authenticate (auth token required)
+
+**Components Library maintaining:**
+- `npm run storybook:start` - start Components Library application (localy)
+- `npm run storybook:build` - build Components Library (dist folder: 'storybook-static')
+- `npm run storybook:build:clean` - clean Components Library build
+- `npm run storybook:deploy:s3` - deployment task for Components Library static AWS S3 hosting (no confirm)
+- `npm run storybook:build:and:deploy:s3` - build Components Library -> deployment task for Components Library static AWS S3 hosting (no confirm)
 
 ## Boilerplate Guide
 TBD once general setup be finished
 Consider:
 - index html content
 - Add note about SourceMaps for production build: was decided to use them ('source-map' webpack "devtool" value): 1) easy debug potential error; 2) it could potentially help others to learn/advice, there is MIT License for code => who cares about stealing? :D. Alternatively sourcemaps generation could be configured to be hosted to some authentication-based URL so be used only with access provided.
-- serverless file replace
+- serverless file replace \ AWS static host management
 - robots.txt file replace
 - circleci config replace
 - application config
@@ -331,3 +360,4 @@ Consider:
 - !!! Consider SSR + Lazy Loading (React18 Suspense usage + renderToPipeableStream, Loadable-Components package, etc.)
 - PWA support: manifest.json is already created. However, in case application need to have full PWA support - ServiceWorker should be added.
 - Add vulnerabilities scan (snyk) auth notes
+- Make README documentation more convenient (use tables, etc.)
