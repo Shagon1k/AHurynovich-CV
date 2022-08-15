@@ -175,6 +175,7 @@ module.exports = {
                         'outline-style',
                         'outline-width',
                         'box-shadow',
+                        'cursor',
                     ],
                 },
                 {
@@ -206,7 +207,6 @@ module.exports = {
                         'background-position-y',
                         'background-repeat',
                         'background-size',
-                        'cursor',
                     ],
                 },
                 {

@@ -2,6 +2,7 @@ import { Provider as ReduxStateProvider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
+import PropTypes from 'prop-types';
 
 import { ServicesProvider } from '@reusables/services-context';
 import Head from './components/base/AppHead';

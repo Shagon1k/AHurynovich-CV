@@ -40,7 +40,6 @@ module.exports = {
         after: 'readonly',
         /** Webpack Provide plugin variables */
         React: 'readonly',
-        PropTypes: 'readonly',
         /** Other variables */
         process: 'readonly',
         module: 'readonly',

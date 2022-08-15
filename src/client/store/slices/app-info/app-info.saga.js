@@ -6,7 +6,7 @@ import { setDeviceInfo } from './app-info.slice';
  */
 export function* initAppInfo() {
     const { deviceDetect } = yield getContext('services');
-    const deviceInfo = deviceDetect.getDeviceInfo() || {};
+    const deviceInfo = deviceDetect.deviceInfo || {};
 
     yield put(
         setDeviceInfo({

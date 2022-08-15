@@ -1,0 +1,15 @@
+.button {
+    padding: 3px;
+    background-color: #a88f00;
+    color: #fff;
+
+    &:disabled {
+        background-color: #eee;
+    }
+
+    &:not([disabled]):hover {
+        cursor: pointer;
+        background-color: #fff;
+        color: #a88f00;
+    }
+}

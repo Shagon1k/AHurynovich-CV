@@ -1,4 +1,4 @@
-service: ahurynovich-cv
+service: ahurynovich-cv-components-library
 
 frameworkVersion: '2'
 
@@ -12,9 +12,9 @@ provider:
 
 custom:
   client:
-    bucketName: ahurynovich-cv-s3-bucket
+    bucketName: ahurynovich-cv-components-library-s3-bucket
     # [other configuration parameters]
-    distributionFolder: dist/client
+    distributionFolder: storybook-static
     indexDocument: index.html
 
 plugins:
