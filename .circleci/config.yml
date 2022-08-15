@@ -234,7 +234,7 @@ workflows:
               only:
                 - main
       - hold-deploy-app:
-          name: Approve Application Deploy
+          name: [approve-app-deploy]
           type: approval
           requires:
             - build-app
@@ -244,21 +244,21 @@ workflows:
                 - main
       - deploy-app:
           requires:
-            - Approve Application Deploy
+            - [approve-app-deploy]
           filters:
             branches:
               only:
                 - main
       - hold-deploy-components-library:
           type: approval
-          name: Approve Components Library Deploy
+          name: [approve-components-lib-deploy]
           filters:
             branches:
               only:
                 - main
       - build-components-library:
           requires:
-            - Approve Components Library Deploy
+            - [approve-components-lib-deploy]
           filters:
             branches:
               only:
