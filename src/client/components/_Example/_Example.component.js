@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useTranslate } from '@reusables/custom-hooks/use-translate.hook';
 
 import styles from './_Example.module.scss';

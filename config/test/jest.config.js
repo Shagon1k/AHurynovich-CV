@@ -1,4 +1,4 @@
-// NOTE: As Environment config use ES6 modules, Babel Register usage here is required to transform
+// NOTE: As we need to use ES6 modules, Babel Register usage here is required to transform ES6 -> ES5
 require('@babel/register'); // eslint-disable-line no-undef
 
 const path = require('path'); // eslint-disable-line no-undef

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { render } from '@testing-library/react';
 import { ServicesProvider } from '@reusables/services-context';
 
@@ -6,11 +7,11 @@ const createServicesMock = (overrideServices) => ({
         translate: (key) => key,
     },
     deviceDetect: {
-        getDeviceInfo: () => ({
-            isMobile: true,
-            isDesktop: false,
+        deviceInfo: {
+            isMobile: false,
+            isDesktop: true,
             isTablet: false,
-        }),
+        },
     },
     ...overrideServices,
 });

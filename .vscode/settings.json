@@ -8,6 +8,28 @@
     "[html]": {
         "files.insertFinalNewline": true
     },
+    "eslint.format.enable": true,
+    "eslint.trace.server": "off",
+    "eslint.nodeEnv": "",
+    "css.validate": false,
+    "scss.validate": false,
+    "stylelint.snippet": [
+        "css",
+        "less",
+        "postcss",
+        "scss"
+    ],
+    "stylelint.validate": [
+        "css",
+        "less",
+        "postcss",
+        "scss"
+    ],
     "javascript.preferences.quoteStyle": "single",
     "typescript.preferences.quoteStyle": "single",
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "javascript.suggest.completeFunctionCalls": true,
+    "typescript.suggest.completeFunctionCalls": true,
 }
