@@ -17,7 +17,7 @@ const getAlias = () => ({
     '@reusables': path.resolve(SRC_CLIENT_DIR, 'reusables'),
     '@slices': path.resolve(SRC_CLIENT_DIR, 'store/slices'),
     '@styles': path.resolve(SRC_CLIENT_DIR, 'styles'),
-    '@common-styles': path.resolve(SRC_CLIENT_DIR, 'styles/common'),
+    '@base-styles': path.resolve(SRC_CLIENT_DIR, 'styles/base'),
     '@base-styles-mixins': path.resolve(SRC_CLIENT_DIR, 'styles/base/_mixins'),
     '@base-styles-variables': path.resolve(SRC_CLIENT_DIR, 'styles/base/_variables'),
 });

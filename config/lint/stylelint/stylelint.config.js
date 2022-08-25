@@ -4,13 +4,12 @@ const VARIABLE_REGEX = [/\$.*/];
 const ALLOWED_BREAKPOINTS_MIN_MAX_WIDTH = ALLOWED_BREAKPOINTS_PX.map((v) => `${v}px`).concat(VARIABLE_REGEX);
 
 module.exports = {
-    extends: ['stylelint-config-standard-scss'],
-    plugins: ['stylelint-prettier', 'stylelint-scss', 'stylelint-order'],
+    extends: ['stylelint-config-prettier', 'stylelint-config-standard-scss'],
+    plugins: ['stylelint-scss', 'stylelint-order'],
     reportInvalidScopeDisables: true,
     reportNeedlessDisables: true,
     reportDescriptionlessDisables: true,
     rules: {
-        'prettier/prettier': true,
         'string-quotes': 'single',
         indentation: 4,
         'scss/at-mixin-argumentless-call-parentheses': 'never',

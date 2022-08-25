@@ -1,4 +1,11 @@
-import { SRC_CLIENT_ENTRY, DIST_CLIENT_DIR, WITH_SSR, IS_DEV, SRC_ROBOTS_ENTRY } from '../../environment';
+import {
+    SRC_CLIENT_ENTRY,
+    DIST_CLIENT_DIR,
+    DIST_FONTS_PREFIX,
+    WITH_SSR,
+    IS_DEV,
+    SRC_ROBOTS_ENTRY,
+} from '../../environment';
 import {
     getWebpackHtmlPlugin,
     getWebpackDefinePlugin,
@@ -43,6 +50,13 @@ const commonConfig = {
     ],
     module: {
         rules: [
+            {
+                test: /\.(woff|woff2|ttf|eot)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: `${DIST_FONTS_PREFIX}[hash][ext][query]`,
+                },
+            },
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
