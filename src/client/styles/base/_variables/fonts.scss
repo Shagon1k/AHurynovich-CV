@@ -1,0 +1,32 @@
+// Application fonts related definitions
+
+// Primary font-face names
+$ff-primary-body-text-name: 'Raleway';
+$ff-primary-headings-name: 'Moyenage';
+
+// Font-face config
+$font-face-config: (
+    body-text: (
+        name: $ff-primary-body-text-name,
+        src: (
+            regular: '@client/assets/fonts/#{$ff-primary-body-text-name}-regular',
+            medium: '@client/assets/fonts/#{$ff-primary-body-text-name}-medium',
+            bold: '@client/assets/fonts/#{$ff-primary-body-text-name}-bold',
+        ),
+    ),
+    headings: (
+        name: $ff-primary-headings-name,
+        src: (
+            regular: '@client/assets/fonts/#{$ff-primary-headings-name}-regular',
+        ),
+    ),
+);
+
+// Fonts weights
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+
+// Fonts families
+$ff-body-text: $ff-primary-body-text-name, georgia, serif;
+$ff-headings: $ff-primary-headings-name, georgia, serif;

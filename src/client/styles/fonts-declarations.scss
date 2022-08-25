@@ -1,0 +1,28 @@
+// Application custom fonts declaration
+@use 'sass:map';
+@use '@base-styles-mixins/font-face' as *;
+@use '@base-styles-variables/fonts' as *;
+
+// Primary Body text font importing
+@include font-face(
+    map.get($font-face-config, body-text, name),
+    map.get($font-face-config, body-text, src, regular),
+    $fw-regular
+);
+@include font-face(
+    map.get($font-face-config, body-text, name),
+    map.get($font-face-config, body-text, src, medium),
+    $fw-medium
+);
+@include font-face(
+    map.get($font-face-config, body-text, name),
+    map.get($font-face-config, body-text, src, bold),
+    $fw-bold
+);
+
+// Primary Headings text font importing
+@include font-face(
+    map.get($font-face-config, headings, name),
+    map.get($font-face-config, headings, src, regular),
+    $fw-regular
+);

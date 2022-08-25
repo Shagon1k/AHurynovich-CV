@@ -169,6 +169,7 @@
         "start-server-and-test": "^1.14.0",
         "style-loader": "^2.0.0",
         "stylelint": "^14.1.0",
+        "stylelint-config-prettier": "^9.0.3",
         "stylelint-config-standard-scss": "^3.0.0",
         "stylelint-order": "^5.0.0",
         "stylelint-prettier": "^2.0.0",

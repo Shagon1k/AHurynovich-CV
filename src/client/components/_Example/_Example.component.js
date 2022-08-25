@@ -8,7 +8,7 @@ const ExampleComponent = ({ onMakeHelloClick, isHello }) => {
 
     return (
         <>
-            <div>Test</div>
+            <div className={styles.test}>Test</div>
             <button name='Make Hello' onClick={onMakeHelloClick}>
                 Make Hello
             </button>

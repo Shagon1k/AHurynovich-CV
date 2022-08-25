@@ -8,7 +8,7 @@ import { ServicesProvider } from '@reusables/services-context';
 import Head from './components/base/AppHead';
 import Routes from './components/routes';
 
-import './application.module.scss';
+import styles from './application.module.scss';
 
 const Application = ({ options }) => {
     const { isServer, path, store, services, helmetContext } = options;
@@ -27,7 +27,7 @@ const Application = ({ options }) => {
             <ServicesProvider value={services}>
                 <AppRouter {...routerProps}>
                     <Head />
-                    <div className='appContainer'>
+                    <div className={styles['app-container']}>
                         <Routes />
                     </div>
                 </AppRouter>
