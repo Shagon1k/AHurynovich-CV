@@ -3,27 +3,27 @@
 **CONTENTS**:
 1. [ Typography configuration ](#typography-configuration)
 2. [ Fonts configuration ](#fonts-configuration)
-2.1 [ Font families ](#font-families)
-2.2 [ Font weights ](#font-weights)
-2.3 [ Custom Fonts declarations ](#custom-fonts-declarations)
+    2.1 [ Font families ](#font-families)
+    2.2 [ Font weights ](#font-weights)
+    2.3 [ Custom Fonts declarations ](#custom-fonts-declarations)
 
 ## Typography configuration
 **Typography configuration**: [/src/client/styles/base/_mixins/typography.scss](/src/client/styles/base/_mixins/typography.scss)
 
 Current **Typography setup** is the following:
 - **Headings:**
-    - h1 (*@mixin h1()*);
-    - h2 (*@mixin h2()*);
-    - h3 (*@mixin h3()*);
+    - h1 (`@mixin h1()`);
+    - h2 (`@mixin h2()`);
+    - h3 (`@mixin h3()`);
 - **Titles:**
-    - t1 (*@mixin t1()*);
-    - t2 (*@mixin t2()*);
+    - t1 (`@mixin t1()`);
+    - t2 (`@mixin t2()`);
 - **Body texts:**
-    - b1 (*@mixin b1()*);
-    - b2 (*@mixin b2()*);
-    - b3 (*@mixin b3()*);
+    - b1 (`@mixin b1()`);
+    - b2 (`@mixin b2()`);
+    - b3 (`@mixin b3()`);
 
-> ***Warning!** In case any text need to be added to Application, please try to use one of existing Typography mixins as much as possible.*
+> ***Warn:** In case any text need to be added to Application, please try to use one of existing Typography mixins as much as possible.*
 
 **Typography configuration** uses customized [Fonts configuration](#fonts-configuration).
 
@@ -38,7 +38,7 @@ Currently application have two **Font Families** in use:
     > ***Note**: Primary headings font family used - 'Moyenage' (custom)*
 
 
-> ***Warning!** Please do not use any other Font Families except currently set up!*
+> ***Warn:** Please do not use any other Font Families except currently set up!*
 
 ### Font weights
 Configured **Font Weights** are:
@@ -46,7 +46,7 @@ Configured **Font Weights** are:
 - ***Medium** (`$fw-medium`)* - weight = 500;
 - ***Bold** (`$fw-bold`)* - weight = 700;
 
-> ***Warning!** Please do not use any other Font Weights except currently set up!*
+> ***Warn:** Please do not use any other Font Weights except currently set up!*
 
 ### Custom Fonts declarations
 **Custom fonts** files: [/src/client/assets/fonts/](/src/client/assets/fonts/)
