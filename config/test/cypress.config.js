@@ -1,5 +1,5 @@
 const { defineConfig } = require('cypress'); // eslint-disable-line no-undef
-const fs = require('fs-extra'); // eslint-disable-line no-undef
+const fse = require('fs-extra'); // eslint-disable-line no-undef
 const path = require('path'); // eslint-disable-line no-undef
 
 const TYPE_ALL = 'all';
@@ -7,7 +7,7 @@ const TYPE_ALL = 'all';
 function getConfigurationByFile(file) {
     const pathToConfigFile = path.resolve('cypress', `${file}.json`);
 
-    return fs.readJson(pathToConfigFile);
+    return fse.readJson(pathToConfigFile);
 }
 
 module.exports = defineConfig({
