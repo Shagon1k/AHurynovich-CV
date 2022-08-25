@@ -1,12 +1,13 @@
 @use '@styles/main';
-@use '@base-styles-variables/colors';
+@use '@base-styles-mixins/typography';
 
 $app-width: 1500px;
 
 .app-container {
+    @include typography.b3;
+
     width: 100%;
     max-width: $app-width;
     margin: 0 auto;
     padding: 0 40px;
-    color: colors.$default;
 }
