@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Linting
           command: npm run lint
-  test-unit:
+  test-unit-integration:
     docker:
       - image: cimg/node:16.11.1
     steps:
@@ -34,8 +34,8 @@ jobs:
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: Testing (Unit Tests)
-          command: npm run test:unit
+          name: Testing (Unit and Integration Tests)
+          command: npm run test
   test-sca:
     docker:
       - image: cimg/node:16.11.1
@@ -143,7 +143,7 @@ workflows:
               ignore:
                 - main
                 - develop
-      - test-unit:
+      - test-unit-integration:
           requires:
             - install-packages
           filters:
@@ -165,7 +165,7 @@ workflows:
             branches:
               only:
                 - develop
-      - test-unit:
+      - test-unit-integration:
           requires:
             - install-packages
           filters:
@@ -182,7 +182,7 @@ workflows:
       - build-app:
           requires:
             - lint
-            - test-unit
+            - test-unit-integration
             - build-clean-app
           filters:
             branches:
@@ -202,7 +202,7 @@ workflows:
             branches:
               only:
                 - main
-      - test-unit:
+      - test-unit-integration:
           requires:
             - install-packages
           filters:
@@ -226,7 +226,7 @@ workflows:
       - build-app:
           requires:
             - lint
-            - test-unit
+            - test-unit-integration
             - test-sca
             - build-clean-app
           filters:

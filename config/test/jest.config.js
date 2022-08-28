@@ -87,7 +87,8 @@ module.exports = {
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
     moduleNameMapper: {
-        '^test-utils/unit': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils`,
+        '^@test-utils/(.*)$': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils/$1`,
+        '^@test-utils': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils`,
         '^.+\\.s?css$': 'identity-obj-proxy',
         '^src/(.*)$': `${path.resolve(SRC_DIR)}/$1`,
         '^@config/(.*)$': `${path.resolve(CONFIG_DIR)}/$1`,
@@ -152,10 +153,10 @@ module.exports = {
     // Allows you to use a custom runner instead of Jest's default test runner
     // runner: "jest-runner",
 
-    // The paths to modules that run some code to configure or set up the testing environment before each test
+    // The paths to modules that run some code to configure or set up the testing environment before each test (before the test framework is installed in the environment)
     setupFiles: [`${path.resolve(CONFIG_DIR)}/test/jest/jest.setup.js`],
 
-    // A list of paths to modules that run some code to configure or set up the testing framework before each test
+    // A list of paths to modules that run some code to configure or set up the testing framework before each test (after the test framework has been installed in the environment.)
     setupFilesAfterEnv: [`${path.resolve(CONFIG_DIR)}/test/jest/jest.setupAfterEnv.js`],
 
     // The number of seconds after which a test is considered as slow and reported as such in the results.

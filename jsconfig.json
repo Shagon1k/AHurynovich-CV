@@ -2,7 +2,6 @@
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
-            "test-utils/unit": ["./config/test/jest/test-utils"],
             "@config/*": ["./config/*"],
             "@config": ["./config"],
             "@sb-constants": ["./config/storybook/constants.js"],
@@ -20,6 +19,8 @@
             "@base/*": ["./src/client/components/base/*"],
             "@reusables/*": ["./src/client/reusables/*"],
             "@slices/*": ["./src/client/store/slices/*"],
+            "@test-utils": ["./config/test/jest/test-utils"],
+            "@test-utils/*": ["./config/test/jest/test-utils/*"]
         }
     },
     "include": ["src/**/*", "config/**/*/*"]

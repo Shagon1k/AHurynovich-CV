@@ -41,10 +41,10 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - **Code formatter** - [Prettier](https://prettier.io/)
 
 ### Testing
-#### Unit Testing
-- **Unit Testing framework** - [Jest](https://jestjs.io/)
+#### Unit/Integration Testing
+- **Testing framework** - [Jest](https://jestjs.io/)
 - **React Components testing utility** - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-- **Unit Testing A11y** - [Jest-Axe](https://www.npmjs.com/package/jest-axe)
+- **Testing A11y** - [Jest-Axe](https://www.npmjs.com/package/jest-axe)
 #### E2E testing
 - **E2E Testing framework** - [Cypress](https://www.cypress.io/)
 - **Test Cases commands extend utility** - [Cypress Testing Library](https://testing-library.com/docs/cypress-testing-library/intro/)
@@ -78,7 +78,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │
 │   ├───test
 │   │   │
-│   │   ├───jest   // Unit Tests configuration folder
+│   │   ├───jest   // Unit/Integration Tests configuration folder
 │   │   │   │
 │   │   │   ├───test-utils   // Testing utils enhancement (e.g. RTL custom "render" util)
 │   │   │   │   │
@@ -106,7 +106,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   └───
 │   │   │
 │   │   │   cypress.config.js   // E2E Tests (Cypress) main config file
-│   │   │   jest.config.js   // Unit Tests (Jest) main config file
+│   │   │   jest.config.js   // Unit/Integration Tests (Jest) main config file
 │   │   └───
 │   │
 │   ├───lint
@@ -150,8 +150,6 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   serverless.yml   // AWS Serverless Components Library deployment configuration
 │   │   └───
 │   │
-│   │   cypress.config.js   // E2E Tests (Cypress) main config file
-│   │   jest.config.js   // Unit Tests (Jest) main config file
 │   ├───
 │   │
 │   ├───robots
@@ -313,8 +311,8 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run build:clean` - Clean build ("dist") folder
 
 **Test:**
-- **Unit Testing**
-    - `npm test` (`npm run test:unit`) - run Application Unit Tests (Common + A11y)
+- **Unit/Integration Testing**
+    - `npm test` (`npm run test`) - run Application Unit/Integration Tests (Common + A11y)
 - **E2E Testing**
     - `npm run test:e2e` (`npm run test:e2e:dev`) - run All (Common + A11y) E2E Tests (development build used)
     - `npm run test:e2e:dev:open` - open launcher of All (Common + A11y) E2E Tests (development build used)
