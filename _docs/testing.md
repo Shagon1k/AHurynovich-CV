@@ -2,7 +2,8 @@
 
 **CONTENTS**:
 1. [ General information ](#general-information)
-2. [ Unit and Integration testing ](#unit-and-integration-testing)\
+    1.1 [ CI CD Quality Gates ](#ci-cd-quality-gates)
+2. [ Unit and Integration testing ](#unit-and-integration-testing)
     2.1 [ Unit and Integration testing Configuration ](#unit-and-integration-testing-configuration)
     2.2 [ General Unit and Integration testing Conventions ](#general-unit-and-integration-testing-conventions)
     2.3 [ Components testing Conventions ](#components-testing-conventions)
@@ -16,6 +17,13 @@
     > ***Note**: **A11y** testing is also supported on Unit/Integration level and covered by [Jest-Axe](https://www.npmjs.com/package/jest-axe).*
 - **E2E** testing is covered by [Cypress](https://www.cypress.io/) and extended by [Cypress Testing Library](https://testing-library.com/docs/cypress-testing-library/intro/);
     > ***Note**: **A11y** testing is also supported on E2E level and covered by [Cypress-Axe](https://www.npmjs.com/package/cypress-axe).*
+
+### CI CD Quality Gates
+**Unit/Integration** testing is **added to CI/CD pipeline** as a job:
+- for ***feature*** and ***develop*** branches Test job only **runs existing Unit and Integration tests** failing the pipeline in case any test was not passed;
+    > ***Note**: Follow `test-unit-integration` job of [CircleCI config](/.circleci/config.yml) for more details.*
+- for ***main*** branch Test job also includes **Reports generation** (Results + Code Coverage). This reports than are used to visualize according test data in convenient way (*using **[CircleCI Test Insights](https://circleci.com/docs/insights-tests)** for displaying **test results** and **[CodeCov](https://about.codecov.io/)** to display **code coverage report***);
+    > ***Note**: Follow `test-unit-integration-with-reports` job of [CircleCI config](/.circleci/config.yml) for more details.*
 
 ## Unit and Integration testing
 
