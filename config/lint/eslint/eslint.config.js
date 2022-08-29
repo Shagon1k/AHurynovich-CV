@@ -43,6 +43,7 @@ module.exports = {
         /** Other variables */
         process: 'readonly',
         module: 'readonly',
+        global: 'readonly',
     },
     parser: '@babel/eslint-parser',
     parserOptions: {

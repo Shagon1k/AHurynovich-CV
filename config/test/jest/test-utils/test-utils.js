@@ -1,11 +1,6 @@
-/** NOTE: This file is used for RTL customization and new custom utils enhancement
- * https://testing-library.com/docs/react-testing-library/setup/#custom-render
- */
-
-import { getRenderWithProviders } from './custom-utils';
-
-// re-export RTL utils
+// re-export RTL and helpers utils
 export * from '@testing-library/react';
+export { default as userEvent } from '@testing-library/user-event';
 
-// additional utils
-export { getRenderWithProviders };
+// re-export A11y testing utils
+export { axe } from 'jest-axe';

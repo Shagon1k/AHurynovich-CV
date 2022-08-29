@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@2.0
+  codecov: codecov/codecov@3.2.3
 jobs:
   install-packages:
     docker:
@@ -10,7 +11,7 @@ jobs:
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: Install packages
+          name: "Install packages"
           command: npm install
       - save_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
@@ -24,9 +25,9 @@ jobs:
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: Linting
+          name: "Linting"
           command: npm run lint
-  test-unit:
+  test-unit-integration:
     docker:
       - image: cimg/node:16.11.1
     steps:
@@ -34,8 +35,24 @@ jobs:
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: Testing (Unit Tests)
-          command: npm run test:unit
+          name: "Testing (Unit and Integration Tests)"
+          command: npm run test:ci
+  test-unit-integration-with-reports:
+    docker:
+      - image: cimg/node:16.11.1
+    steps:
+      - checkout
+      - restore_cache:
+          key: package-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: "Testing (Unit and Integration Tests) with Reports"
+          command: npm run test:ci:with:reports
+      - store_artifacts:
+          path: ./test-reports
+      - store_test_results:
+          path: ./test-reports/test-results
+      - codecov/upload:
+          file: ./test-reports/test-coverage/cobertura-coverage.xml
   test-sca:
     docker:
       - image: cimg/node:16.11.1
@@ -44,10 +61,10 @@ jobs:
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: Snyk Authentication
+          name: "Snyk Authentication"
           command: npm run sca:auth $SNYK_TOKEN
       - run:
-          name: Code Vulnerabilities Scan
+          name: "Code Vulnerabilities Scan"
           command: npm run sca:test
   build-clean-app:
     docker:
@@ -57,7 +74,7 @@ jobs:
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: Cleaning previous Application Build
+          name: "Cleaning previous Application Build"
           command: npm run build:clean
   build-app:
     docker:
@@ -67,7 +84,7 @@ jobs:
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: Building Application
+          name: "Building Application"
           command: npm run build:client:prod
       - persist_to_workspace:
           root: .
@@ -88,7 +105,7 @@ jobs:
       - attach_workspace:
             at: .
       - run:
-          name: Deploying Application
+          name: "Deploying Application"
           command: npm run deploy:s3
   build-components-library:
     docker:
@@ -98,10 +115,10 @@ jobs:
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: Cleaning previous Components Library Build
+          name: "Cleaning previous Components Library Build"
           command: npm run storybook:build:clean
       - run:
-          name: Building Components Library
+          name: "Building Components Library"
           command: npm run storybook:build
       - persist_to_workspace:
           root: .
@@ -122,7 +139,7 @@ jobs:
       - attach_workspace:
             at: .
       - run:
-          name: Deploying Components Library
+          name: "Deploying Components Library"
           command: npm run storybook:deploy:s3
 
 workflows:
@@ -143,7 +160,7 @@ workflows:
               ignore:
                 - main
                 - develop
-      - test-unit:
+      - test-unit-integration:
           requires:
             - install-packages
           filters:
@@ -165,7 +182,7 @@ workflows:
             branches:
               only:
                 - develop
-      - test-unit:
+      - test-unit-integration:
           requires:
             - install-packages
           filters:
@@ -182,7 +199,7 @@ workflows:
       - build-app:
           requires:
             - lint
-            - test-unit
+            - test-unit-integration
             - build-clean-app
           filters:
             branches:
@@ -202,7 +219,7 @@ workflows:
             branches:
               only:
                 - main
-      - test-unit:
+      - test-unit-integration-with-reports:
           requires:
             - install-packages
           filters:
@@ -226,7 +243,7 @@ workflows:
       - build-app:
           requires:
             - lint
-            - test-unit
+            - test-unit-integration-with-reports
             - test-sca
             - build-clean-app
           filters:

@@ -5,6 +5,8 @@ const path = require('path'); // eslint-disable-line no-undef
 const environmentConfig = require('../environment/environment.config.js'); // eslint-disable-line no-undef
 const { SRC_DIR, SRC_CLIENT_DIR, SRC_SERVER_DIR, SRC_COMMON_DIR, CONFIG_DIR } = environmentConfig;
 
+const IS_TEST_REPORTS_ENABLED = process.env.TEST_SETUP === 'reports';
+
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
@@ -22,13 +24,13 @@ module.exports = {
     // clearMocks: false,
 
     // Indicates whether the coverage information should be collected while executing the test
-    // collectCoverage: false,
+    collectCoverage: IS_TEST_REPORTS_ENABLED,
 
     // An array of glob patterns indicating a set of files for which coverage information should be collected
     // collectCoverageFrom: undefined,
 
     // The directory where Jest should output its coverage files
-    coverageDirectory: 'coverage',
+    coverageDirectory: './test-reports/test-coverage',
 
     // An array of regexp pattern strings used to skip coverage collection
     coveragePathIgnorePatterns: ['/node_modules/'],
@@ -37,12 +39,7 @@ module.exports = {
     // coverageProvider: "babel",
 
     // A list of reporter names that Jest uses when writing coverage reports
-    coverageReporters: [
-        'json',
-        'text',
-        'lcov',
-        // "clover"
-    ],
+    coverageReporters: ['text', 'cobertura'],
 
     // An object that configures minimum threshold enforcement for coverage results
     // coverageThreshold: undefined,
@@ -87,7 +84,8 @@ module.exports = {
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
     moduleNameMapper: {
-        '^test-utils/unit': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils`,
+        '^@test-utils/(.*)$': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils/$1`,
+        '^@test-utils': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils`,
         '^.+\\.s?css$': 'identity-obj-proxy',
         '^src/(.*)$': `${path.resolve(SRC_DIR)}/$1`,
         '^@config/(.*)$': `${path.resolve(CONFIG_DIR)}/$1`,
@@ -116,7 +114,10 @@ module.exports = {
     // modulePathIgnorePatterns: [],
 
     // Activates notifications for test results
-    notify: true,
+    /** Note: Turning ON notify cause an issue with correct stopping of async operations ("Jest did not exit one second...").
+     * Please keep turned off. More details: https://github.com/facebook/jest/issues/7890
+     */
+    notify: false,
 
     // An enum that specifies notification mode. Requires { notify: true }
     // notifyMode: "failure-change",
@@ -128,7 +129,21 @@ module.exports = {
     // projects: undefined,
 
     // Use this configuration option to add custom reporters to Jest
-    // reporters: undefined,
+    reporters: IS_TEST_REPORTS_ENABLED
+        ? [
+              'default',
+              [
+                  'jest-junit',
+                  {
+                      suiteName: 'Unit/Integration test results',
+                      outputDirectory: './test-reports/test-results',
+                      outputName: 'test-results.xml',
+                      // Note: "file" attribute in JUnit result is REQUIRED for CircleCI/GitlabCI (https://github.com/jest-community/jest-junit#configuration)
+                      addFileAttribute: 'true',
+                  },
+              ],
+          ]
+        : undefined,
 
     // Automatically reset mock state between every test
     // resetMocks: false,
@@ -152,10 +167,10 @@ module.exports = {
     // Allows you to use a custom runner instead of Jest's default test runner
     // runner: "jest-runner",
 
-    // The paths to modules that run some code to configure or set up the testing environment before each test
+    // The paths to modules that run some code to configure or set up the testing environment before each test (before the test framework is installed in the environment)
     setupFiles: [`${path.resolve(CONFIG_DIR)}/test/jest/jest.setup.js`],
 
-    // A list of paths to modules that run some code to configure or set up the testing framework before each test
+    // A list of paths to modules that run some code to configure or set up the testing framework before each test (after the test framework has been installed in the environment.)
     setupFilesAfterEnv: [`${path.resolve(CONFIG_DIR)}/test/jest/jest.setupAfterEnv.js`],
 
     // The number of seconds after which a test is considered as slow and reported as such in the results.

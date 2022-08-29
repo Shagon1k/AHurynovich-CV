@@ -1,7 +1,5 @@
-// NOTE: Gherkin style is recommended.
-
-import { getRenderWithProviders } from 'test-utils/unit';
-import { axe } from 'jest-axe';
+import { axe } from '@test-utils';
+import { getRenderWithProviders } from '@test-utils/custom';
 
 import Example from '../_Example.component';
 
