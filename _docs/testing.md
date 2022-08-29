@@ -97,8 +97,8 @@ For convenience purpose:
 
 **[E2E Tests config](/config/test/cypress.config.js)** - (*/test/cypress*) - used for storing E2E Tests framework configuration (Cypress config) and E2E test cases;
 It ***consists of***:
-- **[E2E Common Tests config](/config/test/cypress/cypress.configa11y.json)** - Common E2E tests configuration;
-- **[E2E A11y Tests config](/config/test/cypress/cypress.config.e2ejson)** - A11y E2E tests configuration;
+- **[E2E Common Tests config](/config/test/cypress/cypress.config.common.json)** - Common E2E tests configuration;
+- **[E2E A11y Tests config](/config/test/cypress/cypress.config.a11y.json)** - A11y E2E tests configuration;
 
 ### E2E testing Conventions
 - mind that E2E tests are usually **the most expensive and time-consuming** test type, they are at the top of **[Testing Pyramid](https://automationpanda.com/2018/08/01/the-testing-pyramid/)**, so for each scenario:
