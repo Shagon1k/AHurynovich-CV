@@ -35,7 +35,7 @@ jobs:
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: "Testing (Unit and Integration Tests)"
+          name: "Testing (Unit and Integration Tests): verbosely"
           command: npm run test:ci
       - store_artifacts:
           path: ./test-reports
