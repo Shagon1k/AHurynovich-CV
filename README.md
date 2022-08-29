@@ -313,6 +313,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 **Test:**
 - **Unit/Integration Testing**
     - `npm test` (`npm run test`) - run Application Unit/Integration Tests (Common + A11y)
+    - `npm run test:ci` - run Application Unit/Integration Tests in CI mode (used for CI/CD pipeline level testing)
 - **E2E Testing**
     - `npm run test:e2e` (`npm run test:e2e:dev`) - run All (Common + A11y) E2E Tests (development build used)
     - `npm run test:e2e:dev:open` - open launcher of All (Common + A11y) E2E Tests (development build used)

@@ -9,6 +9,7 @@ jspm_packages
 
 # testing
 /coverage
+/test-reports
 /**/**/cypress/videos
 /**/**/cypress/screenshots
 

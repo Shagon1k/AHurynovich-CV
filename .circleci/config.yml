@@ -35,7 +35,19 @@ jobs:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Testing (Unit and Integration Tests)
-          command: npm run test
+          command: npm run test:ci
+  test-unit-integration-verbose:
+    docker:
+      - image: cimg/node:16.11.1
+    steps:
+      - checkout
+      - restore_cache:
+          key: package-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: Testing (Unit and Integration Tests)
+          command: npm run test:ci:verbose
+      - store_test_results:
+          path: ./test-reports/
   test-sca:
     docker:
       - image: cimg/node:16.11.1
@@ -143,7 +155,7 @@ workflows:
               ignore:
                 - main
                 - develop
-      - test-unit-integration:
+      - test-unit-integration-verbose:
           requires:
             - install-packages
           filters:

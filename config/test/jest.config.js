@@ -5,6 +5,8 @@ const path = require('path'); // eslint-disable-line no-undef
 const environmentConfig = require('../environment/environment.config.js'); // eslint-disable-line no-undef
 const { SRC_DIR, SRC_CLIENT_DIR, SRC_SERVER_DIR, SRC_COMMON_DIR, CONFIG_DIR } = environmentConfig;
 
+const IS_TEST_VERBOSE = process.env.TEST_SETUP === 'verbose';
+
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
@@ -22,7 +24,7 @@ module.exports = {
     // clearMocks: false,
 
     // Indicates whether the coverage information should be collected while executing the test
-    // collectCoverage: false,
+    collectCoverage: false, //IS_TEST_VERBOSE,
 
     // An array of glob patterns indicating a set of files for which coverage information should be collected
     // collectCoverageFrom: undefined,
@@ -37,12 +39,7 @@ module.exports = {
     // coverageProvider: "babel",
 
     // A list of reporter names that Jest uses when writing coverage reports
-    coverageReporters: [
-        'json',
-        'text',
-        'lcov',
-        // "clover"
-    ],
+    coverageReporters: ['json', 'text', 'lcov'],
 
     // An object that configures minimum threshold enforcement for coverage results
     // coverageThreshold: undefined,
@@ -117,7 +114,10 @@ module.exports = {
     // modulePathIgnorePatterns: [],
 
     // Activates notifications for test results
-    notify: true,
+    /** Note: Turning ON notify cause an issue with correct stopping of async operations ("Jest did not exit one second...").
+     * Please keep turned off. More details: https://github.com/facebook/jest/issues/7890
+     */
+    notify: false,
 
     // An enum that specifies notification mode. Requires { notify: true }
     // notifyMode: "failure-change",
@@ -129,7 +129,18 @@ module.exports = {
     // projects: undefined,
 
     // Use this configuration option to add custom reporters to Jest
-    // reporters: undefined,
+    reporters: IS_TEST_VERBOSE
+        ? [
+              'default',
+              [
+                  'jest-junit',
+                  {
+                      outputDirectory: './test-reports',
+                      outputName: 'results.xml',
+                  },
+              ],
+          ]
+        : undefined,
 
     // Automatically reset mock state between every test
     // resetMocks: false,
