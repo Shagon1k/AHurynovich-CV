@@ -47,9 +47,9 @@ jobs:
           name: Testing (Unit and Integration Tests)
           command: npm run test:ci:verbose
       - store_artifacts:
-          path: ./reports/junit
+          path: test-results
       - store_test_results:
-          path: ./reports/junit
+          path: test-results
   test-sca:
     docker:
       - image: cimg/node:16.11.1
