@@ -1,13 +1,17 @@
-@use '@base-styles-mixins/_example/make-blue';
 @use '@base-styles-mixins/bp';
+@use '@base-styles-mixins/typography';
+@use '@base-styles-variables/colors';
 
 .hello {
-    @include make-blue.make-blue;
+    @include typography.b1;
 
-    color: #f00;
-    font-weight: 600;
+    color: colors.$default;
 
     @include bp.lw(m) {
-        color: #000;
+        color: colors.$red;
     }
+}
+
+.test {
+    @include typography.h2;
 }

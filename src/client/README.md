@@ -26,7 +26,7 @@ Documentation and guidelines for application's Client.
     - **[Base](/src/client/components/base/)** - (*/components/base*) - base Components (Header, Icon, Button, etc.);
     - **[Pages](/src/client/components/pages/)** - (*/components/pages*) - pages Components (MainPage, etc.);
     - **[Routes](/src/client/components/routes/routes.component.js)** - (*/components/routes*) - routing (React-Router) configuration for application's pages;
-    > ***Note:** Adding Component's **Unit Tests** or adding Component to **UI Component Library** should follow according conventions (see below).*
+    > ***Note:** Covering Component with **Unit/Integration Tests** or adding Component to **UI Component Library** should follow according conventions (see below).*
 - **[Reusables](/src/client/reusables/)** - (*/reusables*) - used to collect React reusable entities (Custom Hooks, HOCs);
     - **[Custom Hooks](/src/client/reusables/custom-hooks/)** - (*/reusables/custom-hooks*) - Custom Hooks;
     - **[HOCs](/src/client/reusables/hocs/)** - (*/reusables/hocs*) - reusable HOCs;
@@ -71,19 +71,12 @@ Documentation and guidelines for application's Client.
 - Follow **files naming conventions**:
     - each new folder/file name should follow kebab-case rule EXCEPT Components (*/components*) which should follow CamelCase rule;
     - each new entity file name should follow according entity template: `[name].slice.js`, `[name].saga.js`, `[name].middleware.js`, `[SomeName].component.js`, `[SomeName].container.js`, etc;
-- Covering **Component** with **Unit Tests**:
-    - Unit Tests should be added in separate sub-folder (*\_\_tests\_\_*);
-    - if Component should be covered with A11y Unit Tests, it should be stored in scope (*/\_\_tests\_\_*) sub-folder in separate file;
-    - if Component tests require some solid mocking, it should be stored in scope of (*/\_\_tests\_\_*) sub-folder in separate file;
-    - Follow **Unit Tests files naming conventions**:
-        - general Unit Test file name should follow template: `[name].component.spec.js`;
-        - A11y Unit Test file name should follow template: `[name].component.a11y.spec.js`;
-        - Mock files should follow template: `[name].mock.js`;
+- Covering with **Unit/Integration Tests**: please check **[Testing Documentation](/_docs/testing.md)** for more details;
 - Adding **Component** to **UI Component Library**:
     - Story (Component Library description) should be added in separate sub-folder (*/\_\_stories\_\_*);
     - Story name is required to be stored in separate file (`[name].stories.constants.js`) by name `STORY_TITLE` and use one of generally described namespaces (follow */config/storybook/constants* -> `NAMESPACES` options);
     - don't forget to add your Component to Overview tab (follow */config/storybook/docs/Overview.stories.mdx* for details);
-    - Follow **Unit Tests files naming conventions**:
+    - Follow **Stories files naming conventions**:
         - Story file name should follow template: `[name].stories.js`;
         - Story constants file name should follow template: `[name].stories.constants.js`;
 

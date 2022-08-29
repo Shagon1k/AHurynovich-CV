@@ -1,0 +1,78 @@
+// Application typography definition
+@use '../_variables/fonts';
+@use '../_variables/colors';
+
+// Headings
+@mixin h1() {
+    color: colors.$default;
+    font-family: fonts.$ff-headings;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: fonts.$fw-regular;
+    line-height: 38px;
+}
+
+@mixin h2() {
+    color: colors.$default;
+    font-family: fonts.$ff-headings;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: fonts.$fw-regular;
+    line-height: 32px;
+}
+
+@mixin h3() {
+    color: colors.$default;
+    font-family: fonts.$ff-headings;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: fonts.$fw-regular;
+    line-height: 26px;
+}
+
+// Titles
+@mixin t1() {
+    color: colors.$default;
+    font-family: fonts.$ff-body-text;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: fonts.$fw-bold;
+    line-height: 24px;
+}
+
+@mixin t2() {
+    color: colors.$default;
+    font-family: fonts.$ff-body-text;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: fonts.$fw-bold;
+    line-height: 22px;
+}
+
+// Body text
+@mixin b1() {
+    color: colors.$default;
+    font-family: fonts.$ff-body-text;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: fonts.$fw-regular;
+    line-height: 22px;
+}
+
+@mixin b2() {
+    color: colors.$default;
+    font-family: fonts.$ff-body-text;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: fonts.$fw-regular;
+    line-height: 18px;
+}
+
+@mixin b3() {
+    color: colors.$default;
+    font-family: fonts.$ff-body-text;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: fonts.$fw-regular;
+    line-height: 16px;
+}
