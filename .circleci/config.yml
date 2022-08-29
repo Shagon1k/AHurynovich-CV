@@ -42,7 +42,7 @@ jobs:
       - store_test_results:
           path: ./test-reports/test-results
       - codecov/upload:
-          file: ./test-reports/test-coverage/cobertura-coverage
+          file: ./test-reports/test-coverage/cobertura-coverage.xml
   test-sca:
     docker:
       - image: cimg/node:16.11.1
