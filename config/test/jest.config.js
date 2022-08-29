@@ -135,8 +135,8 @@ module.exports = {
               [
                   'jest-junit',
                   {
-                      outputDirectory: './test-reports/results',
-                      outputName: 'results.xml',
+                      outputDirectory: './junit/rspec',
+                      outputName: 'rspec.xml',
                   },
               ],
           ]
