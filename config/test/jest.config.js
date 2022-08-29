@@ -135,7 +135,7 @@ module.exports = {
               [
                   'jest-junit',
                   {
-                      outputDirectory: './test-results/jest',
+                      outputDirectory: './test-reports/results',
                       outputName: 'results.xml',
                       // Note: "file" attribute in JUnit result is REQUIRED for CircleCI/GitlabCI (https://github.com/jest-community/jest-junit#configuration)
                       addFileAttribute: 'true',
