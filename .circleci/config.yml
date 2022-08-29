@@ -46,8 +46,8 @@ jobs:
       - run:
           name: Testing (Unit and Integration Tests)
           command: npm run test:ci:verbose
-      - store_artifacts:
-          path: test-results
+      # - store_artifacts:
+      #     path: test-results
       - store_test_results:
           path: test-results
   test-sca:
