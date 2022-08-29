@@ -5,7 +5,7 @@ const path = require('path'); // eslint-disable-line no-undef
 const environmentConfig = require('../environment/environment.config.js'); // eslint-disable-line no-undef
 const { SRC_DIR, SRC_CLIENT_DIR, SRC_SERVER_DIR, SRC_COMMON_DIR, CONFIG_DIR } = environmentConfig;
 
-const IS_TEST_VERBOSE = process.env.TEST_SETUP === 'verbose';
+const IS_TEST_REPORTS_ENABLED = process.env.TEST_SETUP === 'reports';
 
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
@@ -24,7 +24,7 @@ module.exports = {
     // clearMocks: false,
 
     // Indicates whether the coverage information should be collected while executing the test
-    collectCoverage: IS_TEST_VERBOSE,
+    collectCoverage: IS_TEST_REPORTS_ENABLED,
 
     // An array of glob patterns indicating a set of files for which coverage information should be collected
     // collectCoverageFrom: undefined,
@@ -129,7 +129,7 @@ module.exports = {
     // projects: undefined,
 
     // Use this configuration option to add custom reporters to Jest
-    reporters: IS_TEST_VERBOSE
+    reporters: IS_TEST_REPORTS_ENABLED
         ? [
               'default',
               [

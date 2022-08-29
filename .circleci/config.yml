@@ -35,8 +35,18 @@ jobs:
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: "Testing (Unit and Integration Tests): verbosely"
+          name: "Testing (Unit and Integration Tests)"
           command: npm run test:ci
+  test-unit-integration-with-reports:
+    docker:
+      - image: cimg/node:16.11.1
+    steps:
+      - checkout
+      - restore_cache:
+          key: package-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: "Testing (Unit and Integration Tests) with Reports"
+          command: npm run test:ci:with:reports
       - store_artifacts:
           path: ./test-reports
       - store_test_results:
@@ -209,7 +219,7 @@ workflows:
             branches:
               only:
                 - main
-      - test-unit-integration:
+      - test-unit-integration-with-reports:
           requires:
             - install-packages
           filters:
@@ -233,7 +243,7 @@ workflows:
       - build-app:
           requires:
             - lint
-            - test-unit-integration
+            - test-unit-integration-with-reports
             - test-sca
             - build-clean-app
           filters:
