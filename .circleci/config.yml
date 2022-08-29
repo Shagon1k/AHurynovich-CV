@@ -47,7 +47,7 @@ jobs:
           name: Testing (Unit and Integration Tests)
           command: npm run test:ci:verbose
       - store_test_results:
-          path: ./junit/rspec/
+          path: junit
   test-sca:
     docker:
       - image: cimg/node:16.11.1
