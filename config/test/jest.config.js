@@ -5,7 +5,7 @@ const path = require('path'); // eslint-disable-line no-undef
 const environmentConfig = require('../environment/environment.config.js'); // eslint-disable-line no-undef
 const { SRC_DIR, SRC_CLIENT_DIR, SRC_SERVER_DIR, SRC_COMMON_DIR, CONFIG_DIR } = environmentConfig;
 
-const IS_TEST_VERBOSE = process.env.TEST_SETUP === 'verbose';
+// const IS_TEST_VERBOSE = process.env.TEST_SETUP === 'verbose';
 
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
@@ -129,18 +129,16 @@ module.exports = {
     // projects: undefined,
 
     // Use this configuration option to add custom reporters to Jest
-    reporters: IS_TEST_VERBOSE
-        ? [
-              'default',
-              [
-                  'jest-junit',
-                  {
-                      outputDirectory: './test-reports',
-                      outputName: 'results.xml',
-                  },
-              ],
-          ]
-        : undefined,
+    reporters: [
+        'default',
+        [
+            'jest-junit',
+            {
+                outputDirectory: './test-reports',
+                outputName: 'results.xml',
+            },
+        ],
+    ],
 
     // Automatically reset mock state between every test
     // resetMocks: false,
