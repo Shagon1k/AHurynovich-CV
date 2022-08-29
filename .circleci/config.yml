@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@2.0
+  codecov: codecov/codecov@3.2.3
 jobs:
   install-packages:
     docker:
@@ -40,6 +41,8 @@ jobs:
           path: ./test-reports
       - store_test_results:
           path: ./test-reports/test-results
+      - codecov/upload:
+          file: ./test-reports/test-coverage/coverage-final.json
   test-sca:
     docker:
       - image: cimg/node:16.11.1
