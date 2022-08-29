@@ -42,7 +42,7 @@
         "build:app:wssr:prod": "npm-run-all --parallel build:client:wssr:prod build:server:prod",
         "rimraf": "./node_modules/rimraf/bin.js",
         "build:clean": "rimraf ./dist",
-        "test": "jest --config config/test/jest.config.js",
+        "test": "jest --config config/test/jest.config.js --runInBand",
         "test:verbose": "cross-env TEST_SETUP=verbose npm run test",
         "test:ci": "npm run test -- --ci",
         "test:ci:verbose": "cross-env TEST_SETUP=verbose npm run test:ci",
