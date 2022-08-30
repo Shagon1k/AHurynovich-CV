@@ -138,31 +138,21 @@ jobs:
           command: npm run storybook:deploy:s3
 
 workflows:
-  version: 2.1
   Common workflow:
+    triggers:
+      filters:
+        branches:
+          ignore:
+            - main
+            - develop
     jobs:
       - install-packages:
-          filters:
-            branches:
-              ignore:
-                - main
-                - develop
       - lint:
           requires:
             - install-packages
-          filters:
-            branches:
-              ignore:
-                - main
-                - develop
       - test-unit-integration:
           requires:
             - install-packages
-          filters:
-            branches:
-              ignore:
-                - main
-                - develop
   Pre-commitment (develop) workflow:
     jobs:
       - install-packages:
