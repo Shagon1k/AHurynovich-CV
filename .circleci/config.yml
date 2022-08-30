@@ -139,7 +139,7 @@ jobs:
 
 workflows:
   Common workflow:
-    filters:
+    when:
       branches:
         ignore:
           - main
