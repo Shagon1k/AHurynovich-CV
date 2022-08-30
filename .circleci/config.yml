@@ -2,50 +2,57 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@2.0
   codecov: codecov/codecov@3.2.3
-jobs:
-  install-packages:
+
+executors:
+  exec-docker-node:
     docker:
       - image: cimg/node:16.11.1
+
+commands:
+  cmd-save-cache:
     steps:
-      - checkout
-      - restore_cache:
-          key: package-cache-{{ checksum "package-lock.json" }}
-      - run:
-          name: "Install packages"
-          command: npm install
       - save_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-  lint:
-    docker:
-      - image: cimg/node:16.11.1
+  cmd-restore-cache:
     steps:
-      - checkout
       - restore_cache:
           key: package-cache-{{ checksum "package-lock.json" }}
+
+jobs:
+  install-packages:
+    executor: exec-docker-node
+    steps:
+      - checkout
+      - cmd-restore-cache
+      - run:
+          name: "Install packages"
+          command: npm install
+      - cmd-save-cache
+  lint:
+    executor: exec-docker-node
+    steps:
+      - checkout
+      - cmd-restore-cache
       - run:
           name: "Linting"
           command: npm run lint
   test-unit-integration:
-    docker:
-      - image: cimg/node:16.11.1
+    executor: exec-docker-node
     steps:
       - checkout
-      - restore_cache:
-          key: package-cache-{{ checksum "package-lock.json" }}
+      - cmd-restore-cache
       - run:
           name: "Testing (Unit and Integration Tests)"
           command: npm run test:ci
   test-unit-integration-with-reports:
-    docker:
-      - image: cimg/node:16.11.1
+    executor: exec-docker-node
     steps:
       - checkout
-      - restore_cache:
-          key: package-cache-{{ checksum "package-lock.json" }}
+      - cmd-restore-cache
       - run:
-          name: "Testing (Unit and Integration Tests) with Reports"
+          name: "Testing (Unit and Integration Tests) with reports"
           command: npm run test:ci:with:reports
       - store_artifacts:
           path: ./test-reports
@@ -54,12 +61,10 @@ jobs:
       - codecov/upload:
           file: ./test-reports/test-coverage/cobertura-coverage.xml
   test-sca:
-    docker:
-      - image: cimg/node:16.11.1
+    executor: exec-docker-node
     steps:
       - checkout
-      - restore_cache:
-          key: package-cache-{{ checksum "package-lock.json" }}
+      - cmd-restore-cache
       - run:
           name: "Snyk Authentication"
           command: npm run sca:auth $SNYK_TOKEN
@@ -67,22 +72,18 @@ jobs:
           name: "Code Vulnerabilities Scan"
           command: npm run sca:test
   build-clean-app:
-    docker:
-      - image: cimg/node:16.11.1
+    executor: exec-docker-node
     steps:
       - checkout
-      - restore_cache:
-          key: package-cache-{{ checksum "package-lock.json" }}
+      - cmd-restore-cache
       - run:
           name: "Cleaning previous Application Build"
           command: npm run build:clean
   build-app:
-    docker:
-      - image: cimg/node:16.11.1
+    executor: exec-docker-node
     steps:
       - checkout
-      - restore_cache:
-          key: package-cache-{{ checksum "package-lock.json" }}
+      - cmd-restore-cache
       - run:
           name: "Building Application"
           command: npm run build:client:prod
@@ -91,8 +92,7 @@ jobs:
           paths:
             - 'dist'
   deploy-app:
-    docker:
-      - image: cimg/node:16.11.1
+    executor: exec-docker-node
     steps:
       - aws-cli/setup:
           profile-name: AHurynovichCV_Profile
@@ -100,20 +100,17 @@ jobs:
           aws-region: AWS_REGION
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
       - checkout
-      - restore_cache:
-          key: package-cache-{{ checksum "package-lock.json" }}
+      - cmd-restore-cache
       - attach_workspace:
             at: .
       - run:
           name: "Deploying Application"
           command: npm run deploy:s3
   build-components-library:
-    docker:
-      - image: cimg/node:16.11.1
+    executor: exec-docker-node
     steps:
       - checkout
-      - restore_cache:
-          key: package-cache-{{ checksum "package-lock.json" }}
+      - cmd-restore-cache
       - run:
           name: "Cleaning previous Components Library Build"
           command: npm run storybook:build:clean
@@ -125,8 +122,7 @@ jobs:
           paths:
             - 'storybook-static'
   deploy-components-library:
-    docker:
-      - image: cimg/node:16.11.1
+    executor: exec-docker-node
     steps:
       - aws-cli/setup:
           profile-name: AHurynovichCV_Profile
@@ -134,8 +130,7 @@ jobs:
           aws-region: AWS_REGION
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
       - checkout
-      - restore_cache:
-          key: package-cache-{{ checksum "package-lock.json" }}
+      - cmd-restore-cache
       - attach_workspace:
             at: .
       - run:
