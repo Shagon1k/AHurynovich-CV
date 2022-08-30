@@ -154,13 +154,13 @@ workflows:
   #         requires:
   #           - install-packages
     jobs:
-    - install-packages:
-    - lint:
-        requires:
-          - install-packages
-    - test-unit-integration:
-        requires:
-          - install-packages
+      - install-packages:
+      - lint:
+          requires:
+            - install-packages
+      - test-unit-integration:
+          requires:
+            - install-packages
   Pre-commitment (develop) workflow:
     jobs:
       - install-packages:
