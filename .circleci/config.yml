@@ -200,13 +200,13 @@ workflows:
             - build-app
       - deploy-app:
           requires:
-            - hold-deploy-app
+            - "[Approve App Deployment]"
       - hold-deploy-components-library:
           type: approval
           name: "[Approve Components Lib Deployment]"
       - build-components-library:
           requires:
-            - hold-deploy-components-library
+            - "[Approve Components Lib Deployment]"
       - deploy-components-library:
           requires:
             - build-components-library
