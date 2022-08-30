@@ -34,8 +34,8 @@
 **[Unit/Integration Tests config](/config/test/jest.config.js)** - (*/test/jest*) - used for storing Unit/Integration Tests framework configuration (Jest config) and custom testing utils setup (e.g. RTL custom utils);
 
 For convenience purpose:
-- all **Unit/Integration (+A11y) testing utilities provided from RTL/Axe** are stored and could be exported from ***`'@test-utils'` module***.
-- all **custom testing utilities** (e.g. render decorated with Providers) are stored and could be exported from ***`'@test-utils/custom'` module.***
+- all **Unit/Integration (+A11y) testing utilities provided from RTL/Axe** are stored and could be exported from ***`'@test-utils'` module** (allias for [/config/test/jest/test-utils/](/config/test/jest/test-utils/))*;
+- all **custom testing utilities** (e.g. render decorated with Providers) are stored and could be exported from ***`'@test-utils/custom'` module** (allias for [/config/test/jest/test-utils/custom/](/config/test/jest/test-utils/custom/))*;
 
 ### General Unit and Integration testing Conventions
 - **follow [F.I.R.S.T.](https://medium.com/@tasdikrahman/f-i-r-s-t-principles-of-testing-1a497acda8d6) principle**;
