@@ -46,7 +46,7 @@ Configured **Font Weights** are:
 - ***Medium** (`$fw-medium`)* - weight = 500;
 - ***Bold** (`$fw-bold`)* - weight = 700;
 
-> ***Warn:** Please do not use any other Font Weights except currently set up!*
+> ***Warning:** Please do not use any other Font Weights except currently set up!*
 
 ### Custom Fonts declarations
 **Custom fonts** files: [/src/client/assets/fonts/](/src/client/assets/fonts/)
