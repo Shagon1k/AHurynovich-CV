@@ -140,19 +140,11 @@ jobs:
 workflows:
   version: 2.1
   Common workflow:
-  #   when:
-  #     not:
-  #       or:
-  #         - equal: [ main, << pipeline.git.branch >> ]
-  #         - equal: [ develop, << pipeline.git.branch >> ]
-  #   jobs:
-  #     - install-packages:
-  #     - lint:
-  #         requires:
-  #           - install-packages
-  #     - test-unit-integration:
-  #         requires:
-  #           - install-packages
+    when:
+      not:
+        or:
+          - equal: [ main, << pipeline.git.branch >> ]
+          - equal: [ develop, << pipeline.git.branch >> ]
     jobs:
       - install-packages
       - lint:
