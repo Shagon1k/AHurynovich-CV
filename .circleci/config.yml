@@ -153,7 +153,7 @@ workflows:
       - test-unit-integration:
           requires:
             - install-packages
-  Pre-commitment (develop) workflow:
+  Pre-commitment workflow (develop):
     when:
       equal: [ develop, << pipeline.git.branch >> ]
     jobs:
@@ -171,7 +171,7 @@ workflows:
       - build-app:
           requires:
             - build-clean-app
-  Commitment (main) workflow:
+  Commitment workflow (main):
     when:
       equal: [ main, << pipeline.git.branch >> ]
     jobs:
@@ -200,13 +200,13 @@ workflows:
             - build-app
       - deploy-app:
           requires:
-            - "[Approve App Deployment]"
+            - hold-deploy-app
       - hold-deploy-components-library:
           type: approval
           name: "[Approve Components Lib Deployment]"
       - build-components-library:
           requires:
-            - "[Approve Components Lib Deployment]"
+            - hold-deploy-components-library
       - deploy-components-library:
           requires:
             - build-components-library
