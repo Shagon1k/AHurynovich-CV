@@ -141,9 +141,10 @@ workflows:
   version: 2.1
   Common workflow:
     when:
-      or:
-        - equal: [ main, << pipeline.git.branch >> ]
-        - equal: [ develop, << pipeline.git.branch >> ]
+      not:
+        or:
+          - equal: [ main, << pipeline.git.branch >> ]
+          - equal: [ develop, << pipeline.git.branch >> ]
     jobs:
       - install-packages
       - lint:
@@ -153,121 +154,59 @@ workflows:
           requires:
             - install-packages
   Pre-commitment (develop) workflow:
+    when:
+      equal: [ develop, << pipeline.git.branch >> ]
     jobs:
       - install-packages:
-          filters:
-            branches:
-              only:
-                - develop
       - lint:
           requires:
             - install-packages
-          filters:
-            branches:
-              only:
-                - develop
       - test-unit-integration:
           requires:
             - install-packages
-          filters:
-            branches:
-              only:
-                - develop
       - build-clean-app:
-          requires:
-            - install-packages
-          filters:
-            branches:
-              only:
-                - develop
-      - build-app:
           requires:
             - lint
             - test-unit-integration
+      - build-app:
+          requires:
             - build-clean-app
-          filters:
-            branches:
-              only:
-                - develop
   Commitment (main) workflow:
+    when:
+      equal: [ main, << pipeline.git.branch >> ]
     jobs:
       - install-packages:
-          filters:
-            branches:
-              only:
-                - main
       - lint:
           requires:
             - install-packages
-          filters:
-            branches:
-              only:
-                - main
       - test-unit-integration-with-reports:
           requires:
             - install-packages
-          filters:
-            branches:
-              only:
-                - main
       - test-sca:
           requires:
             - install-packages
-          filters:
-            branches:
-              only:
-                - main
       - build-clean-app:
-          requires:
-            - install-packages
-          filters:
-            branches:
-              only:
-                - main
-      - build-app:
           requires:
             - lint
             - test-unit-integration-with-reports
             - test-sca
+      - build-app:
+          requires:
             - build-clean-app
-          filters:
-            branches:
-              only:
-                - main
       - hold-deploy-app:
           name: "[Approve App Deployment]"
           type: approval
           requires:
             - build-app
-          filters:
-            branches:
-              only:
-                - main
       - deploy-app:
           requires:
             - "[Approve App Deployment]"
-          filters:
-            branches:
-              only:
-                - main
       - hold-deploy-components-library:
           type: approval
           name: "[Approve Components Lib Deployment]"
-          filters:
-            branches:
-              only:
-                - main
       - build-components-library:
           requires:
             - "[Approve Components Lib Deployment]"
-          filters:
-            branches:
-              only:
-                - main
       - deploy-components-library:
           requires:
             - build-components-library
-          filters:
-            branches:
-              only:
-                - main
