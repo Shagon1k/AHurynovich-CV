@@ -139,12 +139,11 @@ jobs:
 
 workflows:
   Common workflow:
-    triggers:
-      filters:
-        branches:
-          ignore:
-            - main
-            - develop
+    filters:
+      branches:
+        ignore:
+          - main
+          - develop
     jobs:
       - install-packages:
       - lint:
