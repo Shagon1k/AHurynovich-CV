@@ -140,10 +140,10 @@ jobs:
 workflows:
   Common workflow:
     when:
-      branches:
-        ignore:
-          - main
-          - develop
+      not:
+        or:
+          - equal: [ main, << pipeline.git.branch >> ]
+          - equal: [ develop, << pipeline.git.branch >> ]
     jobs:
       - install-packages:
       - lint:
