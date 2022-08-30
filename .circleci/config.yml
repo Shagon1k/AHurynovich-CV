@@ -157,7 +157,7 @@ workflows:
     when:
       equal: [ develop, << pipeline.git.branch >> ]
     jobs:
-      - install-packages:
+      - install-packages
       - lint:
           requires:
             - install-packages
@@ -175,7 +175,7 @@ workflows:
     when:
       equal: [ main, << pipeline.git.branch >> ]
     jobs:
-      - install-packages:
+      - install-packages
       - lint:
           requires:
             - install-packages
