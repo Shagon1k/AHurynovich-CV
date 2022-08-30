@@ -154,7 +154,7 @@ workflows:
   #         requires:
   #           - install-packages
     jobs:
-      - install-packages:
+      - install-packages
       - lint:
           requires:
             - install-packages
