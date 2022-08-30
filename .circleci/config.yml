@@ -138,6 +138,7 @@ jobs:
           command: npm run storybook:deploy:s3
 
 workflows:
+  version: 2.1
   Common workflow:
   #   when:
   #     not:
