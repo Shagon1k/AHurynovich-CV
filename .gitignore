@@ -12,6 +12,7 @@ jspm_packages
 /test-reports
 /**/**/cypress/videos
 /**/**/cypress/screenshots
+.lighthouseci
 
 # production
 build

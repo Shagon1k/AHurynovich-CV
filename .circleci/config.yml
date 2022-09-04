@@ -2,6 +2,7 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@2.0
   codecov: codecov/codecov@3.2.3
+  browser-tools: circleci/browser-tools@1.2.3
 
 executors:
   exec-docker-node:
@@ -27,7 +28,7 @@ jobs:
       - checkout
       - cmd-restore-cache
       - run:
-          name: "Install packages"
+          name: "Installing packages"
           command: npm install
       - cmd-save-cache
   lint:
@@ -66,11 +67,24 @@ jobs:
       - checkout
       - cmd-restore-cache
       - run:
-          name: "Snyk Authentication"
+          name: "Authenticating Snyk"
           command: npm run sca:auth $SNYK_TOKEN
       - run:
-          name: "Code Vulnerabilities Scan"
+          name: "Scanning Code for vulnerabilities"
           command: npm run sca:test
+  test-performance:
+    docker:
+      - image: cimg/node:16.13-browsers
+    steps:
+      - checkout
+      - cmd-restore-cache
+      - attach_workspace:
+          at: .
+      - browser-tools/install-chrome
+      - run:
+          name: "Checking Performance"
+          command: npm run test:perf:ci
+
   build-clean-app:
     executor: exec-docker-node
     steps:
@@ -138,24 +152,10 @@ jobs:
           command: npm run storybook:deploy:s3
 
 workflows:
-  version: 2.1
-  Common workflow:
+  Common(feature):
     when:
       not:
-        or:
-          - equal: [ main, << pipeline.git.branch >> ]
-          - equal: [ develop, << pipeline.git.branch >> ]
-    jobs:
-      - install-packages
-      - lint:
-          requires:
-            - install-packages
-      - test-unit-integration:
-          requires:
-            - install-packages
-  Pre-commitment workflow (develop):
-    when:
-      equal: [ develop, << pipeline.git.branch >> ]
+          equal: [ main, << pipeline.git.branch >> ]
     jobs:
       - install-packages
       - lint:
@@ -171,7 +171,10 @@ workflows:
       - build-app:
           requires:
             - build-clean-app
-  Commitment workflow (main):
+      - test-performance:   #TODO: Delete when sure is correct
+          requires:
+            - build-app
+  Commitment(main):
     when:
       equal: [ main, << pipeline.git.branch >> ]
     jobs:
@@ -193,20 +196,28 @@ workflows:
       - build-app:
           requires:
             - build-clean-app
+      - test-performance:
+          requires:
+            - build-app
       - hold-deploy-app:
-          name: "[Approve App Deployment]"
+          name: "[Deploy Application]"
           type: approval
           requires:
+            - test-performance
             - build-app
       - deploy-app:
           requires:
-            - "[Approve App Deployment]"
+            - "[Deploy Application]"
       - hold-deploy-components-library:
           type: approval
-          name: "[Approve Components Lib Deployment]"
+          name: "[Deploy Components Lib]"
+          requires:
+            - lint
+            - test-unit-integration-with-reports
+            - test-sca
       - build-components-library:
           requires:
-            - "[Approve Components Lib Deployment]"
+            - "[Deploy Components Lib]"
       - deploy-components-library:
           requires:
             - build-components-library

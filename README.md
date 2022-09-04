@@ -1,4 +1,9 @@
 # Aliaksei's Curriculum Vitae project
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Shagon1k/AHurynovich-CV/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Shagon1k/AHurynovich-CV/tree/main) [![codecov](https://codecov.io/gh/Shagon1k/AHurynovich-CV/branch/main/graph/badge.svg?token=BDI6WSS9T0)](https://codecov.io/gh/Shagon1k/AHurynovich-CV) [![Known Vulnerabilities](https://snyk.io/test/github/Shagon1k/AHurynovich-CV/badge.svg)](https://snyk.io/test/github/Shagon1k/AHurynovich-CV) [![GitHub MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/shagon1k/AHurynovich-CV/blob/main/LICENSE)
+
+[![InsightsSnapshot](https://dl.circleci.com/insights-snapshot/gh/Shagon1k/AHurynovich-CV/main/Commitment(main)/badge.svg?window=30d)](https://app.circleci.com/insights/github/Shagon1k/AHurynovich-CV/workflows/Commitment(main)/overview?branch=main&reporting-window=last-30-days&insights-snapshot=true)
+
 My personal **CV Web Application** + **React boilerplate**.
 Generally CV application follows CSR approach deploying final built to AWS S3. Than it is hosted using AWS S3 Static Web Hosting feature.
 
@@ -45,10 +50,16 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - **Testing framework** - [Jest](https://jestjs.io/)
 - **React Components testing utility** - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
 - **Testing A11y** - [Jest-Axe](https://www.npmjs.com/package/jest-axe)
-#### E2E testing
+#### E2E Testing
 - **E2E Testing framework** - [Cypress](https://www.cypress.io/)
 - **Test Cases commands extend utility** - [Cypress Testing Library](https://testing-library.com/docs/cypress-testing-library/intro/)
 - **E2E Testing A11y** - [Cypress-Axe](https://www.npmjs.com/package/cypress-axe)
+### Performance testing
+- **Performance & Insights Testing utility** - [LightHouse CI](https://github.com/GoogleChrome/lighthouse-ci)
+    > ***Note**: Performance Testing is only set up on **CI/CD pipeline level**. For **manual performance testing** you can use Chrome built-in Lighthouse DevTool.*
+#### Tests Reports
+- **Code Coverage Reports** - [CodeCov](https://about.codecov.io/)
+- **Test Results Reports** - [CircleCI Test Insights](https://circleci.com/docs/insights-tests) (with help of [Jest JUnit](https://www.npmjs.com/package/jest-junit))
 
 ### Other
 - **Application CI/CD utility** - [CircleCI](https://circleci.com/)
@@ -107,6 +118,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │
 │   │   │   cypress.config.js   // E2E Tests (Cypress) main config file
 │   │   │   jest.config.js   // Unit/Integration Tests (Jest) main config file
+│   │   │   lighthouse.config.js   // Performance Tests main config file (used for CI/CD pipeline)
 │   │   └───
 │   │
 │   ├───lint
@@ -321,6 +333,8 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
     - `npm run test:e2e:dev:open` - open launcher of All (Common + A11y) E2E Tests (development build used)
     - `npm run test:e2e:common:prod` - run Common E2E Tests (production build used)
     - `npm run test:e2e:a11y:prod` - run A11y E2E Tests (production build used)
+- **Performance Testing**
+    - `npm run test:perf:ci` - run Application Performance + Insights testing (Lighthouse CI, user for CI/CD pipeline level testing)
 
 **Lint:**
 - `npm run lint:scripts` - lint JS files
@@ -346,6 +360,8 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 ## Boilerplate Guide
 TBD once general setup be finished
 Consider:
+- use badges instead of boring listing for tech stack (https://badges.aleen42.com/, https://img.shields.io/)
+- add ci-cd.md documentation file
 - index html content
 - Add note about SourceMaps for production build: was decided to use them ('source-map' webpack "devtool" value): 1) easy debug potential error; 2) it could potentially help others to learn/advice, there is MIT License for code => who cares about stealing? :D. Alternatively sourcemaps generation could be configured to be hosted to some authentication-based URL so be used only with access provided.
 - add contents to all MD files

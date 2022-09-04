@@ -10,6 +10,8 @@ Documentation and guidelines for application's config.
     - **[E2E Common Tests config](/config/test/cypress/cypress.config.a11y.json)** - Common E2E tests configuration;
     - **[E2E A11y Tests config](/config/test/cypress/cypress.config.e2e.json)** - A11y E2E tests configuration;
     > ***Note**: Adding new **E2E Tests** please follow **Folder's Conventions** (see below).*
+- **[Performance & Insights Test config](/config/test/lighthouse.config.js)** - Performance & Insights (SEO, Best practices, etc), CI/CD level only.
+    > ***Note**: Performance Testing is only set up on **CI/CD pipeline level**. For **manual performance testing** you can use Chrome built-in Lighthouse DevTool.*
 - **[Code Styling config](/config/lint/)** - (*/lint*) - used for storing Code Styling tools configuration (**[ESlint config](/config/lint/eslint/eslint.config.js)** and **[Stylelint config](/config/lint/stylelint/stylelint.config.js)**);
 - **[Code Formatting config](/config/prettier/prettier.config.js)** - (*/prettier*) - used for storing Code Formatter tool configuration (Prettier);
 - **[Application bundler config](/config/webpack/)** - (*/webpack*) - used for storing Bundler configuration (Webpack). **[Client config](/config/webpack/client/webpack.config.client.babel.js)** and **[Server config](/config/webpack/server/webpack.config.server.babel.js)** are separated, reusable **[Webpack utilities](/config/webpack/helpers/)** ([loaders](/config/webpack/helpers/loaders/index.js), [resolvers](/config/webpack/helpers/resolve/index.js), [plugins](/config/webpack/helpers/plugins/index.js)) moved to specific folder;
@@ -69,6 +71,7 @@ Documentation and guidelines for application's config.
 │   │
 │   │   cypress.config.js
 │   │   jest.config.js
+│   │   lighthouse.config.js
 │   └───
 │
 ├───lint
