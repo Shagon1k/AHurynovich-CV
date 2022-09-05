@@ -28,7 +28,7 @@ jobs:
       - checkout
       - cmd-restore-cache
       - run:
-          name: "Installing packages"
+          name: "Install packages"
           command: npm install
       - cmd-save-cache
   lint:
@@ -37,7 +37,7 @@ jobs:
       - checkout
       - cmd-restore-cache
       - run:
-          name: "Linting"
+          name: "Lint"
           command: npm run lint
   test-unit-integration:
     executor: exec-docker-node
@@ -45,7 +45,7 @@ jobs:
       - checkout
       - cmd-restore-cache
       - run:
-          name: "Testing (Unit and Integration Tests)"
+          name: "Test (Unit and Integration)"
           command: npm run test:ci
   test-unit-integration-with-reports:
     executor: exec-docker-node
@@ -53,7 +53,7 @@ jobs:
       - checkout
       - cmd-restore-cache
       - run:
-          name: "Testing (Unit and Integration Tests) with reports"
+          name: "Test (Unit and Integration) with reports"
           command: npm run test:ci:with:reports
       - store_artifacts:
           path: ./test-reports
@@ -67,7 +67,7 @@ jobs:
       - checkout
       - cmd-restore-cache
       - run:
-          name: "Authenticating Snyk"
+          name: "Authenticate Snyk"
           command: npm run sca:auth $SNYK_TOKEN
       - run:
           name: "Scanning Code for vulnerabilities"
@@ -82,24 +82,18 @@ jobs:
           at: .
       - browser-tools/install-chrome
       - run:
-          name: "Checking Performance"
+          name: "Test Performance & Insights"
           command: npm run test:perf:ci
-
-  build-clean-app:
-    executor: exec-docker-node
-    steps:
-      - checkout
-      - cmd-restore-cache
-      - run:
-          name: "Cleaning previous Application Build"
-          command: npm run build:clean
   build-app:
     executor: exec-docker-node
     steps:
       - checkout
       - cmd-restore-cache
       - run:
-          name: "Building Application"
+          name: "Clean previous Application Build"
+          command: npm run build:clean
+      - run:
+          name: "Build Application"
           command: npm run build:client:prod
       - persist_to_workspace:
           root: .
@@ -118,7 +112,7 @@ jobs:
       - attach_workspace:
             at: .
       - run:
-          name: "Deploying Application"
+          name: "Deploy Application"
           command: npm run deploy:s3
   build-components-library:
     executor: exec-docker-node
@@ -126,10 +120,10 @@ jobs:
       - checkout
       - cmd-restore-cache
       - run:
-          name: "Cleaning previous Components Library Build"
+          name: "Clean previous Components Library Build"
           command: npm run storybook:build:clean
       - run:
-          name: "Building Components Library"
+          name: "Build Components Library"
           command: npm run storybook:build
       - persist_to_workspace:
           root: .
@@ -148,7 +142,7 @@ jobs:
       - attach_workspace:
             at: .
       - run:
-          name: "Deploying Components Library"
+          name: "Deploy Components Library"
           command: npm run storybook:deploy:s3
 
 workflows:
@@ -164,16 +158,10 @@ workflows:
       - test-unit-integration:
           requires:
             - install-packages
-      - build-clean-app:
+      - build-app:
           requires:
             - lint
             - test-unit-integration
-      - build-app:
-          requires:
-            - build-clean-app
-      - test-performance:   #TODO: Delete when sure is correct
-          requires:
-            - build-app
   Commitment(main):
     when:
       equal: [ main, << pipeline.git.branch >> ]
@@ -188,14 +176,11 @@ workflows:
       - test-sca:
           requires:
             - install-packages
-      - build-clean-app:
+      - build-app:
           requires:
             - lint
             - test-unit-integration-with-reports
             - test-sca
-      - build-app:
-          requires:
-            - build-clean-app
       - test-performance:
           requires:
             - build-app
