@@ -1,5 +1,4 @@
-// NOTE: For more details follow: https://www.npmjs.com/package/cypress-axe
-// NOTE: Gherkin style is recommended.
+// Note: For more details follow: https://www.npmjs.com/package/cypress-axe
 
 describe('A11y test example test', () => {
     beforeEach(() => {

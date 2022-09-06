@@ -22,7 +22,7 @@ export const createAppStore = async ({ initialState, isServer, services } = {}) 
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) => {
             const appDefaultMiddlewares = getDefaultMiddleware({
-                // NOTE: Disabling default "redux-thunk" middleware if favor of "redux-saga" usage
+                // Disabling default "redux-thunk" middleware if favor of "redux-saga" usage
                 thunk: false,
             });
 

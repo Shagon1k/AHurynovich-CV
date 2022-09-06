@@ -17,7 +17,7 @@ const helloSlice = createSlice({
     },
 });
 
-// NOTE: Slice actions should always be independent exports (Code Convention)
+// Note: Slice actions should always be independent exports (Code Convention)
 export const { makeHello, makeBye } = helloSlice.actions;
-// NOTE: Slice default export should always be according reducer (Code Convention)
+// Note: Slice default export should always be according reducer (Code Convention)
 export default helloSlice.reducer;

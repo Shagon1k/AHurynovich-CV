@@ -9,9 +9,9 @@ export const parameters = {
             date: /Date$/,
         },
     },
-    // Note: Centralize all components in stories by default.
+    // Centralize all components in stories by default.
     layout: 'centered',
-    // Note: Setup set of backgrounds to check your components against.
+    // Setup set of backgrounds to check your components against.
     backgrounds: {
         values: [
             { name: 'red', value: '#f00' },

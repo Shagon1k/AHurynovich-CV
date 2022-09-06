@@ -5,7 +5,7 @@
 [![InsightsSnapshot](https://dl.circleci.com/insights-snapshot/gh/Shagon1k/AHurynovich-CV/main/Commitment(main)/badge.svg?window=30d)](https://app.circleci.com/insights/github/Shagon1k/AHurynovich-CV/workflows/Commitment(main)/overview?branch=main&reporting-window=last-30-days&insights-snapshot=true)
 
 My personal **CV Web Application** + **React boilerplate**.
-Generally CV application follows CSR approach deploying final built to AWS S3. Than it is hosted using AWS S3 Static Web Hosting feature.
+Generally CV application follows Static CSR approach deploying final built to AWS S3. Than it is hosted using AWS S3 Static Web Hosting feature.
 
 ## Project's Goals
 1) Create personal CV-based web application;
@@ -16,7 +16,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 
 ## Additional info
 - [Config README](/config/README.md) - general configuration setup;
-- [Client README](/src/client/README.md) - major source of truth for CSR approach, also used for SSR approach;
+- [Client README](/src/client/README.md) - major source of truth for Static CSR approach, also used for SSR approach;
 - [Common README](/src/common/README.md) - application common staff (services, utils) which could be used both on Client and Server;
 - [Server README](/src/server/README.md) - server main folder, used only for SSR approach;
 
@@ -174,7 +174,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │
 ├───src
 │   │
-│   ├───client   // Client source folder (CSR or SSR approaches)
+│   ├───client   // Client source folder (Static CSR or SSR approaches)
 │   │   │
 │   │   ├───api
 │   │   │
@@ -247,7 +247,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   README.md   // Server folder info
 │   │   └───
 │   │
-│   │   index.html   // unified HTML template used as index file for CSR approach and rendering template for SSR approach
+│   │   index.html   // unified HTML template used as index file for Static CSR approach and rendering template for SSR approach
 │   └───
 │
 ├───dist
@@ -284,7 +284,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 ```
 
 ## Run tasks
-> ***Note**: Even though CSR approach is used as primary, application is also able to follow SSR approach.*
+> ***Note**: Even though Static CSR approach is used as primary, application is also able to follow SSR approach.*
 
 ### CSR approach's tasks:
 > ***Note**: Default CSR approach Client host port: 1337.*

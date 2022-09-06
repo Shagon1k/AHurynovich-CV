@@ -1,5 +1,3 @@
-// NOTE: Gherkin style is recommended.
-
 describe('E2E test example test', () => {
     describe('when USER goes to application home page with EN locale', () => {
         before(() => {

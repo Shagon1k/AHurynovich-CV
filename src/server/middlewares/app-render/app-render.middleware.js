@@ -81,7 +81,7 @@ const createRenderMiddleware = (options) => async (req, res, next) => {
     const responseBody = processTemplate(template, {
         app: stringifiedApp,
         state: stringifiedAppState,
-        htmlAttributes: helmet.htmlAttributes.toString(), // NOTE: Updated Helmet generated HTML attributes
+        htmlAttributes: helmet.htmlAttributes.toString(), // Updated Helmet generated HTML attributes
     });
 
     res.setHeader('Content-Type', 'text/html');
