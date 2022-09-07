@@ -7,7 +7,7 @@ module.exports = {
             '@babel/preset-env',
             {
                 /**
-                 * NOTE: With useBuiltIns 'usage' option Babel goes through targets (specified in package.json "browserslist") and
+                 * Note: With useBuiltIns 'usage' option Babel goes through targets (specified in package.json "browserslist") and
                  * uses 'core-js' package to add specific polyfills in bundle when they are needed based on that targets.
                  * Alternatively, 'entry' option could be used but it will require add core-js polyfills directly in entry file.
                  * As all of them will be included in that case bundle size increases.

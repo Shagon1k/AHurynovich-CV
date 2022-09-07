@@ -1,6 +1,3 @@
 # robots.txt file for Aliaksei Hurynovich's CV app
 
 User-agent: *
-Disallow: TBD
-
-Sitemap: TBD

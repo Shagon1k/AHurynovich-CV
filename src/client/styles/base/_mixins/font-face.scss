@@ -2,7 +2,7 @@
     @font-face {
         font-family: $family;
         font-weight: $weight;
-        font-display: optional;
+        font-display: swap;
         src: url('#{$src}.eot');
         src:
             url('#{$src}.woff2') format('woff2'),
