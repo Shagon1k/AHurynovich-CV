@@ -20,10 +20,13 @@
 
 ### CI CD Quality Gates
 **Unit/Integration** testing is **added to CI/CD pipeline** as a job:
-- for ***feature*** and ***develop*** branches Test job only **runs existing Unit and Integration tests** failing the pipeline in case any test was not passed;
+- for ***feature*** branches Test job only **runs existing Unit and Integration tests** failing the pipeline in case any test was not passed;
     > ***Note**: Follow `test-unit-integration` job of [CircleCI config](/.circleci/config.yml) for more details.*
 - for ***main*** branch Test job also includes **Reports generation** (Results + Code Coverage). This reports than are used to visualize according test data in convenient way (*using **[CircleCI Test Insights](https://circleci.com/docs/insights-tests)** for displaying **test results** and **[CodeCov](https://about.codecov.io/)** to display **code coverage report***);
     > ***Note**: Follow `test-unit-integration-with-reports` job of [CircleCI config](/.circleci/config.yml) for more details.*
+
+**Performance** testing is also **added to CI/CD pipeline** as a job. It only runs on ***main*** branch.
+> ***Note**: Follow `test-performance` job of [CircleCI config](/.circleci/config.yml) for more details.*
 
 ## Unit and Integration testing
 
@@ -116,3 +119,11 @@ It ***consists of***:
 - if new A11y E2E test should be added:
     - test files **should be stored in scope of** */config/test/cypress/e2e/a11y* folder;
     - test file name **should follow template**:  `[name].a11y.cy.js`;
+
+## Performance & Insights Testing
+
+**Performance & Insights Testing** is only supported on **CI/CD level** and handled by [LightHouse CI](https://github.com/GoogleChrome/lighthouse-ci).
+Configuration file could be found here: [/config/test/lighthouse.config.js](/config/test/lighthouse.config.js).
+> ***Note**: PWA Insights testing right now is turned OFF and NOT a part of general flow because PWA supported only as separate independent build type.*
+
+> ***Note**: For **manual Performance Testing** you can use Chrome built-in Lighthouse DevTool.*
