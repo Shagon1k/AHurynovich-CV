@@ -1,11 +1,8 @@
 import path from 'path';
 
-export const { NODE_ENV, WITH_SSR } = process.env;
+export const { NODE_ENV, WITH_PWA, WITH_SSR } = process.env;
 
 export const IS_DEV = NODE_ENV !== 'production';
-export const WEBPACK_MODE_DEV = 'development';
-export const WEBPACK_MODE_PROD = 'production';
-export const WEBPACK_MODE = IS_DEV ? WEBPACK_MODE_DEV : WEBPACK_MODE_PROD;
 
 export const ROOT_DIR = process.cwd();
 export const CONFIG_DIR = path.resolve(ROOT_DIR, './config');

@@ -297,6 +297,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run build:client` - Client general build task (development is default)
 - `npm run build:client:dev` - Client development build task
 - `npm run build:client:prod` - Client production build task
+- `npm run build:client:prod:pwa` - Client production build task (with PWA support)
 
 **Deploy:**
 - `npm run deploy:s3` - deployment task for Application static AWS S3 hosting (no confirm)
@@ -361,6 +362,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 TBD once general setup be finished
 Consider:
 - use badges instead of boring listing for tech stack (https://badges.aleen42.com/, https://img.shields.io/)
+- think about whether A11y testing on Unit(RTL)/E2E(Cypress) required. Right now A11y Unit Testing looks like redundant as Chrome Axe do it by it's own (e.g. checking "button" has "role")
 - add ci-cd.md documentation file
 - index html content
 - Add note about SourceMaps for production build: was decided to use them ('source-map' webpack "devtool" value): 1) easy debug potential error; 2) it could potentially help others to learn/advice, there is MIT License for code => who cares about stealing? :D. Alternatively sourcemaps generation could be configured to be hosted to some authentication-based URL so be used only with access provided.

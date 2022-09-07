@@ -38,7 +38,7 @@ const commonConfig = {
                     {
                         test: /\.module\.s?css$/,
                         /**
-                         * NOTE: Extract loader is redundant for server side as there are no CSS bundles generated there.
+                         * Note: Extract loader is redundant for server side as there are no CSS bundles generated there.
                          * Only CSS Modules loader needed for selectors names generation (e.g. class names) to have consistency with those which are created in client-side bundle.
                          */
                         use: [getWebpackCssModulesLoader(IS_DEV, true), getWebpackSassLoader()],

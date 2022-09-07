@@ -23,6 +23,7 @@ module.exports = {
         /** Global environment variables */
         PRODUCTION: 'readonly',
         WITH_SSR: 'readonly',
+        WITH_PWA: 'readonly',
         IS_SERVER: 'readonly',
         IS_CLIENT: 'readonly',
         /** Tests variables */

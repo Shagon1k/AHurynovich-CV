@@ -1,8 +1,7 @@
-import { WEBPACK_MODE_PROD } from '../../environment';
 import { getWebpackProgressBarPlugin, getWebpackDefinePlugin } from '../helpers/plugins';
 
 const prodConfig = {
-    mode: WEBPACK_MODE_PROD,
+    mode: 'production',
     devtool: 'source-map',
     plugins: [
         getWebpackDefinePlugin({

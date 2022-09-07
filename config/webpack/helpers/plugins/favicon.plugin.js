@@ -7,10 +7,9 @@ export default () =>
         logo: SRC_APP_FAVICON_ENTRY,
         prefix: DIST_FAVICONS_PREFIX,
         cache: true,
-        inject: false,
+        inject: true,
         devMode: 'webapp',
         favicons: {
-            // Note: Application name, description, etc. are mostly for PWA to generate manifest.json
             appName: 'Aliaksei-Hurynovich-CV',
             appDescription: 'Aliaksei Hurynovichs CV app',
             developerName: 'Aliaksei Hurynovich',
