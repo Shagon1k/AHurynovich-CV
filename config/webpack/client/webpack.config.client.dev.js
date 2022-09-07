@@ -1,8 +1,8 @@
-import { WEBPACK_MODE_DEV, DIST_DIR } from '../../environment';
+import { DIST_DIR } from '../../environment';
 import { getWebpackProgressBarPlugin, getWebpackDefinePlugin, getWebpackHmrPlugin } from '../helpers/plugins';
 
 const devConfig = {
-    mode: WEBPACK_MODE_DEV,
+    mode: 'development',
     devtool: 'inline-source-map',
     watch: true,
     plugins: [
@@ -24,6 +24,7 @@ const devConfig = {
         historyApiFallback: true,
         port: 1337,
         static: DIST_DIR,
+        https: true,
     },
 };
 

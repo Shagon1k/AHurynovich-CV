@@ -26,6 +26,7 @@
         "build:client": "cross-env WITH_SSR=false webpack --config config/webpack/client/webpack.config.client.babel.js",
         "build:client:dev": "cross-env NODE_ENV=development npm run build:client",
         "build:client:prod": "cross-env NODE_ENV=production npm run build:client",
+        "build:client:prod:pwa": "cross-env WITH_PWA=true npm run build:client:prod",
         "build:client:and:start:dev": "cross-env NODE_ENV=development WITH_SSR=false webpack serve --config config/webpack/client/webpack.config.client.babel.js",
         "build:client:and:start:prod": "npm run build:client:prod && http-server dist/client -c-1 -p 1337",
         "deploy:s3": "sls client deploy --no-config-change --no-policy-change --no-cors-change --no-confirm",
@@ -152,6 +153,7 @@
         "favicons": "^6.2.2",
         "favicons-webpack-plugin": "^5.0.2",
         "html-webpack-plugin": "^5.5.0",
+        "html-webpack-skip-assets-plugin": "^1.0.3",
         "http-server": "^14.1.1",
         "husky": "^7.0.4",
         "identity-obj-proxy": "^3.0.0",
@@ -183,6 +185,7 @@
         "webpack-cli": "^4.10.0",
         "webpack-dev-server": "^4.9.3",
         "webpack-merge": "^5.8.0",
-        "webpackbar": "^5.0.2"
+        "webpackbar": "^5.0.2",
+        "workbox-webpack-plugin": "^6.5.4"
     }
 }
