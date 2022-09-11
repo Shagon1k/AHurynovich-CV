@@ -1,12 +1,11 @@
-import { DIST_DIR } from '../../environment';
-import { getWebpackProgressBarPlugin, getWebpackDefinePlugin, getWebpackHmrPlugin } from '../helpers/plugins';
+import { DIST_DIR, WITH_SSR } from '../../environment';
+import { getWebpackProgressBarPlugin, getWebpackDefinePlugin } from '../helpers/plugins';
 
 const devConfig = {
     mode: 'development',
     devtool: 'inline-source-map',
-    watch: true,
+    watch: WITH_SSR, // SSR approach's DEV mode does NOT use dev server => requires enabling "watch" mode directly
     plugins: [
-        getWebpackHmrPlugin(),
         getWebpackDefinePlugin({
             IS_PRODUCTION: false,
             IS_DEV: true,
@@ -24,7 +23,7 @@ const devConfig = {
         historyApiFallback: true,
         port: 1337,
         static: DIST_DIR,
-        https: true,
+        server: 'https',
     },
 };
 

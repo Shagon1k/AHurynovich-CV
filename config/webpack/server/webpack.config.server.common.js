@@ -1,4 +1,4 @@
-import { SRC_SERVER_ENTRY, DIST_SERVER_DIR, WITH_SSR, IS_DEV } from '../../environment';
+import { SRC_SERVER_ENTRY, DIST_SERVER_DIR, DIST_SCRIPTS_PREFIX, WITH_SSR, IS_DEV } from '../../environment';
 import { getWebpackDefinePlugin, getWebpackProvidePlugin } from '../helpers/plugins';
 import {
     getWebpackBabelLoader,
@@ -14,7 +14,7 @@ const commonConfig = {
         path: DIST_SERVER_DIR,
         publicPath: '/',
         filename: 'index.js',
-        chunkFilename: 'js/chunks/[name].[chunkhash].js',
+        chunkFilename: `${DIST_SCRIPTS_PREFIX}/chunks/[name].[chunkhash].js`,
     },
     target: 'node',
     plugins: [

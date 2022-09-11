@@ -1,6 +1,8 @@
 import {
     SRC_CLIENT_ENTRY,
     DIST_CLIENT_DIR,
+    DIST_SCRIPTS_PREFIX,
+    DIST_STYLES_PREFIX,
     DIST_FONTS_PREFIX,
     WITH_SSR,
     WITH_PWA,
@@ -29,15 +31,15 @@ const commonConfig = {
     output: {
         path: DIST_CLIENT_DIR,
         publicPath: '/',
-        filename: 'js/index.js',
-        chunkFilename: 'js/chunks/[name].[chunkhash].js',
+        filename: `${DIST_SCRIPTS_PREFIX}/index.js`,
+        chunkFilename: `${DIST_SCRIPTS_PREFIX}/chunks/[name].[chunkhash].js`,
     },
     target: 'web',
     externals: ['jsdom'],
     plugins: [
         getWebpackMiniCssExtractPlugin({
-            filename: 'css/styles.css',
-            chunkFilename: 'css/chunks/[name].[chunkhash].css',
+            filename: `${DIST_STYLES_PREFIX}/styles.css`,
+            chunkFilename: `${DIST_STYLES_PREFIX}/chunks/[name].[chunkhash].css`,
         }),
         ...getWebpackHtmlPlugins(),
         getWebpackCopyPlugin([{ from: SRC_ROBOTS_ENTRY, to: 'robots.txt' }]),
@@ -56,7 +58,7 @@ const commonConfig = {
                 test: /\.(woff|woff2|ttf|eot)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: `${DIST_FONTS_PREFIX}[hash][ext][query]`,
+                    filename: `${DIST_FONTS_PREFIX}/[hash][ext][query]`,
                 },
             },
             {

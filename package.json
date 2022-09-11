@@ -31,7 +31,7 @@
         "build:client:and:start:prod": "npm run build:client:prod && http-server dist/client -c-1 -p 1337",
         "deploy:s3": "sls client deploy --no-config-change --no-policy-change --no-cors-change --no-confirm",
         "build:and:deploy:s3": "npm run build:clean && npm run build:client:prod && npm run deploy:s3",
-        "start:wssr": "node dist/server",
+        "start:wssr": "nodemon dist/server",
         "start:wssr:debug": "nodemon --inspect dist/server",
         "build:client:wssr": "cross-env WITH_SSR=true webpack --config config/webpack/client/webpack.config.client.babel.js",
         "build:client:wssr:dev": "cross-env NODE_ENV=development npm run build:client:wssr",

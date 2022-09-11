@@ -40,6 +40,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 
 - **Server Application framework** - [Express](https://expressjs.com/)
 - **Server Secureness utility** - [Helmet](https://helmetjs.github.io/)
+- **Server Runner** - [Nodemon](https://www.npmjs.com/package/nodemon)
 
 ### Code Styling
 - **Static Code analyzer** - [ESLint](https://eslint.org/) + [StyleLint](https://stylelint.io/)
@@ -307,8 +308,8 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 > ***Note**: Default SSR approach Server host port: 3000.*
 
 **Start:**
-- `npm run start:wssr` - Server start
-- `npm run start:wssr:debug` - Server start with Debug
+- `npm run start:wssr` - Server start (Nodemon used to handle restart on change)
+- `npm run start:wssr:debug` - Server start with Debug (Nodemon used to handle restart on change + debug ability)
 
 **Build:**
 - `npm run build:client:wssr` - SSR Client general build task (development is default)

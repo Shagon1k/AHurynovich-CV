@@ -1,8 +1,10 @@
 import path from 'path';
 
-export const { NODE_ENV, WITH_PWA, WITH_SSR } = process.env;
+const { NODE_ENV, WITH_PWA: ENV_WITH_PWA, WITH_SSR: ENV_WITH_SSR } = process.env;
 
 export const IS_DEV = NODE_ENV !== 'production';
+export const WITH_PWA = ENV_WITH_PWA === 'true';
+export const WITH_SSR = ENV_WITH_SSR === 'true';
 
 export const ROOT_DIR = process.cwd();
 export const CONFIG_DIR = path.resolve(ROOT_DIR, './config');
@@ -22,8 +24,9 @@ export const SRC_APP_TEMPLATE = path.resolve(SRC_DIR, './index.html');
 
 export const DIST_DIR = path.resolve(ROOT_DIR, './dist');
 export const DIST_CLIENT_DIR = path.resolve(DIST_DIR, './client');
-export const DIST_ASSETS_DIR = path.resolve(DIST_CLIENT_DIR, './assets');
-export const DIST_FAVICONS_PREFIX = 'assets/favicons/';
-export const DIST_FONTS_PREFIX = 'assets/fonts/';
+export const DIST_FAVICONS_PREFIX = 'assets/favicons';
+export const DIST_FONTS_PREFIX = 'assets/fonts';
+export const DIST_SCRIPTS_PREFIX = 'js';
+export const DIST_STYLES_PREFIX = 'css';
 export const DIST_APP_TEMPLATE = path.resolve(DIST_CLIENT_DIR, './index.html');
 export const DIST_SERVER_DIR = path.resolve(DIST_DIR, './server');

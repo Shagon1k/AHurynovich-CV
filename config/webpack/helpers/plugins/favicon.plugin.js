@@ -5,7 +5,7 @@ import { SRC_APP_FAVICON_ENTRY, DIST_FAVICONS_PREFIX } from '../../../environmen
 export default () =>
     new FaviconsWebpackPlugin({
         logo: SRC_APP_FAVICON_ENTRY,
-        prefix: DIST_FAVICONS_PREFIX,
+        prefix: `${DIST_FAVICONS_PREFIX}/`,
         cache: true,
         inject: true,
         devMode: 'webapp',
