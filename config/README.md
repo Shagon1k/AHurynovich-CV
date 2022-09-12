@@ -112,7 +112,6 @@ Documentation and guidelines for application's config.
 │   │   main.js
 │   │   preview.js
 │   │   webpack.config.storybook.es5.js
-│   │   serverless.yml
 │   └───
 │
 ├───robots

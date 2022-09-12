@@ -10,7 +10,7 @@ const ExampleComponent = ({ onMakeHelloClick, isHello }) => {
         <>
             <div className={styles.test}>Test</div>
             <button name='Make Hello' onClick={onMakeHelloClick}>
-                Make Hello
+                Make Hello There
             </button>
             <div>{t('test.test')}</div>
             <div className={styles.hello}> {isHello ? 'Hello there!' : 'Bye!!'} </div>
