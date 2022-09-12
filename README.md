@@ -5,7 +5,7 @@
 [![InsightsSnapshot](https://dl.circleci.com/insights-snapshot/gh/Shagon1k/AHurynovich-CV/main/Commitment(main)/badge.svg?window=30d)](https://app.circleci.com/insights/github/Shagon1k/AHurynovich-CV/workflows/Commitment(main)/overview?branch=main&reporting-window=last-30-days&insights-snapshot=true)
 
 My personal **CV Web Application** + **React boilerplate**.
-Generally CV application follows Static CSR approach deploying final built to AWS S3. Than it is hosted using AWS S3 Static Web Hosting feature.
+Generally CV application follows Static CSR approach deploying final build to AWS S3. Than it is hosted using AWS S3 Static Web Hosting feature.
 
 ## Project's Goals
 1) Create personal CV-based web application;
@@ -64,7 +64,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 
 ### Other
 - **Application CI/CD utility** - [CircleCI](https://circleci.com/)
-- **AWS Serverless deployment** - [Serverless](https://www.serverless.com/)
+- **AWS CLI** - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - **Git Hooks utility** - [Husky](https://typicode.github.io/husky/#/)
 - **Search Engine configuration** - [Robots](https://www.robotstxt.org/)
 - **Code vulnerabilities Scan tool** - [Snyk](https://snyk.io/)
@@ -160,7 +160,6 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   main.js   // StoryBook main config file
 │   │   │   preview.js   // StoryBook global stories setup (decorators, parameters, args, etc.)
 │   │   │   webpack.config.storybook.es5.js   // StoryBook Webpack config loader (use Babel transpiler to provide ES6 Webpack config usage)
-│   │   │   serverless.yml   // AWS Serverless Components Library deployment configuration
 │   │   └───
 │   │
 │   ├───
@@ -275,7 +274,6 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   .editorconfig   // editor basic setup for IDE
 │   babel.config.js   // Babel configuration
 │   jsconfig.json   // VSCode JS configuration file for indicating directory root, aliases setup, etc.
-│   serverless.yml   // AWS Serverless Application deployment configuration
 │   package.json
 │   package-lock.json
 │   .gitignore
@@ -301,8 +299,8 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run build:client:prod:pwa` - Client production build task (with PWA support)
 
 **Deploy:**
-- `npm run deploy:s3` - deployment task for Application static AWS S3 hosting (no confirm)
-- `npm run build:and:deploy:s3` - Client production build task -> deployment task for static AWS S3 hosting (no confirm)
+- `npm run deploy:s3` - Application deploy to AWS S3 task (used for Static Site Hosting)
+- `npm run build:and:deploy:s3` - Application production build -> deploy to AWS S3 task (used for Static Site Hosting)
 
 ### SSR approach's tasks:
 > ***Note**: Default SSR approach Server host port: 3000.*
@@ -356,8 +354,8 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - `npm run storybook:start` - start Components Library application (localy)
 - `npm run storybook:build` - build Components Library (dist folder: 'storybook-static')
 - `npm run storybook:build:clean` - clean Components Library build
-- `npm run storybook:deploy:s3` - deployment task for Components Library static AWS S3 hosting (no confirm)
-- `npm run storybook:build:and:deploy:s3` - build Components Library -> deployment task for Components Library static AWS S3 hosting (no confirm)
+- `npm run storybook:deploy:s3` - Components Library deploy to AWS S3 task for (used for Static Site Hosting)
+- `npm run storybook:build:and:deploy:s3` - Components Library build -> deploy to AWS S3 task (used for Static Site Hosting)
 
 ## Boilerplate Guide
 TBD once general setup be finished

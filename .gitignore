@@ -16,7 +16,6 @@ jspm_packages
 
 # production
 build
-.serverless
 dist/
 public/
 
