@@ -1,26 +1,13 @@
 import fse from 'fs-extra';
-import { renderToString } from 'react-dom/server';
+import { v4 as uuidV4 } from 'uuid';
+import { Writable } from 'node:stream';
+import { renderToPipeableStream } from 'react-dom/server';
 
 import { DIST_APP_TEMPLATE } from '@config/environment';
 
-/**
- * Get rendering template
- * @return {Promise<*>}
- */
-const getTemplate = async () => {
-    try {
-        const templateSrc = await fse.readFile(DIST_APP_TEMPLATE, 'utf-8');
-
-        return templateSrc;
-    } catch (err) {
-        return err;
-    }
-};
-
-/* eslint-disable indent */
-const getAppStateStr = (state) => {
+const getAppStateStr = (state, CSPNonce) => {
     const stringifiedAppState = `
-    <script type="text/javascript">
+    <script type="text/javascript" nonce="${CSPNonce}">
 	    // WARNING: See the following for security issues around embedding JSON in HTML:
 	    // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
 	    window.__PRELOADED_STATE__ = ${JSON.stringify(state).replace(/</g, '\\u003c')}
@@ -29,26 +16,31 @@ const getAppStateStr = (state) => {
 
     return stringifiedAppState;
 };
-/* eslint-enable indent */
 
 /**
- * Process template with data to be rendered
- *
- * @param {String} tpl - template string
- * @param {Object} options
- * @param {String} options.app - stringified application
- * @param {String} options.store - stringified application Redux store
- * @param {String} options.htmlAttributes - stringified HTML attributes (e.g. language)
+ * Get rendering template
+ * @return {Promise<*>}
  */
-const processTemplate = (tpl, options) => {
-    const { app, state, htmlAttributes } = options;
+const getProcessedTemplateParts = async (appState) => {
+    try {
+        const templateSource = await fse.readFile(DIST_APP_TEMPLATE, 'utf-8');
+        /**
+         * Note: CSP nonce used to validate injected content (scripts, styles, etc.)
+         * This one is used for stringified App store script injection.
+         * More details: https://content-security-policy.com/nonce/
+         */
+        const CSPNonce = uuidV4();
+        const stringifiedAppState = getAppStateStr(appState, CSPNonce);
 
-    const processedTemplate = tpl
-        .replace(/<html(.*)>/, `<html ${htmlAttributes}>`)
-        .replace(/<!--SSR_TEMPLATE_APP-->/, app)
-        .replace(/<!--SSR_TEMPLATE_APP_STATE-->/, state);
+        const processedTemplate = templateSource
+            .replace('SSR_TEMPLATE_SCRIPT_NONCE', CSPNonce)
+            .replace('<!--SSR_TEMPLATE_APP_STATE-->', stringifiedAppState);
 
-    return processedTemplate;
+        // [0] - HTML response part before rendered App, [1] - HTML response part after rendered App
+        return processedTemplate.split('<!--SSR_TEMPLATE_APP-->');
+    } catch (err) {
+        return err;
+    }
 };
 
 /**
@@ -71,22 +63,32 @@ const createRenderMiddleware = (options) => async (req, res, next) => {
         helmetContext,
     });
 
-    const template = await getTemplate();
+    const [templateBefore, templateAfter] = await getProcessedTemplateParts(store.getState());
 
-    const stringifiedApp = renderToString(app);
-    const stringifiedAppState = getAppStateStr(store.getState());
-    const { helmet } = helmetContext;
-
-    // Replace template placeholders with appropriate data
-    const responseBody = processTemplate(template, {
-        app: stringifiedApp,
-        state: stringifiedAppState,
-        htmlAttributes: helmet.htmlAttributes.toString(), // Updated Helmet generated HTML attributes
+    const writableStream = new Writable({
+        write(chunk, _encoding, cb) {
+            res.write(chunk, cb);
+        },
+        final() {
+            res.end(templateAfter);
+        },
     });
 
-    res.setHeader('Content-Type', 'text/html');
-    res.status(200);
-    res.send(responseBody);
+    const { pipe } = renderToPipeableStream(app, {
+        onShellReady() {
+            res.setHeader('Content-type', 'text/html');
+            // Helmet Context is only populated after rendered App (Shell) ready
+            const resultTemplateBefore = templateBefore.replace(
+                /<html(.*)>/,
+                `<html ${helmetContext.helmet.htmlAttributes.toString()}>`
+            );
+            res.write(resultTemplateBefore);
+            pipe(writableStream);
+        },
+        onError(x) {
+            console.error(x);
+        },
+    });
 
     next();
 };
