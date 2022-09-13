@@ -26,7 +26,7 @@ const getProcessedTemplateParts = async (appState) => {
         const templateSource = await fse.readFile(DIST_APP_TEMPLATE, 'utf-8');
         /**
          * Note: CSP nonce used to validate injected content (scripts, styles, etc.)
-         * This one is used for stringified App store script injection.
+         * This one is used for stringified App State script injection.
          * More details: https://content-security-policy.com/nonce/
          */
         const CSPNonce = uuidV4();
