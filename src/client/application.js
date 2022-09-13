@@ -1,4 +1,4 @@
-import Application from './application.component';
+import Application from './Application.component';
 
 /**
  * Main application render function

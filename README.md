@@ -220,8 +220,8 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   │   reset-normalize.scss
 │   │   │   └───
 │   │   │
-│   │   │   application.component.js   // main application Component
-│   │   │   application.module.scss   // entry styles file
+│   │   │   Application.component.js   // main application Component
+│   │   │   Application.module.scss   // entry styles file
 │   │   │   application.js   // main Create App file (used for both CSR and SSR approaches)
 │   │   │   index.js   // Client entry file
 │   │   │   README.md   // Client folder info
