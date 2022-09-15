@@ -8,7 +8,7 @@ export const storyBookOverrideConfig = {
         rules: [
             {
                 test: /\.module\.s?css$/,
-                use: ['style-loader', getWebpackCssModulesLoader(true), getWebpackSassLoader()],
+                use: ['style-loader', getWebpackCssModulesLoader(), getWebpackSassLoader()],
             },
         ],
     },

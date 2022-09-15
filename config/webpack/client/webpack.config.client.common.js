@@ -6,7 +6,6 @@ import {
     DIST_FONTS_PREFIX,
     WITH_SSR,
     WITH_PWA,
-    IS_DEV,
     SRC_ROBOTS_ENTRY,
 } from '../../environment';
 import {
@@ -73,7 +72,7 @@ const commonConfig = {
                         test: /\.module\.s?css$/,
                         use: [
                             getWebpackMiniCssExtractLoader(),
-                            getWebpackCssModulesLoader(IS_DEV),
+                            getWebpackCssModulesLoader(),
                             getWebpackSassLoader(),
                         ],
                     },

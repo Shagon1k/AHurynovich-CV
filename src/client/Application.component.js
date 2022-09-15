@@ -8,7 +8,7 @@ import { ServicesProvider } from '@reusables/services-context';
 import Head from './components/base/AppHead';
 import Routes from './components/routes';
 
-import styles from './application.module.scss';
+import styles from './Application.module.scss';
 
 const Application = ({ options }) => {
     const { isServer, path, store, services, helmetContext } = options;

@@ -11,8 +11,8 @@ Documentation and guidelines for application's Client.
     - SCSS + CSS Modules for **styling**;
 - Client entry file - *index.js*;
 - Client main application's file - *application.js*;
-- Client main application's Component - *application.component.js*;
-- Client main styles file - *application.module.scss*;
+- Client main application's Component - *Application.component.js*;
+- Client main styles file - *Application.module.scss*;
 - Client Global State main file - */store/store.js*;
 - Application's Root element ID (APP_ROOT_ID) is configured and comes from **[Application's configuration](/config/application/application.config.js)**;
 
@@ -128,8 +128,8 @@ Documentation and guidelines for application's Client.
 │   │   reset-normalize.scss
 │   └───
 │
-│   application.component.js
-│   application.module.scss
+│   Application.component.js
+│   Application.module.scss
 │   application.js
 │   index.js
 │   README.md

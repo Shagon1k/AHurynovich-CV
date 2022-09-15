@@ -1,4 +1,4 @@
-import { SRC_SERVER_ENTRY, DIST_SERVER_DIR, DIST_SCRIPTS_PREFIX, WITH_SSR, IS_DEV } from '../../environment';
+import { SRC_SERVER_ENTRY, DIST_SERVER_DIR, DIST_SCRIPTS_PREFIX, WITH_SSR } from '../../environment';
 import { getWebpackDefinePlugin, getWebpackProvidePlugin } from '../helpers/plugins';
 import {
     getWebpackBabelLoader,
@@ -41,7 +41,7 @@ const commonConfig = {
                          * Note: Extract loader is redundant for server side as there are no CSS bundles generated there.
                          * Only CSS Modules loader needed for selectors names generation (e.g. class names) to have consistency with those which are created in client-side bundle.
                          */
-                        use: [getWebpackCssModulesLoader(IS_DEV, true), getWebpackSassLoader()],
+                        use: [getWebpackCssModulesLoader(true), getWebpackSassLoader()],
                     },
                     {
                         use: [getWebpackCssLoader(), getWebpackSassLoader()],
