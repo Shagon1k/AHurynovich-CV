@@ -5,7 +5,6 @@ module.exports = {
             numberOfRuns: 3,
             url: ['/'], // Enables LightHouse to run in default route instead of index.html file
             headful: true,
-            additive: false,
             settings: {
                 chromeFlags: '--no-sandbox --headless',
             },
