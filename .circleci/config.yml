@@ -214,6 +214,7 @@ workflows:
           name: "[Deploy Components Lib]"
           requires:
             - lint
+            - test-tsc
             - test-unit-integration-with-reports
             - test-sca
       - build-components-library:
