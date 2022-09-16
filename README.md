@@ -4,7 +4,7 @@
 
 [![InsightsSnapshot](https://dl.circleci.com/insights-snapshot/gh/Shagon1k/AHurynovich-CV/main/Commitment(main)/badge.svg?window=30d)](https://app.circleci.com/insights/github/Shagon1k/AHurynovich-CV/workflows/Commitment(main)/overview?branch=main&reporting-window=last-30-days&insights-snapshot=true)
 
-My personal **CV Web Application** + **React boilerplate**.
+My personal **CV Web Application** + **React boilerplate** written on **TypeScript** (JavaScript usage supported).
 Generally CV application follows Static CSR approach deploying final build to AWS S3. Than it is hosted using AWS S3 Static Web Hosting feature.
 
 ## Project's Goals
@@ -23,10 +23,14 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 ## Technology Stack
 ### Project Bundling
 - **Application bundler** - [Webpack](https://webpack.js.org/)
-- **JS compiler** - [Babel](https://babeljs.io/) (using Webpack ['babel-loader'](https://www.npmjs.com/package/babel-loader))
+- **JS/TS compiler** - [Babel](https://babeljs.io/) (using Webpack ['babel-loader'](https://www.npmjs.com/package/babel-loader))
+    > ***Note**: Transpiling TypeScript **using Babel approach** (not [ts-loader](https://www.npmjs.com/package/ts-loader)) **was chosen**: 1) faster compilation (no types check); 2) having single source of compilation - Babel.
+    On the other hand, using Babel compilation results in **completely lose of type safety and TypeScript checks** during this phase. That's why additional test script ([tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html)) were presented **to check as pre-commit(push) hook + in scope of CI/CD**.*
 - **Styles compiler** - Webpack [sass-loader](https://www.npmjs.com/package/sass-loader) + [postcss-loader](https://www.npmjs.com/package/postcss-loader) with [autoprefixer](https://www.npmjs.com/package/autoprefixer)
 
 ### Application
+- **Core language** - [TypeScript](https://www.typescriptlang.org/)
+    > ***Note**: JavaScript also supported for classic lovers. TypeScript usage is **highly recommended**.*
 - **View rendering** - [React](https://reactjs.org/)
 - **View styling** - [SCSS](https://sass-lang.com/) + [CSS-Modules](https://webpack.js.org/loaders/css-loader/#modules)
 - **Routing** - [React-Router](https://reactrouter.com/)
@@ -335,6 +339,8 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
     - `npm run test:e2e:a11y:prod` - run A11y E2E Tests (production build used)
 - **Performance Testing**
     - `npm run test:perf:ci` - run Application Performance + Insights testing (Lighthouse CI, user for CI/CD pipeline level testing)
+- **TypeScript Types checking**
+    - `npm run test:tsc` - run Application Typescript's types checking (no Libraries level checking)
 
 **Lint:**
 - `npm run lint:scripts` - lint JS files

@@ -39,9 +39,10 @@ const startClientApp = async () => {
 const startPWAServiceWorker = () => {
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            /** Note: For full PWA support application should have specific Service Worker to control Offline mode using caching, etc.
-             *  PWA Service Worker is created by Webpack Workbox Plugin during bundling phase.
-             *  More details: https://webpack.js.org/guides/progressive-web-application/
+            /**
+             * Note: For full PWA support application should have specific Service Worker to control Offline mode using caching, etc.
+             * PWA Service Worker is created by Webpack Workbox Plugin during bundling phase.
+             * More details: https://webpack.js.org/guides/progressive-web-application/
              */
             navigator.serviceWorker.register('/service-worker.js');
         });

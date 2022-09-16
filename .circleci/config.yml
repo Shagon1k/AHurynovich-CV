@@ -39,6 +39,14 @@ jobs:
       - run:
           name: "Lint"
           command: npm run lint
+  test-tsc:
+    executor: exec-docker-node
+    steps:
+      - checkout
+      - cmd-restore-cache
+      - run:
+          name: "Check TypeScript files"
+          command: npm run test:tsc
   test-unit-integration:
     executor: exec-docker-node
     steps:
@@ -155,12 +163,16 @@ workflows:
       - lint:
           requires:
             - install-packages
+      - test-tsc:
+          requires:
+            - install-packages
       - test-unit-integration:
           requires:
             - install-packages
       - build-app:
           requires:
             - lint
+            - test-tsc
             - test-unit-integration
   Commitment(main):
     when:
@@ -168,6 +180,9 @@ workflows:
     jobs:
       - install-packages
       - lint:
+          requires:
+            - install-packages
+      - test-tsc:
           requires:
             - install-packages
       - test-unit-integration-with-reports:
@@ -179,6 +194,7 @@ workflows:
       - build-app:
           requires:
             - lint
+            - test-tsc
             - test-unit-integration-with-reports
             - test-sca
       - test-performance:

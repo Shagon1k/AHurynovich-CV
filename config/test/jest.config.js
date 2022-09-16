@@ -2,7 +2,7 @@
 require('@babel/register'); // eslint-disable-line no-undef
 
 const path = require('path'); // eslint-disable-line no-undef
-const environmentConfig = require('../environment/environment.config.js'); // eslint-disable-line no-undef
+const environmentConfig = require('../environment/environment.config.js'); // eslint-disable-line no-undef, import/extensions
 const { SRC_DIR, SRC_CLIENT_DIR, SRC_SERVER_DIR, SRC_COMMON_DIR, CONFIG_DIR } = environmentConfig;
 
 const IS_TEST_REPORTS_ENABLED = process.env.TEST_SETUP === 'reports';
@@ -73,14 +73,7 @@ module.exports = {
     // ],
 
     // An array of file extensions your modules use
-    // moduleFileExtensions: [
-    //   "js",
-    //   "json",
-    //   "jsx",
-    //   "ts",
-    //   "tsx",
-    //   "node"
-    // ],
+    moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
     moduleNameMapper: {
@@ -114,8 +107,10 @@ module.exports = {
     // modulePathIgnorePatterns: [],
 
     // Activates notifications for test results
-    /** Note: Turning ON notify cause an issue with correct stopping of async operations ("Jest did not exit one second...").
-     * Please keep turned off. More details: https://github.com/facebook/jest/issues/7890
+    /**
+     * Note: Turning ON notify cause an issue with correct stopping of async operations ("Jest did not exit one second...").
+     * Please keep turned OFF.
+     * More details: https://github.com/facebook/jest/issues/7890
      */
     notify: false,
 
@@ -217,7 +212,7 @@ module.exports = {
 
     // A map from regular expressions to paths to transformers
     transform: {
-        '^.+\\.jsx?$': 'babel-jest',
+        '^.+\\.[jt]sx?$': 'babel-jest',
     },
 
     // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation

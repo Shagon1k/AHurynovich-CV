@@ -2,6 +2,19 @@
     "compilerOptions": {
         "baseUrl": "./",
         "outDir": "dist",
+        "module": "es6",
+        "target": "es5",
+        "strict": true,
+        "noImplicitAny": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react-jsx",
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "nodenext",
+        "isolatedModules": true,
+        "noEmit": true,
+        "skipLibCheck": true,
         "paths": {
             "@config/*": ["./config/*"],
             "@config": ["./config"],
@@ -22,7 +35,7 @@
             "@slices/*": ["./src/client/store/slices/*"],
             "@test-utils": ["./config/test/jest/test-utils"],
             "@test-utils/*": ["./config/test/jest/test-utils/*"]
-        }
+        },
     },
     "include": ["src/**/*", "config/**/*/*"],
     "exclude": ["node_modules", "dist/**/*"]

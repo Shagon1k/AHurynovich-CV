@@ -25,7 +25,7 @@ export const startServer = () => {
         helmet({
             /**
              * Need to re-configure CSP policy in order to have ability to inject inline scripts from server (e.g. Redux store state transfer purpose)
-             * For more details see: https://stackoverflow.com/questions/65890616/helmet-causing-mern-app-hosted-on-heroku-cause-error-refused-to-execute-inline
+             * More details: https://stackoverflow.com/questions/65890616/helmet-causing-mern-app-hosted-on-heroku-cause-error-refused-to-execute-inline
              */
             contentSecurityPolicy: {
                 directives: {

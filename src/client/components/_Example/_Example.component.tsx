@@ -1,9 +1,13 @@
-import PropTypes from 'prop-types';
 import { useTranslate } from '@reusables/custom-hooks/use-translate.hook';
 
 import styles from './_Example.module.scss';
 
-const ExampleComponent = ({ onMakeHelloClick, isHello }) => {
+interface ExampleProps {
+    onMakeHelloClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+    isHello: boolean;
+}
+
+const ExampleComponent: React.FC<ExampleProps> = ({ onMakeHelloClick, isHello }: ExampleProps) => {
     const t = useTranslate();
 
     return (
@@ -16,11 +20,6 @@ const ExampleComponent = ({ onMakeHelloClick, isHello }) => {
             <div className={styles.hello}> {isHello ? 'Hello there!' : 'Bye!!'} </div>
         </>
     );
-};
-
-ExampleComponent.propTypes = {
-    onMakeHelloClick: PropTypes.func.isRequired,
-    isHello: PropTypes.bool,
 };
 
 export default ExampleComponent;
