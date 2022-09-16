@@ -25,7 +25,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 - **Application bundler** - [Webpack](https://webpack.js.org/)
 - **JS/TS compiler** - [Babel](https://babeljs.io/) (using Webpack ['babel-loader'](https://www.npmjs.com/package/babel-loader))
     > ***Note**: Transpiling TypeScript **using Babel approach** (not [ts-loader](https://www.npmjs.com/package/ts-loader)) **was chosen**: 1) faster compilation (no types check); 2) having single source of compilation - Babel.
-    On the other hand, using Babel compilation results in **completely lose of type safety and TypeScript checks** during this phase. That's why additional test script ([tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html)) were presented **to check as pre-commit hook + in scope of CI/CD**.*
+    On the other hand, using Babel compilation results in **completely lose of type safety and TypeScript checks** during this phase. That's why additional test script ([tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html)) were presented **to check as pre-commit(push) hook + in scope of CI/CD**.*
 - **Styles compiler** - Webpack [sass-loader](https://www.npmjs.com/package/sass-loader) + [postcss-loader](https://www.npmjs.com/package/postcss-loader) with [autoprefixer](https://www.npmjs.com/package/autoprefixer)
 
 ### Application
