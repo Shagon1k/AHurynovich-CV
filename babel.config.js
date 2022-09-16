@@ -2,9 +2,14 @@ const BABELRC_ROOTS = ['src/*'];
 
 module.exports = {
     presets: [
-        '@babel/preset-react',
+        '@babel/react',
+        /**
+         * Note: By transpiring TypeScript code with Babel, you gain on speed but you completely lose compile time type safety.
+         * Therefore, additional test script were added to package.json ("test:tsc") which is used as pre-commit hook and in CI/CD scope.
+         */
+        '@babel/typescript',
         [
-            '@babel/preset-env',
+            '@babel/env',
             {
                 /**
                  * Note: With useBuiltIns 'usage' option Babel goes through targets (specified in package.json "browserslist") and

@@ -2,6 +2,7 @@ import { SRC_SERVER_ENTRY, DIST_SERVER_DIR, DIST_SCRIPTS_PREFIX, WITH_SSR } from
 import { getWebpackDefinePlugin, getWebpackProvidePlugin } from '../helpers/plugins';
 import {
     getWebpackBabelLoader,
+    getWebpackSourceMapLoader,
     getWebpackCssLoader,
     getWebpackCssModulesLoader,
     getWebpackSassLoader,
@@ -28,6 +29,11 @@ const commonConfig = {
     module: {
         rules: [
             {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: [getWebpackBabelLoader(), getWebpackSourceMapLoader()],
+            },
+            {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: [getWebpackBabelLoader()],
@@ -52,6 +58,12 @@ const commonConfig = {
     },
     resolve: {
         alias: getAlias(),
+        /**
+         * Note: Enable skipping enforce extensions for .ts(.tsx) files.
+         * Passing array will provide Webpack with instructions how to manage skipped extensions for files.
+         * More details: https://webpack.js.org/configuration/resolve/#resolveextensions
+         */
+        extensions: ['.ts', '.tsx', '...'],
     },
 };
 

@@ -3,6 +3,14 @@ module.exports = {
         browser: true,
         es2021: true,
     },
+    parser: '@babel/eslint-parser',
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
+        },
+        sourceType: 'module',
+    },
+    plugins: ['babel', 'react', 'prettier', 'react-hooks'],
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
@@ -16,12 +24,23 @@ module.exports = {
         'react/prop-types': 'warn',
         'react/destructuring-assignment': 'off',
         'react/jsx-key': 'warn',
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'warn',
         'import/no-duplicates': 'warn',
         'import/no-cycle': 'warn',
+        'import/extensions': [
+            'error',
+            'ignorePackages',
+            {
+                jsx: 'never',
+                js: 'never',
+                tsx: 'never',
+                ts: 'never',
+            },
+        ],
     },
     globals: {
         /** Global environment variables */
-        PRODUCTION: 'readonly',
         WITH_SSR: 'readonly',
         WITH_PWA: 'readonly',
         IS_SERVER: 'readonly',
@@ -46,17 +65,30 @@ module.exports = {
         module: 'readonly',
         global: 'readonly',
     },
-    parser: '@babel/eslint-parser',
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true,
-        },
-        sourceType: 'module',
-    },
     settings: {
         react: {
             version: 'detect',
         },
     },
-    plugins: ['babel', 'react', 'prettier'],
+    /**
+     * Note: TSLint became deprecated from 2019 due to high code duplication with ESLint. Nowadays ESLint is used to format TypeScript files.
+     * More details: https://blog.palantir.com/tslint-in-2019-1a144c2317a9
+     * As Project intends to support both JS and TS, special override configuration used for TypeScript files.
+     */
+    overrides: [
+        {
+            files: ['*.{ts,tsx}'],
+            parser: '@typescript-eslint/parser',
+            /**
+             * Note: 'typescript-eslint' disables some rules from 'eslint:recommended' as they are checked by TypeScript itself (e.g. constant reassign, object keys duplication)
+             * More details: https://github.com/typescript-eslint/typescript-eslint/blob/v2.23.0/packages/eslint-plugin/src/configs/eslint-recommended.ts
+             * Therefore it is required to handle TypeScript checking every time after ESlint checking (e.g. using 'tsc' command) as described cases will NOT be detected by ESLint.
+             */
+            plugins: ['@typescript-eslint'],
+            extends: [
+                'plugin:@typescript-eslint/eslint-recommended',
+                'plugin:@typescript-eslint/recommended',
+            ],
+        },
+    ],
 };
