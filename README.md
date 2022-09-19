@@ -202,7 +202,7 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   │
 │   │   │   ├───hocs
 │   │   │   │
-│   │   │   │   services-context.js   // Services context for components injection using specific Custom Hook/HOC
+│   │   │   │   services-context.tsx   // Services context for components injection using specific Custom Hook/HOC
 │   │   │   └───
 │   │   │
 │   │   ├───store   // Redux's Store
@@ -211,9 +211,9 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   │
 │   │   │   ├───slices
 │   │   │   │
-│   │   │   │   store.js   // main Store setup file (used for both CSR and SSR approaches)
-│   │   │   │   store.reducer.js   // main reducer setup file
-│   │   │   │   store.saga.js   // root saga setup file (main init + watch sagas)
+│   │   │   │   store.ts   // main Store setup file (used for both CSR and SSR approaches)
+│   │   │   │   store.reducer.ts   // main reducer setup file
+│   │   │   │   store.saga.ts   // root saga setup file (main init + watch sagas)
 │   │   │   └───
 │   │   │
 │   │   ├───styles   // main styles folder
@@ -224,10 +224,10 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │   │   reset-normalize.scss
 │   │   │   └───
 │   │   │
-│   │   │   Application.component.js   // main application Component
+│   │   │   Application.component.tsx   // main application Component
 │   │   │   Application.module.scss   // entry styles file
-│   │   │   application.js   // main Create App file (used for both CSR and SSR approaches)
-│   │   │   index.js   // Client entry file
+│   │   │   application.tsx   // main Create App file (used for both CSR and SSR approaches)
+│   │   │   index.ts   // Client entry file
 │   │   │   README.md   // Client folder info
 │   │   └───
 │   │
@@ -246,8 +246,8 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
 │   │   │
 │   │   ├───middlewares   // Server custom middlewares (services, app-render for SSR, etc.)
 │   │   │
-│   │   │   server.js   // main Server file
-│   │   │   index.js   // Server entry file
+│   │   │   server.ts   // main Server file
+│   │   │   index.ts   // Server entry file
 │   │   │   README.md   // Server folder info
 │   │   └───
 │   │
@@ -343,12 +343,12 @@ Taking 2nd and 3rd goals into account, some parts of the Project (e.g. Redux, ab
     - `npm run test:tsc` - run Application Typescript's types checking (no Libraries level checking)
 
 **Lint:**
-- `npm run lint:scripts` - lint JS files
-- `npm run lint:scripts:fix` - lint JS files with autofix
+- `npm run lint:scripts` - lint JS/TS files
+- `npm run lint:scripts:fix` - lint JS/TS files with autofix
 - `npm run lint:styles` - lint Styles files
 - `npm run lint:styles:fix` - lint Styles files with autofix
-- `npm run lint` - lint all (JS+Styles) files
-- `npm run lint:fix` - lint all (JS+Styles) files with autofix
+- `npm run lint` - lint all (JS/TS+Styles) files
+- `npm run lint:fix` - lint all (JS/TS+Styles) files with autofix
 
 **Code vulnerabilities scan/monitor:**
 - `npm run sca:test` - scan for vulnerabilities for known issues (with disrupting processes) - CI/CD integration
