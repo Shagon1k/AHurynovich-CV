@@ -14,10 +14,10 @@ export const SRC_DIR = path.resolve(ROOT_DIR, './src');
 export const SRC_CLIENT_DIR = path.resolve(SRC_DIR, './client');
 export const SRC_ASSETS_DIR = path.resolve(SRC_CLIENT_DIR, './assets');
 export const SRC_APP_FAVICON_ENTRY = path.resolve(SRC_ASSETS_DIR, './images/favicon.png');
-export const SRC_CLIENT_ENTRY = path.resolve(SRC_CLIENT_DIR, './index.js');
+export const SRC_CLIENT_ENTRY = path.resolve(SRC_CLIENT_DIR, './index.ts');
 
 export const SRC_SERVER_DIR = path.resolve(SRC_DIR, './server');
-export const SRC_SERVER_ENTRY = path.resolve(SRC_SERVER_DIR, './index.js');
+export const SRC_SERVER_ENTRY = path.resolve(SRC_SERVER_DIR, './index.ts');
 export const SRC_COMMON_DIR = path.resolve(SRC_DIR, './common');
 
 export const SRC_APP_TEMPLATE = path.resolve(SRC_DIR, './index.html');

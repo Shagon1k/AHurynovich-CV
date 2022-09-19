@@ -28,16 +28,6 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'warn',
         'import/no-duplicates': 'warn',
         'import/no-cycle': 'warn',
-        'import/extensions': [
-            'error',
-            'ignorePackages',
-            {
-                jsx: 'never',
-                js: 'never',
-                tsx: 'never',
-                ts: 'never',
-            },
-        ],
     },
     globals: {
         /** Global environment variables */
