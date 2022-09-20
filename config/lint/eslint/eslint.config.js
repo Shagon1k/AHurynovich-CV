@@ -10,13 +10,14 @@ module.exports = {
         },
         sourceType: 'module',
     },
-    plugins: ['babel', 'react', 'prettier', 'react-hooks'],
+    plugins: ['babel', 'react', 'prettier', 'react-hooks', 'jsx-a11y'],
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
         'plugin:prettier/recommended',
         'plugin:import/warnings',
         'prettier/react',
+        'plugin:jsx-a11y/recommended',
     ],
     rules: {
         'no-var': 'error',
