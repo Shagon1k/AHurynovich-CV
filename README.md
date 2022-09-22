@@ -24,6 +24,7 @@ Generally **Application** follows **Static CSR approach** deploying final build 
 <details>
     <summary>💡 <b>Note</b> (TypeScript tranpiling using Babel)</summary>
 Transpiling TypeScript <b>using Babel</b> (with Webpack <a href="https://www.npmjs.com/package/babel-loader">'babel-loader'</a>, <b>NOT</b> <a href="https://www.npmjs.com/package/ts-loader">'ts-loader'</a>) <b>was chosen</b>: 1) faster compilation (no types check); 2) having single source of compilation - Babel.
+
 On the other hand, using Babel compilation results in <b>completely lose of type safety and TypeScript checks</b> during this phase. That's why additional test script (<a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html">tsc</a>) were presented <b>to check as pre-commit(push) hook + in scope of CI/CD</b>.
 </details>
 
