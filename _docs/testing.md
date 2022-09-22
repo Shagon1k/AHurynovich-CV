@@ -1,12 +1,20 @@
 # Testing
 1. [ General information ](#general-information)
+
     1.1 [ CI CD Quality Gates ](#ci-cd-quality-gates)
+
 2. [ Unit and Integration testing ](#unit-and-integration-testing)
+
     2.1 [ Unit and Integration testing Configuration ](#unit-and-integration-testing-configuration)
+
     2.2 [ General Unit and Integration testing Conventions ](#general-unit-and-integration-testing-conventions)
+
     2.3 [ Components testing Conventions ](#components-testing-conventions)
+
 3. [ E2E testing ](#e2e-testing)
+
     3.1 [ E2E testing Configuration ](#e2e-testing-configuration)
+
     3.2 [ E2E testing Conventions ](#e2e-testing-conventions)
 
 ## General information
