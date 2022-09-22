@@ -9,7 +9,7 @@ Documentation and guidelines for application's Server.
 
 ## Main areas
 - **[API](/src/server/api/index.ts)** - (*/api*) - used to handle different API calls, uses /api sub-route for them;
-    > ***Note:** Could be used as BFF layer.*
+    > 💡 ***Note**: Could be used as BFF layer.*
 - **[Middlewares](/src/server/middlewares/index.ts)** - (*/middlewares*) - used to handle Server middlewares;
 
 ## Folder's Conventions

@@ -22,6 +22,7 @@ import {
     getWebpackMiniCssExtractLoader,
     getWebpackCssLoader,
     getWebpackCssModulesLoader,
+    getWebpackPostCssLoader,
     getWebpackSassLoader,
 } from '../helpers/loaders';
 import { getAlias } from '../helpers/resolve';
@@ -79,6 +80,7 @@ const commonConfig = {
                         use: [
                             getWebpackMiniCssExtractLoader(),
                             getWebpackCssModulesLoader(),
+                            getWebpackPostCssLoader(),
                             getWebpackSassLoader(),
                         ],
                     },
@@ -86,6 +88,7 @@ const commonConfig = {
                         use: [
                             getWebpackMiniCssExtractLoader(),
                             getWebpackCssLoader(),
+                            getWebpackPostCssLoader(),
                             getWebpackSassLoader(),
                         ],
                     },

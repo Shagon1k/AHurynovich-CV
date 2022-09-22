@@ -17,7 +17,7 @@ module.exports = {
         'plugin:prettier/recommended',
         'plugin:import/warnings',
         'prettier/react',
-        'plugin:jsx-a11y/recommended',
+        'plugin:jsx-a11y/strict',
     ],
     rules: {
         'no-var': 'error',

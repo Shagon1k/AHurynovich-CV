@@ -1,6 +1,4 @@
 # Testing
-
-**CONTENTS**:
 1. [ General information ](#general-information)
     1.1 [ CI CD Quality Gates ](#ci-cd-quality-gates)
 2. [ Unit and Integration testing ](#unit-and-integration-testing)
@@ -14,19 +12,19 @@
 ## General information
 **All types** of testing (Unit, Integration, E2E) are supported in Application.
 - **Unit + Integration** testing is covered by [Jest](https://jestjs.io/) (Testing Framework) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) (Testing Util);
-    > ***Note**: **A11y** testing is also supported on Unit/Integration level and covered by [Jest-Axe](https://www.npmjs.com/package/jest-axe).*
+    > 💡 ***Note**: **A11y** testing is also supported on Unit/Integration level and covered by [Jest-Axe](https://www.npmjs.com/package/jest-axe).*
 - **E2E** testing is covered by [Cypress](https://www.cypress.io/) and extended by [Cypress Testing Library](https://testing-library.com/docs/cypress-testing-library/intro/);
-    > ***Note**: **A11y** testing is also supported on E2E level and covered by [Cypress-Axe](https://www.npmjs.com/package/cypress-axe).*
+    > 💡 ***Note**: **A11y** testing is also supported on E2E level and covered by [Cypress-Axe](https://www.npmjs.com/package/cypress-axe).*
 
 ### CI CD Quality Gates
 **Unit/Integration** testing is **added to CI/CD pipeline** as a job:
 - for ***feature*** branches Test job only **runs existing Unit and Integration tests** failing the pipeline in case any test was not passed;
-    > ***Note**: Follow `test-unit-integration` job of [CircleCI config](/.circleci/config.yml) for more details.*
+    > 💡 ***Note**: Follow `test-unit-integration` job of [CircleCI config](/.circleci/config.yml) for more details.*
 - for ***main*** branch Test job also includes **Reports generation** (Results + Code Coverage). This reports than are used to visualize according test data in convenient way (*using **[CircleCI Test Insights](https://circleci.com/docs/insights-tests)** for displaying **test results** and **[CodeCov](https://about.codecov.io/)** to display **code coverage report***);
-    > ***Note**: Follow `test-unit-integration-with-reports` job of [CircleCI config](/.circleci/config.yml) for more details.*
+    > 💡 ***Note**: Follow `test-unit-integration-with-reports` job of [CircleCI config](/.circleci/config.yml) for more details.*
 
 **Performance** testing is also **added to CI/CD pipeline** as a job. It only runs on ***main*** branch.
-> ***Note**: Follow `test-performance` job of [CircleCI config](/.circleci/config.yml) for more details.*
+> 💡 ***Note**: Follow `test-performance` job of [CircleCI config](/.circleci/config.yml) for more details.*
 
 ## Unit and Integration testing
 
@@ -42,7 +40,7 @@ For convenience purpose:
 
 ### General Unit and Integration testing Conventions
 - **follow [F.I.R.S.T.](https://medium.com/@tasdikrahman/f-i-r-s-t-principles-of-testing-1a497acda8d6) principle**;
-    > ***Note**:
+    > 💡 ***Note**:
         **F**ast - each test should run and show you the desired output in a matter of seconds;
         **I**solated - each test should be independent of everything else so that it results is not influenced by any other factor;
         **R**epeateble - each test should be repeatable and deterministic, it's values shouldn’t change based on being run on different environments. Unit Tests should own their data and not depend on any external factors (side-effects);
@@ -61,7 +59,7 @@ For convenience purpose:
     - in case tested file includes multiple exports to test - **write `describe` block per each exported entity**;
     - **start `describe` block with "given..." or "when..."** (following Gherkin style);
     - **start `test`(`it`) block with "should..." or "then..."**;
-        > ***Note**: As a result your test scenario will be readable, e.g.: `"given USER sees the button"` -> `"when USER clicked on button"` -> `"then 'Hooray!' message became shown"`*
+        > 💡 ***Note**: As a result your test scenario will be readable, e.g.: `"given USER sees the button"` -> `"when USER clicked on button"` -> `"then 'Hooray!' message became shown"`*
 - use test hooks (`beforeEach`/`beforeAll`/`afterEach`/`afterAll`) **following their purpose**: pre-test configuration (`before*`) OR cleaning up (`after*`);
 
 ### Components testing Conventions
@@ -112,7 +110,7 @@ It ***consists of***:
     - the high level `describe` block **should decribe the whole scenario** that it tests;
     - **start `describe` block with "given..." or "when..."** (following Gherkin style);
     - **start `test`(`it`) block with "should..." or "then..."**;
-        > ***Note**: As a result your test scenario will be readable, e.g.: `"given USER comes to some page"` -> `"when USER clicked on button"` -> `"then 'Hooray!' message became shown"`*
+        > 💡 ***Note**: As a result your test scenario will be readable, e.g.: `"given USER comes to some page"` -> `"when USER clicked on button"` -> `"then 'Hooray!' message became shown"`*
 - if new general E2E test should be added:
     - test files **should be stored in scope of** */config/test/cypress/e2e* folder;
     - test file name **should follow template**:  `[name].cy.js`;
@@ -124,6 +122,6 @@ It ***consists of***:
 
 **Performance & Insights Testing** is only supported on **CI/CD level** and handled by [LightHouse CI](https://github.com/GoogleChrome/lighthouse-ci).
 Configuration file could be found here: [/config/test/lighthouse.config.js](/config/test/lighthouse.config.js).
-> ***Note**: PWA Insights testing right now is turned OFF and NOT a part of general flow because PWA supported only as separate independent build type.*
+> 💡 ***Note**: PWA Insights testing right now is turned OFF and NOT a part of general flow because PWA supported only as separate independent build type.*
 
-> ***Note**: For **manual Performance Testing** you can use Chrome built-in Lighthouse DevTool.*
+> 💡 ***Note**: For **manual Performance Testing** you can use Chrome built-in Lighthouse DevTool.*

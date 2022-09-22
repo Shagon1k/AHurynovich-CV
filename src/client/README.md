@@ -1,6 +1,6 @@
 # Client documentation
 Documentation and guidelines for application's Client.
-> ***Note:** Client supports both CSR (for static hosting) and SSR approaches which are separated using **WITH_SSR** environment variable.*
+> 💡 ***Note**: Client supports both CSR (for static hosting) and SSR approaches which are separated using **WITH_SSR** environment variable.*
 
 ## General
 - Client uses:
@@ -18,7 +18,7 @@ Documentation and guidelines for application's Client.
 
 ## Main areas
 - **[API](/src/client/api/index.ts)** - (*/api*) - used to handle different API calls;
-    > ***Note:** For CSR approach it calls external API directly, for SSR approach it calls Server side (BFF).*
+    > 💡 ***Note**: For CSR approach it calls external API directly, for SSR approach it calls Server side (BFF).*
 - **[Assets](/src/client/assets/)** - (*/assets*) - used to collect application's assets (fonts, images, favicon, etc.);
     - **[Fonts](/src/client/assets/fonts/)** - (*/assets/fonts*) - application's fonts folder;
     - **[Images](/src/client/assets/images/)** - (*/assets/images*) - application's static images folder;
@@ -26,7 +26,7 @@ Documentation and guidelines for application's Client.
     - **[Base](/src/client/components/base/)** - (*/components/base*) - base Components (Header, Icon, Button, etc.);
     - **[Pages](/src/client/components/pages/)** - (*/components/pages*) - pages Components (MainPage, etc.);
     - **[Routes](/src/client/components/routes/routes.component.tsx)** - (*/components/routes*) - routing (React-Router) configuration for application's pages;
-    > ***Note:** Covering Component with **Unit/Integration Tests** or adding Component to **UI Component Library** should follow according conventions (see below).*
+    > 💡 ***Note**: Covering Component with **Unit/Integration Tests** or adding Component to **UI Component Library** should follow according conventions (see below).*
 - **[Reusables](/src/client/reusables/)** - (*/reusables*) - used to collect React reusable entities (Custom Hooks, HOCs);
     - **[Custom Hooks](/src/client/reusables/custom-hooks/)** - (*/reusables/custom-hooks*) - Custom Hooks;
     - **[HOCs](/src/client/reusables/hocs/)** - (*/reusables/hocs*) - reusable HOCs;
@@ -64,7 +64,7 @@ Documentation and guidelines for application's Client.
     - consider whether selectors need, if yes - selector file name should be consistent with according slice (e.g. app-info.selector.ts);
     - consider whether side-effects handling need, if yes - saga file name should be consistent with according slice (e.g. app-info.saga.ts);
     - do not forget to update *store/store.reducer.ts*, *store/store.saga.ts* and *store/store.ts*;
-- Adding new **Store** Middleware:
+- Adding new **Store** middleware:
     - add specific middleware to */store/middlewares* folder;
     - do not forget to add index export file;
     - do not forget to update *store/store.ts*;
