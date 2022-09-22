@@ -50,9 +50,13 @@ For convenience purpose:
 - **follow [F.I.R.S.T.](https://medium.com/@tasdikrahman/f-i-r-s-t-principles-of-testing-1a497acda8d6) principle**;
     > 💡 ***Note**:
         **F**ast - each test should run and show you the desired output in a matter of seconds;
+        
         **I**solated - each test should be independent of everything else so that it results is not influenced by any other factor;
+        
         **R**epeateble - each test should be repeatable and deterministic, it's values shouldn’t change based on being run on different environments. Unit Tests should own their data and not depend on any external factors (side-effects);
+        
         **S**elf-validating - each test should provide readable result whether it is passed or failed, you should not do it manualy;
+        
         **T**horough - tests should cover as much scenarios as possible(happy path, edge cases, security). Strive for it, but remember about next convention (see below).*
 - **do not write test "just for test"**, remember there are no such thing as "ideal code coverage". Strive to the best coverage, but do it reasonably;
 - Unit/Integration tests should be **added in separate sub-folder** (*\_\_tests\_\_*);
