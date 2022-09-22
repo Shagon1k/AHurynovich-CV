@@ -3,7 +3,9 @@
 2. [ Fonts configuration ](#fonts-configuration)
 
     2.1 [ Font families ](#font-families)
+
     2.2 [ Font weights ](#font-weights)
+
     2.3 [ Custom Fonts declarations ](#custom-fonts-declarations)
 
 ## Typography configuration
