@@ -1,6 +1,7 @@
 # Typography
 1. [ Typography configuration ](#typography-configuration)
 2. [ Fonts configuration ](#fonts-configuration)
+
     2.1 [ Font families ](#font-families)
     2.2 [ Font weights ](#font-weights)
     2.3 [ Custom Fonts declarations ](#custom-fonts-declarations)
@@ -48,6 +49,7 @@ Configured **Font Weights** are:
 
 ### Custom Fonts declarations
 **Custom fonts** files: [/src/client/assets/fonts/](/src/client/assets/fonts/)
+
 **Custom fonts** declarations: [/src/client/styles/fonts-declarations.scss](/src/client/styles/fonts-declarations.scss)
 
 In order to have ability to use custom fonts, it is declared using ***special mixin***: ['font-face'](/src/client/styles/base/_mixins/font-face.scss). It takes 3 arguments: *'name' (Font Family name)*, *'src' (src to custom Font files)*, *'weight' (default Font weight)*. Src to custom Font files should include needed custom Font extensions in order to have all browser(s) capabilities support: EOT, TTF, WOFF, WOFF2.
