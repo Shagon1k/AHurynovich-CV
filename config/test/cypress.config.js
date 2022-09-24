@@ -13,7 +13,7 @@ function getConfigurationByFile(file) {
 module.exports = defineConfig({
     e2e: {
         /**
-         * TODO: This one is configured only for local E2E testing (1337 port is used as default CSR Client local Hosting)
+         * TODO: This one is configured only for local E2E testing (1337 port is used as default Application local Hosting)
          * Should be reconsidered after real Application deployment + hosting in real world.
          */
         baseUrl: 'http://localhost:1337',

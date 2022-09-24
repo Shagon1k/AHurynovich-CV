@@ -32,10 +32,7 @@ module.exports = {
     },
     globals: {
         /** Global environment variables */
-        WITH_SSR: 'readonly',
         WITH_PWA: 'readonly',
-        IS_SERVER: 'readonly',
-        IS_CLIENT: 'readonly',
         /** Tests variables */
         jest: 'readonly',
         describe: 'readonly',

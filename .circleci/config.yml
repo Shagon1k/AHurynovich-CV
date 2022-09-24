@@ -102,7 +102,7 @@ jobs:
           command: npm run build:clean
       - run:
           name: "Build Application"
-          command: npm run build:client:prod
+          command: npm run build:prod
       - persist_to_workspace:
           root: .
           paths:

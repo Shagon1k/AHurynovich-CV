@@ -7,15 +7,9 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "[CSR] Run Client host",
+            "name": "Run Client host",
             "url": "http://localhost:1337",
             "webRoot": "${workspaceFolder}"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "[SSR] Run Server",
-            "program": "${workspaceRoot}/dist/server/index.js"
         },
         {
             "type": "node",
