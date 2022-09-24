@@ -126,7 +126,7 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 - `npm run storybook:deploy:s3` - Components Library deploy to AWS S3 task for (used for Static Site Hosting)
 - `npm run storybook:build:and:deploy:s3` - Components Library build -> deploy to AWS S3 task (used for Static Site Hosting)
 
-[⬆️ back to top](#aliakseis-curriculum-vitae-project)
+[⬆️ back to top](#ah-curriculum-vitae-project)
 ## Project structure
 ```
 ./
@@ -308,7 +308,7 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 └───
 ```
 
-[⬆️ back to top](#aliakseis-curriculum-vitae-project)
+[⬆️ back to top](#ah-curriculum-vitae-project)
 ## Additional documentation
 ### Folders README
 |Name|Description|
@@ -329,4 +329,4 @@ Find a bug or enhancement and want provide help? Please submit an issue.
 ## License
 [MIT](/LICENSE) [Aliaksei's Curriculum Vitae project](https://github.com/Shagon1k/AHurynovich-CV)
 
-[⬆️ back to top](#aliakseis-curriculum-vitae-project)
+[⬆️ back to top](#ah-curriculum-vitae-project)
