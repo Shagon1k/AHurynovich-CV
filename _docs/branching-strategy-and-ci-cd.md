@@ -22,25 +22,18 @@ Such strategy is friendly for handling Continuos Integration and Continuos Deliv
 **CI/CD Configuuration** could be found here: [/.circleci/config.yml](/.circleci/config.yml).
 The following **Jobs** are configured:
 - ***install-packages*** - installing NPM packages. Uses cache based on `package-lock.json` file checksum;
-- ***lint*** - linting of Source Code (ESLint + Stylelint);
-    > 💡 ***Note**: **ESLint** configuration: [/config/lint/eslint/eslint.config.js](/config/lint/eslint/eslint.config.js)
-    **StyleLint** configuration: [/config/lint/stylelint/stylelint.config.js](/config/lint/stylelint/stylelint.config.js)*
-- ***test-tsc*** - checking TypeScript files;
-    > 💡 ***Note**: **TSConfig** configuration: [/tsconfig.json](/tsconfig.json)*
-
+- ***lint*** - linting of Source Code ([ESLint](/config/lint/eslint/eslint.config.js) + [Stylelint](/config/lint/stylelint/stylelint.config.js));
+- ***test-tsc*** - checking TypeScript files ([/tsconfig.json](/tsconfig.json));
     > ⚠️***Warn**: This is a **vital** step. TypeScript transpilation is handled by Babel, so type checking are NOT presented during that time.*
-- ***test-unit-integration*** - executing Unit/Integration tests (Jest+RTL);
+- ***test-unit-integration*** - executing Unit/Integration tests (Jest+RTL, [/config/test/jest.config.js](/config/test/jest.config.js));
 - ***test-unit-integration-with-reports*** - executing Unit/Integration tests + preparing of Reports artifacts (Results + Coverage);
-    > 💡 ***Note**: **Jest** configuration: [/config/test/jest.config.js](/config/test/jest.config.js)*
 - ***test-sca*** - executing Source Code for vulnerabilities;
     > 💡 ***Note**: **Snyk secrets** environment variable set up on CircleCI side.*
-- ***test-performance*** - executing Performance tests (LightHouse);
-    > 💡 ***Note**: **LightHouse** configuration: [/config/test/lighthouse.config.js](/config/test/lighthouse.config.js)*
+- ***test-performance*** - executing Performance tests (LightHouse, [/config/test/lighthouse.config.js](/config/test/lighthouse.config.js));
 - ***build-app*** - building Application;
 - ***deploy-app*** - deploying Application (AWS S3 hosting);
     > 💡 ***Note**: **AWS secrets** environment variables set up on CircleCI side.*
-- ***build-components-library*** - building Application's Components library (StoryBook);
-    > 💡 ***Note**: **StoryBook** configuration: [/config/storybook/](/config/storybook/)*
+- ***build-components-library*** - building Application's Components library (StoryBook, [/config/storybook/](/config/storybook/));
 - ***deploy-app*** - deploying Application (AWS S3 hosting);
     > 💡 ***Note**: **AWS secrets** environment variables set up on CircleCI side.*
 
