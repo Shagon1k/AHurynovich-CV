@@ -3,7 +3,7 @@ require('@babel/register'); // eslint-disable-line no-undef
 
 const path = require('path'); // eslint-disable-line no-undef
 const environmentConfig = require('../environment/environment.config.js'); // eslint-disable-line no-undef, import/extensions
-const { SRC_DIR, SRC_CLIENT_DIR, SRC_SERVER_DIR, SRC_COMMON_DIR, CONFIG_DIR } = environmentConfig;
+const { SRC_DIR, CONFIG_DIR } = environmentConfig;
 
 const IS_TEST_REPORTS_ENABLED = process.env.TEST_SETUP === 'reports';
 
@@ -80,27 +80,24 @@ module.exports = {
         '^@test-utils/(.*)$': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils/$1`,
         '^@test-utils': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils`,
         '^.+\\.s?css$': 'identity-obj-proxy',
-        '^src/(.*)$': `${path.resolve(SRC_DIR)}/$1`,
         '^@config/(.*)$': `${path.resolve(CONFIG_DIR)}/$1`,
         '^@config': path.resolve(CONFIG_DIR),
-        '^@client/(.*)$': `${path.resolve(SRC_CLIENT_DIR)}/$1`,
-        '^@server/(.*)$': `${path.resolve(SRC_SERVER_DIR)}/$1`,
-        '^@common/(.*)$': `${path.resolve(SRC_COMMON_DIR)}/$1`,
-        '^@utils/(.*)$': `${path.resolve(SRC_COMMON_DIR, 'utils')}/$1`,
-        '^@utils': path.resolve(SRC_COMMON_DIR, 'utils'),
-        '^@services/(.*)$': `${path.resolve(SRC_COMMON_DIR, 'services')}/$1`,
-        '^@services': path.resolve(SRC_COMMON_DIR, 'services'),
-        '^@api/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'api')}/$1`,
-        '^@api': path.resolve(SRC_CLIENT_DIR, 'api'),
-        '^@components/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'components')}/$1`,
-        '^@pages/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'components/pages')}/$1`,
-        '^@base/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'components/base')}/$1`,
-        '^@reusables/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'reusables')}/$1`,
-        '^@slices/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'store/slices')}/$1`,
-        '^@styles/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'styles')}/$1`,
-        '^@common-styles/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'styles/common')}/$1`,
-        '^@base-styles-mixins/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'styles/base/_mixins')}/$1`,
-        '^@base-styles-variables/(.*)$': `${path.resolve(SRC_CLIENT_DIR, 'styles/base/_variables')}/$1`,
+        '^@src/(.*)$': `${path.resolve(SRC_DIR)}/$1`,
+        '^@utils/(.*)$': `${path.resolve(SRC_DIR, 'utils')}/$1`,
+        '^@utils': path.resolve(SRC_DIR, 'utils'),
+        '^@services/(.*)$': `${path.resolve(SRC_DIR, 'services')}/$1`,
+        '^@services': path.resolve(SRC_DIR, 'services'),
+        '^@api/(.*)$': `${path.resolve(SRC_DIR, 'api')}/$1`,
+        '^@api': path.resolve(SRC_DIR, 'api'),
+        '^@components/(.*)$': `${path.resolve(SRC_DIR, 'components')}/$1`,
+        '^@pages/(.*)$': `${path.resolve(SRC_DIR, 'components/pages')}/$1`,
+        '^@base/(.*)$': `${path.resolve(SRC_DIR, 'components/base')}/$1`,
+        '^@reusables/(.*)$': `${path.resolve(SRC_DIR, 'reusables')}/$1`,
+        '^@slices/(.*)$': `${path.resolve(SRC_DIR, 'store/slices')}/$1`,
+        '^@styles/(.*)$': `${path.resolve(SRC_DIR, 'styles')}/$1`,
+        '^@common-styles/(.*)$': `${path.resolve(SRC_DIR, 'styles/common')}/$1`,
+        '^@base-styles-mixins/(.*)$': `${path.resolve(SRC_DIR, 'styles/base/_mixins')}/$1`,
+        '^@base-styles-variables/(.*)$': `${path.resolve(SRC_DIR, 'styles/base/_variables')}/$1`,
     },
 
     // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

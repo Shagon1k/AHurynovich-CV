@@ -1,7 +1,7 @@
 module.exports = {
     ci: {
         collect: {
-            staticDistDir: './dist/client',
+            staticDistDir: './dist',
             numberOfRuns: 3,
             url: ['/'], // Enables LightHouse to run in default route instead of index.html file
             headful: true,

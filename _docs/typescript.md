@@ -1,5 +1,4 @@
 # TypeScript
-
 1. [ TypeScript Compatibility ](#typescript-compatibility)
 2. [ TypeScript Code Convention ](#typescript-code-convention)
 
@@ -17,8 +16,8 @@
 - **using `@ts-ignore` is prohibited** in favour of **`@ts-expect-error` with reason comment**;
 - **for React component**:
     - React Props Interface **should follow pattern**: `I[ComponentName]Props`;
-    - **use generic type `React.FC`** for functional component;
-
-
-## [!] To Consider
-- Move same area services (functions, strings, numbers, etc.) to specific folders.
+    - **use generic type `React.FC`(`React.FunctionComponent`)** for ***function component***;
+    - **use generic type `React.Component<Props, State>`** for ***class component***;
+    - **use `React.ComponentType<Props>`** if some ***union Component type*** need (e.g. in HOCs);
+    - **use `React.ReactEventHandler<HTML{input_type}Element>`** ONLY for ***generic event handler***;
+    - **use `React.{event_type}Event<HTML{input_type}Element>`** for ***specific event handler***;

@@ -10,13 +10,14 @@ module.exports = {
         },
         sourceType: 'module',
     },
-    plugins: ['babel', 'react', 'prettier', 'react-hooks'],
+    plugins: ['babel', 'react', 'prettier', 'react-hooks', 'jsx-a11y'],
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
         'plugin:prettier/recommended',
         'plugin:import/warnings',
         'prettier/react',
+        'plugin:jsx-a11y/strict',
     ],
     rules: {
         'no-var': 'error',
@@ -31,10 +32,7 @@ module.exports = {
     },
     globals: {
         /** Global environment variables */
-        WITH_SSR: 'readonly',
         WITH_PWA: 'readonly',
-        IS_SERVER: 'readonly',
-        IS_CLIENT: 'readonly',
         /** Tests variables */
         jest: 'readonly',
         describe: 'readonly',
