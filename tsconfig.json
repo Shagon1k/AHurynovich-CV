@@ -13,6 +13,10 @@
         "allowSyntheticDefaultImports": true,
         "moduleResolution": "nodenext",
         "isolatedModules": true,
+        /**
+         * Note: do NOT emit (TS->JS) as Babel handles transpiling.
+         * "noEmitOnError" usage is redundant in that case as it is used to disable emit on type-checking fail.
+         */
         "noEmit": true,
         "skipLibCheck": true,
         "paths": {

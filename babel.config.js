@@ -1,13 +1,9 @@
 const BABELRC_ROOTS = ['src/*'];
 
 module.exports = {
+    // Note: Preset ordering is reversed (last to first)
     presets: [
         '@babel/react',
-        /**
-         * Note: By transpiling TypeScript code with Babel, you gain on speed but you completely lose compile time type safety.
-         * Therefore, additional test script were added to package.json ("test:tsc") which is used as pre-commit(push) hook and in CI/CD scope.
-         */
-        '@babel/typescript',
         [
             '@babel/env',
             {
@@ -21,6 +17,11 @@ module.exports = {
                 corejs: 3,
             },
         ],
+        /**
+         * Note: By transpiling TypeScript code with Babel, you gain on speed but you completely lose compile time type safety.
+         * Therefore, additional test script were added to package.json ("test:tsc") which is used as pre-commit(push) hook and in CI/CD scope.
+         */
+        '@babel/typescript',
     ],
     plugins: ['@babel/plugin-transform-runtime'],
     env: {
