@@ -10,6 +10,7 @@
 ## TypeScript Code Convention
 - for [**Interfaces**](https://www.typescriptlang.org/docs/handbook/interfaces.html) ALWAYS **use "I" prefix** (e.g. `Entity` interface should be named `IEntity`);
     - for exported **external library interfaces** - export them **with "I" prefix** (e.g. `import { Store as IStore } from 'redux';`);
+- **avoid using [Types](https://www.typescriptlang.org/docs/handbook/basic-types.html) over [Interfaces](https://www.typescriptlang.org/docs/handbook/interfaces.html)** for object typing (**reason:** *interfaces can be implemented, extended and merged*);
 - **avoid [Any](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#any)** type (prohibited by [TSConfig](/tsconfig.json));
 - **declare Global variables** in [declarations.d.ts](/src/declarations.d.ts)
 - when **typing Functions** it is recommended to **not create separate Type/Interface** for the <= 2 parameters cases (or <=2 fields of `options`-based single parameter);
