@@ -14,6 +14,11 @@ const prodConfig = {
      * Alternatively sourcemaps generation could be configured to be hosted to some authentication-based URL so be used only with access provided.
      */
     devtool: 'source-map',
+    performance: {
+        hints: 'error',
+        maxAssetSize: 2_000_000, // vendor size
+        maxEntrypointSize: 3_000_000, // index entrypoint size
+    },
     plugins: [
         getWebpackDefinePlugin({
             IS_PRODUCTION: true,
