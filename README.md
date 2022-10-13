@@ -114,7 +114,7 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 - `npm run lint:fix` - lint all (JS/TS+Styles) files with autofix
 
 ### Code vulnerabilities scan:
-- `npm run sca:test` - scan for vulnerabilities for known issues (with disrupting processes) - CI/CD integration
+- `npm run sca:test` - scan for vulnerabilities for known issues (with disrupting processes) - CI/CD integration.
 - `npm run sca:test:dev` - scan for vulnerabilities for known issues (with disrupting processes), include dev dependencies
 - `npm run sca:monitor` - scan for vulnerabilities with exposing and storing results snapshot (without disrupting processes)
 - `npm run sca:auth` - SCA tool (Snyk) authenticate (auth token required)
