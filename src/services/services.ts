@@ -1,7 +1,7 @@
 import DeviceDetectService from './device-detect';
 import I18nService from './i18n';
 
-import { IServicesOptions, IServices } from './services.models';
+import { type IServicesOptions, type IServices } from './services.models';
 
 // Services builder
 const createServices = (options: IServicesOptions = {}): IServices => {

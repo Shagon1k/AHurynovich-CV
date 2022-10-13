@@ -92,7 +92,7 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 ### Test:
 - **Unit/Integration Testing**
     - `npm test` (`npm run test`) - run Application Unit/Integration Tests (Common + A11y)
-    - `npm test:with:reports` (`npm run test`) - run Application Unit/Integration Tests (Common + A11y). Reports (results and coverage) enabled.
+    - `npm run test:with:reports` - run Application Unit/Integration Tests (Common + A11y). Reports (results and coverage) enabled.
     - `npm run test:ci` - run Application Unit/Integration Tests in CI mode (used for CI/CD pipeline level testing)
     - `npm run test:ci:with:reports` - run Application Unit/Integration Tests in CI mode (used for CI/CD pipeline level testing). Reports (results and coverage) enabled.
 - **E2E Testing**
