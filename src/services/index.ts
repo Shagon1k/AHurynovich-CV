@@ -1,1 +1,2 @@
-export { default as createServices, type IServices } from './services';
+export { default as createServices } from './services';
+export { type IServices } from './services.models';

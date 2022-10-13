@@ -1,16 +1,6 @@
 import Application from './Application.component';
 
-import { Store as IStore } from 'redux';
-import { IServices } from '@services';
-
-export interface IApplicationOptions {
-    store: IStore;
-    services: IServices;
-}
-
-export interface ICreateAppFunction {
-    (object: IApplicationOptions): JSX.Element;
-}
+import { IApplicationOptions, ICreateAppFunction } from './application.models';
 
 // Main application render function
 export const createApp: ICreateAppFunction = ({ store, services }: IApplicationOptions) => {

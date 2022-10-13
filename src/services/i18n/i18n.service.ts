@@ -1,4 +1,4 @@
-import { createInstance as createi18nextInstance, Resource as IResource } from 'i18next';
+import { createInstance as createi18nextInstance, type Resource as IResource } from 'i18next';
 
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, I18N_BASE_OPTIONS } from './config/i18n.config';
 
@@ -13,11 +13,7 @@ import {
     ERROR_MSG_NOT_SUPPORTED_LANGUAGE,
 } from './i18n.constants';
 
-interface II18nInstance {
-    changeLanguage: (language: string) => void;
-    t: (key: string, interpolationKeys?: object) => string;
-    language: string;
-}
+import { type II18nInstance } from './i18n.service.models';
 
 class I18n {
     _i18nInstance: null | II18nInstance;
@@ -68,7 +64,7 @@ class I18n {
         );
     };
 
-    _transformBaseLanguage(baseLanguage: string | null) {
+    private _transformBaseLanguage(baseLanguage: string | null) {
         if (typeof baseLanguage !== 'string') {
             return '';
         }
@@ -78,7 +74,7 @@ class I18n {
         return transformedBaseLanguage;
     }
 
-    _getTranslationsOptions = async () => {
+    private _getTranslationsOptions = async () => {
         const languagesResources: IResource = {};
         const checkedSupportedLanguages = [];
 
@@ -109,7 +105,7 @@ class I18n {
         };
     };
 
-    _handleMissingKey = (key: string) => {
+    private _handleMissingKey = (key: string) => {
         console.warn(ERROR_MSG_TEMPLATE_NO_TRANSLATION.replace(ERROR_MSG_KEY_NO_TRANSLATION, key));
 
         return `{Missed translation for ${key}}`;
@@ -118,7 +114,7 @@ class I18n {
     getLanguageCode = () => this._i18nInstance?.language;
 
     checkLanguageSupported = (languageCode: string) => {
-        return this._supportedLanguages?.includes(languageCode);
+        return this._supportedLanguages?.includes(languageCode) || false;
     };
 
     changeLanguage = async (languageCode: string) => {
@@ -129,7 +125,8 @@ class I18n {
         }
     };
 
-    translate = (key: string, interpolationKeys?: object) => this._i18nInstance?.t(key, interpolationKeys);
+    translate = (key: string, interpolationKeys?: object) =>
+        this._i18nInstance?.t(key, interpolationKeys) || '';
 }
 
 export default I18n;

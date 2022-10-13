@@ -1,4 +1,8 @@
-// Simply returns value passed
-const mirrorFunction = (value: any): any => value; // eslint-disable-line @typescript-eslint/no-explicit-any
+// Simply returns value passedinterface I
+interface IMirrorFunctionSignature {
+    <T>(value: T): T;
+}
+
+const mirrorFunction: IMirrorFunctionSignature = (value) => value;
 
 export default mirrorFunction;

@@ -56,11 +56,11 @@ For convenience purpose:
         **T**horough - tests should cover as much scenarios as possible(happy path, edge cases, security). Strive for it, but remember about next convention (see below).*
 - **do not write test "just for test"**, remember there are no such thing as "ideal code coverage". Strive to the best coverage, but do it reasonably;
 - Unit/Integration tests should be **added in separate sub-folder** (*\_\_tests\_\_*);
-- test file name **should follow template**: `[name].spec.js`;
+- test file name **should follow template**: `[name].spec.{js|ts}`;
 - tests **should only verify single file** (do NOT verify several components/modules/services scoped in different files in scope of single test file);
 - if tests **require some solid [mocking](https://jestjs.io/docs/mock-function-api)**:
     - it should be stored in scope of (*/\_\_tests\_\_*) sub-folder in separate file;
-    - mock files should follow template: `[name].mock.js`;
+    - mock files should follow template: `[name].mock.{js|ts}`;
 - `describe` and `test`(`it`) **blocks naming**:
     - **strive to follow Gherkin style** (Given-When-Then) as it helps to stricture your test files and increase their readability;
     - the high level `describe` block **should be named as an entity** (function, component, etc.) that it tests;
@@ -74,10 +74,10 @@ For convenience purpose:
 - **follow General rules**;
 - if Component should be covered with general Unit/Integration tests:
     - tests should **be stored in scope** (*/\_\_tests\_\_*) sub-folder in separate file;
-    - general Test file name **should follow template**: `[name].component.spec.js`;
+    - general Test file name **should follow template**: `[name].component.spec.{js|tsx}`;
 - if Component should be covered with A11y Tests:
     - tests should **be stored in scope** (*/\_\_tests\_\_*) sub-folder in separate file;
-    - A11y Test file name **should follow template**: `[name].component.a11y.spec.js`;
+    - A11y Test file name **should follow template**: `[name].component.a11y.spec.{js|tsx}`;
 - try to **avoid Snapshot testing** (using it could lead to possible false negative/false positive test results + it is usually slow);
 - **React Testing Library** rules:
     - focus on USER ***behavior***, NOT on implementation details (RTL stricts access to component's internals (e.g. state));

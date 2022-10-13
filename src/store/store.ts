@@ -1,19 +1,10 @@
-import { configureStore, EnhancedStore as IEnhancedStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 
 import appReducer from './store.reducer';
 import rootSaga from './store.saga';
 import { getSagaMiddleware } from './middlewares';
 
-import { IServices } from '@services';
-
-interface ICreateAppStoreOptions {
-    initialState?: object;
-    services: IServices;
-}
-
-export interface ICreateAppStore {
-    (object: ICreateAppStoreOptions): Promise<IEnhancedStore>;
-}
+import { type ICreateAppStoreOptions, ICreateAppStore } from './store.models';
 
 /**
  * Creates application store
