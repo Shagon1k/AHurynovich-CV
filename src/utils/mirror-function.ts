@@ -1,6 +1,6 @@
 // Simply returns value passedinterface I
 interface IMirrorFunctionSignature {
-    <T>(value: T): T;
+    <TValue>(value: TValue): TValue;
 }
 
 const mirrorFunction: IMirrorFunctionSignature = (value) => value;
