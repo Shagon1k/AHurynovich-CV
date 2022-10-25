@@ -278,6 +278,7 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 │   │   Application.component.tsx   // main application Component
 │   │   Application.module.scss   // entry styles file
 │   │   application.tsx   // main Create App file
+│   │   application.types.ts   // application types models file
 │   │   index.ts   // main entry file
 |   |   index.html   // source HTML file
 │   │   README.md   // Source folder info
