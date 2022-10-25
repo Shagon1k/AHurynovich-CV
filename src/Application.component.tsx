@@ -7,7 +7,7 @@ import Routes from './components/routes';
 
 import styles from './Application.module.scss';
 
-import { type IApplicationOptions } from './application.models';
+import { type IApplicationOptions } from './application.types';
 
 interface IApplicationProps {
     options: IApplicationOptions;

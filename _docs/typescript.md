@@ -12,7 +12,7 @@
     - for exported **external library interfaces** - export them **with "I" prefix** (e.g. `import { Store as IStore } from 'redux';`);
 - for [**Generics**](https://www.typescriptlang.org/docs/handbook/2/generics.html) Type Parameters **use "T" prefix** with descriptive name, e.g. `<TPokemon>(value: TPokemon): TPokemon;`
 - **AVOID using [Types](https://www.typescriptlang.org/docs/handbook/basic-types.html) over [Interfaces](https://www.typescriptlang.org/docs/handbook/interfaces.html)** for object typing (**reason:** *interfaces can be implemented, extended and merged*);
-- **custom defined types** ***COULD*** be considered to move to separate `[name].models.{ts|tsx}`, but should be ***AVOIDED*** for *Component Props* and *Redux Slices*;
+- **custom defined types** ***COULD*** be considered to move to separate `[name].types.{ts|tsx}`, but should be ***AVOIDED*** for *Component Props* and *Redux Slices*;
 - **`import`ed/re-`export`ed types** ***MUST*** be prefixed with `type` keyword to allow a non-TypeScript transpiler (Babel) to know what imports can be safely removed;
 - **avoid [Any](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#any)** type (prohibited by [TSConfig](/tsconfig.json));
 - **declare Global variables** in [declarations.d.ts](/src/declarations.d.ts)

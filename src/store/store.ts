@@ -4,7 +4,7 @@ import appReducer from './store.reducer';
 import rootSaga from './store.saga';
 import { getSagaMiddleware } from './middlewares';
 
-import { type ICreateAppStoreOptions, ICreateAppStore } from './store.models';
+import { type ICreateAppStoreOptions, ICreateAppStore } from './store.types';
 
 /**
  * Creates application store

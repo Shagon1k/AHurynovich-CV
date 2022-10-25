@@ -13,7 +13,7 @@ import {
     ERROR_MSG_NOT_SUPPORTED_LANGUAGE,
 } from './i18n.constants';
 
-import { type II18nInstance } from './i18n.service.models';
+import { type II18nInstance } from './i18n.service.types';
 
 class I18n {
     _i18nInstance: null | II18nInstance;
