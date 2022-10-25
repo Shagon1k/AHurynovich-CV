@@ -137,6 +137,7 @@ Documentation and guidelines for application's main source.
 │   Application.component.tsx
 │   Application.module.scss
 │   application.tsx
+│   application.types.ts
 |   declarations.d.ts
 |   index.html
 │   index.ts
