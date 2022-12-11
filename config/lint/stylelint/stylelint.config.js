@@ -35,7 +35,12 @@ module.exports = {
         'no-duplicate-at-import-rules': true,
         'no-duplicate-selectors': true,
         'selector-type-no-unknown': true,
-        'selector-pseudo-class-no-unknown': true,
+        'selector-pseudo-class-no-unknown': [
+            true,
+            {
+                ignorePseudoClasses: ['global', 'extends'], // Note: Ignore CSS Modules pseudoclasses
+            },
+        ],
         'selector-pseudo-element-no-unknown': true,
         'selector-max-compound-selectors': 5,
         'selector-max-id': [

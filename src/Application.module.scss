@@ -1,13 +1,18 @@
 @use '@styles/main';
-@use '@base-styles-mixins/typography';
-
-$app-width: 1500px;
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-variables/application' as app;
 
 .app-container {
-    @include typography.b3;
+    @include t.b2;
 
     width: 100%;
-    max-width: $app-width;
+    max-width: app.$app-width;
+    height: 3000px; // temporary
+    min-height: 100vh;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0;
+    border-right: 1px solid c.$brown-dark;
+    border-left: 1px solid c.$brown-dark;
+    background-image: url('@assets/images/bg-image.png');
 }

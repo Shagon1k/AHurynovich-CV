@@ -1,5 +1,18 @@
-export const SUPPORTED_LANGUAGES = ['en', 'ru'];
-export const DEFAULT_LANGUAGE = 'en';
+import EnLangFlagImg from '@assets/images/language-flags/en.png';
+import RuLangFlagImg from '@assets/images/language-flags/ru.png';
+
+export const SUPPORTED_LANGUAGES_CONFIG = {
+    en: {
+        code: 'en',
+        imageUrl: EnLangFlagImg,
+    },
+    ru: {
+        code: 'ru',
+        imageUrl: RuLangFlagImg,
+    },
+} as const;
+export const SUPPORTED_LANGUAGES_CODES = Object.values(SUPPORTED_LANGUAGES_CONFIG).map((l) => l.code);
+export const DEFAULT_LANGUAGE_CODE = SUPPORTED_LANGUAGES_CONFIG.en.code;
 
 /**
  * Used default interpolation options.

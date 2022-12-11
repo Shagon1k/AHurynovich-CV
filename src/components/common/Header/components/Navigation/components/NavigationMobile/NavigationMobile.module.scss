@@ -1,0 +1,77 @@
+@use 'sass:math';
+@use '@base-styles-variables/colors' as c;
+@use '../../../../Header.module.scss' as h;
+
+$nav-items-list-margin-top-mobile: h.$header-margin-mobile + 10px;
+$nav-item-margin-bottom-mobile: 20px;
+$nav-items-list-margin-bottom-mobile: $nav-items-list-margin-top-mobile - $nav-item-margin-bottom-mobile;
+$nav-button-dimension: 30px;
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    left: 12%;
+    width: $nav-button-dimension;
+    height: $nav-button-dimension;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transform: translateY(-50%);
+    background: transparent;
+
+    .nav-button-inner {
+        position: absolute;
+        top: math.div($nav-button-dimension, 2);
+        left: 0;
+        width: $nav-button-dimension;
+        height: 3px;
+        transform: translateY(-50%);
+        background: c.$brown-dark;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: $nav-button-dimension;
+            height: 3px;
+            background: c.$brown-dark;
+        }
+
+        &::before {
+            top: -math.div($nav-button-dimension, 3);
+        }
+
+        &::after {
+            top: math.div($nav-button-dimension, 3);
+        }
+    }
+}
+
+.nav-items-list {
+    position: absolute;
+    top: calc(h.$header-height-mobile - 1px); // 1px border gap
+    left: 0;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    min-height: 100px;
+    padding: $nav-items-list-margin-top-mobile 30px $nav-items-list-margin-bottom-mobile 30px;
+    border-bottom: 1px solid c.$brown-dark;
+    opacity: 0;
+    visibility: hidden;
+    background: c.$beige;
+
+    .nav-item {
+        flex-basis: 50%;
+        margin-bottom: $nav-item-margin-bottom-mobile;
+        text-align: center;
+    }
+
+    &.m-opened {
+        opacity: 1;
+        visibility: visible;
+    }
+}

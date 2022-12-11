@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Provider as ReduxStateProvider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
+
 import { ServicesProvider } from '@reusables/services-context';
 import appReducer from '@src/store/store.reducer';
 import { DEVICE_TYPES_CONTEXT_VALUES_MAP, DEFAULT_DEVICE_TYPE } from '../../constants';

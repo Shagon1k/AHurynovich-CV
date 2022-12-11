@@ -1,0 +1,22 @@
+@use '@base-styles-mixins/bp';
+
+.language-switcher {
+    position: absolute;
+    right: 8%;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+
+    @include bp.lw(m) {
+        right: 12%;
+    }
+}
+
+.language-switcher-img {
+    width: 32px;
+    aspect-ratio: 32/24;
+
+    @include bp.lw(m) {
+        width: 25px;
+    }
+}

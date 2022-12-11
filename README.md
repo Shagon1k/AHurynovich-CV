@@ -241,7 +241,9 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 │   │
 │   ├───components   // React components folder
 │   │   │
-│   │   ├───base   // base components (Header, Button, Icon, etc.)
+│   │   ├───base   // base components (Button, Icon, etc.)
+|   |   |
+|   |   ├───common   //common components (Header, Footer, etc.)
 │   │   │
 │   │   ├───pages   // general pages components (MainPage, etc.)
 │   │   │
@@ -272,13 +274,15 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 │   │   ├───base   // base styles (mixins, functions, variables, etc.)
 │   │   │
 │   │   │   main.scss   // main styles file
-│   │   │   reset-normalize.scss
+│   │   │   reset-normalize.scss   // reset & normalize basic styles
+│   │   │   scrollbar.scss   // scrollbar styles
 │   │   └───
 │   │
 │   │   Application.component.tsx   // main application Component
 │   │   Application.module.scss   // entry styles file
 │   │   application.tsx   // main Create App file
 │   │   application.types.ts   // application types models file
+│   │   declarations.d.ts   // non-TS files declarations and globals
 │   │   index.ts   // main entry file
 |   |   index.html   // source HTML file
 │   │   README.md   // Source folder info

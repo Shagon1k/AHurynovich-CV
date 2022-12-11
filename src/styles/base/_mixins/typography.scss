@@ -1,19 +1,20 @@
 // Application typography definition
-@use '../_variables/fonts';
-@use '../_variables/colors';
+@use '@base-styles-variables/fonts';
+@use '@base-styles-variables/colors';
+@use '@base-styles-mixins/bp';
 
 // Headings
 @mixin h1() {
-    color: colors.$default;
+    color: colors.$brown-dark;
     font-family: fonts.$ff-headings;
-    font-size: 36px;
+    font-size: 48px;
     font-style: normal;
     font-weight: fonts.$fw-regular;
-    line-height: 38px;
+    line-height: 50px;
 }
 
 @mixin h2() {
-    color: colors.$default;
+    color: colors.$brown-dark;
     font-family: fonts.$ff-headings;
     font-size: 30px;
     font-style: normal;
@@ -22,26 +23,22 @@
 }
 
 @mixin h3() {
-    color: colors.$default;
+    color: colors.$brown-dark;
     font-family: fonts.$ff-headings;
-    font-size: 24px;
+    font-size: 18px;
     font-style: normal;
     font-weight: fonts.$fw-regular;
-    line-height: 26px;
+    line-height: 20px;
+
+    @include bp.lw(m) {
+        font-size: 16px;
+        line-height: 18px;
+    }
 }
 
 // Titles
 @mixin t1() {
-    color: colors.$default;
-    font-family: fonts.$ff-body-text;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: fonts.$fw-bold;
-    line-height: 24px;
-}
-
-@mixin t2() {
-    color: colors.$default;
+    color: colors.$brown-dark;
     font-family: fonts.$ff-body-text;
     font-size: 20px;
     font-style: normal;
@@ -49,9 +46,18 @@
     line-height: 22px;
 }
 
+@mixin t2() {
+    color: colors.$brown-dark;
+    font-family: fonts.$ff-body-text;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: fonts.$fw-bold;
+    line-height: 20px;
+}
+
 // Body text
 @mixin b1() {
-    color: colors.$default;
+    color: colors.$brown-dark;
     font-family: fonts.$ff-body-text;
     font-size: 20px;
     font-style: normal;
@@ -60,7 +66,7 @@
 }
 
 @mixin b2() {
-    color: colors.$default;
+    color: colors.$brown-dark;
     font-family: fonts.$ff-body-text;
     font-size: 16px;
     font-style: normal;
@@ -69,10 +75,10 @@
 }
 
 @mixin b3() {
-    color: colors.$default;
+    color: colors.$brown-dark;
     font-family: fonts.$ff-body-text;
-    font-size: 14px;
+    font-size: 12px;
     font-style: normal;
     font-weight: fonts.$fw-regular;
-    line-height: 16px;
+    line-height: 14px;
 }

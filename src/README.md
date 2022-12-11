@@ -98,6 +98,8 @@ Documentation and guidelines for application's main source.
 │   │
 │   ├───base
 │   │
+│   ├───common
+│   │
 │   ├───pages
 │   │
 │   └───routes
@@ -130,6 +132,7 @@ Documentation and guidelines for application's main source.
 │   │
 │   │   main.scss
 │   │   reset-normalize.scss
+│   │   scrollbar.scss
 │   └───
 │
 ├───utils

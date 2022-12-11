@@ -1,0 +1,28 @@
+@use '@base-styles-variables/colors' as c;
+
+.scroll-top-btn {
+    position: fixed;
+    right: 3vw;
+    bottom: 3vw;
+    padding: 0;
+    border: 1px solid transparent;
+    opacity: 0;
+    visibility: hidden;
+    background-color: transparent;
+    transition: visibility 0.3s, opacity 0.3s linear;
+
+    &.m-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.scroll-top-btn-img {
+    width: 38px;
+    height: 60px;
+    fill: c.$brown-dark;
+
+    &:hover {
+        fill: c.$brown;
+    }
+}

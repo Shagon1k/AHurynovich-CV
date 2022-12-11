@@ -5,8 +5,6 @@
 .hello {
     @include typography.b1;
 
-    color: colors.$default;
-
     @include bp.lw(m) {
         color: colors.$red;
     }

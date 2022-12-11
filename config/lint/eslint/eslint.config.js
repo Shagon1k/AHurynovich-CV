@@ -22,7 +22,7 @@ module.exports = {
     rules: {
         'no-var': 'error',
         'prefer-destructuring': 'warn',
-        'react/prop-types': 'warn',
+        'react/prop-types': 'off',
         'react/destructuring-assignment': 'off',
         'react/jsx-key': 'warn',
         'react-hooks/rules-of-hooks': 'error',

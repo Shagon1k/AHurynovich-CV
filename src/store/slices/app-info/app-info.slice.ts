@@ -1,14 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { DEFAULT_LANGUAGE } from '@services/i18n/config/i18n.config';
+import { DEFAULT_LANGUAGE_CODE, ILanguageCodes } from '@services';
 
 const initialState = {
     isMobile: false,
     isTablet: false,
     isDesktop: false,
-    language: DEFAULT_LANGUAGE,
+    isAppScrolledDown: false,
+    language: DEFAULT_LANGUAGE_CODE,
 };
-export type AppInfoState = typeof initialState;
+export interface AppInfoState {
+    isMobile: boolean;
+    isTablet: boolean;
+    isDesktop: boolean;
+    isAppScrolledDown: boolean;
+    language: ILanguageCodes;
+}
 
 interface IDeviceInfo {
     isMobile?: boolean;
@@ -22,18 +29,23 @@ const appInfoSlice = createSlice({
     reducers: {
         // Sets provided information about device (is mobile/desktop/tablet)
         setDeviceInfo(state: AppInfoState, action: { payload: IDeviceInfo }) {
-            const { payload = {} } = action;
+            const { payload } = action;
             state.isMobile = payload.isMobile || false;
             state.isTablet = payload.isTablet || false;
             state.isDesktop = payload.isDesktop || false;
         },
         // Sets provided language as application language
-        setAppLanguage(state: AppInfoState, action: { payload: string }) {
-            const { payload = '' } = action;
+        setAppLanguage(state: AppInfoState, action: { payload: ILanguageCodes }) {
+            const { payload } = action;
             state.language = payload;
+        },
+        // Set ups whether currently app scrolled down or not
+        setIsAppScrolledDown(state: AppInfoState, action: { payload: boolean }) {
+            const { payload } = action;
+            state.isAppScrolledDown = payload;
         },
     },
 });
 
-export const { setDeviceInfo, setAppLanguage } = appInfoSlice.actions;
+export const { setDeviceInfo, setAppLanguage, setIsAppScrolledDown } = appInfoSlice.actions;
 export default appInfoSlice.reducer;

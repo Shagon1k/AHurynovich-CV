@@ -1,4 +1,29 @@
 {
+    "header": {
+        "logoDescription": "Aliaksei Hurynovich website logo",
+        "navigation": {
+            "title": "Navigation",
+            "homePageLinkTitle": "Homepage",
+            "experienceLinkTitle": "Experience & Skills",
+            "passionsLinkTitle": "Passions",
+            "button": {
+                "open": "Open navigation",
+                "close": "Close navigation"
+            }
+        },
+        "languageSwitcher": {
+            "language": {
+                "en": "English language",
+                "ru": "Russian language",
+                "switchToEn": "Switch language to English",
+                "switchToRu": "Switch language to Russian"
+            }
+        }
+    },
+    "scrollTop": {
+        "title": "Scroll to page top",
+        "airBalloon": "Air balloon"
+    },
     "test": {
         "test": "Testing name"
     }
