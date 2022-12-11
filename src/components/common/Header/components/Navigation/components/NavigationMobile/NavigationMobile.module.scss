@@ -39,7 +39,7 @@ $nav-button-dimension: 30px;
         }
 
         &::before {
-            top: -math.div($nav-button-dimension, 3);
+            top: -(math.div($nav-button-dimension, 3));
         }
 
         &::after {
