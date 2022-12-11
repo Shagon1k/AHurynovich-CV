@@ -19,5 +19,6 @@ export const SRC_APP_TEMPLATE = path.resolve(SRC_DIR, './index.html');
 export const DIST_DIR = path.resolve(ROOT_DIR, './dist');
 export const DIST_FAVICONS_PREFIX = 'assets/favicons';
 export const DIST_FONTS_PREFIX = 'assets/fonts';
+export const DIST_IMAGES_PREFIX = 'assets/images';
 export const DIST_SCRIPTS_PREFIX = 'js';
 export const DIST_STYLES_PREFIX = 'css';

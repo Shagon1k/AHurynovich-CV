@@ -85,15 +85,19 @@ video {
     margin: 0;
     padding: 0;
     border: 0;
-    outline: 0;
     background: transparent;
     vertical-align: baseline;
-    font-size: 100%;
 }
 
-/* Links and buttons default cursor */
+/* Interactive elements default cursor */
 a,
-button {
+label,
+button,
+select,
+summary,
+[type=radio],
+[type=submit],
+[type=checkbox] {
     cursor: pointer;
 }
 
@@ -130,6 +134,13 @@ q::after {
     content: none;
 }
 
+a {
+    /* Places underlines below the descenders */
+    text-underline-position: under;
+    /* Sets the thickness as a percentage of the font size */
+    text-decoration-thickness: 10%;
+}
+
 ins {
     text-decoration: underline;
 }
@@ -150,12 +161,12 @@ table {
 
 /* For images to not be able to exceed their container */
 img {
+    display: block;
     max-width: 100%;
 }
 
 input,
-select,
-a img {
+select {
     vertical-align: middle;
 }
 
@@ -183,4 +194,9 @@ input[type='email'] {
 /* Reset default text opacity of input placeholder */
 ::placeholder {
     color: unset;
+}
+
+/* Set convenient focus behavior: show when keyboard used (for A11y) + do NOT show when mouse used */
+:focus:not(:focus-visible) {
+    outline: none;
 }

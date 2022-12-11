@@ -16,3 +16,13 @@ configure({
 
 // Application automatically loaded modules (using Webpack Provide Plugin) should be injected globally in test scopes
 global.React = React;
+
+// Global mocks
+// Note: useTranslates custom hook mock to not overuse Redux store wrapper in Unit tests
+jest.mock('@reusables/custom-hooks/use-translates.hook.ts', () => ({
+    __esModule: true,
+    useTranslates: () => ({
+        t: (key) => key,
+        languageCode: 'testCode',
+    }),
+}));

@@ -4,6 +4,7 @@ import {
     DIST_SCRIPTS_PREFIX,
     DIST_STYLES_PREFIX,
     DIST_FONTS_PREFIX,
+    DIST_IMAGES_PREFIX,
     WITH_PWA,
     SRC_ROBOTS_ENTRY,
 } from '../../environment';
@@ -17,6 +18,7 @@ import {
 } from '../helpers/plugins';
 import {
     getWebpackBabelLoader,
+    getSvgRLoader,
     getWebpackSourceMapLoader,
     getWebpackMiniCssExtractLoader,
     getWebpackCssLoader,
@@ -57,6 +59,29 @@ const commonConfig = {
                 generator: {
                     filename: `${DIST_FONTS_PREFIX}/[hash][ext][query]`,
                 },
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: `${DIST_IMAGES_PREFIX}/[hash][ext][query]`,
+                },
+            },
+            // Note: Adding ability to use SVG as resource using URL (e.g. in <img> tag)
+            {
+                test: /\.svg$/,
+                type: 'asset/resource',
+                resourceQuery: /url/, // *.svg?url
+                generator: {
+                    filename: `${DIST_IMAGES_PREFIX}/[hash][ext][query]`,
+                },
+            },
+            // Note: Adding ability to use SVG as React Component in jsx/tsx (e.g. <SVG />)
+            {
+                test: /\.svg$/,
+                issuer: /\.[jt]sx?$/,
+                resourceQuery: { not: [/url/] }, // exclude React Component if *.svg?url
+                use: [getSvgRLoader()],
             },
             {
                 test: /\.(ts|tsx)$/,

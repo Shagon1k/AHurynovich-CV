@@ -1,6 +1,6 @@
 import { createInstance as createi18nextInstance, type Resource as IResource } from 'i18next';
 
-import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, I18N_BASE_OPTIONS } from './config/i18n.config';
+import { SUPPORTED_LANGUAGES_CODES, DEFAULT_LANGUAGE_CODE, I18N_BASE_OPTIONS } from './config/i18n.config';
 
 import {
     ERROR_MSG_INITIALIZATION_ERROR,
@@ -23,7 +23,7 @@ class I18n {
     constructor(baseLanguage: string | null) {
         this._i18nInstance = null;
         this._supportedLanguages = null;
-        this._baseLanguage = this._transformBaseLanguage(baseLanguage) || DEFAULT_LANGUAGE;
+        this._baseLanguage = this._transformBaseLanguage(baseLanguage) || DEFAULT_LANGUAGE_CODE;
     }
 
     init = async (languageCode: string) => {
@@ -78,7 +78,7 @@ class I18n {
         const languagesResources: IResource = {};
         const checkedSupportedLanguages = [];
 
-        for (const languageCode of SUPPORTED_LANGUAGES) {
+        for (const languageCode of SUPPORTED_LANGUAGES_CODES) {
             const languageTranslationsFile = await import(`./config/languages/${languageCode}.json`);
             const languageTranslations = languageTranslationsFile?.default || null;
 
@@ -94,8 +94,8 @@ class I18n {
             }
         }
 
-        const fallbackLanguage = checkedSupportedLanguages.includes(DEFAULT_LANGUAGE)
-            ? DEFAULT_LANGUAGE
+        const fallbackLanguage = checkedSupportedLanguages.includes(DEFAULT_LANGUAGE_CODE)
+            ? DEFAULT_LANGUAGE_CODE
             : checkedSupportedLanguages[0];
 
         return {

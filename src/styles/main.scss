@@ -1,7 +1,37 @@
 @use './reset-normalize';
 @use './fonts-declarations';
+@use './scrollbar';
+@use '@base-styles-variables/colors';
 
-html,
+body,
+body > div {
+    min-height: 100vh;
+}
+
+/* Set scroll behavior to be smooth unless user prefers reduce the amount of non-essential motion (e.g. A11Y reasons) */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
 body {
-    height: 100%;
+    background-color: colors.$beige-light;
+}
+
+// Visualy hide (A11y purposes)
+:global(.visualyhidden) {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+// App Global elements styling
+// Outline padding (A11y purposes)
+* {
+    outline-offset: 3px;
 }

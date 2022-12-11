@@ -1,0 +1,15 @@
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-variables/colors' as c;
+
+.nav-item-link {
+    @include t.h3;
+
+    &:hover,
+    &:focus {
+        color: c.$brown;
+    }
+
+    &:active {
+        color: c.$red;
+    }
+}

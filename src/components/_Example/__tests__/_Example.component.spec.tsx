@@ -1,9 +1,6 @@
-import { userEvent, screen } from '@test-utils';
-import { getRenderWithProviders } from '@test-utils/custom';
+import { userEvent, screen, render } from '@test-utils';
 
 import Example from '../_Example.component';
-
-const render = getRenderWithProviders();
 
 describe('RTL test Example', () => {
     describe('given Example component was rendered', () => {

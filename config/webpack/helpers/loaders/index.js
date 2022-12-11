@@ -1,4 +1,5 @@
 export { default as getWebpackBabelLoader } from './babel.loader';
+export { default as getSvgRLoader } from './svg-react.loader';
 export { default as getWebpackSourceMapLoader } from './source-map.loader';
 export { default as getWebpackSassLoader } from './sass.loader';
 export { default as getWebpackPostCssLoader } from './postcss.loader';

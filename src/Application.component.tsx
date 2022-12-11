@@ -1,9 +1,12 @@
 import { Provider as ReduxStateProvider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { useRef, useCallback } from 'react';
 
 import { ServicesProvider } from '@reusables/services-context';
-import Head from './components/base/AppHead';
-import Routes from './components/routes';
+import Head from '@common/AppHead';
+import Header from '@common/Header';
+import ScrollTopButton from '@common/ScrollTopButton';
+import Routes from '@components/routes';
 
 import styles from './Application.module.scss';
 
@@ -20,13 +23,25 @@ const Application: React.FC<IApplicationProps> = ({ options }: IApplicationProps
         location: '',
     };
 
+    const firstFocusableElemRef = useRef<null | HTMLAnchorElement>(null);
+
+    const handleFocusFirstElem = useCallback(() => {
+        firstFocusableElemRef.current?.focus();
+    }, []);
+
     const renderApplication = (): JSX.Element => (
         <ReduxStateProvider store={store}>
             <ServicesProvider value={services}>
                 <BrowserRouter {...routerProps}>
                     <Head />
                     <div className={styles['app-container']}>
-                        <Routes />
+                        <Header firstFocusableElemRef={firstFocusableElemRef} />
+                        <main>
+                            <Routes />
+                        </main>
+                        {/* Note: To follow A11y rules "Scroll top" button should always be the last element (e.g. after page footer)
+                            Additionally, focus must be returned to the first focusable element of the page. */}
+                        <ScrollTopButton onFocusFirstElem={handleFocusFirstElem} />
                     </div>
                 </BrowserRouter>
             </ServicesProvider>

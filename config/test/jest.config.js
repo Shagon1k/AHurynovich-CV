@@ -76,10 +76,19 @@ module.exports = {
     moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
+    /**
+     * Note: This mapper works considering order and does NOT proceed for the next patterns if some previous match.
+     * Thus, it is important for file paths aliases to be listed at the end.
+     * For example, if .png file is also imported using file path alias (@assets/etc.) mock mapping should be FIRST at list,
+     * otherwise it will lead to an error as alias pattern mapping will be used, so NO mock mapping considered.
+     */
     moduleNameMapper: {
+        '^.+\\.s?css$': 'identity-obj-proxy',
+        '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': `${path.resolve(
+            CONFIG_DIR
+        )}/test/jest/mocks/file.mock.js`,
         '^@test-utils/(.*)$': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils/$1`,
         '^@test-utils': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils`,
-        '^.+\\.s?css$': 'identity-obj-proxy',
         '^@config/(.*)$': `${path.resolve(CONFIG_DIR)}/$1`,
         '^@config': path.resolve(CONFIG_DIR),
         '^@src/(.*)$': `${path.resolve(SRC_DIR)}/$1`,
@@ -89,9 +98,11 @@ module.exports = {
         '^@services': path.resolve(SRC_DIR, 'services'),
         '^@api/(.*)$': `${path.resolve(SRC_DIR, 'api')}/$1`,
         '^@api': path.resolve(SRC_DIR, 'api'),
+        '^@assets/(.*)$': `${path.resolve(SRC_DIR, 'assets')}/$1`,
         '^@components/(.*)$': `${path.resolve(SRC_DIR, 'components')}/$1`,
         '^@pages/(.*)$': `${path.resolve(SRC_DIR, 'components/pages')}/$1`,
         '^@base/(.*)$': `${path.resolve(SRC_DIR, 'components/base')}/$1`,
+        '^@common/(.*)$': `${path.resolve(SRC_DIR, 'components/common')}/$1`,
         '^@reusables/(.*)$': `${path.resolve(SRC_DIR, 'reusables')}/$1`,
         '^@slices/(.*)$': `${path.resolve(SRC_DIR, 'store/slices')}/$1`,
         '^@styles/(.*)$': `${path.resolve(SRC_DIR, 'styles')}/$1`,

@@ -1,9 +1,6 @@
-import { axe } from '@test-utils';
-import { getRenderWithProviders } from '@test-utils/custom';
+import { axe, render } from '@test-utils';
 
 import Example from '../_Example.component';
-
-const render = getRenderWithProviders();
 
 describe('A11y test Example', () => {
     describe('when Example component was rendered', () => {

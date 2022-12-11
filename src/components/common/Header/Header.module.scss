@@ -1,0 +1,103 @@
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/bp';
+
+$header-height: 100px;
+$header-height-mobile: 75px;
+$header-margin: 60px;
+$header-margin-mobile: 30px;
+
+.header {
+    position: sticky;
+    top: -$header-margin;
+    display: flex;
+    z-index: 1000;
+    flex-flow: column nowrap;
+
+    @include bp.lw(m) {
+        top: -$header-margin-mobile;
+    }
+}
+
+.header-inner {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    height: $header-height;
+    margin: $header-margin 0;
+    border-top: 1px solid c.$brown-dark;
+    border-bottom: 1px solid c.$brown-dark;
+    background-color: c.$beige;
+
+    @include bp.lw(m) {
+        height: $header-height-mobile;
+        margin: $header-margin-mobile 0;
+    }
+}
+
+.gear-wrapper {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    height: 100%;
+    aspect-ratio: 0.5;
+
+    .gear {
+        position: absolute;
+        height: 70%;
+        fill: c.$brown-dark;
+    }
+
+    &.m-left {
+        left: 0;
+
+        .gear {
+            top: 15%;
+            left: -70%;
+        }
+    }
+
+    &.m-right {
+        right: 0;
+
+        .gear {
+            top: 15%;
+            right: -70%;
+        }
+    }
+
+    &.m-animate {
+        &.m-left {
+            .gear {
+                animation: gear-left-rotate 1.2s linear infinite;
+            }
+        }
+
+        &.m-right {
+            .gear {
+                animation: gear-right-rotate 1.2s linear infinite;
+            }
+        }
+    }
+
+    @keyframes gear-left-rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(90deg);
+        }
+    }
+
+    @keyframes gear-right-rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(-90deg);
+        }
+    }
+}

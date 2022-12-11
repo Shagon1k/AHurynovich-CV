@@ -1,4 +1,29 @@
 {
+    "header": {
+        "logoDescription": "Лого вебсайта Гуриновича Алексея",
+        "navigation": {
+            "title": "Навигация по сайту",
+            "homePageLink": "Главная страница",
+            "experienceLinkTitle": "Опыт и Навыки",
+            "passionsLinkTitle": "Увлечения",
+            "button": {
+                "open": "Открыть навигацию",
+                "close": "Закрыть навигацию"
+            }
+        },
+        "languageSwitcher": {
+            "language": {
+                "en": "Английский язык",
+                "ru": "Русский язык",
+                "switchToEn": "Сменить язык на английский",
+                "switchToRu": "Сменить язык на русский"
+            }
+        }
+    },
+    "scrollTop": {
+        "title": "Перейти на верх страницы",
+        "airBalloon": "Воздушный шар"
+    },
     "test": {
         "test": "Имя для теста"
     }

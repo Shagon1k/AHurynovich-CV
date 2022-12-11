@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client';
+
 import { createApp } from './application';
 import { createAppStore } from './store/store';
 import { createServices } from '@services';
