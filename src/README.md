@@ -131,6 +131,7 @@ Documentation and guidelines for application's main source.
 │   ├───base
 │   │
 │   │   main.scss
+│   │   font-declarations.scss
 │   │   reset-normalize.scss
 │   │   scrollbar.scss
 │   └───

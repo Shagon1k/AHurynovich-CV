@@ -3,9 +3,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { useRef, useCallback } from 'react';
 
 import { ServicesProvider } from '@reusables/services-context';
-import Head from '@common/AppHead';
-import Header from '@common/Header';
-import ScrollTopButton from '@common/ScrollTopButton';
+import Head from '@components/common/AppHead';
+import Header from '@components/common/Header';
+import ScrollTopButton from '@components/common/ScrollTopButton';
 import Routes from '@components/routes';
 
 import styles from './Application.module.scss';

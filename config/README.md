@@ -40,9 +40,11 @@ Documentation and guidelines for application's config.
 │   │
 │   ├───jest
 │   │   │
+│   │   ├───mocks
+│   │   │
 │   │   ├───test-utils
 │   │   │   │
-│   │   │   ├───custom-utils
+│   │   │   ├───custom
 │   │   │   │
 │   │   │   │   test-utils.js
 │   │   │   │   index.js

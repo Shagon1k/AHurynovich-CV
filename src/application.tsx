@@ -1,5 +1,4 @@
 import Application from './Application.component';
-
 import { type IApplicationOptions, type ICreateAppFunction } from './application.types';
 
 // Main application render function

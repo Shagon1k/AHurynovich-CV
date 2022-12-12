@@ -1,4 +1,4 @@
-// Simply returns value passedinterface I
+// Simply returns value passed
 interface IMirrorFunctionSignature {
     <TValue>(value: TValue): TValue;
 }

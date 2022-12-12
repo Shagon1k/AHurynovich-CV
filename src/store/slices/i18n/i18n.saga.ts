@@ -1,9 +1,10 @@
 import { call, getContext, put, takeLatest } from 'redux-saga/effects';
+import { AnyAction as IAnyAction } from 'redux';
 
 import { ILanguageCodes } from '@services';
 import { setAppLanguage } from '@slices/app-info/app-info.slice';
 import { ACTION_TYPES } from './i18n.slice';
-import { AnyAction } from 'redux';
+
 const { CHANGE_LANGUAGE } = ACTION_TYPES;
 
 /**
@@ -22,7 +23,7 @@ export function* initI18n() {
     }
 }
 
-export function* changeLanguage({ payload: languageCode }: AnyAction) {
+export function* changeLanguage({ payload: languageCode }: IAnyAction) {
     const { i18n } = yield getContext('services');
 
     try {

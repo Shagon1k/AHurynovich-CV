@@ -1,4 +1,5 @@
 import { type Store as IStore } from 'redux';
+
 import { type IServices } from '@services';
 
 export interface IApplicationOptions {

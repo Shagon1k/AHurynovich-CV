@@ -1,7 +1,6 @@
 import { createInstance as createi18nextInstance, type Resource as IResource } from 'i18next';
 
 import { SUPPORTED_LANGUAGES_CODES, DEFAULT_LANGUAGE_CODE, I18N_BASE_OPTIONS } from './config/i18n.config';
-
 import {
     ERROR_MSG_INITIALIZATION_ERROR,
     ERROR_MSG_KEY_NO_LANGUAGE,
@@ -12,7 +11,6 @@ import {
     ERROR_MSG_TEMPLATE_TRANSLATIONS_SETUP,
     ERROR_MSG_NOT_SUPPORTED_LANGUAGE,
 } from './i18n.constants';
-
 import { type II18nInstance } from './i18n.service.types';
 
 class I18n {
