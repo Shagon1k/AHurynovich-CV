@@ -54,17 +54,17 @@ const commonConfig = {
     module: {
         rules: [
             {
-                test: /\.(woff|woff2|ttf|eot)$/,
+                test: /\.(woff|woff2|ttf)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: `${DIST_FONTS_PREFIX}/[hash][ext][query]`,
+                    filename: `${DIST_FONTS_PREFIX}/[name].[hash][ext][query]`,
                 },
             },
             {
-                test: /\.(png|jpg|jpeg|gif)$/,
+                test: /\.(png|jpg|jpeg|gif|webp)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: `${DIST_IMAGES_PREFIX}/[hash][ext][query]`,
+                    filename: `${DIST_IMAGES_PREFIX}/[name].[hash][ext][query]`,
                 },
             },
             // Note: Adding ability to use SVG as resource using URL (e.g. in <img> tag)
@@ -73,7 +73,7 @@ const commonConfig = {
                 type: 'asset/resource',
                 resourceQuery: /url/, // *.svg?url
                 generator: {
-                    filename: `${DIST_IMAGES_PREFIX}/[hash][ext][query]`,
+                    filename: `${DIST_IMAGES_PREFIX}/[name].[hash][ext][query]`,
                 },
             },
             // Note: Adding ability to use SVG as React Component in jsx/tsx (e.g. <SVG />)

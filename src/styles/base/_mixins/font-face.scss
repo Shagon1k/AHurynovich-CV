@@ -2,8 +2,12 @@
     @font-face {
         font-family: $family;
         font-weight: $weight;
+
+        /**
+         * Note: Instructs the browser to use the fallback font to
+         * display the text until the custom font has fully downloaded.
+         */
         font-display: swap;
-        src: url('#{$src}.eot');
         src:
             url('#{$src}.woff2') format('woff2'),
             url('#{$src}.woff') format('woff'),

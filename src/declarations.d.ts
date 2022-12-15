@@ -18,5 +18,11 @@ declare module '*.png' {
     export default content;
 }
 
+declare module '*.webp' {
+    // declaration of import WEBP to use as url (e.g. in <img> tag)
+    const content: string;
+    export default content;
+}
+
 // TS App Globals support
 declare const WITH_PWA: boolean;

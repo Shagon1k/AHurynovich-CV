@@ -84,7 +84,7 @@ module.exports = {
      */
     moduleNameMapper: {
         '^.+\\.s?css$': 'identity-obj-proxy',
-        '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': `${path.resolve(
+        '\\.(jpg|jpeg|png|gif|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': `${path.resolve(
             CONFIG_DIR
         )}/test/jest/mocks/file.mock.js`,
         '^@test-utils/(.*)$': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils/$1`,
