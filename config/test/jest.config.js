@@ -84,7 +84,7 @@ module.exports = {
      */
     moduleNameMapper: {
         '^.+\\.s?css$': 'identity-obj-proxy',
-        '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': `${path.resolve(
+        '\\.(jpg|jpeg|png|gif|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': `${path.resolve(
             CONFIG_DIR
         )}/test/jest/mocks/file.mock.js`,
         '^@test-utils/(.*)$': `${path.resolve(CONFIG_DIR)}/test/jest/test-utils/$1`,
@@ -101,8 +101,6 @@ module.exports = {
         '^@assets/(.*)$': `${path.resolve(SRC_DIR, 'assets')}/$1`,
         '^@components/(.*)$': `${path.resolve(SRC_DIR, 'components')}/$1`,
         '^@pages/(.*)$': `${path.resolve(SRC_DIR, 'components/pages')}/$1`,
-        '^@base/(.*)$': `${path.resolve(SRC_DIR, 'components/base')}/$1`,
-        '^@common/(.*)$': `${path.resolve(SRC_DIR, 'components/common')}/$1`,
         '^@reusables/(.*)$': `${path.resolve(SRC_DIR, 'reusables')}/$1`,
         '^@slices/(.*)$': `${path.resolve(SRC_DIR, 'store/slices')}/$1`,
         '^@styles/(.*)$': `${path.resolve(SRC_DIR, 'styles')}/$1`,

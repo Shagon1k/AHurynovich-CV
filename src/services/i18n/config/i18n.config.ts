@@ -1,5 +1,5 @@
-import EnLangFlagImg from '@assets/images/language-flags/en.png';
-import RuLangFlagImg from '@assets/images/language-flags/ru.png';
+import EnLangFlagImg from '@assets/images/language-flags/en.webp';
+import RuLangFlagImg from '@assets/images/language-flags/ru.webp';
 
 export const SUPPORTED_LANGUAGES_CONFIG = {
     en: {

@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+
 import styles from './Button.module.scss';
 
 interface IButtonProps {

@@ -1,20 +1,23 @@
-$logo-dimensions-aspect-ratio: 220 / 180; // width/height
-
 .logo {
     position: absolute;
     left: 50%;
+    display: flex;
     z-index: 10;
-    height: 180%;
+    flex-flow: column nowrap;
+    justify-content: center;
+    height: 100%;
     transform: translateX(-50%);
     transform-origin: center;
-    transition: height 0.15s linear;
-    aspect-ratio: $logo-dimensions-aspect-ratio;
+
+    .logo-image {
+        height: 180%;
+        transition: height 0.15s linear;
+        aspect-ratio: 220/180;
+    }
 
     &.m-compact {
-        height: calc(100% - 4px);
+        .logo-image {
+            height: calc(100% - 4px);
+        }
     }
-}
-
-.logo-image {
-    width: inherit;
 }

@@ -1,6 +1,5 @@
 import DeviceDetectService from './device-detect';
 import I18nService from './i18n';
-
 import { type IServicesOptions, type IServices } from './services.types';
 
 // Services builder
