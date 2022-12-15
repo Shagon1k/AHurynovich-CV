@@ -1,15 +1,24 @@
 @use '@base-styles-variables/colors' as c;
+@use '@base-styles-variables/application' as app;
+
+$btn-image-width: 38px;
+$btn-padding: 2.5vh;
 
 .scroll-top-btn {
     position: fixed;
-    right: 3vw;
-    bottom: 3vw;
+    bottom: $btn-padding;
     padding: 0;
     border: 1px solid transparent;
     opacity: 0;
     visibility: hidden;
+    transform: translateX(calc(app.$app-width - $btn-padding - $btn-image-width));
     background-color: transparent;
     transition: visibility 0.3s, opacity 0.3s linear;
+
+    @media screen and (max-width: #{app.$app-width}) {
+        right: $btn-padding;
+        transform: none;
+    }
 
     &.m-visible {
         opacity: 1;
@@ -18,8 +27,8 @@
 }
 
 .scroll-top-btn-img {
-    width: 38px;
-    height: 60px;
+    width: $btn-image-width;
+    aspect-ratio: 38/63;
     fill: c.$brown-dark;
 
     &:hover {
