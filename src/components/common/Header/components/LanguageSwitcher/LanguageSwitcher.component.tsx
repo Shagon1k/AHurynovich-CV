@@ -8,14 +8,14 @@ import styles from './LanguageSwitcher.module.scss';
 const EN_CODE = SUPPORTED_LANGUAGES_CONFIG.en.code;
 const RU_CODE = SUPPORTED_LANGUAGES_CONFIG.ru.code;
 
-interface ILanguageSwitcherComponentProps {
+interface ILanguageSwitcherProps {
     onEnter: () => void;
     onLeave: () => void;
     languageCode: ILanguageCodes;
     onChangeLanguage: (languageCode: ILanguageCodes) => void;
 }
 
-const LanguageSwitcherComponent: React.FC<ILanguageSwitcherComponentProps> = ({
+const LanguageSwitcher: React.FC<ILanguageSwitcherProps> = ({
     onEnter,
     onLeave,
     languageCode,
@@ -54,4 +54,4 @@ const LanguageSwitcherComponent: React.FC<ILanguageSwitcherComponentProps> = ({
     );
 };
 
-export default memo(LanguageSwitcherComponent);
+export default memo(LanguageSwitcher);

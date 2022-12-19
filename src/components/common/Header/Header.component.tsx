@@ -8,11 +8,11 @@ import LanguageSwitcher from './components/LanguageSwitcher';
 
 import styles from './Header.module.scss';
 
-interface IHeaderComponentProps {
+interface IHeaderProps {
     firstFocusableElemRef: IRef<HTMLAnchorElement>;
 }
 
-const HeaderComponent: React.FC<IHeaderComponentProps> = ({ firstFocusableElemRef }) => {
+const Header: React.FC<IHeaderProps> = ({ firstFocusableElemRef }) => {
     const [shouldGearsAnimate, setShouldGearsAnimate] = useState(false);
     const gearWrapperCn = clsx({
         [styles['gear-wrapper']]: true,
@@ -48,4 +48,4 @@ const HeaderComponent: React.FC<IHeaderComponentProps> = ({ firstFocusableElemRe
     );
 };
 
-export default HeaderComponent;
+export default Header;

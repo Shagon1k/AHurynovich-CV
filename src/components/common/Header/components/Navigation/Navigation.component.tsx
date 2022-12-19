@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { useTranslates } from '@reusables/custom-hooks';
 import { selectIsMobile } from '@slices/app-info/app-info.selector';
+import { ROUTES_CONFIG } from '@components/routes/routes.config';
 import NavigationMobile from './components/NavigationMobile';
 import NavigationDesktop from './components/NavigationDesktop';
 
@@ -14,23 +15,23 @@ export interface INavItem {
     href: string;
 }
 
-interface INavigationComponentProps {
+interface INavigationProps {
     onEnter: () => void;
     onLeave: () => void;
 }
 
-const NavigationComponent: React.FC<INavigationComponentProps> = ({ onEnter, onLeave }) => {
+const Navigation: React.FC<INavigationProps> = ({ onEnter, onLeave }) => {
     const isMobile = useSelector(selectIsMobile);
     const { t } = useTranslates();
     const navItemsData = useMemo(
         () => [
             {
                 title: t('header.navigation.experienceLinkTitle'),
-                href: '/',
+                href: ROUTES_CONFIG.experience.path,
             },
             {
                 title: t('header.navigation.passionsLinkTitle'),
-                href: '/',
+                href: ROUTES_CONFIG.passions.path,
             },
         ],
         [t] // Re-calculate if language changed
@@ -73,4 +74,4 @@ const NavigationComponent: React.FC<INavigationComponentProps> = ({ onEnter, onL
     );
 };
 
-export default memo(NavigationComponent);
+export default memo(Navigation);

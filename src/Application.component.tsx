@@ -18,10 +18,6 @@ interface IApplicationProps {
 
 const Application: React.FC<IApplicationProps> = ({ options }: IApplicationProps) => {
     const { store, services } = options;
-    const routerProps = {
-        basename: '/',
-        location: '',
-    };
 
     const firstFocusableElemRef = useRef<null | HTMLAnchorElement>(null);
 
@@ -32,7 +28,7 @@ const Application: React.FC<IApplicationProps> = ({ options }: IApplicationProps
     const renderApplication = (): JSX.Element => (
         <ReduxStateProvider store={store}>
             <ServicesProvider value={services}>
-                <BrowserRouter {...routerProps}>
+                <BrowserRouter>
                     <Head />
                     <div className={styles['app-container']}>
                         <Header firstFocusableElemRef={firstFocusableElemRef} />
