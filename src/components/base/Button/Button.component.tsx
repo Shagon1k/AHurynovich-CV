@@ -8,7 +8,7 @@ interface IButtonProps {
     onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const ButtonComponent: React.FC<IButtonProps> = ({ disabled, title, onClick }: IButtonProps) => {
+const Button: React.FC<IButtonProps> = ({ disabled, title, onClick }: IButtonProps) => {
     return (
         <button className={styles.button} name={title} onClick={onClick} disabled={disabled}>
             {title}
@@ -16,4 +16,4 @@ const ButtonComponent: React.FC<IButtonProps> = ({ disabled, title, onClick }: I
     );
 };
 
-export default memo(ButtonComponent);
+export default memo(Button);

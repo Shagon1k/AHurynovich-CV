@@ -1,6 +1,9 @@
 {
+    "general": {
+        "title": "Aliaksei Hurynovich"
+    },
     "header": {
-        "logoDescription": "Aliaksei Hurynovich website logo",
+        "logoDescription": "Aliaksei Hurynovich's website logo",
         "navigation": {
             "title": "Navigation",
             "homePageLinkTitle": "Homepage",
@@ -18,6 +21,17 @@
                 "switchToEn": "Switch language to English",
                 "switchToRu": "Switch language to Russian"
             }
+        }
+    },
+    "pages": {
+        "main": {
+            "title": "Main"
+        },
+        "experience": {
+            "title": "Experience & Skills"
+        },
+        "passions": {
+            "title": "Passions"
         }
     },
     "scrollTop": {

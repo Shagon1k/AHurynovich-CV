@@ -5,17 +5,17 @@ import { useSelector } from 'react-redux';
 
 import { useTranslates } from '@reusables/custom-hooks';
 import { selectIsAppScrolledDown } from '@slices/app-info/app-info.selector';
-
+import { ROUTES_CONFIG } from '@components/routes/routes.config';
 import LogoSVG from '@assets/images/logo.svg?url';
 
 import styles from './Logo.module.scss';
 
-interface ILogoComponentProps {
+interface ILogoProps {
     onEnter: () => void;
     onLeave: () => void;
 }
 
-const LogoComponent = forwardRef<HTMLAnchorElement, ILogoComponentProps>(({ onEnter, onLeave }, ref) => {
+const Logo = forwardRef<HTMLAnchorElement, ILogoProps>(({ onEnter, onLeave }, ref) => {
     const isAppScrolledDown = useSelector(selectIsAppScrolledDown);
     const { t } = useTranslates();
     const logoCn = clsx({
@@ -26,7 +26,7 @@ const LogoComponent = forwardRef<HTMLAnchorElement, ILogoComponentProps>(({ onEn
     return (
         <Link
             className={logoCn}
-            to='/'
+            to={ROUTES_CONFIG.main.path}
             title={t('header.navigation.homePageLinkTitle')}
             ref={ref}
             onFocus={onEnter}
@@ -39,6 +39,6 @@ const LogoComponent = forwardRef<HTMLAnchorElement, ILogoComponentProps>(({ onEn
     );
 });
 
-LogoComponent.displayName = 'LogoComponent';
+Logo.displayName = 'Logo';
 
-export default memo(LogoComponent);
+export default memo(Logo);

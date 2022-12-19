@@ -10,14 +10,14 @@ import styles from './NavigationMobile.module.scss';
 
 const THROTTLE_DELAY = 200;
 
-interface INavigationMobileComponentProps {
+interface INavigationMobileProps {
     navItemsData: INavItem[];
     renderNavItems: (navItemsArr: INavItem[], navItemClassName: string) => IReactNode;
     onEnter: () => void;
     onLeave: () => void;
 }
 
-const NavigationMobileComponent: React.FC<INavigationMobileComponentProps> = ({
+const NavigationMobile: React.FC<INavigationMobileProps> = ({
     navItemsData,
     renderNavItems,
     onEnter,
@@ -90,4 +90,4 @@ const NavigationMobileComponent: React.FC<INavigationMobileComponentProps> = ({
     );
 };
 
-export default NavigationMobileComponent;
+export default NavigationMobile;

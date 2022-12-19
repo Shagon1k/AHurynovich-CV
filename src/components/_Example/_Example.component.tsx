@@ -7,7 +7,7 @@ interface IExampleProps {
     isHello: boolean;
 }
 
-const ExampleComponent: React.FC<IExampleProps> = ({ onMakeHelloClick, isHello }: IExampleProps) => {
+const Example: React.FC<IExampleProps> = ({ onMakeHelloClick, isHello }: IExampleProps) => {
     const { t } = useTranslates();
 
     return (
@@ -22,4 +22,4 @@ const ExampleComponent: React.FC<IExampleProps> = ({ onMakeHelloClick, isHello }
     );
 };
 
-export default ExampleComponent;
+export default Example;

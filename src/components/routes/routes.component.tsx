@@ -1,13 +1,15 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes as RouterRoutes } from 'react-router-dom';
 
-import MainPage from '@pages/MainPage';
+import { ROUTES_CONFIG } from './routes.config';
 
-const RoutesComponent: React.FC = () => {
+const Routes: React.FC = () => {
     return (
-        <Routes>
-            <Route key='main' path='/' element={<MainPage />} />
-        </Routes>
+        <RouterRoutes>
+            {Object.values(ROUTES_CONFIG).map(({ id, path, Element }) => (
+                <Route key={id} path={path} element={<Element />} />
+            ))}
+        </RouterRoutes>
     );
 };
 
-export default RoutesComponent;
+export default Routes;

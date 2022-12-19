@@ -5,15 +5,12 @@ import { INavItem } from '../../Navigation.component';
 
 import styles from './NavigationDesktop.module.scss';
 
-interface INavigationDesktopComponentProps {
+interface INavigationDesktopProps {
     navItemsData: INavItem[];
     renderNavItems: (navItemsArr: INavItem[], navItemClassName: string) => IReactNode;
 }
 
-const NavigationDesktopComponent: React.FC<INavigationDesktopComponentProps> = ({
-    navItemsData,
-    renderNavItems,
-}) => {
+const NavigationDesktop: React.FC<INavigationDesktopProps> = ({ navItemsData, renderNavItems }) => {
     const [navItemsDataLeft, navItemsDataRight] = splitArrayByTwo(navItemsData);
 
     const navItemsLeft = renderNavItems(navItemsDataLeft, styles['nav-item']);
@@ -31,4 +28,4 @@ const NavigationDesktopComponent: React.FC<INavigationDesktopComponentProps> = (
     );
 };
 
-export default NavigationDesktopComponent;
+export default NavigationDesktop;

@@ -1,11 +1,5 @@
-import Example from '@components/_Example';
-
 const MainPage: React.FC = () => {
-    return (
-        <>
-            <Example />
-        </>
-    );
+    return <>TODO</>;
 };
 
 export default MainPage;

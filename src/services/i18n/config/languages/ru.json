@@ -1,6 +1,9 @@
 {
+    "general": {
+        "title": "Алексей Гуринович"
+    },
     "header": {
-        "logoDescription": "Лого вебсайта Гуриновича Алексея",
+        "logoDescription": "Лого вебсайта Алексея Гуриновича",
         "navigation": {
             "title": "Навигация по сайту",
             "homePageLink": "Главная страница",
@@ -18,6 +21,17 @@
                 "switchToEn": "Сменить язык на английский",
                 "switchToRu": "Сменить язык на русский"
             }
+        }
+    },
+    "pages": {
+        "main": {
+            "title": "Главная"
+        },
+        "experience": {
+            "title": "Опыт и Навыки"
+        },
+        "passions": {
+            "title": "Увлечения"
         }
     },
     "scrollTop": {
