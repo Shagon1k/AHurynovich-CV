@@ -1,14 +1,14 @@
-import EnLangFlagImg from '@assets/images/language-flags/en.webp';
-import RuLangFlagImg from '@assets/images/language-flags/ru.webp';
+import enLangFlagImgUrl from '@assets/images/language-flags/en.webp';
+import ruLangFlagImgUrl from '@assets/images/language-flags/ru.webp';
 
 export const SUPPORTED_LANGUAGES_CONFIG = {
     en: {
         code: 'en',
-        imageUrl: EnLangFlagImg,
+        imageUrl: enLangFlagImgUrl,
     },
     ru: {
         code: 'ru',
-        imageUrl: RuLangFlagImg,
+        imageUrl: ruLangFlagImgUrl,
     },
 } as const;
 export const SUPPORTED_LANGUAGES_CODES = Object.values(SUPPORTED_LANGUAGES_CONFIG).map((l) => l.code);

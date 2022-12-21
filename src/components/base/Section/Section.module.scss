@@ -1,0 +1,19 @@
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-mixins/bp';
+
+.section {
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.title {
+    @include t.h1;
+
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include bp.lw(m) {
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,33 @@
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-variables/colors' as c;
+
+.searching-container {
+    position: relative;
+}
+
+.searching-image {
+    position: relative;
+    width: 150px;
+    margin-left: -2px;  // image adjustment
+    aspect-ratio: 175/240;
+}
+
+.searching-text-container {
+    position: absolute;
+    top: 156px;
+    left: 15px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 85px;
+    height: 32px;
+}
+
+.searching-text {
+    @include t.h3;
+
+    text-align: center;
+    color: c.$beige-light;
+    font-size: 15px;
+    line-height: 16px;
+}

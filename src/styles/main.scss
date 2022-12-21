@@ -19,8 +19,8 @@ body {
     background-color: colors.$beige-light;
 }
 
-// Visualy hide (A11y purposes)
-:global(.visualyhidden) {
+// Visually hide (A11y purposes)
+:global(.visuallyhidden) {
     position: absolute;
     overflow: hidden;
     clip: rect(0 0 0 0);

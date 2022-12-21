@@ -137,6 +137,12 @@ Documentation and guidelines for application's main source.
 │   └───
 │
 ├───utils
+│   │
+│   ├───functions
+│   │
+│   ├───strings
+│   │
+│   └───numbers
 │
 │   Application.component.tsx
 │   Application.module.scss
@@ -151,4 +157,3 @@ Documentation and guidelines for application's main source.
 
 ## [!] To Consider
 - Think about styles sub-Folder conventions.
-- Move same area utils (functions, strings, numbers, etc.) to specific folders.

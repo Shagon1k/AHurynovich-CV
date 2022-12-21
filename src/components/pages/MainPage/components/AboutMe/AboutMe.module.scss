@@ -1,0 +1,45 @@
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-mixins/bp';
+
+.container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-right: 20px;
+
+    @include bp.lw(m) {
+        flex-direction: column-reverse;
+        margin: 0 20px;
+    }
+}
+
+.searching {
+    align-self: flex-start;
+    flex-shrink: 0;
+}
+
+.text {
+    margin: 0 20px;
+    text-align: justify;
+
+    @include bp.lw(m) {
+        margin: 0;
+    }
+}
+
+.searching-text {
+    @include t.t1;
+
+    margin-top: 5px;
+    text-align: center;
+}
+
+.photo {
+    flex-shrink: 0;
+    width: 320px;
+    height: 380px;
+
+    @include bp.lw(m) {
+        margin-bottom: 20px;
+    }
+}
