@@ -25,7 +25,15 @@
     },
     "pages": {
         "main": {
-            "title": "Main"
+            "title": "Main",
+            "aboutMeSection": {
+                "title": "About me",
+                "photoDescription": "Photo of a handsome guy (of me).",
+                "searchingForWorkYes": "Open to work",
+                "searchingForWorkNo": "Not open to work",
+                "searchingForWorkLanternDescYes": "Lit victorian lantern.",
+                "searchingForWorkLanternDescNo": "Unlit victorian lantern."
+            }
         },
         "experience": {
             "title": "Experience & Skills"

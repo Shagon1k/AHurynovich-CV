@@ -50,7 +50,7 @@ $nav-button-dimension: 30px;
 
 .nav-items-list {
     position: absolute;
-    top: calc(h.$header-height-mobile - 1px); // 1px border gap
+    top: calc(h.$header-height-mobile - 2px); // reduce border gap
     left: 0;
     display: flex;
     flex-flow: row wrap;

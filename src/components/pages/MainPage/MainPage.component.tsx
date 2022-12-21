@@ -1,5 +1,11 @@
+import AboutMe from './components/AboutMe';
+
 const MainPage: React.FC = () => {
-    return <>TODO</>;
+    return (
+        <>
+            <AboutMe />
+        </>
+    );
 };
 
 export default MainPage;

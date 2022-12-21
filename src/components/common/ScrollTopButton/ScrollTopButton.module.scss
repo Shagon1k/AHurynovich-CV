@@ -24,14 +24,23 @@ $btn-padding: 2.5vh;
         opacity: 1;
         visibility: visible;
     }
+
+    &:hover {
+        .scroll-top-btn-img {
+            fill: c.$brown;
+        }
+    }
+
+    &:active {
+        .scroll-top-btn-img {
+            fill: c.$red;
+        }
+    }
 }
 
+/* stylelint-disable-next-line no-descending-specificity -- Keep logical order + not increase selector weight */
 .scroll-top-btn-img {
     width: $btn-image-width;
     aspect-ratio: 38/63;
     fill: c.$brown-dark;
-
-    &:hover {
-        fill: c.$brown;
-    }
 }

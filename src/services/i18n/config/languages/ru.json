@@ -25,7 +25,15 @@
     },
     "pages": {
         "main": {
-            "title": "Главная"
+            "title": "Главная",
+            "aboutMeSection": {
+                "title": "Обо мне",
+                "photoDescription": "Фото красивого парня (меня).",
+                "searchingForWorkYes": "Ищу работу",
+                "searchingForWorkNo": "Не ищу работу",
+                "searchingForWorkLanternDescYes": "Зажженный викторианский фонарь.",
+                "searchingForWorkLanternDescNo": "Незажженный викторианский фонарь."
+            }
         },
         "experience": {
             "title": "Опыт и Навыки"

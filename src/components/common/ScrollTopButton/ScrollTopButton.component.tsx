@@ -35,7 +35,7 @@ const ScrollTopButton: React.FC<IScrollTopButtonProps> = ({ onFocusFirstElem }) 
             aria-label={t('scrollTop.title')}
         >
             <BalloonSVG aria-describedby='balloon-description' className={styles['scroll-top-btn-img']} />
-            <span className='visualyhidden' id='balloon-description'>
+            <span className='visuallyhidden' id='balloon-description'>
                 {t('scrollTop.airBalloon')}
             </span>
         </button>

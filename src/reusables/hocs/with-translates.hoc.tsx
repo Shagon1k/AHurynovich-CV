@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import { ServicesConsumer } from '@reusables/services-context';
-import { mirrorFunction } from '@utils';
+import { mirrorFunction } from '@utils/functions';
 import { selectLanguage } from '@slices/app-info/app-info.selector';
 
 interface IComponentWithTranslatesProps {

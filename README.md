@@ -234,6 +234,12 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 │   ├───services    // device detection, i18n, etc.
 │   │
 │   ├───utils   // reusable utils
+│   │   │
+│   │   ├───functions
+│   │   │
+│   │   ├───strings
+│   │   │
+│   │   └───numbers
 │   │
 │   ├───assets
 │   │   │

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useTranslates } from '@reusables/custom-hooks';
 import { selectIsAppScrolledDown } from '@slices/app-info/app-info.selector';
 import { ROUTES_CONFIG } from '@components/routes/routes.config';
-import LogoSVG from '@assets/images/logo.svg?url';
+import logoImgUrl from '@assets/images/logo.svg?url';
 
 import styles from './Logo.module.scss';
 
@@ -34,7 +34,7 @@ const Logo = forwardRef<HTMLAnchorElement, ILogoProps>(({ onEnter, onLeave }, re
             onMouseEnter={onEnter}
             onMouseLeave={onLeave}
         >
-            <img className={styles['logo-image']} src={LogoSVG} alt={t('header.logoDescription')} />
+            <img className={styles['logo-image']} src={logoImgUrl} alt={t('header.logoDescription')} />
         </Link>
     );
 });
