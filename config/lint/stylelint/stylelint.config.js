@@ -17,6 +17,13 @@ module.exports = {
         'unit-no-unknown': true,
         'declaration-no-important': true,
         'color-named': 'never',
+        /**
+         * Note: To use modern and new OKLCH model. More details: https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl
+         * WHY: 1) More readable => understandable notation for HUMAN (not machine); 2) P3 colors support, +30%% colors (vs e.g. RGB limited here);
+         */
+        'function-disallowed-list': ['rgba', 'hsla', 'rgb', 'hsl'],
+        'color-function-notation': 'modern', // Note: Modern notation e.g. "rgba(12, 122, 231, 0.2)" => "rgba(12 122 231 / 20%)"
+        'color-no-hex': true,
         'length-zero-no-unit': true,
         'media-feature-name-value-allowed-list': [
             {

@@ -1,8 +1,7 @@
 // Application main colors definition
 
-$white: #fff;
-$beige-light: #f5f3e1;
-$beige: #eee9c9;
-$brown: #686146;
-$brown-dark: #4b4530;
-$red: #d00;
+$beige-light: oklch(96% 0.024 100);
+$beige: oklch(93% 0.04 100);
+$brown: oklch(55% 0.035 94);
+$brown-dark: oklch(40% 0.035 94);
+$red: oklch(50% 0.25 30);
