@@ -6,9 +6,9 @@
 .app-container {
     @include t.b2;
 
+    position: relative;
     width: 100%;
     max-width: app.$app-width;
-    height: 3000px; // temporary
     min-height: 100vh;
     margin: 0 auto;
     padding: 0;

@@ -1,4 +1,4 @@
-@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-variables/fonts' as f;
 @use '@base-styles-variables/colors' as c;
 
 .searching-container {
@@ -24,10 +24,11 @@
 }
 
 .searching-text {
-    @include t.h3;
-
     text-align: center;
     color: c.$beige-light;
+    font-family: f.$ff-headings;
     font-size: 15px;
+    font-style: normal;
+    font-weight: f.$fw-regular;
     line-height: 16px;
 }
