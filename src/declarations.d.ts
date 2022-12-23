@@ -1,6 +1,10 @@
 // TS Style files extensions support
 declare module '*.scss';
 declare module '*.css';
+
+// TS alias-imports support (e.g. for dynamic import)
+declare module '@pages/*';
+
 declare module '*.svg?url' {
     // declaration of import SVG to use as url (e.g. in <img> tag)
     const content: string;

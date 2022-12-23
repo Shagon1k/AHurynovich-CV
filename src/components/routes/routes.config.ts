@@ -1,6 +1,8 @@
-import MainPage from '@pages/MainPage';
-import Experience from '@pages/ExperiencePage';
-import PassionsPage from '@pages/PassionsPage';
+import { lazy } from 'react';
+
+const MainPage = lazy(() => import(/* webpackPrefetch: true */ '@pages/MainPage'));
+const Experience = lazy(() => import(/* webpackPrefetch: true */ '@pages/ExperiencePage'));
+const PassionsPage = lazy(() => import(/* webpackPrefetch: true */ '@pages/PassionsPage'));
 
 export const ROUTES_CONFIG = {
     main: {

@@ -20,12 +20,13 @@ body {
 }
 
 // Visually hide (A11y purposes)
+/* stylelint-disable declaration-no-important -- Essential styles should NOT be overritten */
 :global(.visuallyhidden) {
-    position: absolute;
-    overflow: hidden;
+    position: absolute !important;
+    overflow: hidden !important;
     clip: rect(0 0 0 0);
-    width: 1px;
-    height: 1px;
+    width: 1px !important;
+    height: 1px !important;
     white-space: nowrap;
     clip-path: inset(50%);
 }
