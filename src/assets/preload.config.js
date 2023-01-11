@@ -14,6 +14,6 @@ const PRELOAD_FONTS_URLS = [
     'Raleway-bold.woff2',
 ];
 
-const PRELOAD_IMAGES_URLS = ['bg-image.webp', 'logo.svg'];
+const PRELOAD_IMAGES_URLS = ['bg-image.webp', 'my-photo.webp', 'logo.svg'];
 
 export const PRELOAD_ASSETS_URLS = [...PRELOAD_FONTS_URLS, ...PRELOAD_IMAGES_URLS];

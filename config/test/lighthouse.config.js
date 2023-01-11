@@ -3,8 +3,8 @@ module.exports = {
         collect: {
             staticDistDir: './dist',
             numberOfRuns: 3,
-            url: ['/'], // Enables LightHouse to run in default route instead of index.html file
-            headful: true,
+            isSinglePageApplication: true,
+            url: ['/', '/experience', '/passions'], // Enables LightHouse to run in specific urls instead of index.html
             settings: {
                 chromeFlags: '--no-sandbox --headless',
             },
