@@ -36,8 +36,8 @@
 
 .photo {
     flex-shrink: 0;
-    width: 320px;
-    height: 380px;
+    width: 310px;
+    height: 370px;
 
     @include bp.lw(m) {
         margin-bottom: 20px;
