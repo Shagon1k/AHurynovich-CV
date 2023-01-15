@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { forwardRef, memo } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { useTranslates } from '@reusables/custom-hooks';
 import { selectIsAppScrolledDown } from '@slices/app-info/app-info.selector';
+import Link from '@components/base/Link';
 import { ROUTES_CONFIG } from '@components/routes/routes.config';
 import logoImgUrl from '@assets/images/logo.svg?url';
 
@@ -29,10 +29,8 @@ const Logo = forwardRef<HTMLAnchorElement, ILogoProps>(({ onEnter, onLeave }, re
             to={ROUTES_CONFIG.main.path}
             title={t('header.navigation.homePageLinkTitle')}
             ref={ref}
-            onFocus={onEnter}
-            onBlur={onLeave}
-            onMouseEnter={onEnter}
-            onMouseLeave={onLeave}
+            onEnter={onEnter}
+            onLeave={onLeave}
         >
             <img className={styles['logo-image']} src={logoImgUrl} alt={t('header.logoDescription')} />
         </Link>

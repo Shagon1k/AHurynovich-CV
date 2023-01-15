@@ -12,7 +12,11 @@ declare module '*.svg?url' {
 }
 declare module '*.svg' {
     // declaration of import SVG to use as React Component (e.g. <SVG />)
-    const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+    /**
+     * Note: Webpack SVGR loader adds ability to control some SVG inner tags through property (e.g. title, desc).
+     * To use it correctly inline SVG property list should be extended accordingly.
+     */
+    const content: React.FunctionComponent<React.SVGAttributes<SVGElement> & { title?: string }>;
     export default content;
 }
 

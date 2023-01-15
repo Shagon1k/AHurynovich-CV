@@ -1,0 +1,14 @@
+@use '@base-styles-variables/colors' as c;
+
+.link {
+    color: c.$brown-dark;
+
+    &:hover,
+    &:focus {
+        color: c.$brown;
+    }
+
+    &:active {
+        color: c.$red;
+    }
+}

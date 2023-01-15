@@ -2,6 +2,9 @@
     "general": {
         "title": "Aliaksei Hurynovich"
     },
+    "common": {
+        "icon": "icon"
+    },
     "header": {
         "logoDescription": "Aliaksei Hurynovich's website logo",
         "navigation": {
@@ -33,6 +36,10 @@
                 "searchingForWorkNo": "Not open to work",
                 "searchingForWorkLanternDescYes": "Lit victorian lantern.",
                 "searchingForWorkLanternDescNo": "Unlit victorian lantern."
+            },
+            "mySkillsSection": {
+                "title": "My skills",
+                "findMore": "Find more details at page "
             }
         },
         "experience": {
@@ -45,8 +52,5 @@
     "scrollTop": {
         "title": "Scroll to page top",
         "airBalloon": "Air balloon"
-    },
-    "test": {
-        "test": "Testing name"
     }
 }
