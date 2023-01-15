@@ -138,7 +138,7 @@ a {
     /* Places underlines below the descenders */
     text-underline-position: under;
     /* Sets the thickness as a percentage of the font size */
-    text-decoration-thickness: 10%;
+    text-decoration-thickness: 8%;
 }
 
 ins {
@@ -194,9 +194,4 @@ input[type='email'] {
 /* Reset default text opacity of input placeholder */
 ::placeholder {
     color: unset;
-}
-
-/* Set convenient focus behavior: show when keyboard used (for A11y) + do NOT show when mouse used */
-:focus:not(:focus-visible) {
-    outline: none;
 }

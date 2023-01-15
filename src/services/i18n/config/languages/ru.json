@@ -2,6 +2,9 @@
     "general": {
         "title": "Алексей Гуринович"
     },
+    "common": {
+        "icon": "иконка"
+    },
     "header": {
         "logoDescription": "Лого вебсайта Алексея Гуриновича",
         "navigation": {
@@ -33,6 +36,10 @@
                 "searchingForWorkNo": "Не ищу работу",
                 "searchingForWorkLanternDescYes": "Зажженный викторианский фонарь.",
                 "searchingForWorkLanternDescNo": "Незажженный викторианский фонарь."
+            },
+            "mySkillsSection": {
+                "title": "Мои навыки",
+                "findMore": "Узнайте больше на странице "
             }
         },
         "experience": {
@@ -45,8 +52,5 @@
     "scrollTop": {
         "title": "Перейти на верх страницы",
         "airBalloon": "Воздушный шар"
-    },
-    "test": {
-        "test": "Имя для теста"
     }
 }

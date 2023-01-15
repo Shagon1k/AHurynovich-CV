@@ -1,7 +1,9 @@
 @use '@base-styles-variables/colors' as c;
 @use '@base-styles-variables/application' as app;
+@use '@base-styles-mixins/bp';
 
 $btn-image-width: 38px;
+$btn-image-width-mobile: 28px;
 $btn-padding: 2.5vh;
 
 .scroll-top-btn {
@@ -40,7 +42,12 @@ $btn-padding: 2.5vh;
 
 /* stylelint-disable-next-line no-descending-specificity -- Keep logical order + not increase selector weight */
 .scroll-top-btn-img {
+    display: inline-block;
     width: $btn-image-width;
     aspect-ratio: 38/63;
     fill: c.$brown-dark;
+
+    @include bp.lw(m) {
+        width: $btn-image-width-mobile;
+    }
 }

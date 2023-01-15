@@ -1,0 +1,108 @@
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-mixins/bp';
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    margin-top: 85px;
+
+    @include bp.lw(l) {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        margin-top: 100px;
+    }
+}
+
+.airship-wrapper {
+    position: relative;
+    grid-column: 1 / 3;
+    margin-left: 80px;
+
+    @include bp.lw(l) {
+        grid-column: 1 / 2;
+        margin-left: 20px;
+    }
+
+    // airship's rope
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        display: block;
+        width: 50%;
+        border-top: 1px solid c.$brown-dark;
+    }
+}
+
+.airship {
+    position: absolute;
+    top: -130px; // shifting airship up
+    left: 0;
+    width: 200px;
+    aspect-ratio: 1.25;
+    fill: c.$brown-dark;
+
+    @include bp.lw(l) {
+        top: -80px;
+        left: 0;
+        width: 120px;
+    }
+}
+
+.flag-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+    border-top: 1px solid c.$brown-dark; // flag's rope
+
+    &:last-child {
+        border: 0;
+
+        .flag {
+            top: 0;
+        }
+
+        // Last flag's rope (half)
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 50%;
+            border-top: 1px solid c.$brown-dark;
+        }
+    }
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- Keep logical order + not increase selector weight */
+.flag {
+    position: relative;
+    top: -1px; // overlap the border (rope)
+    left: 50%;
+    display: inline-block;
+    width: 50px;
+    transform: translateX(-50%);
+}
+
+.flag-icon {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.find-more-note {
+    margin-left: 30px;
+
+    @include bp.lw(l) {
+        align-self: center;
+        margin: 0;
+    }
+}

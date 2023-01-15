@@ -1,7 +1,7 @@
 @use './reset-normalize';
 @use './fonts-declarations';
 @use './scrollbar';
-@use '@base-styles-variables/colors';
+@use '@base-styles-variables/colors' as c;
 
 body,
 body > div {
@@ -16,7 +16,7 @@ body > div {
 }
 
 body {
-    background-color: colors.$beige-light;
+    background-color: c.$beige-light;
 }
 
 // Visually hide (A11y purposes)

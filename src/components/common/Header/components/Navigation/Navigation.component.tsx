@@ -1,9 +1,9 @@
 import { useCallback, useMemo, memo } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { useTranslates } from '@reusables/custom-hooks';
 import { selectIsMobile } from '@slices/app-info/app-info.selector';
+import Link from '@components/base/Link';
 import { ROUTES_CONFIG } from '@components/routes/routes.config';
 import NavigationMobile from './components/NavigationMobile';
 import NavigationDesktop from './components/NavigationDesktop';
@@ -45,10 +45,8 @@ const Navigation: React.FC<INavigationProps> = ({ onEnter, onLeave }) => {
                         <Link
                             className={styles['nav-item-link']}
                             to={navItem.href}
-                            onFocus={onEnter}
-                            onBlur={onLeave}
-                            onMouseEnter={onEnter}
-                            onMouseLeave={onLeave}
+                            onEnter={onEnter}
+                            onLeave={onLeave}
                         >
                             {navItem.title}
                         </Link>
