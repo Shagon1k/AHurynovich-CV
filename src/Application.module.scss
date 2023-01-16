@@ -7,11 +7,11 @@
     @include t.b2;
 
     position: relative;
-    width: 100%;
     max-width: app.$app-width;
     min-height: 100vh;
     margin: 0 auto;
     padding: 0;
+    box-sizing: content-box;
     border-right: 1px solid c.$brown-dark;
     border-left: 1px solid c.$brown-dark;
     background-image: url('@assets/images/bg-image.webp');

@@ -1,5 +1,4 @@
 @use '@base-styles-variables/colors' as c;
-@use '@base-styles-mixins/typography' as t;
 @use '@base-styles-mixins/bp';
 
 .container {
@@ -7,15 +6,14 @@
     flex-flow: column nowrap;
 }
 
-.skills-container {
+.skills-list {
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    margin-top: 85px;
+    margin-top: 50px;
 
     @include bp.lw(l) {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        margin-top: 100px;
     }
 }
 
@@ -27,6 +25,10 @@
     @include bp.lw(l) {
         grid-column: 1 / 2;
         margin-left: 20px;
+    }
+
+    @include bp.lw(m) {
+        margin-left: 10px;
     }
 
     // airship's rope
@@ -54,12 +56,22 @@
         left: 0;
         width: 120px;
     }
+
+    @include bp.lw(m) {
+        top: -65px;
+        left: 0;
+        width: 100px;
+    }
 }
 
-.flag-wrapper {
+.skills-item {
     position: relative;
     margin-bottom: 30px;
     border-top: 1px solid c.$brown-dark; // flag's rope
+
+    @include bp.lw(m) {
+        margin-bottom: 20px;
+    }
 
     &:last-child {
         border: 0;

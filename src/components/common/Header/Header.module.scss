@@ -12,7 +12,6 @@ $header-margin-mobile: 30px;
     display: flex;
     z-index: 1000;
     flex-flow: column nowrap;
-    margin-bottom: 20px;
 
     @include bp.lw(m) {
         top: -$header-margin-mobile;

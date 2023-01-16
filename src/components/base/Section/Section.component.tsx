@@ -4,14 +4,25 @@ import { memo, PropsWithChildren as IPropsWithChildren } from 'react';
 import styles from './Section.module.scss';
 
 interface ISectionProps extends IPropsWithChildren {
+    className?: string;
     contentClassName?: string;
     title: string;
     showTitle?: boolean;
+    withMargin?: boolean;
 }
 
-const Section: React.FC<ISectionProps> = ({ contentClassName = '', title, showTitle = true, children }) => {
-    const contentCn = clsx({
-        [contentClassName]: Boolean(contentClassName),
+const Section: React.FC<ISectionProps> = ({
+    className = '',
+    contentClassName = '',
+    title,
+    showTitle = true,
+    withMargin = true,
+    children,
+}) => {
+    const sectionCn = clsx({
+        [styles.section]: true,
+        [styles['m-with-margin']]: withMargin,
+        [className]: Boolean(className),
     });
 
     const titleCn = clsx({
@@ -19,8 +30,12 @@ const Section: React.FC<ISectionProps> = ({ contentClassName = '', title, showTi
         visuallyhidden: !showTitle, // Note: Even title not displayed visually, it is still vital for A11y
     });
 
+    const contentCn = clsx({
+        [contentClassName]: Boolean(contentClassName),
+    });
+
     return (
-        <section aria-label={title} className={styles.section}>
+        <section aria-label={title} className={sectionCn}>
             <h1 className={titleCn}>{title}</h1>
             <div className={contentCn}>{children}</div>
         </section>

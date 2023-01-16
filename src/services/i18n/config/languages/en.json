@@ -40,6 +40,9 @@
             "mySkillsSection": {
                 "title": "My skills",
                 "findMore": "Find more details at page "
+            },
+            "fiveReasonsSection": {
+                "title": "Five reasons to work with me"
             }
         },
         "experience": {
