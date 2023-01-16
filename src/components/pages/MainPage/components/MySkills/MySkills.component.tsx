@@ -13,20 +13,24 @@ import styles from './MySkills.module.scss';
 export type ISkillsList = { name: string; iconName: IIconName }[];
 
 interface IMySkillsProps {
-    skillsList: ISkillsList;
+    skillsListData: ISkillsList;
 }
 
-const MySkills: React.FC<IMySkillsProps> = ({ skillsList }) => {
+const MySkills: React.FC<IMySkillsProps> = ({ skillsListData }) => {
     const { t } = useTranslates();
 
     return (
-        <Section contentClassName={styles['container']} title={t('pages.main.mySkillsSection.title')}>
-            <ul className={styles['skills-container']}>
+        <Section
+            contentClassName={styles['container']}
+            title={t('pages.main.mySkillsSection.title')}
+            withMargin={false}
+        >
+            <ul className={styles['skills-list']}>
                 <li className={styles['airship-wrapper']} aria-hidden={true}>
                     <AirshipSVG className={styles['airship']} />
                 </li>
-                {skillsList.map(({ name, iconName }) => (
-                    <li key={iconName} className={styles['flag-wrapper']}>
+                {skillsListData.map(({ name, iconName }) => (
+                    <li key={name} className={styles['skills-item']}>
                         <FlagSVG className={styles['flag']} />
                         <Icon
                             className={styles['flag-icon']}
@@ -38,10 +42,10 @@ const MySkills: React.FC<IMySkillsProps> = ({ skillsList }) => {
                     </li>
                 ))}
             </ul>
-            <span className={styles['find-more-note']}>
+            <p className={styles['find-more-note']}>
                 {t('pages.main.mySkillsSection.findMore')}
                 {<Link to={ROUTES_CONFIG.experience.path}>{t('header.navigation.experienceLinkTitle')}</Link>}
-            </span>
+            </p>
         </Section>
     );
 };

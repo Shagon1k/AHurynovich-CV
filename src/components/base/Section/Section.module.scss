@@ -2,18 +2,29 @@
 @use '@base-styles-mixins/bp';
 
 .section {
-    width: 100%;
     padding-bottom: 60px;
+
+    @include bp.lw(m) {
+        padding-bottom: 40px;
+    }
+
+    &.m-with-margin {
+        margin: 0 30px;
+
+        @include bp.lw(m) {
+            margin: 0 20px;
+        }
+    }
 }
 
 .title {
     @include t.h1;
 
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-align: center;
 
     @include bp.lw(m) {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
 }

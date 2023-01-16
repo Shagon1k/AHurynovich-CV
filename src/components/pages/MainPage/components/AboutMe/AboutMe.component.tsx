@@ -26,6 +26,7 @@ const AboutMe: React.FC<IAboutMeProps> = ({ isSearchingForWork, aboutMeText }) =
             contentClassName={styles['container']}
             title={t('pages.main.aboutMeSection.title')}
             showTitle={false}
+            withMargin={false}
         >
             {isDesktop && (
                 <SearchingForWork className={styles['searching']} isSearchingForWork={isSearchingForWork} />

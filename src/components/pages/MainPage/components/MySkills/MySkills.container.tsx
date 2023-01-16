@@ -1,6 +1,6 @@
 import MySkills, { type ISkillsList } from './MySkills.component';
 
-const TO_API_skillsList = [
+const TO_API_skillsListData = [
     {
         name: 'JavaScript',
         iconName: 'js',
@@ -52,9 +52,9 @@ const TO_API_skillsList = [
 ];
 
 const MySkillsContainer = () => {
-    const skillsList = TO_API_skillsList as ISkillsList;
+    const skillsListData = TO_API_skillsListData as ISkillsList;
 
-    return <MySkills skillsList={skillsList} />;
+    return <MySkills skillsListData={skillsListData} />;
 };
 
 export default MySkillsContainer;

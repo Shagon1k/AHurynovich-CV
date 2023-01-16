@@ -40,6 +40,9 @@
             "mySkillsSection": {
                 "title": "Мои навыки",
                 "findMore": "Узнайте больше на странице "
+            },
+            "fiveReasonsSection": {
+                "title": "Пять причин работать со мной"
             }
         },
         "experience": {

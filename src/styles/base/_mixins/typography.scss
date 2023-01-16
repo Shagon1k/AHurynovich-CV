@@ -13,8 +13,8 @@
     line-height: 50px;
 
     @include bp.lw(m) {
-        font-size: 40px;
-        line-height: 42px;
+        font-size: 36px;
+        line-height: 38px;
     }
 }
 
@@ -54,6 +54,11 @@
     font-style: normal;
     font-weight: fonts.$fw-bold;
     line-height: 22px;
+
+    @include bp.lw(m) {
+        font-size: 18px;
+        line-height: 20px;
+    }
 }
 
 @mixin t2() {
@@ -82,6 +87,11 @@
     font-style: normal;
     font-weight: fonts.$fw-regular;
     line-height: 18px;
+
+    @include bp.lw(m) {
+        font-size: 14px;
+        line-height: 16px;
+    }
 }
 
 @mixin b3() {
