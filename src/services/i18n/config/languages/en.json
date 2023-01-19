@@ -3,7 +3,8 @@
         "title": "Aliaksei Hurynovich"
     },
     "common": {
-        "icon": "icon"
+        "icon": "icon",
+        "loading": "Loading..."
     },
     "header": {
         "logoDescription": "Aliaksei Hurynovich's website logo",

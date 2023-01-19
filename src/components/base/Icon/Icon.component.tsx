@@ -26,7 +26,7 @@ const Icon: React.FC<IIconProps> = ({
 }) => {
     const cn = clsx({
         [className]: Boolean(className),
-        [styles.icon]: true,
+        [styles['icon']]: true,
     });
     const { t } = useTranslates();
 

@@ -31,7 +31,7 @@ const Header: React.FC<IHeaderProps> = ({ firstFocusableElemRef }) => {
         <header className={styles['header']}>
             <div className={styles['header-inner']}>
                 <div className={`${gearWrapperCn} ${styles['m-left']}`}>
-                    <GearSVG className={styles['gear']} />
+                    <GearSVG className={styles['gear']} aria-hidden={true} />
                 </div>
                 <Logo
                     ref={firstFocusableElemRef}
@@ -41,7 +41,7 @@ const Header: React.FC<IHeaderProps> = ({ firstFocusableElemRef }) => {
                 <Navigation onEnter={handleHeaderElemEnter} onLeave={handleHeaderElemLeave} />
                 <LanguageSwitcher onEnter={handleHeaderElemEnter} onLeave={handleHeaderElemLeave} />
                 <div className={`${gearWrapperCn} ${styles['m-right']}`}>
-                    <GearSVG className={styles['gear']} />
+                    <GearSVG className={styles['gear']} aria-hidden={true} />
                 </div>
             </div>
         </header>

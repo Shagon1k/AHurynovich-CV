@@ -20,13 +20,13 @@ const Section: React.FC<ISectionProps> = ({
     children,
 }) => {
     const sectionCn = clsx({
-        [styles.section]: true,
-        [styles['m-with-margin']]: withMargin,
         [className]: Boolean(className),
+        [styles['section']]: true,
+        [styles['m-with-margin']]: withMargin,
     });
 
     const titleCn = clsx({
-        [styles.title]: true,
+        [styles['title']]: true,
         visuallyhidden: !showTitle, // Note: Even title not displayed visually, it is still vital for A11y
     });
 
