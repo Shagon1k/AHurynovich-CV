@@ -17,7 +17,7 @@ const Link = forwardRef<HTMLAnchorElement, ILinkProps>(
     ({ className = '', to, isExternal = false, title, onEnter, onLeave, children }, ref) => {
         const cn = clsx({
             [className]: Boolean(className),
-            [styles.link]: true,
+            [styles['link']]: true,
         });
 
         const commonProps = {

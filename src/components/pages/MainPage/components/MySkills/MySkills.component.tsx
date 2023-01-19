@@ -31,7 +31,7 @@ const MySkills: React.FC<IMySkillsProps> = ({ skillsListData }) => {
                 </li>
                 {skillsListData.map(({ name, iconName }) => (
                     <li key={name} className={styles['skills-item']}>
-                        <FlagSVG className={styles['flag']} />
+                        <FlagSVG className={styles['flag']} aria-hidden={true} />
                         <Icon
                             className={styles['flag-icon']}
                             name={iconName}

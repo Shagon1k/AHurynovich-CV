@@ -1,6 +1,6 @@
 import { Provider as ReduxStateProvider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { useRef, useCallback, Suspense } from 'react';
+import { useState, useRef, useCallback, Suspense } from 'react';
 
 import { ServicesProvider } from '@reusables/services-context';
 import Head from '@components/common/AppHead';
@@ -20,8 +20,15 @@ interface IApplicationProps {
 const Application: React.FC<IApplicationProps> = ({ options }: IApplicationProps) => {
     const { store, services } = options;
 
-    const firstFocusableElemRef = useRef<null | HTMLAnchorElement>(null);
+    const [isAppLoading, setIsAppLoading] = useState(false);
+    const handleAppLoadingStart = useCallback(() => {
+        setIsAppLoading(true);
+    }, []);
+    const handleAppLoadingEnd = useCallback(() => {
+        setIsAppLoading(false);
+    }, []);
 
+    const firstFocusableElemRef = useRef<null | HTMLAnchorElement>(null);
     const handleFocusFirstElem = useCallback(() => {
         firstFocusableElemRef.current?.focus();
     }, []);
@@ -33,8 +40,16 @@ const Application: React.FC<IApplicationProps> = ({ options }: IApplicationProps
                     <Head />
                     <div className={styles['app-container']}>
                         <Header firstFocusableElemRef={firstFocusableElemRef} />
-                        <main>
-                            <Suspense fallback={<Loader withOverlay />}>
+                        <main aria-live='polite' aria-busy={isAppLoading}>
+                            <Suspense
+                                fallback={
+                                    <Loader
+                                        withOverlay
+                                        onLoadingStart={handleAppLoadingStart}
+                                        onLoadingEnd={handleAppLoadingEnd}
+                                    />
+                                }
+                            >
                                 <Routes />
                             </Suspense>
                         </main>
