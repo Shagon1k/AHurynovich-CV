@@ -1,7 +1,7 @@
 @use '@base-styles-variables/colors' as c;
 @use '@base-styles-mixins/bp';
 
-.container {
+.content-container {
     display: flex;
     flex-flow: column nowrap;
 }
@@ -93,7 +93,6 @@
     }
 }
 
-/* stylelint-disable-next-line no-descending-specificity -- Keep logical order + not increase selector weight */
 .flag {
     position: relative;
     top: -1px; // overlap the border (rope)

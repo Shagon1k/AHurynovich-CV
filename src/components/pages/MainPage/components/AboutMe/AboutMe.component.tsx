@@ -5,7 +5,7 @@ import { useTranslates } from '@reusables/custom-hooks';
 import { selectIsDesktop } from '@slices/app-info/app-info.selector';
 import Section from '@components/base/Section';
 import SearchingForWork from './components/SearchingForWork';
-import aboutMePhotoUrl from '@assets/images/about-me/my-photo.webp';
+import aboutMePhotoUrl from '@assets/images/sections/about-me/my-photo.webp';
 
 import styles from './AboutMe.module.scss';
 
@@ -23,7 +23,7 @@ const AboutMe: React.FC<IAboutMeProps> = ({ isSearchingForWork, aboutMeText }) =
 
     return (
         <Section
-            contentClassName={styles['container']}
+            contentClassName={styles['content-container']}
             title={t('pages.main.aboutMeSection.title')}
             showTitle={false}
             withMargin={false}

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useState, useCallback, Ref as IRef } from 'react';
 
-import GearSVG from '@assets/images/gear-thin.svg';
+import GearSVG from '@assets/images/gears/gear.svg';
 import Logo from './components/Logo';
 import Navigation from './components/Navigation';
 import LanguageSwitcher from './components/LanguageSwitcher';

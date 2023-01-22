@@ -3,10 +3,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { useState, useRef, useCallback, Suspense } from 'react';
 
 import { ServicesProvider } from '@reusables/services-context';
+import Loader from '@components/base/Loader';
 import Head from '@components/common/AppHead';
 import Header from '@components/common/Header';
 import ScrollTopButton from '@components/common/ScrollTopButton';
-import Loader from '@components/common/Loader';
 import Routes from '@components/routes';
 
 import styles from './Application.module.scss';

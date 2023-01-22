@@ -1,8 +1,8 @@
 @use 'sass:math';
 @use '@base-styles-variables/colors' as c;
-@use '../../../../Header.module.scss' as h;
+@use '../../../../variables.scss' as hv;
 
-$nav-items-list-margin-top-mobile: h.$header-margin-mobile + 10px;
+$nav-items-list-margin-top-mobile: hv.$header-margin-mobile + 10px;
 $nav-item-margin-bottom-mobile: 20px;
 $nav-items-list-margin-bottom-mobile: $nav-items-list-margin-top-mobile - $nav-item-margin-bottom-mobile;
 $nav-button-dimension: 30px;
@@ -50,7 +50,7 @@ $nav-button-dimension: 30px;
 
 .nav-items-list {
     position: absolute;
-    top: calc(h.$header-height-mobile - 2px); // reduce border gap
+    top: calc(hv.$header-height-mobile - 2px); // reduce border gap
     left: 0;
     display: flex;
     flex-flow: row wrap;

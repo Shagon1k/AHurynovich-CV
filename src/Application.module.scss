@@ -7,7 +7,7 @@
     @include t.b2;
 
     position: relative;
-    max-width: app.$app-width;
+    max-width: app.$app-max-width;
     min-height: 100vh;
     margin: 0 auto;
     padding: 0;
