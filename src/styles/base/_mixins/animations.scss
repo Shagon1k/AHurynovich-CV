@@ -1,0 +1,31 @@
+@mixin gear-clockwise-rotate {
+    animation: clockwise-rotate 1.2s linear infinite;
+
+    @at-root {
+        @keyframes clockwise-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+@mixin gear-counterclockwise-rotate {
+    animation: counterclockwise-rotate 1.2s linear infinite;
+
+    @at-root {
+        @keyframes counterclockwise-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(-90deg);
+            }
+        }
+    }
+}

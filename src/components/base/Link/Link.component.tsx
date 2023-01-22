@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { forwardRef, PropsWithChildren as IPropsWithChildren } from 'react';
+import { forwardRef, type PropsWithChildren as IPropsWithChildren } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import styles from './Link.module.scss';

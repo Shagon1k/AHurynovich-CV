@@ -1,7 +1,7 @@
 @use '@base-styles-mixins/typography' as t;
 @use '@base-styles-mixins/bp';
 
-.container {
+.section {
     padding-bottom: 20px;
 
     @include bp.lw(m) {

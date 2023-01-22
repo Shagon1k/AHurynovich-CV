@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
-import searchingYesImgUrl from '@assets/images/about-me/sfw_yes.svg?url';
-import searchingNoImgUrl from '@assets/images/about-me/sfw_no.svg?url';
+import searchingYesImgUrl from '@assets/images/sections/about-me/sfw_yes.svg?url';
+import searchingNoImgUrl from '@assets/images/sections/about-me/sfw_no.svg?url';
 import { useTranslates } from '@reusables/custom-hooks';
 
 import styles from './SearchingForWork.module.scss';
@@ -14,7 +14,7 @@ interface ISearchingForWorkProps {
 const SearchingForWork: React.FC<ISearchingForWorkProps> = ({ isSearchingForWork, className = '' }) => {
     const containerCn = clsx({
         [className]: Boolean(className),
-        [styles['searching-container']]: true,
+        [styles['container']]: true,
     });
     const { t } = useTranslates();
     const text = isSearchingForWork
@@ -33,7 +33,7 @@ const SearchingForWork: React.FC<ISearchingForWorkProps> = ({ isSearchingForWork
                 alt={searchingImgDescription}
                 aria-describedby='searching-description'
             />
-            <div className={styles['searching-text-container']}>
+            <div className={styles['searching-text-wrapper']}>
                 <span id='searching-text' className={styles['searching-text']}>
                     {text}
                 </span>

@@ -1,5 +1,5 @@
-// [xsmall-max, small-min, small-max, medium-min, medium-max, large-min, large-max, xlarge-min, xlarge-max, xxlarge-min]
-const ALLOWED_BREAKPOINTS_PX = [319, 320, 767, 768, 1023, 1024, 1365, 1366, 1919, 1920];
+// [xsmall-max, small-min, small-max, medium-min, medium-max, large-min, large-max, xlarge-min, xlarge-max, xxlarge-min, app-max-width]
+const ALLOWED_BREAKPOINTS_PX = [319, 320, 767, 768, 1023, 1024, 1365, 1366, 1919, 1920, 1200];
 const VARIABLE_REGEX = [/\$.*/];
 const ALLOWED_BREAKPOINTS_MIN_MAX_WIDTH = ALLOWED_BREAKPOINTS_PX.map((v) => `${v}px`).concat(VARIABLE_REGEX);
 
@@ -82,6 +82,7 @@ module.exports = {
                 'rules',
             ],
         ],
+        'no-descending-specificity': null,
         'order/properties-order': [
             [
                 {

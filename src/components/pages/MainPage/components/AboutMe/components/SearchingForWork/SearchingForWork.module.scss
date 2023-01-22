@@ -1,7 +1,7 @@
 @use '@base-styles-variables/fonts' as f;
 @use '@base-styles-variables/colors' as c;
 
-.searching-container {
+.container {
     position: relative;
 }
 
@@ -12,7 +12,7 @@
     aspect-ratio: 175/240;
 }
 
-.searching-text-container {
+.searching-text-wrapper {
     position: absolute;
     top: 156px;
     left: 15px;

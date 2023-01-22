@@ -5,8 +5,8 @@ import Section from '@components/base/Section';
 import Icon, { type IIconName } from '@components/base/Icon';
 import Link from '@components/base/Link';
 import { ROUTES_CONFIG } from '@components/routes/routes.config';
-import AirshipSVG from '@assets/images/my-skills/airship.svg';
-import FlagSVG from '@assets/images/my-skills/flag.svg';
+import airshipImgUrl from '@assets/images/sections/my-skills/airship.svg?url';
+import flagImgUrl from '@assets/images/sections/my-skills/flag.svg?url';
 
 import styles from './MySkills.module.scss';
 
@@ -21,17 +21,17 @@ const MySkills: React.FC<IMySkillsProps> = ({ skillsListData }) => {
 
     return (
         <Section
-            contentClassName={styles['container']}
+            contentClassName={styles['content-container']}
             title={t('pages.main.mySkillsSection.title')}
             withMargin={false}
         >
             <ul className={styles['skills-list']}>
-                <li className={styles['airship-wrapper']} aria-hidden={true}>
-                    <AirshipSVG className={styles['airship']} />
+                <li className={styles['airship-wrapper']}>
+                    <img className={styles['airship']} src={airshipImgUrl} alt='' aria-hidden={true} />
                 </li>
                 {skillsListData.map(({ name, iconName }) => (
                     <li key={name} className={styles['skills-item']}>
-                        <FlagSVG className={styles['flag']} aria-hidden={true} />
+                        <img className={styles['flag']} src={flagImgUrl} alt='' aria-hidden={true} />
                         <Icon
                             className={styles['flag-icon']}
                             name={iconName}

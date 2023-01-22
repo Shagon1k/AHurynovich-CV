@@ -1,7 +1,7 @@
 @use '@base-styles-mixins/typography' as t;
 @use '@base-styles-mixins/bp';
 
-.container {
+.content-container {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
