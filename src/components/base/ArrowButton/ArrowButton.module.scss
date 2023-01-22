@@ -1,0 +1,69 @@
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/animations' as a;
+@use './variables.scss' as v;
+
+.arrow-btn {
+    width: v.$button-width;
+    height: v.$button-height;
+    padding: 0;
+    border: 0;
+    background: 0;
+    fill: c.$brown-dark;
+
+    &.m-disabled {
+        cursor: default;
+        opacity: 0.5;
+    }
+
+    &:hover:not(.m-disabled),
+    &:focus-visible:not(.m-disabled) {
+        fill: c.$brown;
+    }
+
+    &:active:not(.m-disabled) {
+        fill: c.$red;
+    }
+
+    &.m-left {
+        transform: rotate(180deg);
+
+        &:hover:not(.m-disabled),
+        &:focus-visible:not(.m-disabled) {
+            .gear-img {
+                @include a.gear-counterclockwise-rotate;
+            }
+        }
+    }
+
+    &.m-right {
+        transform: rotate(0deg);
+
+        &:hover:not(.m-disabled),
+        &:focus-visible:not(.m-disabled) {
+            .gear-img {
+                @include a.gear-clockwise-rotate;
+            }
+        }
+    }
+}
+
+.gear-img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width: v.$gear-dimension;
+    height: v.$gear-dimension;
+    margin: auto 0; // Centralize vertically through margin to keep 'transform' changing for rotate animation
+}
+
+.triangle-img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: inline-block;
+    width: v.$triangle-width;
+    height: v.$triangle-height;
+    transform: translateY(-50%);
+}

@@ -44,6 +44,13 @@
             },
             "fiveReasonsSection": {
                 "title": "Пять причин работать со мной"
+            },
+            "colleaguesFeedbacksSection": {
+                "title": "Отзывы коллег",
+                "prevFeedback": "Перейти к предыдущему отзыву",
+                "nextFeedback": "Перейти к следующему отзыву",
+                "paginationTitle": "Пагинация отзывов",
+                "pageTitlePrefix": "Отзыв номер"
             }
         },
         "experience": {
@@ -56,5 +63,11 @@
     "scrollTop": {
         "title": "Перейти на верх страницы",
         "airBalloon": "Воздушный шар"
+    },
+    "carousel": {
+        "previous": "Перейти к предыдущему",
+        "next": "Перейти к следующему",
+        "paginationTitle": "Пагинация",
+        "pageTitlePrefix": "Страница"
     }
 }

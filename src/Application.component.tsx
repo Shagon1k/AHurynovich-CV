@@ -40,7 +40,7 @@ const Application: React.FC<IApplicationProps> = ({ options }: IApplicationProps
                     <Head />
                     <div className={styles['app-container']}>
                         <Header firstFocusableElemRef={firstFocusableElemRef} />
-                        <main aria-live='polite' aria-busy={isAppLoading}>
+                        <main aria-busy={isAppLoading}>
                             <Suspense
                                 fallback={
                                     <Loader

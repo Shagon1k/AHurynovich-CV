@@ -1,0 +1,126 @@
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-mixins/bp';
+@use '@base-styles-variables/application' as a;
+
+.content-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin: 0 80px;
+
+    @include bp.lw(l) {
+        justify-content: center;
+        margin: 0;
+    }
+}
+
+.owl-wrapper,
+.feedbacks-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.owl-wrapper {
+    @include bp.lw(l) {
+        display: none;
+    }
+}
+
+.feedbacks-wrapper {
+    flex-shrink: 0;
+    width: 520px;
+
+    @include bp.lw(l) {
+        width: 100%;
+    }
+}
+
+.owl {
+    width: 365px;
+    aspect-ratio: 350/500;
+
+    @include bp.lw-app-max-width {
+        width: 280px;
+    }
+}
+
+.feedbacks {
+    width: 400px;
+    height: 565px;
+    background-image: url('@assets/images/sections/colleagues-feedbacks/old-paper.webp');
+    background-position: center;
+    background-size: cover;
+    aspect-ratio: 565/800;
+
+    @include bp.lw(m) {
+        width: 285px;
+        height: 402px;
+    }
+}
+
+.feedback-portrait-wrapper {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 15px;
+
+    @include bp.lw(m) {
+        margin-bottom: 5px;
+    }
+}
+
+.feedback-portrait {
+    width: 135px;
+    height: 190px;
+
+    @include bp.lw(m) {
+        width: 90px;
+        height: 125px;
+    }
+}
+
+.feedback-feather {
+    position: absolute;
+    right: 5px;
+    bottom: -20px;
+    width: 55px;
+    height: 85px;
+    transform: rotate(10deg);
+
+    @include bp.lw(m) {
+        bottom: -10px;
+        width: 36px;
+        height: 56px;
+    }
+}
+
+.feedback-title {
+    @include t.t1;
+
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+
+    @include bp.lw(m) {
+        margin-bottom: 5px;
+    }
+}
+
+.feedback-text {
+    display: inline-block;
+    overflow-y: scroll;
+    max-height: 260px;
+    margin-right: -(a.$scrollbar-width); // scrollbar width compensation
+    padding-right: 5px;
+    text-align: center;
+    font-style: italic;
+
+    @include bp.lw(m) {
+        max-height: 195px;
+    }
+}
