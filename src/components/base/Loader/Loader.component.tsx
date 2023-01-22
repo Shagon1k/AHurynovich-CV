@@ -50,11 +50,11 @@ const Loader: React.FC<ILoaderProps> = ({
             {isShown && (
                 <>
                     {withOverlay && <div className={styles['overlay']}></div>}
-                    <div className={styles['container']}>
+                    <div aria-live='polite' className={styles['container']}>
                         <div className={styles['loader']} aria-hidden={true}>
-                            <LoaderGearS className={styles['gear-s']} />
-                            <LoaderGearM className={styles['gear-m']} />
-                            <LoaderGearL className={styles['gear-l']} />
+                            <LoaderGearS className={styles['gear-s']} aria-hidden={true} />
+                            <LoaderGearM className={styles['gear-m']} aria-hidden={true} />
+                            <LoaderGearL className={styles['gear-l']} aria-hidden={true} />
                         </div>
                         <span className={messageCn} role='alert'>
                             {loadingMessage}

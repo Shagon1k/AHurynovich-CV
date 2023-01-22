@@ -1,0 +1,44 @@
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/bp';
+@use '../../variables' as cv;
+
+.pagination {
+    line-height: 0;
+}
+
+.page-wrapper {
+    display: inline-block;
+    margin-right: 5px;
+    line-height: 0;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.page {
+    width: cv.$carousel-pagination-height;
+    height: cv.$carousel-pagination-height;
+    padding: 0;
+    border-radius: 50%;
+    border: 0;
+    background-color: c.$beige;
+
+    @include bp.lw(m) {
+        width: cv.$carousel-pagination-height-mobile;
+        height: cv.$carousel-pagination-height-mobile;
+    }
+
+    &:hover,
+    &:focus-visible {
+        background-color: c.$brown;
+    }
+
+    &:active {
+        background-color: c.$red;
+    }
+
+    &.m-current {
+        background-color: c.$brown-dark;
+    }
+}

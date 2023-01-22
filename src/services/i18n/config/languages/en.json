@@ -44,6 +44,13 @@
             },
             "fiveReasonsSection": {
                 "title": "Five reasons to work with me"
+            },
+            "colleaguesFeedbacksSection": {
+                "title": "Colleagues feedbacks",
+                "prevFeedback": "Go to the previous feedback",
+                "nextFeedback": "Go to the next feedback",
+                "paginationTitle": "Feedbacks' pagination",
+                "pageTitlePrefix": "Feedback number"
             }
         },
         "experience": {
@@ -56,5 +63,11 @@
     "scrollTop": {
         "title": "Scroll to page top",
         "airBalloon": "Air balloon"
+    },
+    "carousel": {
+        "previous": "Go to the previous",
+        "next": "Go to the next",
+        "paginationTitle": "Pagination",
+        "pageTitlePrefix": "Page"
     }
 }

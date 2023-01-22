@@ -1,0 +1,7 @@
+@use 'sass:math';
+
+$gear-dimension: 26px;
+$triangle-width: 24px;
+$triangle-height: 36px;
+$button-height: $triangle-height;
+$button-width: math.div($gear-dimension, 2) + $triangle-width;
