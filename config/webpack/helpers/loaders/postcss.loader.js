@@ -4,7 +4,7 @@ export default () => ({
         postcssOptions: {
             parser: false,
             // Note: 'postcss-preset-env' uses browserlist to provide plugins of modern CSS features for old browser versions (e.g. OKLCH color model).
-            plugins: ['autoprefixer', 'postcss-preset-env'],
+            plugins: ['autoprefixer', 'postcss-hover-media-feature', 'postcss-preset-env'],
         },
     },
 });

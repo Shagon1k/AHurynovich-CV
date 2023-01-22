@@ -1,5 +1,6 @@
 @use '@styles/main';
 @use '@base-styles-mixins/typography' as t;
+@use '@base-styles-mixins/bp';
 @use '@base-styles-variables/colors' as c;
 @use '@base-styles-variables/application' as app;
 
@@ -15,4 +16,8 @@
     border-right: 1px solid c.$brown-dark;
     border-left: 1px solid c.$brown-dark;
     background-image: url('@assets/images/bg-image.webp');
+
+    @include bp.lw(l) {
+        border: 0;
+    }
 }
