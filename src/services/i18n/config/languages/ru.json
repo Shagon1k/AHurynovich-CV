@@ -47,6 +47,7 @@
             },
             "colleaguesFeedbacksSection": {
                 "title": "Отзывы коллег",
+                "feedbackCarouselTitle": "Карусель отзывов",
                 "prevFeedback": "Перейти к предыдущему отзыву",
                 "nextFeedback": "Перейти к следующему отзыву",
                 "paginationTitle": "Пагинация отзывов",
@@ -65,9 +66,12 @@
         "airBalloon": "Воздушный шар"
     },
     "carousel": {
+        "title": "Карусель",
+        "description": "Показана карусель. Используйте кнопки 'Перейти к предыдущему/следующему' для навигации, или кнопки пагинации сверху чтобы перейти к определенному слайду.",
         "previous": "Перейти к предыдущему",
         "next": "Перейти к следующему",
         "paginationTitle": "Пагинация",
-        "pageTitlePrefix": "Страница"
+        "pageTitlePrefix": "Страница",
+        "itemNumberText": "Слайд номер {{current}} из {{total}}"
     }
 }

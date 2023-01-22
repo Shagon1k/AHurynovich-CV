@@ -15,6 +15,7 @@ interface IArrowButtonProps {
     onClick?: () => void;
     onEnter?: () => void;
     onLeave?: () => void;
+    ariaControls?: string;
 }
 
 const ArrowButton: React.FC<IArrowButtonProps> = ({
@@ -25,6 +26,7 @@ const ArrowButton: React.FC<IArrowButtonProps> = ({
     onClick,
     onEnter,
     onLeave,
+    ariaControls,
 }) => {
     const cn = clsx({
         [className]: Boolean(className),
@@ -39,6 +41,7 @@ const ArrowButton: React.FC<IArrowButtonProps> = ({
             onClick={onClick}
             title={title}
             aria-label={title}
+            aria-controls={ariaControls}
             disabled={isDisabled}
             onFocus={onEnter}
             onBlur={onLeave}
