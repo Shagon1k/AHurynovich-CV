@@ -87,7 +87,7 @@ const Carousel: React.FC<ICarouselProps> = ({
                     });
 
                     return (
-                        <li className={slideCn} aria-hidden={!isCurrentSlide} role='group'>
+                        <li className={slideCn} aria-hidden={!isCurrentSlide}>
                             {slideInner}
                         </li>
                     );
