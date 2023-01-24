@@ -31,7 +31,6 @@ export function* initAppInfo() {
     yield put(
         setDeviceInfo({
             isMobile: deviceInfo.isMobile,
-            isTablet: deviceInfo.isTablet,
             isDesktop: deviceInfo.isDesktop,
         })
     );

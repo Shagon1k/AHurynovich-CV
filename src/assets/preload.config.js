@@ -7,13 +7,9 @@
  * Thus, files should be preloaded selective (only the ones which 100% be used and vital for initial render).
  */
 
-const PRELOAD_FONTS_URLS = [
-    'Moyenage-regular.woff2',
-    'Raleway-regular.woff2',
-    'Raleway-medium.woff2',
-    'Raleway-bold.woff2',
-];
+// Note: Medium/bold fonts are not used much on application => no need to preload
+const PRELOAD_FONTS_URLS = ['Moyenage-regular.woff2', 'Raleway-regular.woff2'];
 
-const PRELOAD_IMAGES_URLS = ['bg-image.webp', 'my-photo.webp', 'logo.svg'];
+const PRELOAD_IMAGES_URLS = ['my-photo.webp', 'bg-image.webp', 'logo.svg'];
 
 export const PRELOAD_ASSETS_URLS = [...PRELOAD_FONTS_URLS, ...PRELOAD_IMAGES_URLS];
