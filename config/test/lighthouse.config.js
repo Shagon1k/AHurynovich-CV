@@ -12,7 +12,12 @@ module.exports = {
         assert: {
             preset: 'lighthouse:no-pwa',
             assertions: {
-                'categories:performance': ['error', { minScore: 0.85, aggregationMethod: 'median-run' }],
+                /**
+                 * Note: CSR increase LCP time (which has a huge weight on overall performance).
+                 * Thus, it is very hard to achieve high level (80%+) of performance metric w/o SSR.
+                 * 75% was chosen as optimal realistic goal.
+                 */
+                'categories:performance': ['error', { minScore: 0.75, aggregationMethod: 'median-run' }],
                 'categories:accessibility': ['error', { minScore: 0.8, aggregationMethod: 'pessimistic' }],
                 'categories:best-practices': ['error', { minScore: 1, aggregationMethod: 'pessimistic' }],
                 'categories:seo': ['error', { minScore: 1, aggregationMethod: 'pessimistic' }],

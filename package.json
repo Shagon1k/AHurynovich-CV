@@ -14,12 +14,11 @@
         "npm": "8.x"
     },
     "browserslist": [
-        "last 4 versions",
-        ">5%",
+        "last 3 versions",
         "not dead",
         "not op_mini all",
-        "not safari < 13",
-        "not IOS < 13"
+        "not safari < 14",
+        "not IOS < 14"
     ],
     "sideEffects": false,
     "scripts": {
