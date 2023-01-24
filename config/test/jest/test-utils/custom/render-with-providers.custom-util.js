@@ -14,7 +14,6 @@ const createServicesMock = (overrideServices) => ({
         deviceInfo: {
             isMobile: false,
             isDesktop: true,
-            isTablet: false,
         },
     },
     ...overrideServices,

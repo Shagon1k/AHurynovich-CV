@@ -1,20 +1,18 @@
-import MobileDetect from 'mobile-detect';
+import isMobile from 'is-mobile';
 
 class DeviceDetect {
-    _deviceInfoInstance: MobileDetect;
+    _isMobile: boolean;
 
     constructor(userAgent = '') {
-        this._deviceInfoInstance = new MobileDetect(userAgent);
+        this._isMobile = isMobile({ ua: userAgent, tablet: true }); // Including tablet devices
     }
 
     get deviceInfo() {
-        const isMobile = Boolean(this._deviceInfoInstance.mobile());
-        const isTablet = Boolean(this._deviceInfoInstance.tablet());
-        const isDesktop = !isMobile && !isTablet;
+        const isMobile = this._isMobile;
+        const isDesktop = !isMobile;
 
         return {
             isMobile,
-            isTablet,
             isDesktop,
         };
     }

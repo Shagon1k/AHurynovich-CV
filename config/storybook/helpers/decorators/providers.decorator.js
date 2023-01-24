@@ -9,7 +9,6 @@ import { DEVICE_TYPES_CONTEXT_VALUES_MAP, DEFAULT_DEVICE_TYPE } from '../../cons
 const DEFAULT_DEVICE_INFO = {
     isMobile: false,
     isDesktop: false,
-    isTablet: false,
 };
 
 const createServicesMock = (overrideServices) => ({

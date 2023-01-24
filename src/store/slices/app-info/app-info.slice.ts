@@ -4,22 +4,19 @@ import { DEFAULT_LANGUAGE_CODE, ILanguageCodes } from '@services';
 
 const initialState = {
     isMobile: false,
-    isTablet: false,
     isDesktop: false,
     isAppScrolledDown: false,
     language: DEFAULT_LANGUAGE_CODE,
 };
 export interface AppInfoState {
-    isMobile: boolean;
-    isTablet: boolean;
+    isMobile: boolean; // Including tablet devices
     isDesktop: boolean;
     isAppScrolledDown: boolean;
     language: ILanguageCodes;
 }
 
 interface IDeviceInfo {
-    isMobile?: boolean;
-    isTablet?: boolean;
+    isMobile?: boolean; // Including tablet devices
     isDesktop?: boolean;
 }
 
@@ -31,7 +28,6 @@ const appInfoSlice = createSlice({
         setDeviceInfo(state: AppInfoState, action: { payload: IDeviceInfo }) {
             const { payload } = action;
             state.isMobile = payload.isMobile || false;
-            state.isTablet = payload.isTablet || false;
             state.isDesktop = payload.isDesktop || false;
         },
         // Sets provided language as application language
