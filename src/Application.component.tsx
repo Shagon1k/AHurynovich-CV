@@ -6,6 +6,7 @@ import { ServicesProvider } from '@reusables/services-context';
 import Loader from '@components/base/Loader';
 import Head from '@components/common/AppHead';
 import Header from '@components/common/Header';
+import Footer from '@components/common/Footer';
 import ScrollTopButton from '@components/common/ScrollTopButton';
 import Routes from '@components/routes';
 
@@ -53,6 +54,7 @@ const Application: React.FC<IApplicationProps> = ({ options }: IApplicationProps
                                 <Routes />
                             </Suspense>
                         </main>
+                        <Footer />
                         {/* Note: To follow A11y rules "Scroll top" button should always be the last element (e.g. after page footer)
                             Additionally, focus must be returned to the first focusable element of the page. */}
                         <ScrollTopButton onFocusFirstElem={handleFocusFirstElem} />

@@ -34,3 +34,8 @@ declare module '*.webp' {
 
 // TS App Globals support
 declare const WITH_PWA: boolean;
+
+declare interface FixedLengthArray<T, L extends number> extends Array<T> {
+    0: T;
+    length: L;
+}

@@ -12,7 +12,7 @@ interface IArrowButtonProps {
     title: string;
     direction?: IArrowDirection;
     isDisabled?: boolean;
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     onEnter?: () => void;
     onLeave?: () => void;
     ariaControls?: string;
@@ -32,7 +32,6 @@ const ArrowButton: React.FC<IArrowButtonProps> = ({
         [className]: Boolean(className),
         [styles['arrow-btn']]: true,
         [styles[`m-${direction}`]]: true,
-        [styles['m-disabled']]: isDisabled,
     });
 
     return (

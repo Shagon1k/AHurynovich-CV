@@ -1,16 +1,52 @@
-// stylelint-disable -- Temporary file, unnecessary to follow
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-variables/fonts' as f;
+@use '@base-styles-mixins/animations' as a;
+
 .button {
-    padding: 3px;
-    background-color: #a88f00;
-    color: #fff;
+    position: relative;
+    width: fit-content;
+    margin: 10px; // To reserve outside space for the gear
+    padding: 10px 18px 8px;
+    border: 0;
+    background-color: c.$brown-dark;
+    color: c.$white;
+    font-family: f.$ff-headings;
+    font-size: 16px;
+    line-height: 16px;
 
     &:disabled {
-        background-color: #eee;
+        cursor: default;
+        opacity: 0.5;
     }
 
-    &:not([disabled]):hover {
-        cursor: pointer;
-        background-color: #fff;
-        color: #a88f00;
+    &:not([disabled]) {
+        &:hover,
+        &:focus-visible {
+            background-color: c.$brown;
+
+            .gear-img {
+                @include a.gear-clockwise-rotate;
+
+                fill: c.$brown;
+            }
+        }
+
+        &:active {
+            background-color: c.$red;
+
+            .gear-img {
+                fill: c.$red;
+            }
+        }
     }
+}
+
+.gear-img {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    fill: c.$brown-dark;
 }

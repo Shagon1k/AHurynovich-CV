@@ -20,4 +20,8 @@
     @include bp.lw(l) {
         border: 0;
     }
+
+    main {
+        min-height: 600px;
+    }
 }

@@ -10,39 +10,39 @@
     background: 0;
     fill: c.$brown-dark;
 
-    &.m-disabled {
-        cursor: default;
-        opacity: 0.5;
-    }
-
-    &:hover:not(.m-disabled),
-    &:focus-visible:not(.m-disabled) {
-        fill: c.$brown;
-    }
-
-    &:active:not(.m-disabled) {
-        fill: c.$red;
-    }
-
     &.m-left {
         transform: rotate(180deg);
-
-        &:hover:not(.m-disabled),
-        &:focus-visible:not(.m-disabled) {
-            .gear-img {
-                @include a.gear-counterclockwise-rotate;
-            }
-        }
     }
 
     &.m-right {
         transform: rotate(0deg);
+    }
 
-        &:hover:not(.m-disabled),
-        &:focus-visible:not(.m-disabled) {
-            .gear-img {
-                @include a.gear-clockwise-rotate;
+    &[disabled] {
+        cursor: default;
+        opacity: 0.5;
+    }
+
+    &:not([disabled]) {
+        &:hover,
+        &:focus-visible {
+            fill: c.$brown;
+
+            &.m-left {
+                .gear-img {
+                    @include a.gear-counterclockwise-rotate;
+                }
             }
+
+            &.m-right {
+                .gear-img {
+                    @include a.gear-clockwise-rotate;
+                }
+            }
+        }
+
+        &:active {
+            fill: c.$red;
         }
     }
 }

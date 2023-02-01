@@ -1,0 +1,109 @@
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/bp';
+
+.socials {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+
+    @include bp.lw(l) {
+        margin-bottom: 15px;
+    }
+}
+
+.socials-group {
+    position: relative;
+    margin-right: 1px;
+
+    &:first-child {
+        @include bp.lw(l) {
+            margin-right: 8px;
+        }
+    }
+}
+
+.socials-list {
+    position: absolute;
+    top: 38px;
+    left: 45px;
+
+    @include bp.lw(l) {
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+}
+
+.socials-item {
+    display: inline-block;
+    margin-right: 8px;
+
+    &:last-child {
+        margin: 0;
+    }
+}
+
+.socials-item-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    border-radius: 50%;
+    background: c.$beige;
+    aspect-ratio: 1;
+
+    &:hover,
+    &:focus-visible {
+        background: c.$yellow;
+    }
+}
+
+.train-carriage,
+.train-loco,
+.train-smoke {
+    @include bp.lw(l) {
+        display: none;
+    }
+}
+
+.train-carriage {
+    width: 200px;
+    height: 106px;
+}
+
+.train-loco {
+    width: 275px;
+    height: 124px;
+}
+
+.train-smoke {
+    position: absolute;
+    right: 85px;
+    bottom: 125px;
+    width: 95px;
+    height: 50px;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: bottom right;
+
+    &.m-animate {
+        animation: smoke 1.5s linear 3;
+    }
+
+    @keyframes smoke {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        40% {
+            opacity: 0.8;
+        }
+
+        100% {
+            opacity: 0;
+            transform: scale(1) translate(-40px, -15px);
+        }
+    }
+}

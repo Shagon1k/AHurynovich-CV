@@ -56,7 +56,7 @@ export const ICON_NAME_TO_SVG_MAP = {
 } as const;
 
 export const ICONS_SIZES_MAP = {
-    s: 27,
+    s: 20,
     m: 35,
     l: 60,
     xl: 100,

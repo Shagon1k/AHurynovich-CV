@@ -8,7 +8,7 @@
         padding-bottom: 40px;
     }
 
-    &.m-with-margin {
+    &.m-with-side-margin {
         margin: 0 30px;
 
         @include bp.lw(m) {
