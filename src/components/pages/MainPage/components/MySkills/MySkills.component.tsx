@@ -23,7 +23,7 @@ const MySkills: React.FC<IMySkillsProps> = ({ skillsListData }) => {
         <Section
             contentClassName={styles['content-container']}
             title={t('pages.main.mySkillsSection.title')}
-            withMargin={false}
+            withSideMargin={false}
         >
             <ul className={styles['skills-list']}>
                 <li className={styles['airship-wrapper']}>

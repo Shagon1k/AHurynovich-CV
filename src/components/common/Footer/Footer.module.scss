@@ -1,0 +1,46 @@
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-mixins/bp';
+
+.bg-image {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.75;
+}
+
+.title {
+    @include t.h1;
+
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    border-bottom: 2px solid c.$brown-dark;
+
+    @include bp.lw(l) {
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+}
+
+.contact-form {
+    width: 280px;
+    margin: 10px 35px;
+
+    @include bp.lw(m) {
+        width: 270px;
+    }
+}
+
+.copyright {
+    @include t.b3;
+
+    width: 100%;
+    padding: 8px 0;
+    text-align: center;
+}

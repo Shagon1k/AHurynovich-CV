@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState, useCallback, Ref as IRef } from 'react';
+import { memo, useState, useCallback, Ref as IRef } from 'react';
 
 import GearSVG from '@assets/images/gears/gear.svg';
 import Logo from './components/Logo';
@@ -48,4 +48,4 @@ const Header: React.FC<IHeaderProps> = ({ firstFocusableElemRef }) => {
     );
 };
 
-export default Header;
+export default memo(Header);

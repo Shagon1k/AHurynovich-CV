@@ -61,6 +61,32 @@
             "title": "Passions"
         }
     },
+    "footer": {
+        "title": "Contact me",
+        "contactForm": {
+            "fullName": {
+                "placeholder": "Full Name",
+                "label": "Enter your full name"
+            },
+            "email": {
+                "placeholder": "Email",
+                "label": "Enter your email"
+            },
+            "phoneNumber": {
+                "placeholder": "Phone number (e.g. +1234567)",
+                "label": "Enter your phone number"
+            },
+            "message": {
+                "placeholder": "Your message",
+                "label": "Enter your message to me"
+            },
+            "getInTouch": "Get In Touch"
+        },
+        "socials": {
+            "goToMy": "Go to my {{name}}"
+        },
+        "copyright": "© {{year}} Aliaksei Hurynovich. All Rights Reserved"
+    },
     "scrollTop": {
         "title": "Scroll to page top",
         "airBalloon": "Air balloon"

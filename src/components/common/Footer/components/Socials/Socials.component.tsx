@@ -1,0 +1,91 @@
+import clsx from 'clsx';
+import { memo, useState, useCallback } from 'react';
+
+import Icon, { type IIconName } from '@components/base/Icon';
+import Link from '@components/base/Link';
+import { useTranslates } from '@reusables/custom-hooks';
+import { hashCode } from '@utils/strings';
+import trainLocoImgUrl from '@assets/images/footer/train_loco.svg?url';
+import trainCarriageImgUrl from '@assets/images/footer/train_carriage.svg?url';
+import trainSmokeImgUrl from '@assets/images/footer/train_smoke.svg?url';
+
+import styles from './Socials.module.scss';
+
+interface ISocialInfo {
+    name: string;
+    iconName: IIconName;
+    link: string;
+}
+export type ISocialsInfo = ISocialInfo[];
+const SOCIALS_GROUP_LENGTH = 3;
+
+interface ISocialsProps {
+    className?: string;
+    socialsData: ISocialsInfo;
+}
+
+const Socials: React.FC<ISocialsProps> = ({ className = '', socialsData }) => {
+    const [shouldSmokeAnimate, setShouldSmokeAnimate] = useState(false);
+
+    const cn = clsx({
+        className: Boolean(className),
+        [styles['socials']]: true,
+    });
+
+    const trainSmokeCn = clsx({
+        [styles['train-smoke']]: true,
+        [styles['m-animate']]: shouldSmokeAnimate,
+    });
+
+    const handleSocialElemEnter = useCallback(() => {
+        setShouldSmokeAnimate(true);
+    }, []);
+
+    const handleSocialElemLeave = useCallback(() => {
+        setShouldSmokeAnimate(false);
+    }, []);
+
+    const { t } = useTranslates();
+
+    const renderSocialGroup = useCallback(
+        (socialGroupData: ISocialsInfo) => (
+            <div className={styles['socials-group']}>
+                <img
+                    className={styles['train-carriage']}
+                    src={trainCarriageImgUrl}
+                    alt=''
+                    aria-hidden={true}
+                />
+                <ul className={styles['socials-list']}>
+                    {socialGroupData.map(({ name, iconName, link }) => (
+                        <li key={hashCode(name)} className={styles['socials-item']}>
+                            <Link
+                                className={styles['socials-item-link']}
+                                isExternal
+                                title={t('footer.socials.goToMy', { name })}
+                                to={link}
+                                onEnter={handleSocialElemEnter}
+                                onLeave={handleSocialElemLeave}
+                            >
+                                <Icon className={styles['social-icon']} name={iconName} size='s' />
+                                <span className='visuallyhidden'>{name}</span>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        ),
+        [t, handleSocialElemEnter, handleSocialElemLeave]
+    );
+
+    return (
+        <div className={cn}>
+            {renderSocialGroup(socialsData.slice(0, SOCIALS_GROUP_LENGTH))}
+            {renderSocialGroup(socialsData.slice(SOCIALS_GROUP_LENGTH, SOCIALS_GROUP_LENGTH * 2))}
+            <img className={styles['train-loco']} src={trainLocoImgUrl} alt='' aria-hidden={true} />
+            <img className={trainSmokeCn} src={trainSmokeImgUrl} alt='' aria-hidden={true} />
+        </div>
+    );
+};
+
+export default memo(Socials);

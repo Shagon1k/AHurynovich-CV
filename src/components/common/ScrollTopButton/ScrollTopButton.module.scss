@@ -4,21 +4,21 @@
 
 $btn-image-width: 38px;
 $btn-image-width-mobile: 28px;
-$btn-padding: 2.5vh;
+$btn-right-padding: 15px;
 
 .scroll-top-btn {
     position: fixed;
-    bottom: $btn-padding;
+    bottom: 25px;
     padding: 0;
     border: 1px solid transparent;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(calc(app.$app-max-width - $btn-padding - $btn-image-width));
+    transform: translateX(calc(app.$app-max-width - $btn-right-padding - $btn-image-width));
     background-color: transparent;
     transition: visibility 0.3s, opacity 0.3s linear;
 
     @media screen and (max-width: #{app.$app-max-width}) {
-        right: $btn-padding;
+        right: $btn-right-padding;
         transform: none;
     }
 

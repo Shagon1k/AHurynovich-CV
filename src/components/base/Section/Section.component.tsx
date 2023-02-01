@@ -8,7 +8,7 @@ interface ISectionProps extends IPropsWithChildren {
     contentClassName?: string;
     title: string;
     showTitle?: boolean;
-    withMargin?: boolean;
+    withSideMargin?: boolean;
 }
 
 const Section: React.FC<ISectionProps> = ({
@@ -16,13 +16,13 @@ const Section: React.FC<ISectionProps> = ({
     contentClassName = '',
     title,
     showTitle = true,
-    withMargin = true,
+    withSideMargin = true,
     children,
 }) => {
     const sectionCn = clsx({
         [className]: Boolean(className),
         [styles['section']]: true,
-        [styles['m-with-margin']]: withMargin,
+        [styles['m-with-side-margin']]: withSideMargin,
     });
 
     const titleCn = clsx({

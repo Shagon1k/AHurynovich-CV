@@ -18,5 +18,5 @@ DefaultButton.args = {
 export const DisabledButton = Template.bind({});
 DisabledButton.args = {
     ...DefaultButton.args,
-    disabled: true,
+    isDisabled: true,
 };
