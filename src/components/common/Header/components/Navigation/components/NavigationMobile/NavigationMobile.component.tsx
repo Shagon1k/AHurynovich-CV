@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { useState, useEffect, useRef, ReactNode as IReactNode } from 'react';
+import { useLocation } from 'react-router-dom';
 import FocusLock from 'react-focus-lock';
 import { throttle } from 'throttle-debounce';
 
@@ -24,6 +25,7 @@ const NavigationMobile: React.FC<INavigationMobileProps> = ({
     onLeave,
 }) => {
     const { t } = useTranslates();
+    const location = useLocation();
     const [isOpened, setIsOpened] = useState(false);
 
     const toggleOpened = () => {
@@ -66,6 +68,9 @@ const NavigationMobile: React.FC<INavigationMobileProps> = ({
             };
         }
     }, [isOpened]);
+    useEffect(() => {
+        setIsOpened(false);
+    }, [location]);
 
     return (
         <FocusLock disabled={!isOpened}>

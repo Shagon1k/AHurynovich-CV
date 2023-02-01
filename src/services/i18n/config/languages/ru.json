@@ -99,5 +99,10 @@
         "paginationTitle": "Пагинация",
         "pageTitlePrefix": "Страница",
         "itemNumberText": "Слайд номер {{current}} из {{total}}"
+    },
+    "pageUnderConstruction": {
+        "heading": "Скоро будет",
+        "info": "Эта страница в разработке. Приходите позже :)",
+        "imageTitle": "Забавный мишка с шестерёнками"
     }
 }

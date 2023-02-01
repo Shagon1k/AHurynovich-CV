@@ -99,5 +99,10 @@
         "paginationTitle": "Pagination",
         "pageTitlePrefix": "Page",
         "itemNumberText": "Item {{current}} of {{total}}"
+    },
+    "pageUnderConstruction": {
+        "heading": "Coming soon",
+        "info": "This page is under construction. Come back later :)",
+        "imageTitle": "Funny Teddy bear with gears"
     }
 }
