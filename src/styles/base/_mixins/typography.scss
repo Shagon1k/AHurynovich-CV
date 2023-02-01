@@ -78,6 +78,11 @@
     font-style: normal;
     font-weight: fonts.$fw-regular;
     line-height: 22px;
+
+    @include bp.lw(m) {
+        font-size: 18px;
+        line-height: 20px;
+    }
 }
 
 @mixin b2() {

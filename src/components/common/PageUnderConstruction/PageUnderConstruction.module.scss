@@ -1,0 +1,52 @@
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-mixins/bp';
+
+.page-under-construction {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding-bottom: 100px;
+
+    @include bp.lw(m) {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+}
+
+.teddy-bear {
+    display: inline-block;
+    width: 360px;
+    height: 435px;
+    margin-bottom: 20px;
+    fill: c.$brown-dark;
+
+    @include bp.lw(m) {
+        width: 250px;
+        height: 300px;
+    }
+}
+
+.heading-text {
+    @include t.t1;
+
+    margin-bottom: 5px;
+    font-size: 36px;
+    line-height: 38px;
+
+    @include bp.lw(m) {
+        font-size: 30px;
+        line-height: 32px;
+    }
+}
+
+.info-text {
+    @include t.b1;
+
+    display: inline-block;
+    text-align: center;
+
+    @include bp.lw(m) {
+        width: 300px;
+    }
+}

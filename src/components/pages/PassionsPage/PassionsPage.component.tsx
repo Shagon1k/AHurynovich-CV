@@ -1,5 +1,11 @@
+import PageUnderConstruction from '@components/common/PageUnderConstruction';
+
 const PassionsPage: React.FC = () => {
-    return <>TODO Passions</>;
+    return (
+        <>
+            <PageUnderConstruction />
+        </>
+    );
 };
 
 export default PassionsPage;
