@@ -42,7 +42,10 @@ const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFe
                 <h3 className={styles['feedback-title']}>
                     {authorRole} ({sourceName})
                 </h3>
-                <span className={styles['feedback-text']}>&quot;{text}&quot;</span>
+                {/*eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex*/}
+                <span tabIndex={0} className={styles['feedback-text']}>
+                    &quot;{text}&quot;
+                </span>
             </Fragment>
         );
     };
@@ -59,7 +62,7 @@ const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFe
                 <div className={styles['feedbacks']}>
                     <Carousel
                         titlesConfig={{
-                            carousel: t('pages.main.colleaguesFeedbacksSection.feedbackCarouselTitle'),
+                            carousel: t('pages.main.colleaguesFeedbacksSection.carouselTitle'),
                             prevButton: t('pages.main.colleaguesFeedbacksSection.prevFeedback'),
                             nextButton: t('pages.main.colleaguesFeedbacksSection.nextFeedback'),
                             pagination: t('pages.main.colleaguesFeedbacksSection.paginationTitle'),

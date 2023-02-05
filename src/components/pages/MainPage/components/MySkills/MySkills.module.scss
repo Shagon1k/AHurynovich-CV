@@ -54,7 +54,6 @@
     left: 0;
     width: 200px;
     aspect-ratio: 1.25;
-    fill: c.$brown-dark;
 
     @include bp.lw(l) {
         top: -80px;

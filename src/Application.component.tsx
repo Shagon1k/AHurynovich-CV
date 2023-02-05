@@ -56,7 +56,9 @@ const Application: React.FC<IApplicationProps> = ({ options }: IApplicationProps
                         </main>
                         <Footer />
                         {/* Note: To follow A11y rules "Scroll top" button should always be the last element (e.g. after page footer)
-                            Additionally, focus must be returned to the first focusable element of the page. */}
+                            Additionally, focus must be returned to the first focusable element of the page.
+
+                            Warning: Additionally this button includes side effect to scroll USER's view to top on route change. */}
                         <ScrollTopButton onFocusFirstElem={handleFocusFirstElem} />
                     </div>
                 </BrowserRouter>
