@@ -1,5 +1,7 @@
+import CareerFlow from './components/CareerFlow';
+
 const ExperiencePage: React.FC = () => {
-    return <>TODO Skills & Experience</>;
+    return <CareerFlow />;
 };
 
 export default ExperiencePage;

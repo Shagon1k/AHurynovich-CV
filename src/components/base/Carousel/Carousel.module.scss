@@ -63,13 +63,18 @@
     right: 0;
     bottom: 0;
     left: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
     opacity: 0;
     visibility: hidden;
-    transition: visibility 0.5s, opacity 0.5s linear;
+    transition: visibility v.$slide-change-animation-time, opacity v.$slide-change-animation-time linear;
 
     &.m-visible {
         opacity: 1;
         visibility: visible;
-        transition: visibility 0.5s 0.45s, opacity 0.5s 0.45s linear;
+        transition:
+            visibility v.$slide-change-animation-time v.$slide-change-animation-time,
+            opacity v.$slide-change-animation-time v.$slide-change-animation-time linear;
     }
 }

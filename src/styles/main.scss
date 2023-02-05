@@ -5,17 +5,15 @@
 
 body,
 body > div {
-    min-height: 100vh;
-}
-
-/* Set scroll behavior to be smooth unless user prefers reduce the amount of non-essential motion (e.g. A11Y reasons) */
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
-    }
+    min-height: 100%;
 }
 
 body {
+    // TODO: Double-consider further.
+    // Replacing scroll from body element to achieve fixed address bar.
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
     background-color: c.$beige-light;
 }
 

@@ -1,0 +1,156 @@
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/bp';
+@use '@components/base/Carousel/variables' as carousel;
+
+/**
+* Note: Some image elements are better to be placed as background images (instead through <img>)
+* as of their logical sense and as they do not construct the page itself.
+*/
+
+.content-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 0 80px;
+
+    @include bp.lw-app-max-width {
+        margin: 0 35px;
+    }
+
+    @include bp.lw(l) {
+        justify-content: center;
+    }
+}
+
+.career-flow-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    // Projector wall's top part
+    &::before {
+        content: '';
+        position: relative;
+        top: 3px;
+        left: 0;
+        display: block;
+        width: calc(100% + 30px); // Additional width for projector's top part image elements
+        background-image: url('@assets/images/sections/career-flow/projector-wall_top.svg?url');
+        background-position: center;
+        background-repeat: no-repeat;
+        aspect-ratio: 300/42;
+    }
+
+    // Projector wall's bottom part
+    &::after {
+        content: '';
+        position: relative;
+        bottom: 1px;
+        left: 0;
+        display: block;
+        width: 100%;
+        background-image: url('@assets/images/sections/career-flow/projector-wall_bottom.svg?url');
+        background-position: center;
+        background-repeat: no-repeat;
+        aspect-ratio: 300/34;
+    }
+}
+
+.career-flow {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    height: 325px;
+    background-color: c.$yellow;
+    transition: background-color carousel.$slide-change-animation-time linear;
+
+    @include bp.lw(m) {
+        width: 285px;
+    }
+
+    &.m-animate {
+        background-color: c.$beige-light;
+    }
+}
+
+.career-flow-title {
+    @include t.t1;
+
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.career-flow-date {
+    @include t.b3;
+
+    display: inline-block;
+    margin-bottom: 7px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+.career-flow-text {
+    display: inline-block;
+    overflow-y: scroll;
+    max-height: 250px;
+    margin-right: -10px;
+    padding-right: 5px;
+    text-align: center;
+}
+
+.projector-wrapper {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    margin-bottom: 100px;
+
+    @include bp.lw(l) {
+        display: none;
+    }
+
+    // Projector's and watcher's shadow
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 50px;
+        border-radius: 50%;
+        opacity: 0.3;
+        transform: translateY(50%);
+        background-color: c.$grey;
+    }
+}
+
+.light {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 128px;
+    transform: translateX(-100%); // Keeping it as most left element
+    transition: opacity carousel.$slide-change-animation-time linear;
+    aspect-ratio: 95/150;
+
+    &.m-animate {
+        opacity: 0;
+    }
+}
+
+.projector {
+    z-index: 1;
+    width: 115px;
+    aspect-ratio: 115/150;
+}
+
+.watcher {
+    z-index: 1;
+    width: 150px;
+    aspect-ratio: 150/270;
+}

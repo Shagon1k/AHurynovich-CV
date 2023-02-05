@@ -4,3 +4,6 @@ $carousel-padding-top: 20px;
 $carousel-padding-top-mobile: 10px;
 $carousel-pagination-height: 15px;
 $carousel-pagination-height-mobile: 12px;
+
+// Keep in sync with SLIDE_CHANGE_ANIMATION_TIME (config.ts) to keep consistent JS & CSS
+$slide-change-animation-time: 0.6s;

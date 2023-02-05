@@ -47,7 +47,7 @@
             },
             "colleaguesFeedbacksSection": {
                 "title": "Отзывы коллег",
-                "feedbackCarouselTitle": "Карусель отзывов",
+                "carouselTitle": "Карусель отзывов",
                 "prevFeedback": "Перейти к предыдущему отзыву",
                 "nextFeedback": "Перейти к следующему отзыву",
                 "paginationTitle": "Пагинация отзывов",
@@ -55,7 +55,15 @@
             }
         },
         "experience": {
-            "title": "Опыт и Навыки"
+            "title": "Опыт и Навыки",
+            "careerFlowSection": {
+                "title": "Карьерный путь",
+                "carouselTitle": "Карусель карьерного пути",
+                "prevFeedback": "Перейти к предыдущему этапу карьеры",
+                "nextFeedback": "Перейти к следующему этапу карьеры",
+                "paginationTitle": "Пагинация карьерного пути",
+                "pageTitlePrefix": "Этап карьерного пути номер"
+            }
         },
         "passions": {
             "title": "Увлечения"

@@ -47,7 +47,7 @@
             },
             "colleaguesFeedbacksSection": {
                 "title": "Colleagues feedbacks",
-                "feedbackCarouselTitle": "Feedbacks' carousel",
+                "carouselTitle": "Feedbacks' carousel",
                 "prevFeedback": "Go to the previous feedback",
                 "nextFeedback": "Go to the next feedback",
                 "paginationTitle": "Feedbacks' pagination",
@@ -55,7 +55,15 @@
             }
         },
         "experience": {
-            "title": "Experience & Skills"
+            "title": "Experience & Skills",
+            "careerFlowSection": {
+                "title": "Career flow",
+                "carouselTitle": "Career flow carousel",
+                "prevFeedback": "Go to the previous career stage",
+                "nextFeedback": "Go to the next career stage",
+                "paginationTitle": "Career flow pagination",
+                "pageTitlePrefix": "Career stage number"
+            }
         },
         "passions": {
             "title": "Passions"

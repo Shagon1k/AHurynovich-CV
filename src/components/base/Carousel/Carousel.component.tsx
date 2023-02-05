@@ -14,9 +14,10 @@ interface ICarouselProps extends IPropsWithChildren {
         carousel: string;
         prevButton: string;
         nextButton: string;
-        pagination: string;
-        pagePrefix: string;
+        pagination?: string;
+        pagePrefix?: string;
     };
+    onSlideChange?: () => void;
 }
 
 const Carousel: React.FC<ICarouselProps> = ({
@@ -24,6 +25,7 @@ const Carousel: React.FC<ICarouselProps> = ({
     withPagination = true,
     titlesConfig,
     children,
+    onSlideChange,
 }) => {
     const cn = clsx({
         [className]: Boolean(className),
@@ -36,13 +38,19 @@ const Carousel: React.FC<ICarouselProps> = ({
 
     const handleNextPage = useCallback(() => {
         setCurrentPageIndex((currentPageIndex) => currentPageIndex + 1);
-    }, []);
+        onSlideChange?.();
+    }, [onSlideChange]);
     const handlePrevPage = useCallback(() => {
         setCurrentPageIndex((currentPageIndex) => currentPageIndex - 1);
-    }, []);
-    const handlePageChange = useCallback((pageNumber: number) => {
-        setCurrentPageIndex(pageNumber);
-    }, []);
+        onSlideChange?.();
+    }, [onSlideChange]);
+    const handlePageChange = useCallback(
+        (pageNumber: number) => {
+            setCurrentPageIndex(pageNumber);
+            onSlideChange?.();
+        },
+        [onSlideChange]
+    );
 
     const {
         carousel: carouselTitle = t('carousel.title'),
