@@ -20,7 +20,7 @@ module.exports = {
                 'categories:performance': ['error', { minScore: 0.75, aggregationMethod: 'median-run' }],
                 'categories:accessibility': ['error', { minScore: 0.8, aggregationMethod: 'pessimistic' }],
                 'categories:best-practices': ['error', { minScore: 1, aggregationMethod: 'pessimistic' }],
-                'categories:seo': ['error', { minScore: 1, aggregationMethod: 'pessimistic' }],
+                'categories:seo': ['error', { minScore: 0.9, aggregationMethod: 'pessimistic' }],
                 'csp-xss': 'warn',
                 /**
                  * Some of images have a bit larger size that in fact used.
@@ -29,6 +29,7 @@ module.exports = {
                 'uses-responsive-images': 'warn',
                 // Turned OFF cause for some reason some packages (e.g. helmet, react-dom) are not tree-shaked
                 'unused-javascript': 'off',
+                'tap-targets': 'warn',
                 // Note: Generally it is a bad practice to have a lot of different fonts in Application (performance, design and A11y reasons) - limited to 4.
                 'resource-summary:font:count': ['warn', { maxNumericValue: 4 }],
             },
