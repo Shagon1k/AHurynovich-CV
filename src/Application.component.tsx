@@ -34,7 +34,7 @@ const Application: React.FC<IApplicationProps> = ({ options }: IApplicationProps
         firstFocusableElemRef.current?.focus();
     }, []);
 
-    const renderApplication = (): JSX.Element => (
+    return (
         <ReduxStateProvider store={store}>
             <ServicesProvider value={services}>
                 <BrowserRouter>
@@ -65,8 +65,6 @@ const Application: React.FC<IApplicationProps> = ({ options }: IApplicationProps
             </ServicesProvider>
         </ReduxStateProvider>
     );
-
-    return renderApplication();
 };
 
 export default Application;

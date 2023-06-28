@@ -29,7 +29,7 @@
         "build:prod:pwa": "cross-env WITH_PWA=true npm run build:prod",
         "build:and:start:dev": "cross-env NODE_ENV=development webpack serve --config config/webpack/app/webpack.config.babel.js",
         "build:and:start:prod": "npm run build:prod && http-server dist -c-1 -p 1337",
-        "deploy:s3": "aws s3 sync ./dist/ s3://ahurynovich-cv-s3-bucket --delete",
+        "deploy:s3": "aws s3 sync ./dist/ s3://ahurynovich-cv-s3 --delete",
         "build:and:deploy:s3": "npm run build:clean && npm run build:prod && npm run deploy:s3",
         "rimraf": "./node_modules/rimraf/bin.js",
         "build:clean": "rimraf ./dist",
@@ -61,7 +61,7 @@
         "storybook:start": "start-storybook -c ./config/storybook -p 6006",
         "storybook:build": "build-storybook -c ./config/storybook",
         "storybook:build:clean": "rimraf ./storybook-static",
-        "storybook:deploy:s3": "aws s3 sync ./storybook-static s3://ahurynovich-cv-components-library-s3-bucket --delete",
+        "storybook:deploy:s3": "aws s3 sync ./storybook-static s3://ahurynovich-cv-components-library-s3 --delete",
         "storybook:build:and:deploy:s3": "npm run storybook:build:clean && npm run storybook:build && npm run storybook:deploy:s3",
         "prepare": "husky install"
     },

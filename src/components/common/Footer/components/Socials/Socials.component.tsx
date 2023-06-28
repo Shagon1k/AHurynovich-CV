@@ -45,45 +45,56 @@ const Socials: React.FC<ISocialsProps> = ({ className = '', socialsData }) => {
         setShouldSmokeAnimate(false);
     }, []);
 
-    const { t } = useTranslates();
-
-    const renderSocialGroup = useCallback(
-        (socialGroupData: ISocialsInfo) => (
-            <div className={styles['socials-group']}>
-                <img
-                    className={styles['train-carriage']}
-                    src={trainCarriageImgUrl}
-                    alt=''
-                    aria-hidden={true}
-                />
-                <ul className={styles['socials-list']}>
-                    {socialGroupData.map(({ name, iconName, link }) => (
-                        <li key={hashCode(name)} className={styles['socials-item']}>
-                            <Link
-                                className={styles['socials-item-link']}
-                                isExternal
-                                title={t('footer.socials.goToMy', { name })}
-                                to={link}
-                                onEnter={handleSocialElemEnter}
-                                onLeave={handleSocialElemLeave}
-                            >
-                                <Icon className={styles['social-icon']} name={iconName} size='s' />
-                                <span className='visuallyhidden'>{name}</span>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        ),
-        [t, handleSocialElemEnter, handleSocialElemLeave]
-    );
-
     return (
         <div className={cn}>
-            {renderSocialGroup(socialsData.slice(0, SOCIALS_GROUP_LENGTH))}
-            {renderSocialGroup(socialsData.slice(SOCIALS_GROUP_LENGTH, SOCIALS_GROUP_LENGTH * 2))}
+            <SocialGroup
+                socialGroupData={socialsData.slice(0, SOCIALS_GROUP_LENGTH)}
+                onSocialElementEnter={handleSocialElemEnter}
+                onSocialElementLeave={handleSocialElemLeave}
+            />
+            <SocialGroup
+                socialGroupData={socialsData.slice(SOCIALS_GROUP_LENGTH, SOCIALS_GROUP_LENGTH * 2)}
+                onSocialElementEnter={handleSocialElemEnter}
+                onSocialElementLeave={handleSocialElemLeave}
+            />
             <img className={styles['train-loco']} src={trainLocoImgUrl} alt='' aria-hidden={true} />
             <img className={trainSmokeCn} src={trainSmokeImgUrl} alt='' aria-hidden={true} />
+        </div>
+    );
+};
+
+interface ISocialGroupProps {
+    socialGroupData: ISocialsInfo;
+    onSocialElementEnter: () => void;
+    onSocialElementLeave: () => void;
+}
+
+const SocialGroup: React.FC<ISocialGroupProps> = ({
+    socialGroupData,
+    onSocialElementEnter,
+    onSocialElementLeave,
+}) => {
+    const { t } = useTranslates();
+    return (
+        <div className={styles['socials-group']}>
+            <img className={styles['train-carriage']} src={trainCarriageImgUrl} alt='' aria-hidden={true} />
+            <ul className={styles['socials-list']}>
+                {socialGroupData.map(({ name, iconName, link }) => (
+                    <li key={hashCode(name)} className={styles['socials-item']}>
+                        <Link
+                            className={styles['socials-item-link']}
+                            isExternal
+                            title={t('footer.socials.goToMy', { name })}
+                            to={link}
+                            onEnter={onSocialElementEnter}
+                            onLeave={onSocialElementLeave}
+                        >
+                            <Icon className={styles['social-icon']} name={iconName} size='s' />
+                            <span className='visuallyhidden'>{name}</span>
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };

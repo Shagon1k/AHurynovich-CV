@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { memo, useCallback, useState, Fragment } from 'react';
+import { memo, useCallback, useState } from 'react';
 
 import { useTranslates } from '@reusables/custom-hooks';
 import Section from '@components/base/Section';
@@ -11,7 +11,7 @@ import projectorLightImgUrl from '@assets/images/sections/career-flow/projector-
 
 import styles from './CareerFlow.module.scss';
 
-export type ICareerFlow = { title: string; date: string; text: string }[];
+export type ICareerFlow = { title: string; date: string; description: string }[];
 
 interface ICareerFlowProps {
     careerFlowData: ICareerFlow;
@@ -39,19 +39,6 @@ const CareerFlow: React.FC<ICareerFlowProps> = ({ careerFlowData }) => {
         [styles['m-animate']]: shouldLightAnimate,
     });
 
-    const renderCareerFlowItem = ({ title, date, text }: ICareerFlow[number]) => {
-        return (
-            <Fragment key={hashCode(`${title}${date}${text}`)}>
-                <h3 className={styles['career-flow-title']}>{title}</h3>
-                <span className={styles['career-flow-date']}>{date}</span>
-                {/*eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex*/}
-                <span tabIndex={0} className={styles['career-flow-text']}>
-                    {text}
-                </span>
-            </Fragment>
-        );
-    };
-
     return (
         <Section
             contentClassName={styles['content-container']}
@@ -68,7 +55,14 @@ const CareerFlow: React.FC<ICareerFlowProps> = ({ careerFlowData }) => {
                         }}
                         onSlideChange={handleSlideChange}
                     >
-                        {careerFlowData.map((careerFlowItemData) => renderCareerFlowItem(careerFlowItemData))}
+                        {careerFlowData.map(({ title, date, description }) => (
+                            <CareerFlowItem
+                                key={hashCode(`${title}${date}${description}`)}
+                                title={title}
+                                date={date}
+                                description={description}
+                            />
+                        ))}
                     </Carousel>
                 </div>
             </div>
@@ -80,5 +74,18 @@ const CareerFlow: React.FC<ICareerFlowProps> = ({ careerFlowData }) => {
         </Section>
     );
 };
+
+type ICareerFlowItemProps = ICareerFlow[number];
+
+const CareerFlowItem: React.FC<ICareerFlowItemProps> = ({ title, date, description }) => (
+    <>
+        <h3 className={styles['career-flow-title']}>{title}</h3>
+        <span className={styles['career-flow-date']}>{date}</span>
+        {/*eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex*/}
+        <span tabIndex={0} className={styles['career-flow-description']}>
+            {description}
+        </span>
+    </>
+);
 
 export default memo(CareerFlow);
