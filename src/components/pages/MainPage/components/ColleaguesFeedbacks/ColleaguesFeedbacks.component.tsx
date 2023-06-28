@@ -1,4 +1,4 @@
-import { memo, Fragment } from 'react';
+import { memo } from 'react';
 
 import { useTranslates } from '@reusables/custom-hooks';
 import Section from '@components/base/Section';
@@ -20,36 +20,6 @@ interface IColleaguesFeedbacksProps {
 const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFeedbacksData }) => {
     const { t } = useTranslates();
 
-    const renderFeedback = ({ authorRole, sourceName, text }: IColleaguesFeedbacks[number]) => {
-        const portraitUrl = Math.random() < 0.5 ? portraitMaleImgUrl : portraitFemaleImgUrl;
-
-        return (
-            <Fragment key={hashCode(`${authorRole}${sourceName}${text}`)}>
-                <div className={styles['feedback-portrait-wrapper']}>
-                    <img
-                        className={styles['feedback-portrait']}
-                        src={portraitUrl}
-                        alt=''
-                        aria-hidden={true}
-                    />
-                    <img
-                        className={styles['feedback-feather']}
-                        src={featherImgUrl}
-                        alt=''
-                        aria-hidden={true}
-                    />
-                </div>
-                <h3 className={styles['feedback-title']}>
-                    {authorRole} ({sourceName})
-                </h3>
-                {/*eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex*/}
-                <span tabIndex={0} className={styles['feedback-text']}>
-                    &quot;{text}&quot;
-                </span>
-            </Fragment>
-        );
-    };
-
     return (
         <Section
             contentClassName={styles['content-container']}
@@ -69,11 +39,40 @@ const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFe
                             pagePrefix: t('pages.main.colleaguesFeedbacksSection.pageTitlePrefix'),
                         }}
                     >
-                        {colleaguesFeedbacksData.map((feedback) => renderFeedback(feedback))}
+                        {colleaguesFeedbacksData.map(({ authorRole, sourceName, text }) => (
+                            <Feedback
+                                key={hashCode(`${authorRole}${sourceName}${text}`)}
+                                authorRole={authorRole}
+                                sourceName={sourceName}
+                                text={text}
+                            />
+                        ))}
                     </Carousel>
                 </div>
             </div>
         </Section>
+    );
+};
+
+type IFeedbackProps = IColleaguesFeedbacks[number];
+
+const Feedback: React.FC<IFeedbackProps> = ({ authorRole, sourceName, text }) => {
+    const portraitUrl = Math.random() < 0.5 ? portraitMaleImgUrl : portraitFemaleImgUrl;
+
+    return (
+        <>
+            <div className={styles['feedback-portrait-wrapper']}>
+                <img className={styles['feedback-portrait']} src={portraitUrl} alt='' aria-hidden={true} />
+                <img className={styles['feedback-feather']} src={featherImgUrl} alt='' aria-hidden={true} />
+            </div>
+            <h3 className={styles['feedback-title']}>
+                {authorRole} ({sourceName})
+            </h3>
+            {/*eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex*/}
+            <span tabIndex={0} className={styles['feedback-text']}>
+                &quot;{text}&quot;
+            </span>
+        </>
     );
 };
 
