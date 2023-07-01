@@ -1,7 +1,13 @@
 import CareerFlow from './components/CareerFlow';
+import PastProjects from './components/PastProjects';
 
 const ExperiencePage: React.FC = () => {
-    return <CareerFlow />;
+    return (
+        <>
+            <CareerFlow />
+            <PastProjects />
+        </>
+    );
 };
 
 export default ExperiencePage;

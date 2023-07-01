@@ -117,7 +117,7 @@
     max-height: 260px;
     margin-right: -(a.$scrollbar-width); // scrollbar width compensation
     padding-right: 5px;
-    text-align: center;
+    text-align: justify;
     font-style: italic;
 
     @include bp.lw(m) {

@@ -81,7 +81,7 @@ const CareerFlowItem: React.FC<ICareerFlowItemProps> = ({ title, date, descripti
     <>
         <h3 className={styles['career-flow-title']}>{title}</h3>
         <span className={styles['career-flow-date']}>{date}</span>
-        {/*eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex*/}
+        {/*eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex --- add ability to navigate with keyboard to scroll the content */}
         <span tabIndex={0} className={styles['career-flow-description']}>
             {description}
         </span>

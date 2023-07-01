@@ -4,7 +4,8 @@
     },
     "common": {
         "icon": "иконка",
-        "loading": "Загрузка..."
+        "loading": "Загрузка...",
+        "logo": "логотип"
     },
     "header": {
         "logoDescription": "Лого вебсайта Алексея Гуриновича",
@@ -63,6 +64,9 @@
                 "nextFeedback": "Перейти к следующему этапу карьеры",
                 "paginationTitle": "Пагинация карьерного пути",
                 "pageTitlePrefix": "Этап карьерного пути номер"
+            },
+            "pastProjectsSection": {
+                "title": "Прошлые проекты"
             }
         },
         "passions": {
