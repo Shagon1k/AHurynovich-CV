@@ -2,8 +2,17 @@
     "compilerOptions": {
         "baseUrl": "./",
         "outDir": "dist",
-        "module": "es2022",
-        "target": "esnext",
+        /**
+         * Note: do NOT emit (TS->JS) as Babel handles transpiling.
+         * "noEmitOnError" usage is redundant in that case as it is used to disable emit on type-checking fail.
+         *
+         * "target" (ES version to compile to) and "module" (module type to compile to - CommonJS/AMD/ES/etc.) options are actually unnecessary because the TS compiler won't be generating any code (Babel will).
+         * However, "module" is set because needed for "moduleResolution" option.
+         * (moduleResolution: Option 'bundler' can only be used when 'module' is set to 'es2015' or later.)
+         */
+        "noEmit": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
         "strict": true,
         "noImplicitAny": true,
         "forceConsistentCasingInFileNames": true,
@@ -11,13 +20,7 @@
         "resolveJsonModule": true,
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
-        "moduleResolution": "nodenext",
         "isolatedModules": true,
-        /**
-         * Note: do NOT emit (TS->JS) as Babel handles transpiling.
-         * "noEmitOnError" usage is redundant in that case as it is used to disable emit on type-checking fail.
-         */
-        "noEmit": true,
         "skipLibCheck": true,
         "paths": {
             "@config/*": ["./config/*"],
