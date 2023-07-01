@@ -68,7 +68,7 @@ const Feedback: React.FC<IFeedbackProps> = ({ authorRole, sourceName, text }) =>
             <h3 className={styles['feedback-title']}>
                 {authorRole} ({sourceName})
             </h3>
-            {/*eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex*/}
+            {/*eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex --- add ability to navigate with keyboard to scroll the content*/}
             <span tabIndex={0} className={styles['feedback-text']}>
                 &quot;{text}&quot;
             </span>

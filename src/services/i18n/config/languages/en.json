@@ -4,7 +4,8 @@
     },
     "common": {
         "icon": "icon",
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "logo": "logo"
     },
     "header": {
         "logoDescription": "Aliaksei Hurynovich's website logo",
@@ -63,6 +64,9 @@
                 "nextFeedback": "Go to the next career stage",
                 "paginationTitle": "Career flow pagination",
                 "pageTitlePrefix": "Career stage number"
+            },
+            "pastProjectsSection": {
+                "title": "Past projects"
             }
         },
         "passions": {
