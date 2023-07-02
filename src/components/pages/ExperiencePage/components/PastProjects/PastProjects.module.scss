@@ -78,6 +78,7 @@
 
 .project-card-logo {
     width: 230px;
+    aspect-ratio: 1;
 
     @include bp.lw(m) {
         width: 185px;

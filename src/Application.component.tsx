@@ -44,11 +44,13 @@ const Application: React.FC<IApplicationProps> = ({ options }: IApplicationProps
                         <main aria-busy={isAppLoading}>
                             <Suspense
                                 fallback={
-                                    <Loader
-                                        withOverlay
-                                        onLoadingStart={handleAppLoadingStart}
-                                        onLoadingEnd={handleAppLoadingEnd}
-                                    />
+                                    <div className={styles['global-loader']}>
+                                        <Loader
+                                            withOverlay
+                                            onLoadingStart={handleAppLoadingStart}
+                                            onLoadingEnd={handleAppLoadingEnd}
+                                        />
+                                    </div>
                                 }
                             >
                                 <Routes />
