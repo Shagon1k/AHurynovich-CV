@@ -1,4 +1,4 @@
-import PastProjects, { type IPastProjects } from './PastProjects.component';
+import PastProjects, { type IPastProjectsList } from './PastProjects.component';
 
 const TO_API_pastProjectsData = [
     {
@@ -22,7 +22,7 @@ const TO_API_pastProjectsData = [
 ];
 
 const PastProjectsContainer = () => {
-    const pastProjectsData = TO_API_pastProjectsData as IPastProjects;
+    const pastProjectsData = TO_API_pastProjectsData as IPastProjectsList;
 
     return <PastProjects pastProjectsData={pastProjectsData} />;
 };

@@ -7,17 +7,27 @@ const initialState = {
     isDesktop: false,
     isAppScrolledDown: false,
     language: DEFAULT_LANGUAGE_CODE,
+    viewportDimensions: {
+        width: undefined,
+        height: undefined,
+    },
 };
 export interface AppInfoState {
     isMobile: boolean; // Including tablet devices
     isDesktop: boolean;
     isAppScrolledDown: boolean;
     language: ILanguageCodes;
+    viewportDimensions: IViewportDimensions;
 }
 
 interface IDeviceInfo {
     isMobile?: boolean; // Including tablet devices
     isDesktop?: boolean;
+}
+
+export interface IViewportDimensions {
+    width?: number;
+    height?: number;
 }
 
 const appInfoSlice = createSlice({
@@ -40,8 +50,14 @@ const appInfoSlice = createSlice({
             const { payload } = action;
             state.isAppScrolledDown = payload;
         },
+        // Set current viewport dimensions (width and height)
+        setViewportDimensions(state: AppInfoState, action: { payload: IViewportDimensions }) {
+            const { payload } = action;
+            state.viewportDimensions = payload;
+        },
     },
 });
 
-export const { setDeviceInfo, setAppLanguage, setIsAppScrolledDown } = appInfoSlice.actions;
+export const { setDeviceInfo, setAppLanguage, setIsAppScrolledDown, setViewportDimensions } =
+    appInfoSlice.actions;
 export default appInfoSlice.reducer;

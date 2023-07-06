@@ -8,7 +8,6 @@ import styles from './ArrowButton.module.scss';
 type IArrowDirection = 'left' | 'right';
 
 interface IArrowButtonProps {
-    className?: string;
     title: string;
     direction?: IArrowDirection;
     isDisabled?: boolean;
@@ -19,7 +18,6 @@ interface IArrowButtonProps {
 }
 
 const ArrowButton: React.FC<IArrowButtonProps> = ({
-    className = '',
     title,
     direction = 'right',
     isDisabled = false,
@@ -28,11 +26,7 @@ const ArrowButton: React.FC<IArrowButtonProps> = ({
     onLeave,
     ariaControls,
 }) => {
-    const cn = clsx({
-        [className]: Boolean(className),
-        [styles['arrow-btn']]: true,
-        [styles[`m-${direction}`]]: true,
-    });
+    const cn = clsx(styles['arrow-btn'], styles[`m-${direction}`]);
 
     return (
         <button

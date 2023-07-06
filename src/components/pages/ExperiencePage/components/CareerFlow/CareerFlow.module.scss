@@ -21,6 +21,10 @@
     @include bp.lw(l) {
         justify-content: center;
     }
+
+    @include bp.lw(m) {
+        margin: 0 20px;
+    }
 }
 
 .career-flow-wrapper {

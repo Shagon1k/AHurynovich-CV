@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use '@base-styles-mixins/bp';
 @use '@base-styles-variables/colors' as c;
 @use '../../../../variables.scss' as hv;
 
@@ -10,7 +11,7 @@ $nav-button-dimension: 30px;
 .nav-button {
     position: absolute;
     top: 50%;
-    left: 12%;
+    left: 8%;
     width: $nav-button-dimension;
     height: $nav-button-dimension;
     margin: 0;
@@ -18,6 +19,10 @@ $nav-button-dimension: 30px;
     border: 0;
     transform: translateY(-50%);
     background: transparent;
+
+    @include bp.lw(m) {
+        left: 12%;
+    }
 
     .nav-button-inner {
         position: absolute;

@@ -11,10 +11,10 @@ import portraitFemaleImgUrl from '@assets/images/sections/colleagues-feedbacks/p
 
 import styles from './ColleaguesFeedbacks.module.scss';
 
-export type IColleaguesFeedbacks = { authorRole: string; sourceName: string; text: string }[];
+export type IColleaguesFeedbacksList = { authorRole: string; sourceName: string; text: string }[];
 
 interface IColleaguesFeedbacksProps {
-    colleaguesFeedbacksData: IColleaguesFeedbacks;
+    colleaguesFeedbacksData: IColleaguesFeedbacksList;
 }
 
 const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFeedbacksData }) => {
@@ -39,12 +39,10 @@ const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFe
                             pagePrefix: t('pages.main.colleaguesFeedbacksSection.pageTitlePrefix'),
                         }}
                     >
-                        {colleaguesFeedbacksData.map(({ authorRole, sourceName, text }) => (
+                        {colleaguesFeedbacksData.map((itemData) => (
                             <Feedback
-                                key={hashCode(`${authorRole}${sourceName}${text}`)}
-                                authorRole={authorRole}
-                                sourceName={sourceName}
-                                text={text}
+                                key={hashCode(`${itemData.authorRole}${itemData.sourceName}`)}
+                                {...itemData}
                             />
                         ))}
                     </Carousel>
@@ -54,9 +52,9 @@ const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFe
     );
 };
 
-type IFeedbackProps = IColleaguesFeedbacks[number];
+type IFeedbackItemProps = IColleaguesFeedbacksList[number];
 
-const Feedback: React.FC<IFeedbackProps> = ({ authorRole, sourceName, text }) => {
+const Feedback: React.FC<IFeedbackItemProps> = ({ authorRole, sourceName, text }) => {
     const portraitUrl = Math.random() < 0.5 ? portraitMaleImgUrl : portraitFemaleImgUrl;
 
     return (

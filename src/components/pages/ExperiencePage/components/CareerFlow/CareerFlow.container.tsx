@@ -1,4 +1,4 @@
-import CareerFlow, { type ICareerFlow } from './CareerFlow.component';
+import CareerFlow, { type ICareerFlowList } from './CareerFlow.component';
 
 const TO_API_careerFlowData = [
     {
@@ -22,7 +22,7 @@ const TO_API_careerFlowData = [
 ];
 
 const CareerFlowContainer = () => {
-    const careerFlowData = TO_API_careerFlowData as ICareerFlow;
+    const careerFlowData = TO_API_careerFlowData as ICareerFlowList;
 
     return <CareerFlow careerFlowData={careerFlowData} />;
 };

@@ -67,6 +67,16 @@
             },
             "pastProjectsSection": {
                 "title": "Прошлые проекты"
+            },
+            "myExpertiseSection": {
+                "title": "Моя экспертиза",
+                "expertiseLevelDescription": "Персонально оцененный уровень: {{levelDescription}}.",
+                "levelToDescription": {
+                    "1": "Новичок",
+                    "2": "Средний",
+                    "3": "Продвинутый",
+                    "4": "Эксперт"
+                }
             }
         },
         "passions": {

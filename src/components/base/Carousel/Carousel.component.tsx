@@ -8,7 +8,6 @@ import Pagination from './components/Pagination';
 import styles from './Carousel.module.scss';
 
 interface ICarouselProps extends IPropsWithChildren {
-    className?: string;
     withPagination?: boolean;
     titlesConfig?: {
         carousel: string;
@@ -21,14 +20,12 @@ interface ICarouselProps extends IPropsWithChildren {
 }
 
 const Carousel: React.FC<ICarouselProps> = ({
-    className = '',
     withPagination = true,
     titlesConfig,
     children,
     onSlideChange,
 }) => {
     const cn = clsx({
-        [className]: Boolean(className),
         [styles['carousel']]: true,
         [styles['m-with-pagination']]: withPagination,
     });

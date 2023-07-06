@@ -1,4 +1,4 @@
-import ColleaguesFeedbacks, { type IColleaguesFeedbacks } from './ColleaguesFeedbacks.component';
+import ColleaguesFeedbacks, { type IColleaguesFeedbacksList } from './ColleaguesFeedbacks.component';
 
 const TO_API_colleaguesFeedbacksData = [
     {
@@ -29,7 +29,7 @@ const TO_API_colleaguesFeedbacksData = [
 ];
 
 const ColleaguesFeedbacksContainer = () => {
-    const colleaguesFeedbacksData = TO_API_colleaguesFeedbacksData as IColleaguesFeedbacks;
+    const colleaguesFeedbacksData = TO_API_colleaguesFeedbacksData as IColleaguesFeedbacksList;
 
     return <ColleaguesFeedbacks colleaguesFeedbacksData={colleaguesFeedbacksData} />;
 };
