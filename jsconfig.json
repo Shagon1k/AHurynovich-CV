@@ -6,7 +6,7 @@
             "@config/*": ["./config/*"],
             "@config": ["./config"],
             "@sb-constants": ["./config/storybook/constants.js"],
-            "@src/*": ["./src"],
+            "@src/*": ["./src/*"],
             "@utils/*": ["./src/utils/*"],
             "@utils": ["./src/utils"],
             "@services/*": ["./src/services/*"],

@@ -89,7 +89,7 @@ const SocialGroup: React.FC<ISocialGroupProps> = ({
                             onEnter={onSocialElementEnter}
                             onLeave={onSocialElementLeave}
                         >
-                            <Icon className={styles['social-icon']} name={iconName} size='s' />
+                            <Icon name={iconName} size='s' />
                             <span className='visuallyhidden'>{name}</span>
                         </Link>
                     </li>

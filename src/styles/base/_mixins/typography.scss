@@ -56,8 +56,8 @@
     line-height: 22px;
 
     @include bp.lw(m) {
-        font-size: 16px;
-        line-height: 18px;
+        font-size: 18px;
+        line-height: 20px;
     }
 }
 
@@ -68,6 +68,11 @@
     font-style: normal;
     font-weight: fonts.$fw-bold;
     line-height: 20px;
+
+    @include bp.lw(m) {
+        font-size: 16px;
+        line-height: 18px;
+    }
 }
 
 // Body text

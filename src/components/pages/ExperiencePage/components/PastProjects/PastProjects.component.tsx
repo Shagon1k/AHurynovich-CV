@@ -6,10 +6,10 @@ import { hashCode } from '@utils/strings';
 
 import styles from './PastProjects.module.scss';
 
-export type IPastProjects = { title: string; description: string; imgUrl: string }[];
+export type IPastProjectsList = { title: string; description: string; imgUrl: string }[];
 
 interface IPastProjectsProps {
-    pastProjectsData: IPastProjects;
+    pastProjectsData: IPastProjectsList;
 }
 
 const PastProjects: React.FC<IPastProjectsProps> = ({ pastProjectsData }) => {
@@ -18,12 +18,10 @@ const PastProjects: React.FC<IPastProjectsProps> = ({ pastProjectsData }) => {
     return (
         <Section className={styles['section']} title={t('pages.experience.pastProjectsSection.title')}>
             <ul className={styles['projects-list']}>
-                {pastProjectsData.map(({ title, description, imgUrl }) => (
-                    <PastProject
-                        key={hashCode(`${title}${description}`)}
-                        title={title}
-                        description={description}
-                        imgUrl={imgUrl}
+                {pastProjectsData.map((itemData) => (
+                    <PastProjectItem
+                        key={hashCode(`${itemData.title}${itemData.description}`)}
+                        {...itemData}
                     />
                 ))}
             </ul>
@@ -31,9 +29,9 @@ const PastProjects: React.FC<IPastProjectsProps> = ({ pastProjectsData }) => {
     );
 };
 
-type IPastProjectProps = IPastProjects[number];
+type IPastProjectItemProps = IPastProjectsList[number];
 
-const PastProject: React.FC<IPastProjectProps> = ({ title, description, imgUrl }) => {
+const PastProjectItem: React.FC<IPastProjectItemProps> = ({ title, description, imgUrl }) => {
     const { t } = useTranslates();
 
     return (

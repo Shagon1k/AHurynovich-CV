@@ -1,0 +1,105 @@
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/bp';
+
+.content-container {
+    margin: 0 90px;
+
+    @include bp.lw(m) {
+        margin: 0 15px;
+    }
+}
+
+.experiences-item {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 25px;
+
+    @include bp.lw(m) {
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+}
+
+.experience-tv-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.experience-title {
+    @include t.t2;
+
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.experience-tv {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 200px;
+    padding: 55px 54px 10px 10px; // Padding configured to provide inner space based on bg image
+    background-image: url('@assets/images/sections/my-expertise/tv.svg?url');
+    aspect-ratio: 484/450;
+
+    @include bp.lw(m) {
+        width: 100px;
+        padding: 28px 27px 5px 5px;
+    }
+}
+
+.experience-tv-skill-icon {
+    margin: 15px 0 5px;
+
+    @include bp.lw(m) {
+        margin: 2px 0;
+    }
+}
+
+.experience-tv-battery {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 48px;
+    padding: 2px;
+    background-image: url('@assets/images/sections/my-expertise/battery.svg?url');
+    aspect-ratio: 276/150;
+
+    @include bp.lw(m) {
+        width: 30px;
+        padding: 1px;
+    }
+}
+
+.experience-tv-battery-level {
+    width: calc(25% - 3px);
+    margin-left: 2px;
+    aspect-ratio: 64/150;
+
+    &:last-child {
+        animation: battery-charge 1.7s infinite linear;
+    }
+
+    @keyframes battery-charge {
+        from {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+.experience-description {
+    margin: 65px 0 0 35px;
+    text-align: justify;
+
+    @include bp.lw(m) {
+        margin: 10px 0 0;
+    }
+}

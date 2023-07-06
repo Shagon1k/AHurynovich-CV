@@ -11,10 +11,10 @@ import projectorLightImgUrl from '@assets/images/sections/career-flow/projector-
 
 import styles from './CareerFlow.module.scss';
 
-export type ICareerFlow = { title: string; date: string; description: string }[];
+export type ICareerFlowList = { title: string; date: string; description: string }[];
 
 interface ICareerFlowProps {
-    careerFlowData: ICareerFlow;
+    careerFlowData: ICareerFlowList;
 }
 
 const CareerFlow: React.FC<ICareerFlowProps> = ({ careerFlowData }) => {
@@ -55,12 +55,10 @@ const CareerFlow: React.FC<ICareerFlowProps> = ({ careerFlowData }) => {
                         }}
                         onSlideChange={handleSlideChange}
                     >
-                        {careerFlowData.map(({ title, date, description }) => (
+                        {careerFlowData.map((itemData) => (
                             <CareerFlowItem
-                                key={hashCode(`${title}${date}${description}`)}
-                                title={title}
-                                date={date}
-                                description={description}
+                                key={hashCode(`${itemData.title}${itemData.date}`)}
+                                {...itemData}
                             />
                         ))}
                     </Carousel>
@@ -75,7 +73,7 @@ const CareerFlow: React.FC<ICareerFlowProps> = ({ careerFlowData }) => {
     );
 };
 
-type ICareerFlowItemProps = ICareerFlow[number];
+type ICareerFlowItemProps = ICareerFlowList[number];
 
 const CareerFlowItem: React.FC<ICareerFlowItemProps> = ({ title, date, description }) => (
     <>

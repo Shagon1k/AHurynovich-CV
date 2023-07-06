@@ -67,6 +67,16 @@
             },
             "pastProjectsSection": {
                 "title": "Past projects"
+            },
+            "myExpertiseSection": {
+                "title": "My expertise",
+                "expertiseLevelDescription": "Self-assessed expertise level: {{levelDescription}}.",
+                "levelToDescription": {
+                    "1": "Novice",
+                    "2": "Intermediate",
+                    "3": "Advanced",
+                    "4": "Expert"
+                }
             }
         },
         "passions": {

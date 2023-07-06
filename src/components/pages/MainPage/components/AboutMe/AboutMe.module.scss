@@ -37,7 +37,7 @@
 .photo {
     flex-shrink: 0;
     width: 310px;
-    height: 370px;
+    aspect-ratio: 310/370;
 
     @include bp.lw(m) {
         margin-bottom: 20px;

@@ -1,6 +1,7 @@
 // Application Media breakpoints variables
 // [320, 768, 1024, 1366, 1920] <-> [small, medium, large, xlarge, xxlarge]
 
+// Keep in sync with JS constants: @config/application -> BP_TO_WIDTH
 $screen-min: (
     s: 320px,
     m: 768px,

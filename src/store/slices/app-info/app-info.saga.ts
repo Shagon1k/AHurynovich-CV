@@ -2,7 +2,12 @@ import { EventChannel as IEventChannel, eventChannel } from 'redux-saga';
 import { getContext, put, take, call, select } from 'redux-saga/effects';
 import { throttle } from 'throttle-debounce';
 
-import { setDeviceInfo, setIsAppScrolledDown } from './app-info.slice';
+import {
+    setDeviceInfo,
+    setIsAppScrolledDown,
+    setViewportDimensions,
+    type IViewportDimensions,
+} from './app-info.slice';
 import { selectIsAppScrolledDown } from './app-info.selector';
 
 const THROTTLE_DELAY = 100;
@@ -18,6 +23,22 @@ const getIsAppScrolledDownChannel = () =>
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
+        };
+    });
+
+const getWindowResizeChannel = () =>
+    eventChannel((emitter) => {
+        const handleResize = throttle(THROTTLE_DELAY, () => {
+            emitter({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        });
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
         };
     });
 
@@ -48,5 +69,21 @@ export function* handleScrollChange() {
         if (currentIsAppScrolledDown !== isAppScrolledDown) {
             yield put(setIsAppScrolledDown(isAppScrolledDown));
         }
+    }
+}
+
+export function* handleWindowResize() {
+    const windowResizeChannel: IEventChannel<IViewportDimensions> = yield call(getWindowResizeChannel);
+
+    const initialDimensions = {
+        width: window.innerWidth,
+        height: window.innerHeight,
+    };
+
+    yield put(setViewportDimensions(initialDimensions));
+
+    while (windowResizeChannel) {
+        const viewportDimensions: IViewportDimensions = yield take(windowResizeChannel);
+        yield put(setViewportDimensions(viewportDimensions));
     }
 }

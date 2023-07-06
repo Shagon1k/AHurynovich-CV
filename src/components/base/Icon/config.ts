@@ -11,6 +11,7 @@ import JestSVG from '@assets/images/icons/tech-skills/jest.svg';
 import RTLSVG from '@assets/images/icons/tech-skills/rtl.svg';
 import AWSSVG from '@assets/images/icons/tech-skills/aws.svg';
 import GitSVG from '@assets/images/icons/tech-skills/git.svg';
+import A11ySVG from '@assets/images/icons/tech-skills/a11y.svg';
 
 // Reasons
 import TeamplayerSVG from '@assets/images/icons/reasons/teamplayer.svg';
@@ -41,6 +42,7 @@ export const ICON_NAME_TO_SVG_MAP = {
     rtl: RTLSVG,
     aws: AWSSVG,
     git: GitSVG,
+    a11y: A11ySVG,
     teamplayer: TeamplayerSVG,
     experienced: ExperiencedSVG,
     knowledgethirst: KnowledgeThirstSVG,
