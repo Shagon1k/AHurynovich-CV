@@ -65,11 +65,11 @@ Documentation and guidelines for application's main source.
 - Covering with **Unit/Integration Tests**: please check **[Testing Documentation](/_docs/testing.md)** for more details;
 - Adding **Component** to **UI Component Library**:
     - Story (Component Library description) should be added in separate sub-folder (*/\_\_stories\_\_*);
-    - Story name is required to be stored in separate file (`[name].stories.constants.ts`) by name `STORY_TITLE` and use one of generally described namespaces (follow */config/storybook/constants* -> `NAMESPACES` options);
+    - [UNDER CONSIDERATION] Story name is required to be stored in separate file (`[name].stories.constants.ts`) by name `STORY_TITLE` and use one of generally described namespaces (follow */config/storybook/constants* -> `NAMESPACES` options);
     - don't forget to add your Component to Overview tab (follow */config/storybook/docs/Overview.stories.mdx* for details);
     - Follow **Stories files naming conventions**:
         - Story file name should follow template: `[name].stories.tsx`;
-        - Story constants file name should follow template: `[name].stories.constants.ts`;
+        - [UNDER CONSIDERATION] Story constants file name should follow template: `[name].stories.constants.ts`;
 - Adding new **Service**:
     - add it in */services* subfolder;
     - new folder name should be consistent with according main file name;
