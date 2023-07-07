@@ -12,4 +12,4 @@ export interface IServices {
     i18n: I18nService;
 }
 
-export type ILanguageCodes = typeof SUPPORTED_LANGUAGES_CODES[number];
+export type ILanguageCodes = (typeof SUPPORTED_LANGUAGES_CODES)[number];
