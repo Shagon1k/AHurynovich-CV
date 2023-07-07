@@ -1,22 +1,24 @@
-import { ComponentStory } from '@storybook/react';
-
-import { STORY_TITLE } from './Button.stories.constants';
+import type { Meta as IMeta, StoryObj as IStoryObj } from '@storybook/react';
 import Button from '../Button.component';
 
-export default {
-    title: STORY_TITLE,
+type IStory = IStoryObj<typeof Button>;
+
+const meta: IMeta<typeof Button> = {
+    title: 'Base/Button',
     component: Button,
 };
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+export default meta;
 
-export const DefaultButton = Template.bind({});
-DefaultButton.args = {
-    title: 'My Button',
+export const DefaultButton: IStory = {
+    args: {
+        title: 'My Button',
+    },
 };
 
-export const DisabledButton = Template.bind({});
-DisabledButton.args = {
-    ...DefaultButton.args,
-    isDisabled: true,
+export const DisabledButton: IStory = {
+    args: {
+        ...DefaultButton.args,
+        isDisabled: true,
+    },
 };
