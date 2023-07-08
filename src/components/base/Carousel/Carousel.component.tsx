@@ -9,6 +9,7 @@ import styles from './Carousel.module.scss';
 
 interface ICarouselProps extends IPropsWithChildren {
     withPagination?: boolean;
+    withInfiniteLoop?: boolean;
     titlesConfig?: {
         carousel: string;
         prevButton: string;
@@ -21,22 +22,29 @@ interface ICarouselProps extends IPropsWithChildren {
 
 const Carousel: React.FC<ICarouselProps> = ({
     withPagination = true,
+    withInfiniteLoop = false,
     titlesConfig,
     children,
     onSlideChange,
 }) => {
     const { t } = useTranslates();
 
-    const [currentPageIndex, setCurrentPageIndex] = useState(0);
+    const firstItemIndex = 0;
+    const lastItemIndex = Children.count(children) - 1;
+    const [currentPageIndex, setCurrentPageIndex] = useState(firstItemIndex);
 
     const handleNextPage = useCallback(() => {
-        setCurrentPageIndex((currentPageIndex) => currentPageIndex + 1);
+        setCurrentPageIndex((currentPageIndex) =>
+            currentPageIndex !== lastItemIndex ? currentPageIndex + 1 : firstItemIndex
+        );
         onSlideChange?.();
-    }, [onSlideChange]);
+    }, [lastItemIndex, onSlideChange]);
     const handlePrevPage = useCallback(() => {
-        setCurrentPageIndex((currentPageIndex) => currentPageIndex - 1);
+        setCurrentPageIndex((currentPageIndex) =>
+            currentPageIndex !== firstItemIndex ? currentPageIndex - 1 : lastItemIndex
+        );
         onSlideChange?.();
-    }, [onSlideChange]);
+    }, [lastItemIndex, onSlideChange]);
     const handlePageChange = useCallback(
         (pageNumber: number) => {
             setCurrentPageIndex(pageNumber);
@@ -78,7 +86,7 @@ const Carousel: React.FC<ICarouselProps> = ({
                 <ArrowButton
                     title={prevButtonTitle}
                     direction='left'
-                    isDisabled={currentPageIndex === 0}
+                    isDisabled={!withInfiniteLoop ? currentPageIndex === firstItemIndex : false}
                     onClick={handlePrevPage}
                     ariaControls='slides'
                 />
@@ -95,7 +103,7 @@ const Carousel: React.FC<ICarouselProps> = ({
                 <ArrowButton
                     title={nextButtonTitle}
                     direction='right'
-                    isDisabled={currentPageIndex === Children.count(children) - 1}
+                    isDisabled={!withInfiniteLoop ? currentPageIndex === lastItemIndex : false}
                     onClick={handleNextPage}
                     ariaControls='slides'
                 />
