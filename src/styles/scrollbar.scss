@@ -1,8 +1,8 @@
 @use '@base-styles-variables/colors' as c;
-@use '@base-styles-variables/application' as a;
+@use '@base-styles-variables/application' as app;
 
 ::-webkit-scrollbar {
-    width: a.$scrollbar-width;
+    width: app.$scrollbar-width;
 }
 
 ::-webkit-scrollbar-track {

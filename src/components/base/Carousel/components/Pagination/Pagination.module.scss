@@ -1,6 +1,5 @@
 @use '@base-styles-variables/colors' as c;
 @use '@base-styles-mixins/bp';
-@use '../../variables' as cv;
 
 .pagination {
     line-height: 0;
@@ -17,16 +16,16 @@
 }
 
 .page {
-    width: cv.$carousel-pagination-height;
-    height: cv.$carousel-pagination-height;
+    width: 15px;
+    height: 15px;
     padding: 0;
     border-radius: 50%;
     border: 0;
     background-color: c.$beige;
 
     @include bp.lw(m) {
-        width: cv.$carousel-pagination-height-mobile;
-        height: cv.$carousel-pagination-height-mobile;
+        width: 13px;
+        height: 13px;
     }
 
     &:hover,

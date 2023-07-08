@@ -25,28 +25,24 @@ const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFe
             contentClassName={styles['content-container']}
             title={t('pages.main.colleaguesFeedbacksSection.title')}
         >
-            <div className={styles['owl-wrapper']}>
-                <img className={styles['owl']} src={owlImgUrl} alt='' aria-hidden={true} />
-            </div>
-            <div className={styles['feedbacks-wrapper']}>
-                <div className={styles['feedbacks']}>
-                    <Carousel
-                        titlesConfig={{
-                            carousel: t('pages.main.colleaguesFeedbacksSection.carouselTitle'),
-                            prevButton: t('pages.main.colleaguesFeedbacksSection.prevFeedback'),
-                            nextButton: t('pages.main.colleaguesFeedbacksSection.nextFeedback'),
-                            pagination: t('pages.main.colleaguesFeedbacksSection.paginationTitle'),
-                            pagePrefix: t('pages.main.colleaguesFeedbacksSection.pageTitlePrefix'),
-                        }}
-                    >
-                        {colleaguesFeedbacksData.map((itemData) => (
-                            <Feedback
-                                key={hashCode(`${itemData.authorRole}${itemData.sourceName}`)}
-                                {...itemData}
-                            />
-                        ))}
-                    </Carousel>
-                </div>
+            <img className={styles['owl']} src={owlImgUrl} alt='' aria-hidden={true} />
+            <div className={styles['feedbacks']}>
+                <Carousel
+                    titlesConfig={{
+                        carousel: t('pages.main.colleaguesFeedbacksSection.carouselTitle'),
+                        prevButton: t('pages.main.colleaguesFeedbacksSection.prevFeedback'),
+                        nextButton: t('pages.main.colleaguesFeedbacksSection.nextFeedback'),
+                        pagination: t('pages.main.colleaguesFeedbacksSection.paginationTitle'),
+                        pagePrefix: t('pages.main.colleaguesFeedbacksSection.pageTitlePrefix'),
+                    }}
+                >
+                    {colleaguesFeedbacksData.map((itemData) => (
+                        <Feedback
+                            key={hashCode(`${itemData.authorRole}${itemData.sourceName}`)}
+                            {...itemData}
+                        />
+                    ))}
+                </Carousel>
             </div>
         </Section>
     );
