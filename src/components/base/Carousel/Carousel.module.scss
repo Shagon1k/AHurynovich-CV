@@ -4,51 +4,19 @@
 
 .carousel {
     position: relative;
+    display: flex;
+    flex-flow: column nowrap;
     width: 100%;
     height: 100%;
-    padding: 20px;
-
-    &.m-with-pagination {
-        padding-top: v.$carousel-padding-top + v.$carousel-pagination-height + 10px;
-
-        @include bp.lw(m) {
-            padding: 17px;
-            padding-top: v.$carousel-padding-top-mobile + v.$carousel-pagination-height-mobile + 5px;
-        }
-    }
+    padding: 10px 20px;
 }
 
-.pagination {
-    position: absolute;
-    top: v.$carousel-padding-top;
-    left: 50%;
-    transform: translateX(-50%);
-
-    @include bp.lw(m) {
-        top: v.$carousel-padding-top-mobile;
-    }
-}
-
-.arrow-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-
-    &.m-left {
-        left: calc(-40px - v.$carousel-arrow-btn-margin);
-
-        @include bp.lw(m) {
-            left: calc(-40px - v.$carousel-arrow-btn-margin-mobile);
-        }
-    }
-
-    &.m-right {
-        right: calc(-40px - v.$carousel-arrow-btn-margin);
-
-        @include bp.lw(m) {
-            right: calc(-40px - v.$carousel-arrow-btn-margin-mobile);
-        }
-    }
+.navigation {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
 }
 
 .slides {

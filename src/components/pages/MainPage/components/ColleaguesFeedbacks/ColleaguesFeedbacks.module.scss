@@ -1,48 +1,25 @@
 @use '@base-styles-mixins/typography' as t;
 @use '@base-styles-mixins/bp';
-@use '@base-styles-variables/application' as a;
+@use '@base-styles-variables/application' as app;
 
 .content-container {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
+    align-items: center;
     margin: 0 80px;
 
     @include bp.lw(l) {
-        justify-content: center;
         margin: 0;
     }
 }
 
-.owl-wrapper,
-.feedbacks-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-}
+.owl {
+    width: 350px;
+    aspect-ratio: 330/500;
 
-.owl-wrapper {
     @include bp.lw(l) {
         display: none;
-    }
-}
-
-.feedbacks-wrapper {
-    flex-shrink: 0;
-    width: 520px;
-
-    @include bp.lw(l) {
-        width: 100%;
-    }
-}
-
-.owl {
-    width: 365px;
-    aspect-ratio: 350/500;
-
-    @include bp.lw-app-max-width {
-        width: 280px;
     }
 }
 
@@ -52,7 +29,6 @@
     background-image: url('@assets/images/sections/colleagues-feedbacks/old-paper.webp');
     background-position: center;
     background-size: cover;
-    aspect-ratio: 565/800;
 
     @include bp.lw(m) {
         width: 285px;
@@ -115,7 +91,7 @@
     display: inline-block;
     overflow-y: scroll;
     max-height: 260px;
-    margin-right: -(a.$scrollbar-width); // scrollbar width compensation
+    margin-right: -(app.$scrollbar-width); // scrollbar width compensation
     padding-right: 5px;
     text-align: justify;
     font-style: italic;

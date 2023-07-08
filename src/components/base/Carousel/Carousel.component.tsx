@@ -25,10 +25,6 @@ const Carousel: React.FC<ICarouselProps> = ({
     children,
     onSlideChange,
 }) => {
-    const cn = clsx({
-        [styles['carousel']]: true,
-        [styles['m-with-pagination']]: withPagination,
-    });
     const { t } = useTranslates();
 
     const [currentPageIndex, setCurrentPageIndex] = useState(0);
@@ -58,31 +54,11 @@ const Carousel: React.FC<ICarouselProps> = ({
     } = titlesConfig || {};
 
     return (
-        <section className={cn} aria-labelledby='carouselHeading'>
+        <section className={styles['carousel']} aria-labelledby='carouselHeading'>
             <h2 id='carouselHeading' className='visuallyhidden'>
                 {carouselTitle}
             </h2>
             <p className='visuallyhidden'>{t('carousel.description')}</p>
-            {withPagination && (
-                <Pagination
-                    className={styles['pagination']}
-                    count={Children.count(children)}
-                    currentPageIndex={currentPageIndex}
-                    paginationTitle={paginationTitle}
-                    pageTitlePrefix={pageTitlePrefix}
-                    onPageChange={handlePageChange}
-                    ariaControls='slides'
-                />
-            )}
-            <div className={`${styles['arrow-btn']} ${styles['m-left']}`}>
-                <ArrowButton
-                    title={prevButtonTitle}
-                    direction='left'
-                    isDisabled={currentPageIndex === 0}
-                    onClick={handlePrevPage}
-                    ariaControls='slides'
-                />
-            </div>
             <ul id='slides' className={styles['slides']}>
                 {Children.map(children, (slideInner, i) => {
                     const isCurrentSlide = i === currentPageIndex;
@@ -98,7 +74,24 @@ const Carousel: React.FC<ICarouselProps> = ({
                     );
                 })}
             </ul>
-            <div className={`${styles['arrow-btn']} ${styles['m-right']}`}>
+            <div className={styles['navigation']}>
+                <ArrowButton
+                    title={prevButtonTitle}
+                    direction='left'
+                    isDisabled={currentPageIndex === 0}
+                    onClick={handlePrevPage}
+                    ariaControls='slides'
+                />
+                {withPagination && (
+                    <Pagination
+                        count={Children.count(children)}
+                        currentPageIndex={currentPageIndex}
+                        paginationTitle={paginationTitle}
+                        pageTitlePrefix={pageTitlePrefix}
+                        onPageChange={handlePageChange}
+                        ariaControls='slides'
+                    />
+                )}
                 <ArrowButton
                     title={nextButtonTitle}
                     direction='right'

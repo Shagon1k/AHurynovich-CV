@@ -31,11 +31,8 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-
-    @include bp.lw(m) {
-        width: 100%;
-        max-width: 450px;
-    }
+    width: 100%;
+    max-width: 450px;
 
     // Projector wall's top part
     &::before {
@@ -71,14 +68,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 450px;
+    width: 100%;
     height: 325px;
     background-color: c.$yellow;
     transition: background-color carousel.$slide-change-animation-time linear;
-
-    @include bp.lw(m) {
-        width: 100%;
-    }
 
     &.m-animate {
         background-color: c.$beige-light;

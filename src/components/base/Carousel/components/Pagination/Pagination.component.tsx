@@ -4,7 +4,6 @@ import { hashCode } from '@utils/strings';
 import styles from './Pagination.module.scss';
 
 interface IPaginationProps {
-    className?: string;
     count: number;
     currentPageIndex: number;
     paginationTitle: string;
@@ -14,7 +13,6 @@ interface IPaginationProps {
 }
 
 const Pagination: React.FC<IPaginationProps> = ({
-    className = '',
     count,
     currentPageIndex,
     paginationTitle,
@@ -22,17 +20,12 @@ const Pagination: React.FC<IPaginationProps> = ({
     onPageChange,
     ariaControls,
 }) => {
-    const cn = clsx({
-        [className]: Boolean(className),
-        [styles['pagination']]: true,
-    });
-
     const getOnPageChange = (i: number) => () => {
         onPageChange(i);
     };
 
     return (
-        <ul className={cn} aria-label={paginationTitle}>
+        <ul className={styles['pagination']} aria-label={paginationTitle}>
             {Array.from({ length: count }).map((_, i) => {
                 const isCurrentPage = i === currentPageIndex;
                 const pageCn = clsx({
