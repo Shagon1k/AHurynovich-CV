@@ -35,6 +35,7 @@ const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFe
                         pagination: t('pages.main.colleaguesFeedbacksSection.paginationTitle'),
                         pagePrefix: t('pages.main.colleaguesFeedbacksSection.pageTitlePrefix'),
                     }}
+                    withInfiniteLoop
                 >
                     {colleaguesFeedbacksData.map((itemData) => (
                         <Feedback

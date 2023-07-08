@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useRef } from 'react';
 import { hashCode } from '@utils/strings';
 
 import styles from './Pagination.module.scss';
@@ -20,12 +21,30 @@ const Pagination: React.FC<IPaginationProps> = ({
     onPageChange,
     ariaControls,
 }) => {
+    const currFocusedIndexRef = useRef(currentPageIndex);
+    const pagesButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
     const getOnPageChange = (i: number) => () => {
         onPageChange(i);
     };
 
+    const handleKeybordNavigation = (e: React.KeyboardEvent) => {
+        if (!['ArrowLeft', 'ArrowRight', 'Tab'].includes(e.code)) {
+            return;
+        }
+
+        if (e.code === 'Tab') {
+            currFocusedIndexRef.current = currentPageIndex;
+            return;
+        }
+
+        const offset = e.code === 'ArrowLeft' ? -1 : 1;
+        currFocusedIndexRef.current = (currFocusedIndexRef.current + offset + count) % count;
+        pagesButtonsRef.current[currFocusedIndexRef.current]?.focus();
+    };
+
     return (
-        <ul className={styles['pagination']} aria-label={paginationTitle}>
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- Key down event delegation
+        <ul className={styles['pagination']} aria-label={paginationTitle} onKeyDown={handleKeybordNavigation}>
             {Array.from({ length: count }).map((_, i) => {
                 const isCurrentPage = i === currentPageIndex;
                 const pageCn = clsx({
@@ -38,12 +57,14 @@ const Pagination: React.FC<IPaginationProps> = ({
                 return (
                     <li className={styles['page-wrapper']} key={pageKey}>
                         <button
+                            ref={(el) => (pagesButtonsRef.current[i] = el)}
                             className={pageCn}
                             title={pageTitle}
                             onClick={getOnPageChange(i)}
                             aria-label={pageTitle}
                             aria-current={isCurrentPage}
                             aria-controls={ariaControls}
+                            tabIndex={isCurrentPage ? 0 : -1}
                         ></button>
                     </li>
                 );
