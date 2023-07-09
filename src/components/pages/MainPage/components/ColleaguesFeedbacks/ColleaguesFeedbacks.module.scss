@@ -25,14 +25,14 @@
 
 .feedbacks {
     width: 400px;
-    height: 565px;
     background-image: url('@assets/images/sections/colleagues-feedbacks/old-paper.webp');
     background-position: center;
     background-size: cover;
+    aspect-ratio: 400/565;
 
     @include bp.lw(m) {
-        width: 285px;
-        height: 402px;
+        width: 100%;
+        max-width: 350px;
     }
 }
 
