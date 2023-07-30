@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useRef } from 'react';
 
 import { useTranslates } from '@reusables/custom-hooks';
 import Section from '@components/base/Section';
@@ -52,12 +52,17 @@ const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFe
 type IFeedbackItemProps = IColleaguesFeedbacksList[number];
 
 const Feedback: React.FC<IFeedbackItemProps> = ({ authorRole, sourceName, text }) => {
-    const portraitUrl = Math.random() < 0.5 ? portraitMaleImgUrl : portraitFemaleImgUrl;
+    const portraitUrl = useRef(Math.random() < 0.5 ? portraitMaleImgUrl : portraitFemaleImgUrl);
 
     return (
         <>
             <div className={styles['feedback-portrait-wrapper']}>
-                <img className={styles['feedback-portrait']} src={portraitUrl} alt='' aria-hidden={true} />
+                <img
+                    className={styles['feedback-portrait']}
+                    src={portraitUrl.current}
+                    alt=''
+                    aria-hidden={true}
+                />
                 <img className={styles['feedback-feather']} src={featherImgUrl} alt='' aria-hidden={true} />
             </div>
             <h3 className={styles['feedback-title']}>

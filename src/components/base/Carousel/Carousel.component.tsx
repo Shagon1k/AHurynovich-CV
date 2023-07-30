@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import {
     useState,
+    useEffect,
     useCallback,
     useRef,
     Children,
@@ -26,7 +27,7 @@ interface ICarouselProps extends IPropsWithChildren {
         pagination?: string;
         pagePrefix?: string;
     };
-    onSlideChange?: () => void;
+    onSlideChange?: (currentPageIndex?: number) => void;
 }
 
 const Carousel: React.FC<ICarouselProps> = ({
@@ -38,6 +39,7 @@ const Carousel: React.FC<ICarouselProps> = ({
 }) => {
     const { t } = useTranslates();
     const touchStartXPosRef = useRef<number | null>(null);
+    const isFirstRender = useRef(true);
     const firstItemIndex = 0;
     const lastItemIndex = Children.count(children) - 1;
 
@@ -47,21 +49,24 @@ const Carousel: React.FC<ICarouselProps> = ({
         setCurrentPageIndex((currentPageIndex) =>
             currentPageIndex !== lastItemIndex ? currentPageIndex + 1 : firstItemIndex
         );
-        onSlideChange?.();
-    }, [lastItemIndex, onSlideChange]);
+    }, [lastItemIndex]);
     const handlePrevPage = useCallback(() => {
         setCurrentPageIndex((currentPageIndex) =>
             currentPageIndex !== firstItemIndex ? currentPageIndex - 1 : lastItemIndex
         );
-        onSlideChange?.();
-    }, [lastItemIndex, onSlideChange]);
-    const handlePageChange = useCallback(
-        (pageNumber: number) => {
-            setCurrentPageIndex(pageNumber);
-            onSlideChange?.();
-        },
-        [onSlideChange]
-    );
+    }, [lastItemIndex]);
+    const handlePageChange = useCallback((pageNumber: number) => {
+        setCurrentPageIndex(pageNumber);
+    }, []);
+
+    useEffect(() => {
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        }
+
+        onSlideChange?.(currentPageIndex);
+    }, [onSlideChange, currentPageIndex]);
 
     //Touch
     const handleTouchStart = (e: React.TouchEvent) => {
