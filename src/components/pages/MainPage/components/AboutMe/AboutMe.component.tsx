@@ -23,13 +23,15 @@ const AboutMe: React.FC<IAboutMeProps> = ({ isSearchingForWork, aboutMeText }) =
 
     return (
         <Section
+            modifiers={{ withSideMargin: false }}
             contentClassName={styles['content-container']}
             title={t('pages.main.aboutMeSection.title')}
             showTitle={false}
-            withSideMargin={false}
         >
             {isDesktop && (
-                <SearchingForWork className={styles['searching']} isSearchingForWork={isSearchingForWork} />
+                <div className={styles['searching']}>
+                    <SearchingForWork isSearchingForWork={isSearchingForWork} />
+                </div>
             )}
             <div className={styles['text']}>
                 {aboutMeText}

@@ -5,11 +5,11 @@ import TriangleSVG from '@assets/images/triangle.svg';
 
 import styles from './ArrowButton.module.scss';
 
-type IArrowDirection = 'left' | 'right';
-
 interface IArrowButtonProps {
+    modifiers: {
+        direction: 'left' | 'right';
+    };
     title: string;
-    direction?: IArrowDirection;
     isDisabled?: boolean;
     onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     onEnter?: () => void;
@@ -19,14 +19,14 @@ interface IArrowButtonProps {
 
 const ArrowButton: React.FC<IArrowButtonProps> = ({
     title,
-    direction = 'right',
+    modifiers,
     isDisabled = false,
     onClick,
     onEnter,
     onLeave,
     ariaControls,
 }) => {
-    const cn = clsx(styles['arrow-btn'], styles[`m-${direction}`]);
+    const cn = clsx(styles['arrow-btn'], styles[`m-${modifiers.direction}`]);
 
     return (
         <button

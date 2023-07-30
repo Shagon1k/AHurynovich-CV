@@ -20,17 +20,11 @@ export type ISocialsInfo = ISocialInfo[];
 const SOCIALS_GROUP_LENGTH = 3;
 
 interface ISocialsProps {
-    className?: string;
     socialsData: ISocialsInfo;
 }
 
-const Socials: React.FC<ISocialsProps> = ({ className = '', socialsData }) => {
+const Socials: React.FC<ISocialsProps> = ({ socialsData }) => {
     const [shouldSmokeAnimate, setShouldSmokeAnimate] = useState(false);
-
-    const cn = clsx({
-        className: Boolean(className),
-        [styles['socials']]: true,
-    });
 
     const trainSmokeCn = clsx({
         [styles['train-smoke']]: true,
@@ -46,7 +40,7 @@ const Socials: React.FC<ISocialsProps> = ({ className = '', socialsData }) => {
     }, []);
 
     return (
-        <div className={cn}>
+        <div className={styles['socials']}>
             <SocialGroup
                 socialGroupData={socialsData.slice(0, SOCIALS_GROUP_LENGTH)}
                 onSocialElementEnter={handleSocialElemEnter}

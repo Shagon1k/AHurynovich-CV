@@ -16,7 +16,7 @@ const PastProjects: React.FC<IPastProjectsProps> = ({ pastProjectsData }) => {
     const { t } = useTranslates();
 
     return (
-        <Section className={styles['section']} title={t('pages.experience.pastProjectsSection.title')}>
+        <Section title={t('pages.experience.pastProjectsSection.title')}>
             <ul className={styles['projects-list']}>
                 {pastProjectsData.map((itemData) => (
                     <PastProjectItem

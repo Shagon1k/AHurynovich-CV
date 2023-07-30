@@ -4,25 +4,31 @@ import { memo, PropsWithChildren as IPropsWithChildren } from 'react';
 import styles from './Section.module.scss';
 
 interface ISectionProps extends IPropsWithChildren {
+    modifiers?: {
+        withSideMargin?: boolean;
+    };
     className?: string;
     contentClassName?: string;
     title: string;
     showTitle?: boolean;
-    withSideMargin?: boolean;
 }
 
+const defaultModifiers = {
+    withSideMargin: true,
+};
 const Section: React.FC<ISectionProps> = ({
+    modifiers = {},
     className = '',
     contentClassName = '',
     title,
     showTitle = true,
-    withSideMargin = true,
     children,
 }) => {
+    const componentModifiers = { ...defaultModifiers, ...modifiers };
     const sectionCn = clsx({
         [className]: Boolean(className),
         [styles['section']]: true,
-        [styles['m-with-side-margin']]: withSideMargin,
+        [styles['m-with-side-margin']]: componentModifiers.withSideMargin,
     });
 
     const titleCn = clsx({
