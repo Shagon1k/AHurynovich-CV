@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-
 import { useTranslates } from '@reusables/custom-hooks';
 import { ICON_NAME_TO_SVG_MAP, ICONS_SIZES_MAP } from './config';
 
@@ -17,17 +15,7 @@ interface IIconProps {
     title?: string;
 }
 
-const Icon: React.FC<IIconProps> = ({
-    className = '',
-    name,
-    size = 's',
-    isDecorative = true,
-    title = '',
-}) => {
-    const cn = clsx({
-        [className]: Boolean(className),
-        [styles['icon']]: true,
-    });
+const Icon: React.FC<IIconProps> = ({ name, size = 's', isDecorative = true, title = '' }) => {
     const { t } = useTranslates();
 
     const IconSVG = ICON_NAME_TO_SVG_MAP[name];
@@ -42,7 +30,7 @@ const Icon: React.FC<IIconProps> = ({
         ? { 'aria-hidden': true }
         : { role: 'img', title: iconTitle, 'aria-label': iconTitle };
 
-    return <IconSVG className={cn} width={iconSize} height={iconSize} {...additionalProps} />;
+    return <IconSVG className={styles['icon']} width={iconSize} height={iconSize} {...additionalProps} />;
 };
 
 export default Icon;

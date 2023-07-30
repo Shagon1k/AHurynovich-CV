@@ -39,11 +39,18 @@ Documentation and guidelines for application's main source.
 - Adding new **Assets**:
     - no specific rules;
 - Adding new **Components**:
-    - consider whether it is base or new page;
+    - consider whether it is ***base***, ***common*** or ***page***:
+        - ***base*** - components used as a part in other components across the project - *Button, Input, etc.*;
+        - ***common*** - components used as a part of project pages structure (generally once per page) - *Header, Footer, ScrollTopButton, etc.*;
+        - ***page*** - main component of specific page representation;
     - new folder name should be consistent with according Component main file name;
     - do not forget to add index export file;
     - separate Container and Component logic using specific files;
     - do not forget about CSS Modules approach with according file name convention;
+    - if your Component requires specific styles based on props - consider unite such props in general `modifiers` prop;
+        > 💡 ***Note**: Examples: [Input component](/src/components/base/Input/Input.component.tsx), [Section component](/src/components/base/Section/Section.component.tsx).*
+        > ⚠️***Warn:** Try to avoid using `className` prop for styling if `modifiers` could be introduced instead (especially for common/base components).*
+
 - Adding new **Reusables**:
     - try to add it both to Custom Hooks and HOCs to support both Class/Functional Components;
     - Custom Hook/HOC should have consistent name with each other (e.g. use-services.hook.ts and with-services.hoc.tsx);

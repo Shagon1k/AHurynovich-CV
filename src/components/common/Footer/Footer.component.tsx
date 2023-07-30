@@ -27,7 +27,9 @@ const Footer: React.FC = () => {
             />
             <h1 className={styles['title']}>{t('footer.title')}</h1>
             <div className={styles['content']}>
-                <ContactForm className={styles['contact-form']} />
+                <div className={styles['contact-form']}>
+                    <ContactForm />
+                </div>
                 <Socials />
             </div>
             <div className={styles['copyright']}>

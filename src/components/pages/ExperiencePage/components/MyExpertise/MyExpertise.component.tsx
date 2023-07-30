@@ -51,7 +51,9 @@ const MyExpertiseItem: React.FC<IMyExpertiseItemProps> = ({ name, description, l
             <div className={styles['experience-tv-wrapper']}>
                 <h2 className={styles['experience-title']}>{name}</h2>
                 <div className={styles['experience-tv']}>
-                    <Icon className={styles['experience-tv-skill-icon']} name={iconName} size={iconSize} />
+                    <div className={styles['experience-tv-skill-icon']}>
+                        <Icon name={iconName} size={iconSize} />
+                    </div>
                     <div className={styles['experience-tv-battery']}>
                         {Array.from({ length: level }, (_, i) => (
                             // Having index as a key is "ok" for this case as equal elements rendered and order will not change

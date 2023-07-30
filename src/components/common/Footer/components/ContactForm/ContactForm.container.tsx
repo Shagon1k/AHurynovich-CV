@@ -15,12 +15,8 @@ ${phoneNumber ? 'Phone number: ' + phoneNumber : ''}
     );
 };
 
-interface IContactFormContainerProps {
-    className?: string;
-}
-
-const ContactFormContainer: React.FC<IContactFormContainerProps> = ({ className }) => {
-    return <ContactForm className={className} onSendEmail={TO_API_sendEmail} />;
+const ContactFormContainer: React.FC = () => {
+    return <ContactForm onSendEmail={TO_API_sendEmail} />;
 };
 
 export default ContactFormContainer;

@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { useState } from 'react';
 
 import Input from '@components/base/Input';
@@ -17,17 +16,11 @@ export interface ISendEmailData {
 }
 
 interface IContactFormProps {
-    className?: string;
     onSendEmail: (sendData: ISendEmailData) => void;
 }
 
-const ContactForm: React.FC<IContactFormProps> = ({ className = '', onSendEmail }) => {
+const ContactForm: React.FC<IContactFormProps> = ({ onSendEmail }) => {
     const { t } = useTranslates();
-
-    const cn = clsx({
-        [className]: Boolean(className),
-        [styles['contact-form']]: true,
-    });
 
     const [formValues, setFormValues] = useState({
         fullName: '',
@@ -49,7 +42,7 @@ const ContactForm: React.FC<IContactFormProps> = ({ className = '', onSendEmail 
     };
 
     return (
-        <form className={cn} onSubmit={handleSubmit}>
+        <form className={styles['contact-form']} onSubmit={handleSubmit}>
             <Input
                 id='fullName'
                 type='text'
@@ -77,6 +70,7 @@ const ContactForm: React.FC<IContactFormProps> = ({ className = '', onSendEmail 
                 value={formValues['phoneNumber']}
             />
             <Input
+                modifiers={{ withBottomMargin: false }}
                 className={styles['input-message']}
                 id='message'
                 type='textarea'
@@ -84,7 +78,6 @@ const ContactForm: React.FC<IContactFormProps> = ({ className = '', onSendEmail 
                 placeholder={t('footer.contactForm.message.placeholder')}
                 minLength={MESSAGE_MIN_LENGTH}
                 isRequired
-                withBottomMargin={false}
                 onChange={getHandleInputChange('message')}
                 value={formValues['message']}
             />

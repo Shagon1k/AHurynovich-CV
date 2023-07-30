@@ -21,9 +21,9 @@ const MySkills: React.FC<IMySkillsProps> = ({ skillsListData }) => {
 
     return (
         <Section
+            modifiers={{ withSideMargin: false }}
             contentClassName={styles['content-container']}
             title={t('pages.main.mySkillsSection.title')}
-            withSideMargin={false}
         >
             <ul className={styles['skills-list']}>
                 <li className={styles['airship-wrapper']}>
@@ -32,13 +32,9 @@ const MySkills: React.FC<IMySkillsProps> = ({ skillsListData }) => {
                 {skillsListData.map(({ name, iconName }) => (
                     <li key={name} className={styles['skills-item']}>
                         <img className={styles['flag']} src={flagImgUrl} alt='' aria-hidden={true} />
-                        <Icon
-                            className={styles['flag-icon']}
-                            name={iconName}
-                            size='m'
-                            isDecorative={false}
-                            title={name}
-                        />
+                        <div className={styles['flag-icon']}>
+                            <Icon name={iconName} size='m' isDecorative={false} title={name} />
+                        </div>
                     </li>
                 ))}
             </ul>

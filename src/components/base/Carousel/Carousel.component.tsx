@@ -128,8 +128,8 @@ const Carousel: React.FC<ICarouselProps> = ({
             </ul>
             <div className={styles['navigation']}>
                 <ArrowButton
+                    modifiers={{ direction: 'left' }}
                     title={prevButtonTitle}
-                    direction='left'
                     isDisabled={!withInfiniteLoop ? currentPageIndex === firstItemIndex : false}
                     onClick={handlePrevPage}
                     ariaControls='slides'
@@ -145,8 +145,8 @@ const Carousel: React.FC<ICarouselProps> = ({
                     />
                 )}
                 <ArrowButton
+                    modifiers={{ direction: 'right' }}
                     title={nextButtonTitle}
-                    direction='right'
                     isDisabled={!withInfiniteLoop ? currentPageIndex === lastItemIndex : false}
                     onClick={handleNextPage}
                     ariaControls='slides'

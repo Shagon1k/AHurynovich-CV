@@ -13,14 +13,10 @@ const TO_API_socialsData = [
     { name: 'Github', iconName: 'github', link: 'https://github.com/Shagon1k' },
 ];
 
-interface ISocialsContainerProps {
-    className?: string;
-}
-
-const SocialsContainer: React.FC<ISocialsContainerProps> = ({ className }) => {
+const SocialsContainer: React.FC = () => {
     const socialsData = TO_API_socialsData as ISocialsInfo;
 
-    return <Socials className={className} socialsData={socialsData} />;
+    return <Socials socialsData={socialsData} />;
 };
 
 export default SocialsContainer;

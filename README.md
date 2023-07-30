@@ -101,7 +101,7 @@ On the other hand, using Babel compilation results in <b>completely lose of type
     - `npm run test:e2e:common:prod` - run Common E2E Tests (production build used)
     - `npm run test:e2e:a11y:prod` - run A11y E2E Tests (production build used)
 - **Performance Testing**
-    - `npm run test:perf:ci` - run Application Performance + Insights testing (Lighthouse CI, user for CI/CD pipeline level testing)
+    - `npm run test:perf:ci` - run Application Performance + Insights testing (Lighthouse CI, used for CI/CD pipeline level testing)
 - **TypeScript Types checking**
     - `npm run test:tsc` - run Application Typescript's types checking (no Libraries level checking)
 

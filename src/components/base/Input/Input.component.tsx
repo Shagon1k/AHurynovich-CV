@@ -7,6 +7,9 @@ type IInputType = 'text' | 'email' | 'tel';
 type ITextAreaType = 'textarea';
 
 interface IGeneralInputProps {
+    modifiers?: {
+        withBottomMargin: boolean;
+    };
     className?: string;
     id: string;
     label: string;
@@ -16,7 +19,6 @@ interface IGeneralInputProps {
     maxLength?: number;
     isRequired?: boolean;
     isDisabled?: boolean;
-    withBottomMargin?: boolean;
 }
 
 interface IInputProps extends IGeneralInputProps {
@@ -48,7 +50,11 @@ const getAdditionalProps = (type: IInputType | ITextAreaType) => {
     }
 };
 
+const defaultModifiers = {
+    withBottomMargin: true,
+};
 const Input: React.FC<IInputProps | ITextAreaProps> = ({
+    modifiers = {},
     className = '',
     id,
     type,
@@ -59,11 +65,11 @@ const Input: React.FC<IInputProps | ITextAreaProps> = ({
     maxLength,
     isRequired = false,
     isDisabled = false,
-    withBottomMargin = true,
     inputRef,
     value,
     onChange,
 }) => {
+    const componentModifiers = { ...defaultModifiers, ...modifiers };
     const [isTouched, setIsTouched] = useState(false);
     const handleBlur = useCallback(() => setIsTouched(true), []);
     const handleChange = useCallback(
@@ -74,7 +80,7 @@ const Input: React.FC<IInputProps | ITextAreaProps> = ({
     const inputContainerCn = clsx({
         [className]: Boolean(className),
         [styles['input-container']]: true,
-        [styles['m-with-bottom-margin']]: withBottomMargin,
+        [styles['m-with-bottom-margin']]: componentModifiers.withBottomMargin,
     });
 
     const inputCn = clsx({
