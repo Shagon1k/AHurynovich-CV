@@ -89,6 +89,7 @@
 
 .feedback-text {
     display: inline-block;
+    align-self: baseline;
     overflow-y: scroll;
     max-height: 260px;
     margin-right: -(app.$scrollbar-width); // scrollbar width compensation
