@@ -2,17 +2,11 @@
 // [320, 768, 1024, 1366, 1920] <-> [small, medium, large, xlarge, xxlarge]
 
 // Keep in sync with JS constants: @config/application -> BP_TO_WIDTH
-$screen-min: (
+$bp-min-width: (
+    xs: 1px,
     s: 320px,
     m: 768px,
     l: 1024px,
     xl: 1366px,
     xxl: 1920px,
-);
-$screen-max: (
-    xs: 319px,
-    s: 767px,
-    m: 1023px,
-    l: 1365px,
-    xl: 1919px,
 );

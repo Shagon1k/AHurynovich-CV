@@ -4,99 +4,97 @@
 @use '@base-styles-variables/application' as app;
 
 @mixin xs {
-    @media screen and (max-width: map.get(bp.$screen-max, xs)) {
+    @media screen and (map.get(bp.$bp-min-width, xs) <= width < map.get(bp.$bp-min-width, s)) {
         @content;
     }
 }
 
 @mixin s {
-    @media screen and (min-width: map.get(bp.$screen-min, s)) and (max-width: map.get(bp.$screen-max, s)) {
+    @media screen and (map.get(bp.$bp-min-width, s) <= width < map.get(bp.$bp-min-width, m)) {
         @content;
     }
 }
 
 @mixin m {
-    @media screen and (min-width: map.get(bp.$screen-min, m)) and (max-width: map.get(bp.$screen-max, m)) {
+    @media screen and (map.get(bp.$bp-min-width, m) <= width < map.get(bp.$bp-min-width, l)) {
         @content;
     }
 }
 
 @mixin l {
-    @media screen and (min-width: map.get(bp.$screen-min, l)) and (max-width: map.get(bp.$screen-max, l)) {
+    @media screen and (map.get(bp.$bp-min-width, l) <= width < map.get(bp.$bp-min-width, xl)) {
         @content;
     }
 }
 
 @mixin xl {
-    @media screen and (min-width: map.get(bp.$screen-min, xl)) and (max-width: map.get(bp.$screen-max, xl)) {
+    @media screen and (map.get(bp.$bp-min-width, xl) <= width < map.get(bp.$bp-min-width, xxl)) {
         @content;
     }
 }
 
 @mixin xxl {
-    @media screen and (min-width: map.get(bp.$screen-min, xxl)) {
+    @media screen and (width >= map.get(bp.$bp-min-width, xxl)) {
         @content;
     }
 }
 
 @mixin lw($bp) {
-    @if map.has-key(bp.$screen-max, $bp) {
-        $max-keys: map.keys(bp.$screen-max);
-        $width: map.get(bp.$screen-max, list.nth($max-keys, list.index($max-keys, $bp) - 1));
+    @if map.has-key(bp.$bp-min-width, $bp) {
+        $width: map.get(bp.$bp-min-width, $bp);
 
-        @media screen and (max-width: #{$width}) {
+        @media screen and (width < #{$width}) {
             @content;
         }
     } @else {
-        @warn 'No min breakpoint value for `#{$bp}`. Available values are: `#{map.keys(bp.$screen-max)}`.';
+        @warn 'No min breakpoint value for `#{$bp}`. Available values are: `#{map.keys(bp.$bp-min-width)}`.';
     }
 }
 
 @mixin lwe($bp) {
-    @if map.has-key(bp.$screen-max, $bp) {
-        $width: map.get(bp.$screen-max, $bp);
+    @if map.has-key(bp.$bp-min-width, $bp) {
+        $width: map.get(bp.$bp-min-width, $bp);
 
-        @media screen and (max-width: #{$width}) {
+        @media screen and (width <= #{$width}) {
             @content;
         }
     } @else {
-        @warn 'No min breakpoint value for `#{$bp}`. Available values are: `#{map.keys(bp.$screen-max)}`.';
+        @warn 'No min breakpoint value for `#{$bp}`. Available values are: `#{map.keys(bp.$bp-min-width)}`.';
     }
 }
 
 @mixin gr($bp) {
-    @if map.has-key(bp.$screen-min, $bp) {
-        $min-keys: map.keys(bp.$screen-min);
-        $width: map.get(bp.$screen-min, list.nth($min-keys, list.index($min-keys, $bp) + 1));
+    @if map.has-key(bp.$bp-min-width, $bp) {
+        $width: map.get(bp.$bp-min-width, $bp);
 
-        @media screen and (min-width: #{$width}) {
+        @media screen and (width > #{$width}) {
             @content;
         }
     } @else {
-        @warn 'No min breakpoint value for `#{$bp}`. Available values are: `#{map.keys(bp.$screen-min)}`.';
+        @warn 'No min breakpoint value for `#{$bp}`. Available values are: `#{map.keys(bp.$bp-min-width)}`.';
     }
 }
 
 @mixin gre($bp) {
-    @if map.has-key(bp.$screen-min, $bp) {
-        $width: map.get(bp.$screen-min, $bp);
+    @if map.has-key(bp.$bp-min-width, $bp) {
+        $width: map.get(bp.$bp-min-width, $bp);
 
-        @media screen and (min-width: #{$width}) {
+        @media screen and (width >= #{$width}) {
             @content;
         }
     } @else {
-        @warn 'No min breakpoint value for `#{$bp}`. Available values are: `#{map.keys(bp.$screen-min)}`.';
+        @warn 'No min breakpoint value for `#{$bp}`. Available values are: `#{map.keys(bp.$bp-min-width)}`.';
     }
 }
 
 @mixin gr-app-max-width {
-    @media screen and (min-width: app.$app-max-width) {
+    @media screen and (width > app.$app-max-width) {
         @content;
     }
 }
 
 @mixin lw-app-max-width {
-    @media screen and (max-width: app.$app-max-width) {
+    @media screen and (width < app.$app-max-width) {
         @content;
     }
 }

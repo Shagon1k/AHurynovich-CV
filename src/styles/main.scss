@@ -22,7 +22,6 @@ body {
 :global(.visuallyhidden) {
     position: absolute !important;
     overflow: hidden !important;
-    clip: rect(0 0 0 0);
     width: 1px !important;
     height: 1px !important;
     white-space: nowrap;
