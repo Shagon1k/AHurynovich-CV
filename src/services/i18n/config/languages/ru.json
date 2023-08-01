@@ -8,6 +8,7 @@
         "logo": "логотип"
     },
     "header": {
+        "skipToContent": "Перейти к секции \"{{title}}\"",
         "logoDescription": "Лого вебсайта Алексея Гуриновича",
         "navigation": {
             "title": "Навигация по сайту",

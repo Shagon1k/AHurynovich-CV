@@ -22,6 +22,7 @@ const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFe
 
     return (
         <Section
+            id='colleagues-feedbacks'
             contentClassName={styles['content-container']}
             title={t('pages.main.colleaguesFeedbacksSection.title')}
         >

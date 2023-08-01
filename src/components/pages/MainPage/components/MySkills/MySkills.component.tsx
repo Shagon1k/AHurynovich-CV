@@ -22,6 +22,7 @@ const MySkills: React.FC<IMySkillsProps> = ({ skillsListData }) => {
     return (
         <Section
             modifiers={{ withSideMargin: false }}
+            id='my-skills'
             contentClassName={styles['content-container']}
             title={t('pages.main.mySkillsSection.title')}
         >

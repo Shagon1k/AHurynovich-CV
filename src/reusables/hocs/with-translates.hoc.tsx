@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { ServicesConsumer } from '@reusables/services-context';
+import { ServicesConsumer } from '@reusables/services.context';
 import { mirrorFunction } from '@utils/functions';
 import { selectLanguage } from '@slices/app-info/app-info.selector';
 

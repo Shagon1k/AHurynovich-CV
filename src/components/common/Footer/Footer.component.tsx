@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { useTranslates } from '@reusables/custom-hooks';
+import { useTranslates, useSkipToContent } from '@reusables/custom-hooks';
 import footerBgImg500Url from '@assets/images/footer/bg/footer-bg_500.webp';
 import footerBgImg750Url from '@assets/images/footer/bg/footer-bg_750.webp';
 import footerBgImg1000Url from '@assets/images/footer/bg/footer-bg_1000.webp';
@@ -10,10 +10,16 @@ import Socials from './components/Socials';
 
 import styles from './Footer.module.scss';
 
+const SKIP_TO_ID = 'contact-me';
+
 const Footer: React.FC = () => {
     const { t } = useTranslates();
+    const title = t('footer.title');
+
+    useSkipToContent(SKIP_TO_ID, title, 0);
+
     return (
-        <footer>
+        <footer id={SKIP_TO_ID}>
             <img
                 className={styles['bg-image']}
                 src={footerBgImgUrl}

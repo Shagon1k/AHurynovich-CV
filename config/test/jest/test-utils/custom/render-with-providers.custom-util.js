@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
 import { Provider as ReduxStateProvider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { render } from '@testing-library/react';
 
 import appReducer from '@src/store/store.reducer';
-import { ServicesProvider } from '@reusables/services-context';
+import { ServicesProvider } from '@reusables/services.context';
+import { SkipToContentProvider } from '@reusables/skip-to-content.context';
 
 const createServicesMock = (overrideServices) => ({
     i18n: {
@@ -19,19 +19,10 @@ const createServicesMock = (overrideServices) => ({
     ...overrideServices,
 });
 
-const ProvidersWrapper = ({ children, services, store }) => (
-    <ReduxStateProvider store={store}>
-        <ServicesProvider value={services}>{children}</ServicesProvider>
-    </ReduxStateProvider>
-);
-
-ProvidersWrapper.propTypes = {
-    // Mocked services
-    services: PropTypes.shape({}),
-    // Mocked Redux's store
-    store: PropTypes.shape({}),
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-};
+const createSkipToContentMock = (overrideSkipToContent) => ({
+    setSkipToContentLinks: () => {},
+    ...overrideSkipToContent,
+});
 
 /**
  * Returns RTL custom render util wrapped with application Providers in order to support any Context usage.
@@ -40,19 +31,33 @@ ProvidersWrapper.propTypes = {
  * For example, simple custom hooks which use Redux's store/services/etc. could be simply mocked instead (e.g. useTranslates hook).
  *
  * @param {Object} overrideConfig - Default Providers setup override config
- * @param {Object} overrideConfig.overrideServices - Services override object
  * @param {Object} overrideConfig.overrideDefaultState - Redux's store default state override object
+ * @param {Object} overrideConfig.overrideServices - Services context value override object
+ * @param {Object} overrideConfig.overrideSkipToContent - Skip To Content context value override object
  * @returns {Function} Custom RTL render util
  */
-const getRenderWithProviders = ({ overrideServices = {}, overrideDefaultState = {} } = {}) => {
-    const mockedServices = createServicesMock(overrideServices);
+const getRenderWithProviders = ({
+    overrideDefaultState = {},
+    overrideServices = {},
+    overrideSkipToContent = {},
+} = {}) => {
     const mockedStore = configureStore({
         reducer: appReducer,
         preloadedState: overrideDefaultState,
     });
+    const mockedServices = createServicesMock(overrideServices);
+    const mockedSkipToContent = createSkipToContentMock(overrideSkipToContent);
     return (ui, options) =>
         render(ui, {
-            wrapper: (props) => <ProvidersWrapper services={mockedServices} store={mockedStore} {...props} />,
+            wrapper: (props) => (
+                <ReduxStateProvider store={mockedStore}>
+                    <ServicesProvider value={mockedServices}>
+                        <SkipToContentProvider value={mockedSkipToContent}>
+                            {props.children}
+                        </SkipToContentProvider>
+                    </ServicesProvider>
+                </ReduxStateProvider>
+            ),
             ...options,
         });
 };

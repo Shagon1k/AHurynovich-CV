@@ -8,6 +8,7 @@
         "logo": "logo"
     },
     "header": {
+        "skipToContent": "Skip to \"{{title}}\" section",
         "logoDescription": "Aliaksei Hurynovich's website logo",
         "navigation": {
             "title": "Navigation",

@@ -263,7 +263,8 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 │   │   │
 │   │   ├───hocs
 │   │   │
-│   │   │   services-context.tsx   // Services context for components injection using specific Custom Hook/HOC
+│   │   │   services.context.tsx   // Services context for components injection using specific Custom Hook/HOC
+|   |   |   skip-to-content.context.tsx   // Skip To Content (A11y enhancement) context for components injection using specific Custom Hook/HOC
 │   │   └───
 │   │
 │   ├───store   // Redux's Store

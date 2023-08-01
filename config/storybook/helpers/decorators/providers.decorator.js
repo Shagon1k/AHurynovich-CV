@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
 import { Provider as ReduxStateProvider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 
-import { ServicesProvider } from '@reusables/services-context';
+import { ServicesProvider } from '@reusables/services.context';
+import { SkipToContentProvider } from '@reusables/skip-to-content.context';
 import appReducer from '@src/store/store.reducer';
 import { DEVICE_TYPES_CONTEXT_VALUES_MAP, DEFAULT_DEVICE_TYPE } from '../../constants';
 
@@ -20,21 +20,6 @@ const createServicesMock = (overrideServices) => ({
     },
     ...overrideServices,
 });
-
-const ProvidersWrapper = ({ children, overrideServices, store }) => {
-    return (
-        <ReduxStateProvider store={store}>
-            <ServicesProvider value={createServicesMock(overrideServices)}>{children}</ServicesProvider>
-        </ReduxStateProvider>
-    );
-};
-
-ProvidersWrapper.propTypes = {
-    // (optional) Override services object
-    overrideServices: PropTypes.shape({}),
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-    store: PropTypes.shape({}),
-};
 
 const getProvidersDecorator =
     () =>
@@ -59,10 +44,18 @@ const getProvidersDecorator =
                 },
             },
         });
+        const skipToContentMock = {
+            setSkipToContentLinks: () => {},
+        };
+
         return (
-            <ProvidersWrapper overrideServices={overrideServices} store={store}>
-                <Story />
-            </ProvidersWrapper>
+            <ReduxStateProvider store={store}>
+                <ServicesProvider value={createServicesMock(overrideServices)}>
+                    <SkipToContentProvider value={skipToContentMock}>
+                        <Story />
+                    </SkipToContentProvider>
+                </ServicesProvider>
+            </ReduxStateProvider>
         );
     };
 

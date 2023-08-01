@@ -77,7 +77,7 @@ const SocialGroup: React.FC<ISocialGroupProps> = ({
                     <li key={hashCode(name)} className={styles['socials-item']}>
                         <Link
                             className={styles['socials-item-link']}
-                            isExternal
+                            type='external'
                             title={t('footer.socials.goToMy', { name })}
                             to={link}
                             onEnter={onSocialElementEnter}

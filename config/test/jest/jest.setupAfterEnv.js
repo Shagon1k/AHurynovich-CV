@@ -26,3 +26,8 @@ jest.mock('@reusables/custom-hooks/use-translates.hook.ts', () => ({
         languageCode: 'testCode',
     }),
 }));
+// Note: useSkipToContent custom hook test generally could be skipped, but still could be re-mocked if needed
+jest.mock('@reusables/custom-hooks/use-skip-to-content.hook.ts', () => ({
+    __esModule: true,
+    useSkipToContent: () => {},
+}));
