@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { ServicesContext } from '@reusables/services-context';
+import { ServicesContext } from '@reusables/services.context';
 import { mirrorFunction } from '@utils/functions';
 import { selectLanguage } from '@slices/app-info/app-info.selector';
 

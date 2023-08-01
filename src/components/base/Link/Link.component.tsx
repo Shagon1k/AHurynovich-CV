@@ -6,15 +6,15 @@ import styles from './Link.module.scss';
 
 interface ILinkProps extends IPropsWithChildren {
     className?: string;
+    type?: 'router' | 'external' | 'simple';
     to: string;
-    isExternal?: boolean;
     title?: string;
     onEnter?: () => void;
     onLeave?: () => void;
 }
 
 const Link = forwardRef<HTMLAnchorElement, ILinkProps>(
-    ({ className = '', to, isExternal = false, title, onEnter, onLeave, children }, ref) => {
+    ({ className = '', type = 'router', to, title, onEnter, onLeave, children }, ref) => {
         const cn = clsx({
             [className]: Boolean(className),
             [styles['link']]: true,
@@ -28,15 +28,27 @@ const Link = forwardRef<HTMLAnchorElement, ILinkProps>(
             ...(onLeave && { onBlur: onLeave, onMouseLeave: onLeave }),
         };
 
-        return isExternal ? (
-            <a href={to} target='_blank' rel='noreferrer' {...commonProps}>
-                {children}
-            </a>
-        ) : (
-            <RouterLink to={to} {...commonProps}>
-                {children}
-            </RouterLink>
-        );
+        switch (type) {
+            case 'external':
+                return (
+                    <a href={to} target='_blank' rel='noreferrer' {...commonProps}>
+                        {children}
+                    </a>
+                );
+            case 'simple':
+                return (
+                    <a href={to} {...commonProps}>
+                        {children}
+                    </a>
+                );
+            default:
+            case 'router':
+                return (
+                    <RouterLink to={to} {...commonProps}>
+                        {children}
+                    </RouterLink>
+                );
+        }
     }
 );
 

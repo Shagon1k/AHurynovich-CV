@@ -16,7 +16,11 @@ const FiveReasons: React.FC<IFiveReasonsProps> = ({ fiveReasonsData }) => {
     const { t } = useTranslates();
 
     return (
-        <Section className={styles['section']} title={t('pages.main.fiveReasonsSection.title')}>
+        <Section
+            id='five-reasons-to-work'
+            className={styles['section']}
+            title={t('pages.main.fiveReasonsSection.title')}
+        >
             <ul className={styles['reasons-list']}>
                 {fiveReasonsData.map(({ name, iconName, description }) => (
                     <li key={name} className={styles['reasons-item']}>

@@ -1,12 +1,15 @@
 import clsx from 'clsx';
 import { memo, PropsWithChildren as IPropsWithChildren } from 'react';
 
+import { useSkipToContent } from '@reusables/custom-hooks';
+
 import styles from './Section.module.scss';
 
 interface ISectionProps extends IPropsWithChildren {
     modifiers?: {
         withSideMargin?: boolean;
     };
+    id: string;
     className?: string;
     contentClassName?: string;
     title: string;
@@ -18,6 +21,7 @@ const defaultModifiers = {
 };
 const Section: React.FC<ISectionProps> = ({
     modifiers = {},
+    id,
     className = '',
     contentClassName = '',
     title,
@@ -30,18 +34,18 @@ const Section: React.FC<ISectionProps> = ({
         [styles['section']]: true,
         [styles['m-with-side-margin']]: componentModifiers.withSideMargin,
     });
-
     const titleCn = clsx({
         [styles['title']]: true,
         visuallyhidden: !showTitle, // Note: Even title not displayed visually, it is still vital for A11y
     });
-
     const contentCn = clsx({
         [contentClassName]: Boolean(contentClassName),
     });
 
+    useSkipToContent(id, title);
+
     return (
-        <section aria-label={title} className={sectionCn}>
+        <section id={id} aria-label={title} className={sectionCn}>
             <h1 className={titleCn}>{title}</h1>
             <div className={contentCn}>{children}</div>
         </section>

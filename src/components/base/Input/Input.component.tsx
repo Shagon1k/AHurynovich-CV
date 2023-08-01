@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState, useCallback, type Ref as IRef } from 'react';
+import { useState, useCallback, type RefObject as IRefObject } from 'react';
 
 import styles from './Input.module.scss';
 
@@ -24,7 +24,7 @@ interface IGeneralInputProps {
 interface IInputProps extends IGeneralInputProps {
     type: IInputType;
     // Uncontrolled component scenario
-    inputRef?: IRef<HTMLInputElement>;
+    inputRef?: IRefObject<HTMLInputElement>;
     // Controlled component scenario
     value?: string;
     onChange?: (value: string) => void;
@@ -33,7 +33,7 @@ interface IInputProps extends IGeneralInputProps {
 interface ITextAreaProps extends IGeneralInputProps {
     type: ITextAreaType;
     // Uncontrolled component scenario
-    inputRef?: IRef<HTMLTextAreaElement>;
+    inputRef?: IRefObject<HTMLTextAreaElement>;
     // Controlled component scenario
     value?: string;
     onChange?: (value: string) => void;

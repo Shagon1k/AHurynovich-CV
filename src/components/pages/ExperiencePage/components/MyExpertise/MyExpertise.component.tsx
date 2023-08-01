@@ -24,6 +24,7 @@ const MyExpertise: React.FC<IMyExpertiseProps> = ({ myExperienceData }) => {
 
     return (
         <Section
+            id='my-expertise'
             contentClassName={styles['content-container']}
             title={t('pages.experience.myExpertiseSection.title')}
         >

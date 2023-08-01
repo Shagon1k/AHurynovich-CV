@@ -41,6 +41,7 @@ const CareerFlow: React.FC<ICareerFlowProps> = ({ careerFlowData }) => {
 
     return (
         <Section
+            id='career-flow'
             contentClassName={styles['content-container']}
             title={t('pages.experience.careerFlowSection.title')}
         >

@@ -24,6 +24,7 @@ const AboutMe: React.FC<IAboutMeProps> = ({ isSearchingForWork, aboutMeText }) =
     return (
         <Section
             modifiers={{ withSideMargin: false }}
+            id='about-me'
             contentClassName={styles['content-container']}
             title={t('pages.main.aboutMeSection.title')}
             showTitle={false}
