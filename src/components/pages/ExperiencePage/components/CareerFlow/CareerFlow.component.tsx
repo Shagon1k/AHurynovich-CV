@@ -5,6 +5,7 @@ import { useTranslates } from '@reusables/custom-hooks';
 import Section from '@components/base/Section';
 import Carousel, { SLIDE_CHANGE_ANIMATION_TIME } from '@components/base/Carousel';
 import { hashCode } from '@utils/strings';
+import { checkIfUserPrefersReducedMotion } from '@utils/user';
 import watcherImgUrl from '@assets/images/sections/career-flow/watcher.svg?url';
 import projectorSideImgUrl from '@assets/images/sections/career-flow/projector_side.svg?url';
 import projectorLightImgUrl from '@assets/images/sections/career-flow/projector-light.svg?url';
@@ -22,6 +23,10 @@ const CareerFlow: React.FC<ICareerFlowProps> = ({ careerFlowData }) => {
     const [shouldLightAnimate, setShouldLightAnimate] = useState(false);
 
     const handleSlideChange = useCallback(() => {
+        if (checkIfUserPrefersReducedMotion()) {
+            return;
+        }
+
         setShouldLightAnimate(true);
 
         setTimeout(() => {

@@ -76,5 +76,14 @@
                 @include a.gear-counterclockwise-rotate;
             }
         }
+
+        @media (prefers-reduced-motion) {
+            &.m-left,
+            &.m-right {
+                .gear {
+                    animation-iteration-count: 1;
+                }
+            }
+        }
     }
 }

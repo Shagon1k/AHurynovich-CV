@@ -89,6 +89,10 @@
 
     &.m-animate {
         animation: smoke 1.5s linear 3;
+
+        @media (prefers-reduced-motion) {
+            animation-iteration-count: 1;
+        }
     }
 
     @keyframes smoke {

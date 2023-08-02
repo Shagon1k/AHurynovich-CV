@@ -13,6 +13,11 @@
         height: 180%;
         transition: height 0.15s linear;
         aspect-ratio: 220/180;
+
+        @media (prefers-reduced-motion) {
+            height: calc(100% - 4px);
+            transition: none;
+        }
     }
 
     &.m-compact {
