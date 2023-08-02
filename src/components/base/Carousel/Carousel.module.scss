@@ -45,4 +45,12 @@
             visibility v.$slide-change-animation-time v.$slide-change-animation-time,
             opacity v.$slide-change-animation-time v.$slide-change-animation-time linear;
     }
+
+    @media (prefers-reduced-motion) {
+        transition: none;
+
+        &.m-visible {
+            transition: none;
+        }
+    }
 }

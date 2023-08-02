@@ -39,6 +39,15 @@
                     @include a.gear-clockwise-rotate;
                 }
             }
+
+            @media (prefers-reduced-motion) {
+                &.m-left,
+                &.m-right {
+                    .gear-img {
+                        animation: none;
+                    }
+                }
+            }
         }
 
         &:active {

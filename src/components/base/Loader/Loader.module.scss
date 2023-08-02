@@ -58,6 +58,14 @@
         aspect-ratio: 1;
     }
 
+    @media (prefers-reduced-motion) {
+        .gear-s,
+        .gear-m,
+        .gear-l {
+            animation: none;
+        }
+    }
+
     @keyframes rotation {
         from {
             transform: rotate(0deg);

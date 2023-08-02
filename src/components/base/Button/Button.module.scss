@@ -28,6 +28,10 @@
                 @include a.gear-clockwise-rotate;
 
                 fill: c.$brown;
+
+                @media (prefers-reduced-motion) {
+                    animation: none;
+                }
             }
         }
 

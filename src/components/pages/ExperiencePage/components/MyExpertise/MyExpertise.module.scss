@@ -78,6 +78,10 @@
 
     &:last-child {
         animation: battery-charge 1.7s infinite linear;
+
+        @media (prefers-reduced-motion) {
+            animation: none;
+        }
     }
 
     @keyframes battery-charge {
