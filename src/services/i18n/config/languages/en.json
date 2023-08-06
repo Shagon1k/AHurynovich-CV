@@ -8,7 +8,10 @@
         "logo": "logo"
     },
     "header": {
-        "skipToContent": "Skip to \"{{title}}\" section",
+        "accessibilityHelper": {
+            "description": "This is Accessibility helper section. Here you can use \"Skip to\" links to navigate to specific section or get acknowledged with site Accessibility statement.",
+            "skipToContent": "Skip to \"{{title}}\" section"
+        },
         "logoDescription": "Aliaksei Hurynovich's website logo",
         "navigation": {
             "title": "Navigation",
@@ -114,6 +117,10 @@
         "title": "Scroll to page top",
         "airBalloon": "Air balloon"
     },
+    "accessibilityStatement": {
+        "title": "Accessibility Statement",
+        "note": "Website Accessibility Statement is currently only available on English."
+    },
     "carousel": {
         "title": "Carousel",
         "description": "Carousel shown at a time. Use the Previous and Next buttons to navigate, or dot buttons at the top to jump to specific item.",
@@ -122,6 +129,9 @@
         "paginationTitle": "Pagination",
         "pageTitlePrefix": "Page",
         "itemNumberText": "Item {{current}} of {{total}}"
+    },
+    "popup": {
+        "closeButtonLabel": "Close popup"
     },
     "pageUnderConstruction": {
         "heading": "Coming soon",

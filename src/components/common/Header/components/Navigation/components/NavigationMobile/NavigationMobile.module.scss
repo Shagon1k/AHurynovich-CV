@@ -1,6 +1,7 @@
 @use 'sass:math';
-@use '@base-styles-mixins/bp';
 @use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/bp';
+@use '@base-styles-mixins/common' as cmn;
 @use '../../../../variables.scss' as hv;
 
 $nav-items-list-margin-top-mobile: hv.$header-margin-mobile + 10px;
@@ -9,16 +10,15 @@ $nav-items-list-margin-bottom-mobile: $nav-items-list-margin-top-mobile - $nav-i
 $nav-button-dimension: 30px;
 
 .nav-button {
+    @include cmn.button-reset;
+
     position: absolute;
     top: 50%;
     left: 8%;
     width: $nav-button-dimension;
     height: $nav-button-dimension;
     margin: 0;
-    padding: 0;
-    border: 0;
     transform: translateY(-50%);
-    background: transparent;
 
     @include bp.lw(m) {
         left: 12%;

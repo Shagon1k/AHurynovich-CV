@@ -1,0 +1,10 @@
+@use '@base-styles-variables/colors' as c;
+
+.popup-footer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+    border-top: 1px solid c.$brown-dark;
+}

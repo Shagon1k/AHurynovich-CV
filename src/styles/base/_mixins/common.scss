@@ -1,0 +1,28 @@
+@use '@base-styles-variables/colors' as c;
+
+@mixin popup {
+    border: 3px solid c.$brown-dark;
+    box-shadow: c.$brown-dark 0 4px 12px;
+    background-color: c.$beige-light;
+}
+
+@mixin link {
+    // Note: Do NOT add text font styles here keeping it be configurable based on mixin use place
+    text-decoration: underline;
+    color: c.$brown-dark;
+
+    &:hover,
+    &:focus-visible {
+        color: c.$brown;
+    }
+
+    &:active {
+        color: c.$red;
+    }
+}
+
+@mixin button-reset {
+    padding: 0;
+    border: 0;
+    background: 0;
+}

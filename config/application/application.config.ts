@@ -1,4 +1,5 @@
 export const APP_ROOT_ID = 'root';
+export const POPUP_ROOT_ID = 'popup-root';
 
 export enum BP {
     XS = 'XS',

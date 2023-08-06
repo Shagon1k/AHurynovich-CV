@@ -1,3 +1,6 @@
+// Base
+import CrossSVG from '@assets/images/icons/cross.svg';
+
 // Tech skills
 import JSSVG from '@assets/images/icons/tech-skills/js.svg';
 import TSSVG from '@assets/images/icons/tech-skills/ts.svg';
@@ -30,6 +33,7 @@ import TwitterSVG from '@assets/images/icons/socials/twitter.svg';
 import YoutubeSVG from '@assets/images/icons/socials/youtube.svg';
 
 export const ICON_NAME_TO_SVG_MAP = {
+    cross: CrossSVG,
     js: JSSVG,
     ts: TSSVG,
     html: HTMLSVG,

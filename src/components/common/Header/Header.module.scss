@@ -7,7 +7,7 @@
     position: sticky;
     top: -(v.$header-margin);
     display: flex;
-    z-index: 1000;
+    z-index: 100;
     flex-flow: column nowrap;
 
     @include bp.lw(m) {

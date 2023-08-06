@@ -1,11 +1,11 @@
 import clsx from 'clsx';
-import { memo, PropsWithChildren as IPropsWithChildren } from 'react';
+import { memo } from 'react';
 
 import { useSkipToContent } from '@reusables/custom-hooks';
 
 import styles from './Section.module.scss';
 
-interface ISectionProps extends IPropsWithChildren {
+interface ISectionProps extends React.PropsWithChildren {
     modifiers?: {
         withSideMargin?: boolean;
     };

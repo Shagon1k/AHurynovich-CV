@@ -3,18 +3,19 @@
 @use './scrollbar';
 @use '@base-styles-variables/colors' as c;
 
-body,
-body > div {
-    min-height: 100%;
-}
-
 body {
     // TODO: Double-consider further.
     // Replacing scroll from body element to achieve fixed address bar.
     overflow-x: hidden;
     overflow-y: auto;
     height: 100vh;
+    min-height: 100%;
     background-color: c.$beige-light;
+
+    // Remove app scroll when popup opened
+    &:has(:global(.popup)) {
+        overflow: hidden;
+    }
 }
 
 // Visually hide (A11y purposes)
@@ -24,6 +25,8 @@ body {
     overflow: hidden !important;
     width: 1px !important;
     height: 1px !important;
+    margin: -1px !important;
+    padding: 0;
     white-space: nowrap;
     clip-path: inset(50%);
 }

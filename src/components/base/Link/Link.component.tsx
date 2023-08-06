@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import { forwardRef, type PropsWithChildren as IPropsWithChildren } from 'react';
+import { forwardRef } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import styles from './Link.module.scss';
 
-interface ILinkProps extends IPropsWithChildren {
+interface ILinkProps extends React.PropsWithChildren {
     className?: string;
     type?: 'router' | 'external' | 'simple';
     to: string;

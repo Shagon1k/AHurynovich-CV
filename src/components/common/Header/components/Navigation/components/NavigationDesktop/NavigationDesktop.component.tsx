@@ -1,5 +1,3 @@
-import { ReactNode as IReactNode } from 'react';
-
 import splitArrayByTwo from './helpers/splitArrayByTwo';
 import { INavItem } from '../../Navigation.component';
 
@@ -7,7 +5,7 @@ import styles from './NavigationDesktop.module.scss';
 
 interface INavigationDesktopProps {
     navItemsData: INavItem[];
-    renderNavItems: (navItemsArr: INavItem[], navItemClassName: string) => IReactNode;
+    renderNavItems: (navItemsArr: INavItem[], navItemClassName: string) => React.ReactNode;
 }
 
 const NavigationDesktop: React.FC<INavigationDesktopProps> = ({ navItemsData, renderNavItems }) => {

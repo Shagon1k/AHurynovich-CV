@@ -1,13 +1,13 @@
 @use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/common' as cmn;
 @use '@base-styles-mixins/animations' as a;
 @use './variables.scss' as v;
 
 .arrow-btn {
+    @include cmn.button-reset;
+
     width: v.$button-width;
     height: v.$button-height;
-    padding: 0;
-    border: 0;
-    background: 0;
     fill: c.$brown-dark;
 
     &.m-left {
