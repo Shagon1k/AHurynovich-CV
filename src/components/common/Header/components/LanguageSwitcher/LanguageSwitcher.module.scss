@@ -1,12 +1,12 @@
-@use '@base-styles-mixins/bp';
 @use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/common' as cmn;
+@use '@base-styles-mixins/bp';
 
 .language-switcher {
+    @include cmn.button-reset;
+
     position: absolute;
     right: 8%;
-    padding: 0;
-    border: 0;
-    background-color: transparent;
 
     @include bp.lw(m) {
         right: 12%;

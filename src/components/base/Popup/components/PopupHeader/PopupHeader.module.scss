@@ -1,0 +1,13 @@
+@use '@base-styles-mixins/typography' as t;
+@use '../../variables.scss' as v;
+
+.popup-header {
+    @include t.t1;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    min-height: v.$popup-close-btn-space-dimension; // keep header aligned with "X" button
+    margin: 0 v.$popup-close-btn-space-dimension; // "X" button safe space
+}

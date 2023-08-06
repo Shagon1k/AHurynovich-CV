@@ -1,5 +1,6 @@
 @use '@base-styles-variables/colors' as c;
 @use '@base-styles-variables/application' as app;
+@use '@base-styles-mixins/common' as cmn;
 @use '@base-styles-mixins/bp';
 
 $btn-image-width: 38px;
@@ -7,14 +8,14 @@ $btn-image-width-mobile: 28px;
 $btn-right-padding: 15px;
 
 .scroll-top-btn {
+    @include cmn.button-reset;
+
     position: fixed;
-    bottom: 25px;
-    padding: 0;
+    bottom: 40px;
     border: 1px solid transparent;
     opacity: 0;
     visibility: hidden;
     transform: translateX(calc(app.$app-max-width - $btn-right-padding - $btn-image-width));
-    background-color: transparent;
     transition: visibility 0.3s, opacity 0.3s linear;
 
     @media screen and (max-width: #{app.$app-max-width}) {

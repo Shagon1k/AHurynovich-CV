@@ -1,4 +1,4 @@
-import React, { type Dispatch as IDispatch, type SetStateAction as ISetStateAction } from 'react';
+import React from 'react';
 
 export interface ISkipToContentLink {
     id: string;
@@ -7,7 +7,7 @@ export interface ISkipToContentLink {
 }
 
 interface ISkipToContentContext {
-    setSkipToContentLinks: IDispatch<ISetStateAction<ISkipToContentLink[]>>;
+    setSkipToContentLinks: React.Dispatch<React.SetStateAction<ISkipToContentLink[]>>;
 }
 
 /** Used to enhance application with ability to skip some parts moving to specific components right from the start */

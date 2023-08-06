@@ -1,14 +1,5 @@
-@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/common' as cmn;
 
 .link {
-    color: c.$brown-dark;
-
-    &:hover,
-    &:focus-visible {
-        color: c.$brown;
-    }
-
-    &:active {
-        color: c.$red;
-    }
+    @include cmn.link;
 }

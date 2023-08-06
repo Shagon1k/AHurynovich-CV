@@ -1,13 +1,5 @@
 import clsx from 'clsx';
-import {
-    useState,
-    useEffect,
-    useCallback,
-    useRef,
-    Children,
-    memo,
-    type PropsWithChildren as IPropsWithChildren,
-} from 'react';
+import { useState, useEffect, useCallback, useRef, Children, memo } from 'react';
 
 import { useTranslates } from '@reusables/custom-hooks';
 import ArrowButton from '@components/base/ArrowButton';
@@ -17,7 +9,7 @@ import styles from './Carousel.module.scss';
 
 const PAGE_TOUCH_DELTA_THRESHOLD = 40;
 
-interface ICarouselProps extends IPropsWithChildren {
+interface ICarouselProps extends React.PropsWithChildren {
     withPagination?: boolean;
     withInfiniteLoop?: boolean;
     titlesConfig?: {

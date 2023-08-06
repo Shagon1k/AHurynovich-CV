@@ -1,6 +1,7 @@
 @use '@base-styles-variables/colors' as c;
 @use '@base-styles-mixins/typography' as t;
 @use '@base-styles-mixins/bp';
+@use '@base-styles-mixins/common' as cmn;
 
 .bg-image {
     max-width: 100%;
@@ -37,10 +38,22 @@
     }
 }
 
+.meta-links-list,
+.meta-a11y-statement-button,
 .copyright {
     @include t.b3;
+}
 
+.meta-list {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.copyright {
     width: 100%;
-    padding: 8px 0;
+    padding: 6px 0;
     text-align: center;
 }

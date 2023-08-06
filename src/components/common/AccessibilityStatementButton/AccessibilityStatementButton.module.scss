@@ -1,0 +1,14 @@
+@use '@base-styles-mixins/common' as cmn;
+
+.a11y-statement-btn {
+    @include cmn.button-reset;
+    @include cmn.link;
+}
+
+.a11y-statement-content {
+    padding: 20px;
+
+    ul {
+        list-style: disc;
+    }
+}

@@ -5,6 +5,7 @@ import footerBgImg500Url from '@assets/images/footer/bg/footer-bg_500.webp';
 import footerBgImg750Url from '@assets/images/footer/bg/footer-bg_750.webp';
 import footerBgImg1000Url from '@assets/images/footer/bg/footer-bg_1000.webp';
 import footerBgImgUrl from '@assets/images/footer/bg/footer-bg.webp';
+import AccessibilityStatementButton from '@components/common/AccessibilityStatementButton';
 import ContactForm from './components/ContactForm';
 import Socials from './components/Socials';
 
@@ -38,8 +39,15 @@ const Footer: React.FC = () => {
                 </div>
                 <Socials />
             </div>
-            <div className={styles['copyright']}>
-                {t('footer.copyright', { year: new Date().getFullYear() })}
+            <div className={styles['meta']}>
+                <ul className={styles['meta-list']}>
+                    <li>
+                        <AccessibilityStatementButton className={styles['meta-a11y-statement-button']} />
+                    </li>
+                </ul>
+                <div className={styles['copyright']}>
+                    {t('footer.copyright', { year: new Date().getFullYear() })}
+                </div>
             </div>
         </footer>
     );
