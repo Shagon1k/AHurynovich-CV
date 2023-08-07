@@ -10,4 +10,5 @@
     align-items: center;
     min-height: v.$popup-close-btn-space-dimension; // keep header aligned with "X" button
     margin: 0 v.$popup-close-btn-space-dimension; // "X" button safe space
+    padding: 15px 0;
 }

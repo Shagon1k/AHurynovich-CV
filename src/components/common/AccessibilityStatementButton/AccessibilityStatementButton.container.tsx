@@ -1,6 +1,6 @@
 import AccessibilityStatementButton from './AccessibilityStatementButton.component';
 
-const TO_API_statementMarkup = `<div>Bla-bla-bla <ul><li>1</li><li>2</li></ul></div>`;
+const TO_API_statementMarkup = `<div>Check WCAG 2.1 AA to follow -> add statement <ul><li>1</li><li>2</li></ul></div>`;
 
 interface IAccessibilityStatementButtonContainerProps {
     className?: string;

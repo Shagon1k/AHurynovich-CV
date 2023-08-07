@@ -13,7 +13,7 @@ module.exports = {
         'string-quotes': 'single',
         indentation: 4,
         'scss/at-mixin-argumentless-call-parentheses': 'never',
-        'unit-allowed-list': ['px', '%', 'vh', 'vw', 'pt', 's', 'ms', 'deg', 'fr'],
+        'unit-allowed-list': ['px', 'em', '%', 'vh', 'vw', 'pt', 's', 'ms', 'deg', 'fr'],
         'unit-no-unknown': true,
         'declaration-no-important': true,
         'color-named': 'never',
