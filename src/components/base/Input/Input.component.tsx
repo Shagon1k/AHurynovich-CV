@@ -111,7 +111,7 @@ const Input: React.FC<IInputProps | ITextAreaProps> = ({
     };
 
     return (
-        <fieldset className={inputContainerCn}>
+        <div className={inputContainerCn}>
             <label className={labelCn} htmlFor={id}>
                 {`${label}:`}
             </label>
@@ -120,7 +120,7 @@ const Input: React.FC<IInputProps | ITextAreaProps> = ({
             ) : (
                 <textarea ref={inputRef} {...inputProps} />
             )}
-        </fieldset>
+        </div>
     );
 };
 

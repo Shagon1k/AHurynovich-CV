@@ -1,5 +1,6 @@
 @use '@base-styles-mixins/typography' as t;
 @use '@base-styles-variables/colors' as c;
+@use '@base-styles-variables/application' as app;
 @use '@base-styles-mixins/bp';
 @use '@components/base/Carousel/variables' as carousel;
 
@@ -99,9 +100,9 @@
     display: inline-block;
     overflow-y: scroll;
     max-height: 250px;
-    margin-right: -10px;
+    margin-right: -(app.$scrollbar-width); // scrollbar width compensation
     padding-right: 5px;
-    text-align: justify;
+    text-align: center;
 }
 
 .projector-wrapper {

@@ -10,19 +10,20 @@
     transform-origin: center;
 
     .logo-image {
-        height: 180%;
-        transition: height 0.15s linear;
+        height: 100%;
+        transform: scale(1.8);
+        transition: transform 0.15s linear;
         aspect-ratio: 220/180;
 
         @media (prefers-reduced-motion) {
-            height: calc(100% - 4px);
+            transform: scale(0.98);
             transition: none;
         }
     }
 
     &.m-compact {
         .logo-image {
-            height: calc(100% - 4px);
+            transform: scale(0.98);
         }
     }
 }

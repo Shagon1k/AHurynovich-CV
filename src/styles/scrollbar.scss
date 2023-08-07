@@ -1,6 +1,13 @@
 @use '@base-styles-variables/colors' as c;
 @use '@base-styles-variables/application' as app;
 
+// Gecko (Firefox)
+* {
+    scrollbar-color: c.$brown-dark transparent;
+    scrollbar-width: thin;
+}
+
+// Webkit (Chrome, Edge)
 ::-webkit-scrollbar {
     width: app.$scrollbar-width;
 }
