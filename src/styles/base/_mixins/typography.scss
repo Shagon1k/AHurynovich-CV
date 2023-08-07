@@ -3,8 +3,12 @@
 @use '@base-styles-variables/colors';
 @use '@base-styles-mixins/bp';
 
+// Note: word-spacing and letter-spacing adjusted to follow as possible (still limited) WCAG 2.1 (AA)
+
 // Headings
 @mixin h1() {
+    word-spacing: 0.11em;
+    letter-spacing: 0.08em;
     color: colors.$brown-dark;
     font-family: fonts.$ff-headings;
     font-size: 48px;
@@ -19,6 +23,8 @@
 }
 
 @mixin h2() {
+    word-spacing: 0.11em;
+    letter-spacing: 0.08em;
     color: colors.$brown-dark;
     font-family: fonts.$ff-headings;
     font-size: 30px;
@@ -33,6 +39,8 @@
 }
 
 @mixin h3() {
+    word-spacing: 0.11em;
+    letter-spacing: 0.08em;
     color: colors.$brown-dark;
     font-family: fonts.$ff-headings;
     font-size: 18px;
@@ -48,6 +56,8 @@
 
 // Titles
 @mixin t1() {
+    word-spacing: 0.11em;
+    letter-spacing: 0.08em;
     color: colors.$brown-dark;
     font-family: fonts.$ff-body-text;
     font-size: 20px;
@@ -62,6 +72,8 @@
 }
 
 @mixin t2() {
+    word-spacing: 0.11em;
+    letter-spacing: 0.08em;
     color: colors.$brown-dark;
     font-family: fonts.$ff-body-text;
     font-size: 18px;
@@ -77,12 +89,14 @@
 
 // Body text
 @mixin b1() {
+    word-spacing: 0.11em;
+    letter-spacing: 0.08em;
     color: colors.$brown-dark;
     font-family: fonts.$ff-body-text;
     font-size: 20px;
     font-style: normal;
     font-weight: fonts.$fw-regular;
-    line-height: 22px;
+    line-height: 30px;
 
     @include bp.lw(m) {
         font-size: 18px;
@@ -91,24 +105,28 @@
 }
 
 @mixin b2() {
+    word-spacing: 0.11em;
+    letter-spacing: 0.08em;
     color: colors.$brown-dark;
     font-family: fonts.$ff-body-text;
     font-size: 16px;
     font-style: normal;
     font-weight: fonts.$fw-regular;
-    line-height: 18px;
+    line-height: 22px;
 
     @include bp.lw(m) {
         font-size: 14px;
-        line-height: 16px;
+        line-height: 20px;
     }
 }
 
 @mixin b3() {
+    word-spacing: 0.11em;
+    letter-spacing: 0.08em;
     color: colors.$brown-dark;
     font-family: fonts.$ff-body-text;
     font-size: 12px;
     font-style: normal;
     font-weight: fonts.$fw-regular;
-    line-height: 14px;
+    line-height: 18px;
 }
