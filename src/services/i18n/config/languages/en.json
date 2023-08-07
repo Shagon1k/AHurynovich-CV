@@ -9,7 +9,8 @@
     },
     "header": {
         "accessibilityHelper": {
-            "description": "This is Accessibility helper section. Here you can use \"Skip to\" links to navigate to specific section or get acknowledged with site Accessibility statement.",
+            "title": "Accessibility helper",
+            "description": "Here you can use \"Skip to\" links to navigate to specific section or get acknowledged with site Accessibility statement.",
             "skipToContent": "Skip to \"{{title}}\" section"
         },
         "logoDescription": "Aliaksei Hurynovich's website logo",

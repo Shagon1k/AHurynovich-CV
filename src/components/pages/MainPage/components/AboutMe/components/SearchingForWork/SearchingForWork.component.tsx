@@ -20,12 +20,7 @@ const SearchingForWork: React.FC<ISearchingForWorkProps> = ({ isSearchingForWork
 
     return (
         <div className={styles['container']}>
-            <img
-                className={styles['searching-image']}
-                src={searchingImgUrl}
-                alt={searchingImgDescription}
-                aria-describedby='searching-description'
-            />
+            <img className={styles['searching-image']} src={searchingImgUrl} alt={searchingImgDescription} />
             <div className={styles['searching-text-wrapper']}>
                 <span id='searching-text' className={styles['searching-text']}>
                     {text}

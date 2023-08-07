@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { useTranslates } from '@reusables/custom-hooks';
@@ -20,28 +20,30 @@ const AccessibilityHelper: React.FC<IAccessibilityHelperProps> = ({
     const { t } = useTranslates();
     const { pathname } = useLocation();
 
-    // Helper popup close effects
-    useEffect(() => {
-        const handleEscapeKey = (event: KeyboardEvent) => {
-            if (event.code === 'Escape') {
-                firstFocusableElemRef.current?.focus();
-            }
-        };
-
-        document.addEventListener('keydown', handleEscapeKey);
-
-        return () => {
-            document.removeEventListener('keydown', handleEscapeKey);
-        };
-    }, [firstFocusableElemRef]);
+    const handleEscapeKey = (event: KeyboardEvent) => {
+        if (event.code === 'Escape') {
+            firstFocusableElemRef.current?.focus();
+        }
+    };
 
     return (
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- exception to handle "Escape" button click when A11y Helper on focus
         <div
             className={styles['accessibility-helper']}
             role='dialog'
             aria-modal={true}
+            aria-labelledby='accessibility-helper-title'
             aria-describedby='accessibility-helper-description'
+            onFocus={() => {
+                document.addEventListener('keydown', handleEscapeKey);
+            }}
+            onBlur={() => {
+                document.removeEventListener('keydown', handleEscapeKey);
+            }}
         >
+            <span id='accessibility-helper-title' className='visuallyhidden'>
+                {t('header.accessibilityHelper.title')}
+            </span>
             <span id='accessibility-helper-description' className='visuallyhidden'>
                 {t('header.accessibilityHelper.description')}
             </span>
