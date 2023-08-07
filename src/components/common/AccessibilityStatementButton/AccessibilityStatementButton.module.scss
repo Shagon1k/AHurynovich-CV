@@ -1,14 +1,32 @@
 @use '@base-styles-mixins/common' as cmn;
+@use '@base-styles-mixins/typography' as t;
 
 .a11y-statement-btn {
     @include cmn.button-reset;
     @include cmn.link;
 }
 
+.a11y-statement-note {
+    @include t.b3;
+
+    margin-top: 20px;
+}
+
 .a11y-statement-content {
-    padding: 20px;
+    max-width: 800px;
+    padding: 0 30px 30px;
+
+    h3 {
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin: 12px 0;
+    }
 
     ul {
+        padding-left: 10px;
         list-style: disc;
+        list-style-position: inside;
     }
 }

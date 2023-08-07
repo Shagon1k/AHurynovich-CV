@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { memo, useState } from 'react';
+import sanitizeHTML from 'sanitize-html';
 
 import { useTranslates } from '@reusables/custom-hooks';
 import Popup from '@components/base/Popup';
@@ -39,10 +40,10 @@ const AccessibilityStatementButton: React.FC<IAccessibilityStatementButtonProps>
                     <Popup.Header>{t('accessibilityStatement.title')}</Popup.Header>
                     <Popup.Content>
                         <div className={styles['a11y-statement-content']}>
+                            <div dangerouslySetInnerHTML={{ __html: sanitizeHTML(statementMarkup) }} />
                             <div className={styles['a11y-statement-note']}>
                                 {t('accessibilityStatement.note')}
                             </div>
-                            <div dangerouslySetInnerHTML={{ __html: statementMarkup }} />
                         </div>
                     </Popup.Content>
                 </Popup>
