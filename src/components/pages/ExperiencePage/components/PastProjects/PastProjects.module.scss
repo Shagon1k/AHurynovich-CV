@@ -34,7 +34,7 @@
         z-index: 0;
         width: 100%;
         height: 100%;
-        background-image: url('@assets/images/sections/past-projects/film.svg?url');
+        background-image: url('./images/film.svg?url');
 
         @include bp.lw(m) {
             transform: rotate(90deg);

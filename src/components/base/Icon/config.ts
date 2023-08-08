@@ -1,36 +1,36 @@
-// Base
-import CrossSVG from '@assets/images/icons/cross.svg';
+// General
+import CrossSVG from './images/cross.svg';
 
 // Tech skills
-import JSSVG from '@assets/images/icons/tech-skills/js.svg';
-import TSSVG from '@assets/images/icons/tech-skills/ts.svg';
-import HTMLSVG from '@assets/images/icons/tech-skills/html.svg';
-import CSSSVG from '@assets/images/icons/tech-skills/css.svg';
-import SASSSVG from '@assets/images/icons/tech-skills/sass.svg';
-import ReactSVG from '@assets/images/icons/tech-skills/react.svg';
-import ReduxSVG from '@assets/images/icons/tech-skills/redux.svg';
-import WebpackSVG from '@assets/images/icons/tech-skills/webpack.svg';
-import JestSVG from '@assets/images/icons/tech-skills/jest.svg';
-import RTLSVG from '@assets/images/icons/tech-skills/rtl.svg';
-import AWSSVG from '@assets/images/icons/tech-skills/aws.svg';
-import GitSVG from '@assets/images/icons/tech-skills/git.svg';
-import A11ySVG from '@assets/images/icons/tech-skills/a11y.svg';
+import JSSVG from './images/tech-skills/js.svg';
+import TSSVG from './images/tech-skills/ts.svg';
+import HTMLSVG from './images/tech-skills/html.svg';
+import CSSSVG from './images/tech-skills/css.svg';
+import SASSSVG from './images/tech-skills/sass.svg';
+import ReactSVG from './images/tech-skills/react.svg';
+import ReduxSVG from './images/tech-skills/redux.svg';
+import WebpackSVG from './images/tech-skills/webpack.svg';
+import JestSVG from './images/tech-skills/jest.svg';
+import RTLSVG from './images/tech-skills/rtl.svg';
+import AWSSVG from './images/tech-skills/aws.svg';
+import GitSVG from './images/tech-skills/git.svg';
+import A11ySVG from './images/tech-skills/a11y.svg';
 
 // Reasons
-import TeamplayerSVG from '@assets/images/icons/reasons/teamplayer.svg';
-import ExperiencedSVG from '@assets/images/icons/reasons/experienced.svg';
-import KnowledgeThirstSVG from '@assets/images/icons/reasons/knowledge-thirst.svg';
-import ResponsibleSVG from '@assets/images/icons/reasons/responsible.svg';
-import MentorSVG from '@assets/images/icons/reasons/mentor.svg';
+import TeamplayerSVG from './images/reasons/teamplayer.svg';
+import ExperiencedSVG from './images/reasons/experienced.svg';
+import KnowledgeThirstSVG from './images/reasons/knowledge-thirst.svg';
+import ResponsibleSVG from './images/reasons/responsible.svg';
+import MentorSVG from './images/reasons/mentor.svg';
 
 // Socials
-import FacebookSVG from '@assets/images/icons/socials/facebook.svg';
-import GithubSVG from '@assets/images/icons/socials/github.svg';
-import InstagramSVG from '@assets/images/icons/socials/instagram.svg';
-import LinkedinSVG from '@assets/images/icons/socials/linkedin.svg';
-import TelegramSVG from '@assets/images/icons/socials/telegram.svg';
-import TwitterSVG from '@assets/images/icons/socials/twitter.svg';
-import YoutubeSVG from '@assets/images/icons/socials/youtube.svg';
+import FacebookSVG from './images/socials/facebook.svg';
+import GithubSVG from './images/socials/github.svg';
+import InstagramSVG from './images/socials/instagram.svg';
+import LinkedinSVG from './images/socials/linkedin.svg';
+import TelegramSVG from './images/socials/telegram.svg';
+import TwitterSVG from './images/socials/twitter.svg';
+import YoutubeSVG from './images/socials/youtube.svg';
 
 export const ICON_NAME_TO_SVG_MAP = {
     cross: CrossSVG,

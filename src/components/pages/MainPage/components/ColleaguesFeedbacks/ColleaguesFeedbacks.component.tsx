@@ -4,10 +4,10 @@ import { useTranslates } from '@reusables/custom-hooks';
 import Section from '@components/base/Section';
 import Carousel from '@components/base/Carousel';
 import { hashCode } from '@utils/strings';
-import owlImgUrl from '@assets/images/sections/colleagues-feedbacks/owl.svg?url';
-import featherImgUrl from '@assets/images/sections/colleagues-feedbacks/feather.svg?url';
-import portraitMaleImgUrl from '@assets/images/sections/colleagues-feedbacks/portrait_male.svg?url';
-import portraitFemaleImgUrl from '@assets/images/sections/colleagues-feedbacks/portrait_female.svg?url';
+import owlImgUrl from './images/owl.svg?url';
+import featherImgUrl from './images/feather.svg?url';
+import portraitMaleImgUrl from './images/portrait_male.svg?url';
+import portraitFemaleImgUrl from './images/portrait_female.svg?url';
 
 import styles from './ColleaguesFeedbacks.module.scss';
 

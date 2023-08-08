@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import { useState, useEffect } from 'react';
 
 import { useTranslates } from '@reusables/custom-hooks';
-import LoaderGearS from '@assets/images/loader/loader-gear-s.svg';
-import LoaderGearM from '@assets/images/loader/loader-gear-m.svg';
-import LoaderGearL from '@assets/images/loader/loader-gear-l.svg';
+import LoaderGearS from './images/loader-gear-s.svg';
+import LoaderGearM from './images/loader-gear-m.svg';
+import LoaderGearL from './images/loader-gear-l.svg';
 
 import styles from './Loader.module.scss';
 
