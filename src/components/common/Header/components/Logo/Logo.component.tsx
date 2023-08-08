@@ -6,7 +6,7 @@ import { useTranslates } from '@reusables/custom-hooks';
 import { selectIsAppScrolledDown } from '@slices/app-info/app-info.selector';
 import Link from '@components/base/Link';
 import { ROUTES_CONFIG } from '@components/routes/routes.config';
-import logoImgUrl from '@assets/images/logo.svg?url';
+import logoImgUrl from './images/logo.svg?url';
 
 import styles from './Logo.module.scss';
 

@@ -43,7 +43,7 @@
         left: 0;
         display: block;
         width: calc(100% + 30px); // Additional width for projector's top part image elements
-        background-image: url('@assets/images/sections/career-flow/projector-wall_top.svg?url');
+        background-image: url('./images/projector-wall_top.svg?url');
         background-position: center;
         background-repeat: no-repeat;
         aspect-ratio: 300/42;
@@ -57,7 +57,7 @@
         left: 0;
         display: block;
         width: 100%;
-        background-image: url('@assets/images/sections/career-flow/projector-wall_bottom.svg?url');
+        background-image: url('./images/projector-wall_bottom.svg?url');
         background-position: center;
         background-repeat: no-repeat;
         aspect-ratio: 300/34;

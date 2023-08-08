@@ -7,7 +7,7 @@ import { useTranslates } from '@reusables/custom-hooks';
 import Section from '@components/base/Section';
 import Icon, { type IIconName } from '@components/base/Icon';
 import { hashCode } from '@utils/strings';
-import batteryLevelImgUrl from '@assets/images/sections/my-expertise/battery-level.svg?url';
+import batteryLevelImgUrl from './images/battery-level.svg?url';
 
 import styles from './MyExpertise.module.scss';
 

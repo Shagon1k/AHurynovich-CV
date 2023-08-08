@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 import { useTranslates } from '@reusables/custom-hooks';
 import { selectIsAppScrolledDown } from '@slices/app-info/app-info.selector';
-import BalloonSVG from '@assets/images/balloon.svg';
+import BalloonSVG from './images/balloon.svg';
 
 import styles from './ScrollTopButton.module.scss';
 

@@ -40,7 +40,7 @@
     align-items: center;
     width: 200px;
     padding: 55px 54px 10px 10px; // Padding configured to provide inner space based on bg image
-    background-image: url('@assets/images/sections/my-expertise/tv.svg?url');
+    background-image: url('./images/tv.svg?url');
     aspect-ratio: 484/450;
 
     @include bp.lw(m) {
@@ -62,7 +62,7 @@
     flex-flow: row nowrap;
     width: 48px;
     padding: 2px;
-    background-image: url('@assets/images/sections/my-expertise/battery.svg?url');
+    background-image: url('./images/battery.svg?url');
     aspect-ratio: 276/150;
 
     @include bp.lw(m) {

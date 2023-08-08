@@ -5,8 +5,8 @@ import Section from '@components/base/Section';
 import Icon, { type IIconName } from '@components/base/Icon';
 import Link from '@components/base/Link';
 import { ROUTES_CONFIG } from '@components/routes/routes.config';
-import airshipImgUrl from '@assets/images/sections/my-skills/airship.svg?url';
-import flagImgUrl from '@assets/images/sections/my-skills/flag.svg?url';
+import airshipImgUrl from './images/airship.svg?url';
+import flagImgUrl from './images/flag.svg?url';
 
 import styles from './MySkills.module.scss';
 
