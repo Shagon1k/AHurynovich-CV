@@ -26,13 +26,6 @@ module.exports = {
                 'categories:best-practices': ['error', { minScore: 1, aggregationMethod: 'pessimistic' }],
                 'categories:seo': ['error', { minScore: 0.9, aggregationMethod: 'pessimistic' }],
                 'csp-xss': 'warn',
-                /**
-                 * Some of images have a bit larger size that in fact used.
-                 * That size is not dramatically higher but provides more flexibility in image usage until designs are not final.
-                 */
-                'uses-responsive-images': 'warn',
-                // TEMPORARY: Footer BG image should not be lazy loaded for "Passions" page right now as consumed as LCP. As this is temporary (until page be implemented) - set to "warn".
-                'lcp-lazy-loaded': 'warn',
                 // Turned OFF cause for some reason some packages (e.g. helmet, react-dom) are not tree-shaked
                 'unused-javascript': 'off',
                 // TEMPORARY: LightHouse has some issue related with "axe" which is used. Should be reconsidered to turn ON in future.

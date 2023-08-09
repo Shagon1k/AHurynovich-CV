@@ -36,6 +36,15 @@ const commonConfig = {
         filename: `${DIST_SCRIPTS_PREFIX}/index.js`,
         chunkFilename: `${DIST_SCRIPTS_PREFIX}/chunks/[name].[chunkhash].js`,
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            name: (module, chunks) => {
+                const allChunksNames = chunks.map((chunk) => chunk.name).join('-');
+                return allChunksNames;
+            },
+        },
+    },
     target: 'web',
     externals: ['jsdom'],
     plugins: [
