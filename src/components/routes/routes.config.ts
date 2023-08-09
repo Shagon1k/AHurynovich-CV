@@ -1,8 +1,14 @@
 import { lazy } from 'react';
 
-const MainPage = lazy(() => import(/* webpackPrefetch: true */ '@pages/MainPage'));
-const Experience = lazy(() => import(/* webpackPrefetch: true */ '@pages/ExperiencePage'));
-const PassionsPage = lazy(() => import(/* webpackPrefetch: true */ '@pages/PassionsPage'));
+const MainPage = lazy(
+    () => import(/* webpackChunkName: "main-page", webpackPrefetch: true */ '@pages/MainPage')
+);
+const Experience = lazy(
+    () => import(/* webpackChunkName: "experience-page", webpackPrefetch: true */ '@pages/ExperiencePage')
+);
+const PassionsPage = lazy(
+    () => import(/* webpackChunkName: "passions-page", webpackPrefetch: true */ '@pages/PassionsPage')
+);
 
 export const ROUTES_CONFIG = {
     main: {
