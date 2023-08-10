@@ -24,6 +24,9 @@
                 "close": "Закрыть навигацию"
             }
         },
+        "downloadCVLink": {
+            "title": "Скачать PDF версию резюме"
+        },
         "languageSwitcher": {
             "language": {
                 "en": "Английский язык",

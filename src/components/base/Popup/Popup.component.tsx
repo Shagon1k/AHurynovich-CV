@@ -69,7 +69,7 @@ const Popup: React.FC<IPopupProps> & IPopupParts = ({ children, onClose }) => {
                         title={t('popup.closeButtonLabel')}
                         aria-label={t('popup.closeButtonLabel')}
                     >
-                        <Icon className={styles['popup-close-btn-icn']} name='cross' size='s' />
+                        <Icon className={styles['popup-close-btn-icn']} name='cross' size='xs' />
                     </button>
                     {purifiedChildren}
                 </div>

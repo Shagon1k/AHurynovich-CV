@@ -41,7 +41,7 @@ type IMyExpertiseItemProps = IExperiencesList[number];
 
 const MyExpertiseItem: React.FC<IMyExpertiseItemProps> = ({ name, description, level, iconName }) => {
     const { t } = useTranslates();
-    const breakpointName = useSelector(selectAppBreakpoint) || '';
+    const breakpointName = useSelector(selectAppBreakpoint);
     const iconSize = [BP.XS, BP.S].includes(breakpointName) ? 'm' : 'l';
 
     const levelDescription = t(

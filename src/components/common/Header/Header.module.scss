@@ -33,6 +33,27 @@
     }
 }
 
+.header-meta {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    display: flex;
+    flex-flow: row nowrap;
+    transform: translateY(-50%);
+
+    @include bp.lw(m) {
+        right: 10%;
+    }
+
+    & > * {
+        margin-left: 30px;
+
+        @include bp.lw(m) {
+            margin-left: 15px;
+        }
+    }
+}
+
 .gear-wrapper {
     position: absolute;
     top: 0;

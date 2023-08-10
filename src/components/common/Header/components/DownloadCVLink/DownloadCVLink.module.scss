@@ -1,0 +1,21 @@
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/bp';
+
+.download-cv-link {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 27px;
+    height: 27px;
+    line-height: 0;
+
+    @include bp.lw(m) {
+        width: 20px;
+        height: 20px;
+    }
+
+    &:active {
+        border: 1px solid c.$brown-dark;
+    }
+}
