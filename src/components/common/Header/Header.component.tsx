@@ -6,6 +6,7 @@ import { type ISkipToContentLink } from '@reusables/skip-to-content.context';
 import AccessibilityHelper from './components/AccessibilityHelper';
 import Logo from './components/Logo';
 import Navigation from './components/Navigation';
+import DownloadCVLink from './components/DownloadCVLink';
 import LanguageSwitcher from './components/LanguageSwitcher';
 
 import styles from './Header.module.scss';
@@ -46,7 +47,10 @@ const Header: React.FC<IHeaderProps> = ({ firstFocusableElemRef, skipToContentLi
                     onLeave={handleHeaderElemLeave}
                 />
                 <Navigation onEnter={handleHeaderElemEnter} onLeave={handleHeaderElemLeave} />
-                <LanguageSwitcher onEnter={handleHeaderElemEnter} onLeave={handleHeaderElemLeave} />
+                <div className={styles['header-meta']}>
+                    <DownloadCVLink onEnter={handleHeaderElemEnter} onLeave={handleHeaderElemLeave} />
+                    <LanguageSwitcher onEnter={handleHeaderElemEnter} onLeave={handleHeaderElemLeave} />
+                </div>
                 <div className={`${gearWrapperCn} ${styles['m-right']}`}>
                     <GearSVG className={styles['gear']} aria-hidden={true} />
                 </div>

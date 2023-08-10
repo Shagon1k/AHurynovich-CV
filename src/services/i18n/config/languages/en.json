@@ -24,6 +24,9 @@
                 "close": "Close navigation"
             }
         },
+        "downloadCVLink": {
+            "title": "Download CV PDF version"
+        },
         "languageSwitcher": {
             "language": {
                 "en": "English language",

@@ -1,7 +1,7 @@
 export const APP_ROOT_ID = 'root';
 export const POPUP_ROOT_ID = 'popup-root';
 
-export enum BP {
+export const enum BP {
     XS = 'XS',
     S = 'S',
     M = 'M',
@@ -17,4 +17,4 @@ export const BP_TO_WIDTH = {
     [BP.L]: [1024, 1365],
     [BP.XL]: [1366, 1919],
     [BP.XXL]: [1920, Infinity],
-};
+} as const;

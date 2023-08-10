@@ -1,5 +1,6 @@
 // General
 import CrossSVG from './images/cross.svg';
+import DownloadSVG from './images/download.svg';
 
 // Tech skills
 import JSSVG from './images/tech-skills/js.svg';
@@ -34,6 +35,7 @@ import YoutubeSVG from './images/socials/youtube.svg';
 
 export const ICON_NAME_TO_SVG_MAP = {
     cross: CrossSVG,
+    download: DownloadSVG,
     js: JSSVG,
     ts: TSSVG,
     html: HTMLSVG,
@@ -62,7 +64,8 @@ export const ICON_NAME_TO_SVG_MAP = {
 } as const;
 
 export const ICONS_SIZES_MAP = {
-    s: 20,
+    xs: 20,
+    s: 27,
     m: 35,
     l: 60,
     xl: 100,

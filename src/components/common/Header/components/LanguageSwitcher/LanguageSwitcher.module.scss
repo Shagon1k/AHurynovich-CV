@@ -5,13 +5,6 @@
 .language-switcher {
     @include cmn.button-reset;
 
-    position: absolute;
-    right: 8%;
-
-    @include bp.lw(m) {
-        right: 12%;
-    }
-
     &:active {
         .language-switcher-img {
             border: 1px solid c.$brown-dark;
