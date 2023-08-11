@@ -42,7 +42,7 @@ const PastProjectItem: React.FC<IPastProjectItemProps> = ({ title, description, 
                     src={imgUrl}
                     alt={`${title} ${t('common.logo')}`}
                 />
-                {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex --- add ability to navigate with keyboard to reveal card content */}
+                {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex -- add ability to navigate with keyboard to reveal card content */}
                 <div className={styles['project-card-content']} tabIndex={0}>
                     <h2 className={styles['project-card-title']}>{title}</h2>
                     <p className={styles['project-card-description']}>{description}</p>

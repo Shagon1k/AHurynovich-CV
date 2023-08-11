@@ -39,21 +39,24 @@
     flex-flow: column nowrap;
     align-items: center;
     width: 200px;
-    padding: 55px 54px 10px 10px; // Padding configured to provide inner space based on bg image
+    padding: 55px 55px 10px 10px; // Padding configured to provide inner space based on bg image
     background-image: url('./images/tv.svg?url');
+    background-repeat: no-repeat;
     aspect-ratio: 484/450;
 
     @include bp.lw(m) {
-        width: 100px;
-        padding: 28px 27px 5px 5px;
+        width: 125px;
+        padding: 34px 34px 7px 7px;
     }
 }
 
 .experience-tv-skill-icon {
+    display: flex;
+    flex-flow: row nowrap;
     margin: 15px 0 5px;
 
     @include bp.lw(m) {
-        margin: 2px 0;
+        margin: 10px 0 5px;
     }
 }
 
@@ -63,6 +66,7 @@
     width: 48px;
     padding: 2px;
     background-image: url('./images/battery.svg?url');
+    background-repeat: no-repeat;
     aspect-ratio: 276/150;
 
     @include bp.lw(m) {
