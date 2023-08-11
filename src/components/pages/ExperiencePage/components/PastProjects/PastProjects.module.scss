@@ -58,9 +58,11 @@
 
     .project-card-content {
         opacity: 0;
+        pointer-events: none;
     }
 
     &:hover,
+    &:active,
     &:focus-within {
         .project-card-logo {
             opacity: 0;
@@ -68,6 +70,7 @@
 
         .project-card-content {
             opacity: 1;
+            pointer-events: all;
         }
     }
 }
