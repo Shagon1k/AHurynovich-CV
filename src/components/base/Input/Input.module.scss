@@ -26,7 +26,10 @@
     background: 0;
 
     &.m-textarea {
+        min-width: 100px;
+        max-width: 100%;
         height: auto;
+        min-height: 60px;
         border: 1px solid c.$brown-dark;
     }
 
