@@ -7,7 +7,8 @@ import Pagination from './components/Pagination';
 
 import styles from './Carousel.module.scss';
 
-const PAGE_TOUCH_DELTA_THRESHOLD = 40;
+const PAGE_TOUCH_VERTICAL_CHANGE_BAN_THRESHOLD = 50;
+const PAGE_TOUCH_HORIZONTAL_CHANGE_THRESHOLD = 60;
 
 interface ICarouselProps extends React.PropsWithChildren {
     withPagination?: boolean;
@@ -30,7 +31,13 @@ const Carousel: React.FC<ICarouselProps> = ({
     onSlideChange,
 }) => {
     const { t } = useTranslates();
-    const touchStartXPosRef = useRef<number | null>(null);
+    const touchStartPosRef = useRef<{
+        x: number | null;
+        y: number | null;
+    }>({
+        x: null,
+        y: null,
+    });
     const isFirstRender = useRef(true);
     const firstItemIndex = 0;
     const lastItemIndex = Children.count(children) - 1;
@@ -62,26 +69,39 @@ const Carousel: React.FC<ICarouselProps> = ({
 
     //Touch
     const handleTouchStart = (e: React.TouchEvent) => {
-        touchStartXPosRef.current = e.touches[0].clientX;
+        touchStartPosRef.current = {
+            x: e.touches[0].clientX,
+            y: e.touches[0].clientY,
+        };
     };
     const handleTouchEnd = (e: React.TouchEvent) => {
-        const touchStartXPos = touchStartXPosRef.current;
-        if (typeof touchStartXPos !== 'number' || !Number.isFinite(touchStartXPos)) return;
+        const { x: touchStartX, y: touchStartY } = touchStartPosRef.current;
+        if (typeof touchStartX !== 'number' || typeof touchStartY !== 'number') return;
 
-        const touchDelta = e.changedTouches[0].clientX - touchStartXPos;
+        const touchXDelta = e.changedTouches[0].clientX - touchStartX;
+        const touchYDelta = e.changedTouches[0].clientY - touchStartY;
+
+        touchStartPosRef.current = {
+            x: null,
+            y: null,
+        };
+
+        // Skip page change if vertical based manipulation detected (e.g. scroll)
+        if (Math.abs(touchYDelta) > PAGE_TOUCH_VERTICAL_CHANGE_BAN_THRESHOLD) {
+            return;
+        }
+
         if (
-            touchDelta > PAGE_TOUCH_DELTA_THRESHOLD &&
+            touchXDelta > PAGE_TOUCH_HORIZONTAL_CHANGE_THRESHOLD &&
             (withInfiniteLoop || currentPageIndex !== firstItemIndex)
         ) {
             handlePrevPage();
         } else if (
-            touchDelta < -PAGE_TOUCH_DELTA_THRESHOLD &&
+            touchXDelta < -PAGE_TOUCH_HORIZONTAL_CHANGE_THRESHOLD &&
             (withInfiniteLoop || currentPageIndex !== lastItemIndex)
         ) {
             handleNextPage();
         }
-
-        touchStartXPosRef.current = null;
     };
 
     const {
