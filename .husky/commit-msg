@@ -3,6 +3,4 @@
 
 npm run commitlint ${1};
 
-echo 'NOTE: Dont forget to follow format: [AH-X] Commit message';
-
 exit 0;
