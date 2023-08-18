@@ -4,7 +4,6 @@
 @use '@base-styles-variables/colors' as c;
 
 body {
-    // TODO: Double-consider further.
     // Replacing scroll from body element to achieve fixed address bar.
     overflow-x: hidden;
     overflow-y: auto;

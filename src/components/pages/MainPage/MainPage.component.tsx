@@ -1,7 +1,7 @@
 import AboutMe from './components/AboutMe';
-import MySkills from './components/MySkills';
-import FiveReasons from './components/FiveReasons';
 import ColleaguesFeedbacks from './components/ColleaguesFeedbacks';
+import FiveReasons from './components/FiveReasons';
+import MySkills from './components/MySkills';
 
 const MainPage: React.FC = () => {
     return (

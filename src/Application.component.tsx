@@ -1,19 +1,19 @@
+import { useState, useRef, useCallback, Suspense } from 'react';
 import { Provider as ReduxStateProvider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { useState, useRef, useCallback, Suspense } from 'react';
 
-import { ServicesProvider } from '@reusables/services.context';
-import { SkipToContentProvider, type ISkipToContentLink } from '@reusables/skip-to-content.context';
 import Loader from '@components/base/Loader';
 import Head from '@components/common/AppHead';
-import Header from '@components/common/Header';
 import Footer from '@components/common/Footer';
+import Header from '@components/common/Header';
 import ScrollTopButton from '@components/common/ScrollTopButton';
 import Routes from '@components/routes';
-
-import styles from './Application.module.scss';
+import { ServicesProvider } from '@reusables/services.context';
+import { SkipToContentProvider, type ISkipToContentLink } from '@reusables/skip-to-content.context';
 
 import { type IApplicationOptions } from './application.types';
+
+import styles from './Application.module.scss';
 
 interface IApplicationProps {
     options: IApplicationOptions;

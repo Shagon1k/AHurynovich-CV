@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { useRef } from 'react';
+
 import { hashCode } from '@utils/strings';
 
 import styles from './Pagination.module.scss';

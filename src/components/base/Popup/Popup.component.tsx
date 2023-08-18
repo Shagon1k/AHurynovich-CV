@@ -3,12 +3,13 @@ import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import FocusLock from 'react-focus-lock';
 
-import { POPUP_ROOT_ID } from '@config/application';
 import Icon from '@components/base/Icon';
+import { POPUP_ROOT_ID } from '@config/application';
 import { useTranslates } from '@reusables/custom-hooks';
-import PopupHeader from './components/PopupHeader';
+
 import PopupContent from './components/PopupContent';
 import PopupFooter from './components/PopupFooter';
+import PopupHeader from './components/PopupHeader';
 
 import styles from './Popup.module.scss';
 

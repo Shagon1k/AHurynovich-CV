@@ -1,10 +1,11 @@
 import clsx from 'clsx';
 import { useState, useEffect, useRef, ReactNode as IReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
 import FocusLock from 'react-focus-lock';
+import { useLocation } from 'react-router-dom';
 import { throttle } from 'throttle-debounce';
 
 import { useTranslates } from '@reusables/custom-hooks';
+
 import { INavItem } from '../../Navigation.component';
 
 import styles from './NavigationMobile.module.scss';

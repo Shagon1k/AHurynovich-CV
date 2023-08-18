@@ -1,6 +1,6 @@
+import { BP, BP_TO_WIDTH } from '@config/application';
 import { createSelector } from '@reduxjs/toolkit';
 
-import { BP, BP_TO_WIDTH } from '@config/application';
 import { AppInfoState } from './app-info.slice';
 
 interface IState {

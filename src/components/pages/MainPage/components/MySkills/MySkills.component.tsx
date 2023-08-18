@@ -1,10 +1,11 @@
 import { memo } from 'react';
 
-import { useTranslates } from '@reusables/custom-hooks';
-import Section from '@components/base/Section';
 import Icon, { type IIconName } from '@components/base/Icon';
 import Link from '@components/base/Link';
+import Section from '@components/base/Section';
 import { ROUTES_CONFIG } from '@components/routes/routes.config';
+import { useTranslates } from '@reusables/custom-hooks';
+
 import airshipImgUrl from './images/airship.svg?url';
 import flagImgUrl from './images/flag.svg?url';
 

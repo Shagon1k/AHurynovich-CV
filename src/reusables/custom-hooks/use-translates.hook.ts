@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { ServicesContext } from '@reusables/services.context';
-import { mirrorFunction } from '@utils/functions';
 import { selectLanguage } from '@slices/app-info/app-info.selector';
+import { mirrorFunction } from '@utils/functions';
 
 // Custom hook to provide translate function
 export const useTranslates = () => {

@@ -1,8 +1,9 @@
-import { call, getContext, put, takeLatest } from 'redux-saga/effects';
 import { AnyAction as IAnyAction } from 'redux';
+import { call, getContext, put, takeLatest } from 'redux-saga/effects';
 
 import { ILanguageCodes } from '@services';
 import { setAppLanguage } from '@slices/app-info/app-info.slice';
+
 import { ACTION_TYPES } from './i18n.slice';
 
 const { CHANGE_LANGUAGE } = ACTION_TYPES;

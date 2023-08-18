@@ -1,5 +1,6 @@
-import styles from './_Example.module.scss';
 import { useSkipToContent, useTranslates } from '@reusables/custom-hooks';
+
+import styles from './_Example.module.scss';
 
 interface IExampleProps {
     onMakeHelloClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;

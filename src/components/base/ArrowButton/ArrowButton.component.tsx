@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import GearSimplifiedSVG from '@assets/images/gears/gear-simplified.svg';
+
 import TriangleSVG from './images/triangle.svg';
 
 import styles from './ArrowButton.module.scss';

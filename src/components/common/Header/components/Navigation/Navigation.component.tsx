@@ -1,12 +1,13 @@
 import { useCallback, useMemo, memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { useTranslates } from '@reusables/custom-hooks';
-import { selectIsMobile } from '@slices/app-info/app-info.selector';
 import Link from '@components/base/Link';
 import { ROUTES_CONFIG } from '@components/routes/routes.config';
-import NavigationMobile from './components/NavigationMobile';
+import { useTranslates } from '@reusables/custom-hooks';
+import { selectIsMobile } from '@slices/app-info/app-info.selector';
+
 import NavigationDesktop from './components/NavigationDesktop';
+import NavigationMobile from './components/NavigationMobile';
 
 import styles from './Navigation.module.scss';
 

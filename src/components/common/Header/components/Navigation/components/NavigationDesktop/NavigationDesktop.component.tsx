@@ -1,5 +1,5 @@
+import { type INavItem } from '../../Navigation.component';
 import splitArrayByTwo from './helpers/splitArrayByTwo';
-import { INavItem } from '../../Navigation.component';
 
 import styles from './NavigationDesktop.module.scss';
 

@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { BP } from '@config/application';
-import { selectAppBreakpoint } from '@slices/app-info/app-info.selector';
-import { useTranslates } from '@reusables/custom-hooks';
 import Icon from '@components/base/Icon';
+import { BP } from '@config/application';
+import { useTranslates } from '@reusables/custom-hooks';
+import { selectAppBreakpoint } from '@slices/app-info/app-info.selector';
 
 import styles from './DownloadCVLink.module.scss';
 

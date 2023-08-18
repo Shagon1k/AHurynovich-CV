@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 import { DEFAULT_LANGUAGE_CODE, ILanguageCodes } from '@services';
 
 const initialState = {

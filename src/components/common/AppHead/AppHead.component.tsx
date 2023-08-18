@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux';
 import HelmetSync from 'react-helmet';
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import { ROUTES_CONFIG } from '@components/routes/routes.config';
-import { selectLanguage } from '@slices/app-info/app-info.selector';
 import { useTranslates } from '@reusables/custom-hooks';
+import { selectLanguage } from '@slices/app-info/app-info.selector';
 
 const AppHead: React.FC = () => {
     const { pathname } = useLocation();

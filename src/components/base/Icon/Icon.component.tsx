@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import { useTranslates } from '@reusables/custom-hooks';
+
 import { ICON_NAME_TO_SVG_MAP, ICONS_SIZES_MAP } from './config';
 
 import styles from './Icon.module.scss';

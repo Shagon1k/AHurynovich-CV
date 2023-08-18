@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { useTranslates } from '@reusables/custom-hooks';
-import { type ISkipToContentLink } from '@reusables/skip-to-content.context';
 import Link from '@components/base/Link';
 import AccessibilityStatementButton from '@components/common/AccessibilityStatementButton';
+import { useTranslates } from '@reusables/custom-hooks';
+import { type ISkipToContentLink } from '@reusables/skip-to-content.context';
 
 import styles from './AccessibilityHelper.module.scss';
 

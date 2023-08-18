@@ -1,9 +1,10 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 
+import Section from '@components/base/Section';
 import { useTranslates } from '@reusables/custom-hooks';
 import { selectIsDesktop } from '@slices/app-info/app-info.selector';
-import Section from '@components/base/Section';
+
 import SearchingForWork from './components/SearchingForWork';
 import aboutMePhotoUrl from './images/my-photo.webp';
 
