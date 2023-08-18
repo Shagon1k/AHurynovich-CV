@@ -68,6 +68,8 @@ const NavigationMobile: React.FC<INavigationMobileProps> = ({
                 document.removeEventListener('keydown', handleEscapeKey);
             };
         }
+
+        return;
     }, [isOpened]);
     useEffect(() => {
         setIsOpened(false);
