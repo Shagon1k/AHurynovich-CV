@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import Input from '@components/base/Input';
 import Button from '@components/base/Button';
+import Input from '@components/base/Input';
 import { useTranslates } from '@reusables/custom-hooks';
 
 import styles from './ContactForm.module.scss';

@@ -1,8 +1,8 @@
 import { memo } from 'react';
 
-import { useTranslates } from '@reusables/custom-hooks';
-import Section from '@components/base/Section';
 import Icon, { type IIconName } from '@components/base/Icon';
+import Section from '@components/base/Section';
+import { useTranslates } from '@reusables/custom-hooks';
 
 import styles from './FiveReasons.module.scss';
 

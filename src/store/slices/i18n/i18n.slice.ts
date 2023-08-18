@@ -1,5 +1,4 @@
 import { createAction } from '@reduxjs/toolkit';
-
 import { ILanguageCodes } from '@services';
 
 export const ACTION_TYPES = {

@@ -1,14 +1,15 @@
 import clsx from 'clsx';
 import { memo, useCallback, useState } from 'react';
 
-import { useTranslates } from '@reusables/custom-hooks';
-import Section from '@components/base/Section';
 import Carousel, { SLIDE_CHANGE_ANIMATION_TIME } from '@components/base/Carousel';
+import Section from '@components/base/Section';
+import { useTranslates } from '@reusables/custom-hooks';
 import { hashCode } from '@utils/strings';
 import { checkIfUserPrefersReducedMotion } from '@utils/user';
-import watcherImgUrl from './images/watcher.svg?url';
-import projectorSideImgUrl from './images/projector_side.svg?url';
+
 import projectorLightImgUrl from './images/projector-light.svg?url';
+import projectorSideImgUrl from './images/projector_side.svg?url';
+import watcherImgUrl from './images/watcher.svg?url';
 
 import styles from './CareerFlow.module.scss';
 

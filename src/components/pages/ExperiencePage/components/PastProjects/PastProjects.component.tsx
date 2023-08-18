@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
-import { useTranslates } from '@reusables/custom-hooks';
 import Section from '@components/base/Section';
+import { useTranslates } from '@reusables/custom-hooks';
 import { hashCode } from '@utils/strings';
 
 import styles from './PastProjects.module.scss';

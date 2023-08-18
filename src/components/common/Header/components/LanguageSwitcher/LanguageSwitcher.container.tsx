@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ILanguageCodes } from '@services';
-import { changeLanguage } from '@slices/i18n/i18n.slice';
 import { selectLanguage } from '@slices/app-info/app-info.selector';
+import { changeLanguage } from '@slices/i18n/i18n.slice';
+
 import LanguageSwitcher from './LanguageSwitcher.component';
 
 interface ILanguageSwitcherContainerProps {

@@ -2,10 +2,11 @@ import clsx from 'clsx';
 import { forwardRef, memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { useTranslates } from '@reusables/custom-hooks';
-import { selectIsAppScrolledDown } from '@slices/app-info/app-info.selector';
 import Link from '@components/base/Link';
 import { ROUTES_CONFIG } from '@components/routes/routes.config';
+import { useTranslates } from '@reusables/custom-hooks';
+import { selectIsAppScrolledDown } from '@slices/app-info/app-info.selector';
+
 import logoImgUrl from './images/logo.svg?url';
 
 import styles from './Logo.module.scss';

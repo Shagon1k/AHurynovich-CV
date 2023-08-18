@@ -3,11 +3,12 @@ import { memo, useState, useCallback } from 'react';
 
 import GearSVG from '@assets/images/gears/gear.svg';
 import { type ISkipToContentLink } from '@reusables/skip-to-content.context';
+
 import AccessibilityHelper from './components/AccessibilityHelper';
-import Logo from './components/Logo';
-import Navigation from './components/Navigation';
 import DownloadCVLink from './components/DownloadCVLink';
 import LanguageSwitcher from './components/LanguageSwitcher';
+import Logo from './components/Logo';
+import Navigation from './components/Navigation';
 
 import styles from './Header.module.scss';
 

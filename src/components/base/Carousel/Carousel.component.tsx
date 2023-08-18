@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import { useState, useEffect, useCallback, useRef, Children, memo } from 'react';
 
-import { useTranslates } from '@reusables/custom-hooks';
 import ArrowButton from '@components/base/ArrowButton';
+import { useTranslates } from '@reusables/custom-hooks';
+
 import Pagination from './components/Pagination';
 
 import styles from './Carousel.module.scss';

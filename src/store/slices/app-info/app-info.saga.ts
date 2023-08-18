@@ -2,13 +2,13 @@ import { EventChannel as IEventChannel, eventChannel } from 'redux-saga';
 import { getContext, put, take, call, select } from 'redux-saga/effects';
 import { throttle } from 'throttle-debounce';
 
+import { selectIsAppScrolledDown } from './app-info.selector';
 import {
     setDeviceInfo,
     setIsAppScrolledDown,
     setViewportDimensions,
     type IViewportDimensions,
 } from './app-info.slice';
-import { selectIsAppScrolledDown } from './app-info.selector';
 
 const THROTTLE_DELAY = 100;
 

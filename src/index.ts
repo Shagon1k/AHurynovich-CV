@@ -1,9 +1,10 @@
 import { createRoot } from 'react-dom/client';
 
+import { APP_ROOT_ID } from '@config/application';
+import { createServices } from '@services';
+
 import { createApp } from './application';
 import { createAppStore } from './store/store';
-import { createServices } from '@services';
-import { APP_ROOT_ID } from '@config/application';
 
 // Get services created and handled on client side
 const getServices = () => {

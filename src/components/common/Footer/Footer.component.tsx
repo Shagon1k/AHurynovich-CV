@@ -1,13 +1,14 @@
 import { memo } from 'react';
 
+import AccessibilityStatementButton from '@components/common/AccessibilityStatementButton';
 import { useTranslates, useSkipToContent } from '@reusables/custom-hooks';
+
+import ContactForm from './components/ContactForm';
+import Socials from './components/Socials';
+import footerBgImgUrl from './images/footer-bg.webp';
 import footerBgImg500Url from './images/footer-bg_500.webp';
 import footerBgImg750Url from './images/footer-bg_750.webp';
 import footerBgImg1000Url from './images/footer-bg_1000.webp';
-import footerBgImgUrl from './images/footer-bg.webp';
-import AccessibilityStatementButton from '@components/common/AccessibilityStatementButton';
-import ContactForm from './components/ContactForm';
-import Socials from './components/Socials';
 
 import styles from './Footer.module.scss';
 

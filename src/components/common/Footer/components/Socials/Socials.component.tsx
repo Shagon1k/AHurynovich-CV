@@ -5,8 +5,9 @@ import Icon, { type IIconName } from '@components/base/Icon';
 import Link from '@components/base/Link';
 import { useTranslates } from '@reusables/custom-hooks';
 import { hashCode } from '@utils/strings';
-import trainLocoImgUrl from './images/train_loco.svg?url';
+
 import trainCarriageImgUrl from './images/train_carriage.svg?url';
+import trainLocoImgUrl from './images/train_loco.svg?url';
 import trainSmokeImgUrl from './images/train_smoke.svg?url';
 
 import styles from './Socials.module.scss';

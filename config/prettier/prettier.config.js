@@ -10,4 +10,12 @@ module.exports = {
     arrowParens: 'always',
     tabWidth: 4,
     useTabs: false,
+    importOrder: [
+        '^(?![@./]).*', // NPM packages imports
+        '@', // "@" allias-based imports
+        '^([./]).*(?<!scss)$', // non-styling relative imports
+        '^([./]).*(.scss)$', // styling relative imports
+    ],
+    importOrderSeparation: true,
+    plugins: ['@trivago/prettier-plugin-sort-imports'],
 };

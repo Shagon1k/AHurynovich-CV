@@ -1,4 +1,5 @@
 import { useTranslates } from '@reusables/custom-hooks';
+
 import TeddyBearSVG from './images/teddy-bear.svg';
 
 import styles from './PageUnderConstruction.module.scss';

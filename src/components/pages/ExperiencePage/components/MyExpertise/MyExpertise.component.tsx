@@ -1,12 +1,13 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { BP } from '@config/application';
-import { selectAppBreakpoint } from '@slices/app-info/app-info.selector';
-import { useTranslates } from '@reusables/custom-hooks';
-import Section from '@components/base/Section';
 import Icon, { type IIconName } from '@components/base/Icon';
+import Section from '@components/base/Section';
+import { BP } from '@config/application';
+import { useTranslates } from '@reusables/custom-hooks';
+import { selectAppBreakpoint } from '@slices/app-info/app-info.selector';
 import { hashCode } from '@utils/strings';
+
 import batteryLevelImgUrl from './images/battery-level.svg?url';
 
 import styles from './MyExpertise.module.scss';

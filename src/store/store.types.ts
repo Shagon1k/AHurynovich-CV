@@ -1,5 +1,4 @@
 import { type EnhancedStore as IEnhancedStore } from '@reduxjs/toolkit';
-
 import { type IServices } from '@services';
 
 export interface ICreateAppStoreOptions {

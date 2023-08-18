@@ -1,6 +1,7 @@
-import searchingYesImgUrl from './images/sfw_yes.svg?url';
-import searchingNoImgUrl from './images/sfw_no.svg?url';
 import { useTranslates } from '@reusables/custom-hooks';
+
+import searchingNoImgUrl from './images/sfw_no.svg?url';
+import searchingYesImgUrl from './images/sfw_yes.svg?url';
 
 import styles from './SearchingForWork.module.scss';
 

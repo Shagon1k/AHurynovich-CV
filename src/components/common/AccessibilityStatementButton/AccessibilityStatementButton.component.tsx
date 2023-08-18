@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import { memo, useState } from 'react';
 import sanitizeHTML from 'sanitize-html';
 
-import { useTranslates } from '@reusables/custom-hooks';
 import Popup from '@components/base/Popup';
+import { useTranslates } from '@reusables/custom-hooks';
 
 import styles from './AccessibilityStatementButton.module.scss';
 

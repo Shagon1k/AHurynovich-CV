@@ -1,9 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import { getSagaMiddleware } from './middlewares';
 import appReducer from './store.reducer';
 import rootSaga from './store.saga';
-import { getSagaMiddleware } from './middlewares';
-
 import { type ICreateAppStoreOptions, ICreateAppStore } from './store.types';
 
 /**
