@@ -6,7 +6,7 @@ import { useTranslates } from '@reusables/custom-hooks';
 
 import styles from './FiveReasons.module.scss';
 
-export type IFiveReasons = { name: string; iconName: IIconName; description: string }[];
+type IFiveReasons = { name: string; iconName: IIconName; description: string }[];
 
 interface IFiveReasonsProps {
     fiveReasonsData: IFiveReasons;
@@ -14,6 +14,10 @@ interface IFiveReasonsProps {
 
 const FiveReasons: React.FC<IFiveReasonsProps> = ({ fiveReasonsData }) => {
     const { t } = useTranslates();
+
+    if (fiveReasonsData.length === 0) {
+        return null;
+    }
 
     return (
         <Section

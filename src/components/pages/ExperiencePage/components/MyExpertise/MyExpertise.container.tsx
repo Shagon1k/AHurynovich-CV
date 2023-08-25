@@ -1,12 +1,11 @@
-// Some skills could have description and such skills will be shown with such details here.
-import { TO_API_skillsListData } from '@pages/MainPage/components/MySkills/MySkills.container';
+import { useSelector } from 'react-redux';
 
-import MyExpertise, { type IExperiencesList } from './MyExpertise.component';
+import { selectExpertise } from '@slices/content-config/content-config.selector';
 
-const TO_SELECTOR_experiencesList = TO_API_skillsListData.filter(({ description }) => !!description);
+import MyExpertise from './MyExpertise.component';
 
 const MyExpertiseContainer = () => {
-    const myExperienceData = TO_SELECTOR_experiencesList as IExperiencesList;
+    const myExperienceData = useSelector(selectExpertise);
 
     return <MyExpertise myExperienceData={myExperienceData} />;
 };

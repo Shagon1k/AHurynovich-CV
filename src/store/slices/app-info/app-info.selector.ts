@@ -1,13 +1,13 @@
 import { BP, BP_TO_WIDTH } from '@config/application';
 import { createSelector } from '@reduxjs/toolkit';
 
-import { AppInfoState } from './app-info.slice';
+import { type IAppInfoState } from './app-info.slice';
 
 interface IState {
-    appInfo: AppInfoState;
+    appInfo: IAppInfoState;
 }
 
-const selectAppInfoState = (state: IState): AppInfoState => state.appInfo;
+const selectAppInfoState = (state: IState): IAppInfoState => state.appInfo;
 const selectAppViewportWidth = createSelector(
     selectAppInfoState,
     (appInfoState) => appInfoState.viewportDimensions.width || 0

@@ -6,7 +6,7 @@ import { hashCode } from '@utils/strings';
 
 import styles from './PastProjects.module.scss';
 
-export type IPastProjectsList = { title: string; description: string; imgUrl: string }[];
+type IPastProjectsList = { title: string; description: string; imgUrl: string }[];
 
 interface IPastProjectsProps {
     pastProjectsData: IPastProjectsList;
@@ -14,6 +14,10 @@ interface IPastProjectsProps {
 
 const PastProjects: React.FC<IPastProjectsProps> = ({ pastProjectsData }) => {
     const { t } = useTranslates();
+
+    if (pastProjectsData.length === 0) {
+        return null;
+    }
 
     return (
         <Section id='past-projects' title={t('pages.experience.pastProjectsSection.title')}>

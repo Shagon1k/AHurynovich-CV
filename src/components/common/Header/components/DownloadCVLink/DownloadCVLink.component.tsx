@@ -9,12 +9,14 @@ import { selectAppBreakpoint } from '@slices/app-info/app-info.selector';
 import styles from './DownloadCVLink.module.scss';
 
 interface IDownloadCVLinkProps {
-    pdfCVLinkUrl: string;
+    pdfCVUrl: string;
     onEnter: () => void;
     onLeave: () => void;
 }
 
-const DownloadCVLink: React.FC<IDownloadCVLinkProps> = ({ pdfCVLinkUrl, onEnter, onLeave }) => {
+const DOWNLOAD_FILENAME = "Aliaksei Hurynovich's CV";
+
+const DownloadCVLink: React.FC<IDownloadCVLinkProps> = ({ pdfCVUrl, onEnter, onLeave }) => {
     const { t } = useTranslates();
     const breakpointName = useSelector(selectAppBreakpoint);
     const iconSize = [BP.XS, BP.S].includes(breakpointName) ? 'xs' : 's';
@@ -24,8 +26,8 @@ const DownloadCVLink: React.FC<IDownloadCVLinkProps> = ({ pdfCVLinkUrl, onEnter,
         <a
             className={styles['download-cv-link']}
             title={title}
-            href={pdfCVLinkUrl}
-            download
+            href={pdfCVUrl}
+            download={DOWNLOAD_FILENAME}
             onFocus={onEnter}
             onBlur={onLeave}
             onMouseEnter={onEnter}

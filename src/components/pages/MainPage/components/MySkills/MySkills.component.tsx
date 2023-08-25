@@ -11,7 +11,7 @@ import flagImgUrl from './images/flag.svg?url';
 
 import styles from './MySkills.module.scss';
 
-export type ISkillsList = { name: string; iconName: IIconName }[];
+type ISkillsList = { name: string; iconName: IIconName }[];
 
 interface IMySkillsProps {
     skillsListData: ISkillsList;
@@ -19,6 +19,10 @@ interface IMySkillsProps {
 
 const MySkills: React.FC<IMySkillsProps> = ({ skillsListData }) => {
     const { t } = useTranslates();
+
+    if (skillsListData.length === 0) {
+        return null;
+    }
 
     return (
         <Section

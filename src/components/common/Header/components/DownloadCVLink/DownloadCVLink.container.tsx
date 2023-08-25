@@ -1,7 +1,9 @@
-import DownloadCVLink from './DownloadCVLink.component';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-// TODO: Replace with real PDF CV url
-const TO_API_pdfCVLinkUrl = 'https://www.w3schools.com/images/myw3schoolsimage.jpg';
+import { selectPdfCVUrl } from '@slices/content-config/content-config.selector';
+
+import DownloadCVLink from './DownloadCVLink.component';
 
 interface IDownloadCVLinkContainerProps {
     onEnter: () => void;
@@ -9,9 +11,26 @@ interface IDownloadCVLinkContainerProps {
 }
 
 const DownloadCVLinkContainer: React.FC<IDownloadCVLinkContainerProps> = (props) => {
-    const pdfCVLinkUrl = TO_API_pdfCVLinkUrl;
+    const pdfCVExternalUrl = useSelector(selectPdfCVUrl);
+    const [pdfCVInternalUrl, setPdfCVInternalUrl] = useState('');
 
-    return <DownloadCVLink pdfCVLinkUrl={pdfCVLinkUrl} {...props} />;
+    useEffect(() => {
+        let shouldIgnore = false;
+        const getCVInternalUrl = async () => {
+            const pdfCVData = await fetch(pdfCVExternalUrl);
+            const pdfCVBlobData = await pdfCVData.blob();
+            if (!shouldIgnore) {
+                setPdfCVInternalUrl(URL.createObjectURL(pdfCVBlobData));
+            }
+        };
+        getCVInternalUrl();
+
+        return () => {
+            shouldIgnore = true;
+        };
+    }, [pdfCVExternalUrl]);
+
+    return <DownloadCVLink pdfCVUrl={pdfCVInternalUrl} {...props} />;
 };
 
 export default DownloadCVLinkContainer;

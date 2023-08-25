@@ -65,7 +65,7 @@
     &:active,
     &:focus-within {
         .project-card-logo {
-            opacity: 0;
+            opacity: 0.1;
         }
 
         .project-card-content {
