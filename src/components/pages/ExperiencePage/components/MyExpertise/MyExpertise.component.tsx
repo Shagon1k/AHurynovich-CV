@@ -12,7 +12,7 @@ import batteryLevelImgUrl from './images/battery-level.svg?url';
 
 import styles from './MyExpertise.module.scss';
 
-export type IExperiencesList = { name: string; level: number; description: string; iconName: IIconName }[];
+type IExperiencesList = { name: string; level: number; description: string; iconName: IIconName }[];
 
 interface IMyExpertiseProps {
     myExperienceData: IExperiencesList;
@@ -22,6 +22,10 @@ const MAX_LEVEL = 4;
 
 const MyExpertise: React.FC<IMyExpertiseProps> = ({ myExperienceData }) => {
     const { t } = useTranslates();
+
+    if (myExperienceData.length === 0) {
+        return null;
+    }
 
     return (
         <Section

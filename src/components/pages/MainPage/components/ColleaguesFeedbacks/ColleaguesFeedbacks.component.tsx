@@ -12,7 +12,11 @@ import portraitMaleImgUrl from './images/portrait_male.svg?url';
 
 import styles from './ColleaguesFeedbacks.module.scss';
 
-export type IColleaguesFeedbacksList = { authorRole: string; sourceName: string; text: string }[];
+type IColleaguesFeedbacksList = {
+    author: { name: string; role: string };
+    sourceName: string;
+    text: string;
+}[];
 
 interface IColleaguesFeedbacksProps {
     colleaguesFeedbacksData: IColleaguesFeedbacksList;
@@ -20,6 +24,10 @@ interface IColleaguesFeedbacksProps {
 
 const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFeedbacksData }) => {
     const { t } = useTranslates();
+
+    if (colleaguesFeedbacksData.length === 0) {
+        return null;
+    }
 
     return (
         <Section
@@ -41,7 +49,7 @@ const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFe
                 >
                     {colleaguesFeedbacksData.map((itemData) => (
                         <Feedback
-                            key={hashCode(`${itemData.authorRole}${itemData.sourceName}`)}
+                            key={hashCode(`${itemData.author.name}${itemData.sourceName}`)}
                             {...itemData}
                         />
                     ))}
@@ -53,7 +61,7 @@ const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFe
 
 type IFeedbackItemProps = IColleaguesFeedbacksList[number];
 
-const Feedback: React.FC<IFeedbackItemProps> = ({ authorRole, sourceName, text }) => {
+const Feedback: React.FC<IFeedbackItemProps> = ({ author, sourceName, text }) => {
     const portraitUrl = useRef(Math.random() < 0.5 ? portraitMaleImgUrl : portraitFemaleImgUrl);
 
     return (
@@ -68,7 +76,7 @@ const Feedback: React.FC<IFeedbackItemProps> = ({ authorRole, sourceName, text }
                 <img className={styles['feedback-feather']} src={featherImgUrl} alt='' aria-hidden={true} />
             </div>
             <h3 className={styles['feedback-title']}>
-                {authorRole} ({sourceName})
+                {author.name} ({sourceName})
             </h3>
             {/*eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex --- add ability to navigate with keyboard to scroll the content*/}
             <span tabIndex={0} className={styles['feedback-text']}>

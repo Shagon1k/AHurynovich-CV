@@ -6,16 +6,16 @@ import { useTranslates } from '@reusables/custom-hooks';
 import { selectIsDesktop } from '@slices/app-info/app-info.selector';
 
 import SearchingForWork from './components/SearchingForWork';
-import aboutMePhotoUrl from './images/my-photo.webp';
 
 import styles from './AboutMe.module.scss';
 
 interface IAboutMeProps {
     isSearchingForWork: boolean;
     aboutMeText: string;
+    photoUrl: string;
 }
 
-const AboutMe: React.FC<IAboutMeProps> = ({ isSearchingForWork, aboutMeText }) => {
+const AboutMe: React.FC<IAboutMeProps> = ({ isSearchingForWork, aboutMeText, photoUrl }) => {
     const isDesktop = useSelector(selectIsDesktop);
     const { t } = useTranslates();
     const searchingText = isSearchingForWork
@@ -41,7 +41,7 @@ const AboutMe: React.FC<IAboutMeProps> = ({ isSearchingForWork, aboutMeText }) =
             </div>
             <img
                 className={styles['photo']}
-                src={aboutMePhotoUrl}
+                src={photoUrl}
                 alt={t('pages.main.aboutMeSection.photoDescription')}
             />
         </Section>

@@ -1,22 +1,31 @@
+import { useSelector } from 'react-redux';
+
+import { selectRecipientEmail } from '@slices/content-config/content-config.selector';
+
 import ContactForm, { type ISendEmailData } from './ContactForm.component';
 
-const TO_API_myEmail = 'shagon1k@gmail.com';
-
-const TO_API_sendEmail = ({ fullName, email, phoneNumber, message }: ISendEmailData) => {
-    const resultMessage = `${message}
+const getSendEmail =
+    (receipentEmail: string) =>
+    ({ fullName, email, phoneNumber, message }: ISendEmailData) => {
+        const resultMessage = `${message}
 
 Contact info:
 Email: ${email}
 ${phoneNumber ? 'Phone number: ' + phoneNumber : ''}
     `;
 
-    window.open(
-        `mailto:${TO_API_myEmail}?subject=Offer from ${fullName}&body=${encodeURIComponent(resultMessage)}`
-    );
-};
+        window.open(
+            `mailto:${receipentEmail}?subject=Offer from ${fullName}&body=${encodeURIComponent(
+                resultMessage
+            )}`
+        );
+    };
 
 const ContactFormContainer: React.FC = () => {
-    return <ContactForm onSendEmail={TO_API_sendEmail} />;
+    const email = useSelector(selectRecipientEmail);
+    const sendEmail = getSendEmail(email);
+
+    return <ContactForm onSendEmail={sendEmail} />;
 };
 
 export default ContactFormContainer;

@@ -1,5 +1,6 @@
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import { HtmlWebpackSkipAssetsPlugin } from 'html-webpack-skip-assets-plugin';
+
 import PreloadWebpackPlugin from '@vue/preload-webpack-plugin';
 
 import { PRELOAD_ASSETS_URLS } from '../../../../src/assets/preload.config.js';

@@ -13,7 +13,7 @@ import watcherImgUrl from './images/watcher.svg?url';
 
 import styles from './CareerFlow.module.scss';
 
-export type ICareerFlowList = { title: string; date: string; description: string }[];
+type ICareerFlowList = { title: string; date: string; description: string }[];
 
 interface ICareerFlowProps {
     careerFlowData: ICareerFlowList;
@@ -44,6 +44,10 @@ const CareerFlow: React.FC<ICareerFlowProps> = ({ careerFlowData }) => {
         [styles['light']]: true,
         [styles['m-animate']]: shouldLightAnimate,
     });
+
+    if (careerFlowData.length === 0) {
+        return null;
+    }
 
     return (
         <Section

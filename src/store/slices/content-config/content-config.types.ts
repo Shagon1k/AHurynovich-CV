@@ -1,0 +1,60 @@
+import { type IIconName } from '@components/base/Icon';
+
+interface ITranslatableValue {
+    en: string;
+    ru?: string;
+}
+
+export interface IContentConfig<TTranslatableOrTranslatedValue = ITranslatableValue> {
+    pdfCVUrl: string;
+    a11yStatementMarkup: TTranslatableOrTranslatedValue;
+    aboutMe: {
+        isSearchingForWork: boolean;
+        description: TTranslatableOrTranslatedValue;
+        photoUrl: string;
+    };
+    skills: {
+        name: string;
+        iconName: IIconName;
+        level: number;
+        description: TTranslatableOrTranslatedValue;
+        achievements: {
+            title: string;
+            url: string;
+            badgeUrl: string;
+        }[];
+    }[];
+    fiveReasons: {
+        name: string;
+        iconName: IIconName;
+        description: TTranslatableOrTranslatedValue;
+    }[];
+    feedbacks: {
+        author: {
+            name: string;
+            role: string;
+        };
+        sourceName: string;
+        text: TTranslatableOrTranslatedValue;
+    }[];
+    careerFlow: {
+        title: string;
+        date: string;
+        description: TTranslatableOrTranslatedValue;
+    }[];
+    pastProjects: {
+        title: string;
+        imgUrl: string;
+        description: TTranslatableOrTranslatedValue;
+    }[];
+    contactInfo: {
+        email: string;
+        socials: {
+            name: string;
+            iconName: IIconName;
+            link: string;
+        }[];
+    };
+}
+
+export type ITranslatedContentConfig = IContentConfig<string>;

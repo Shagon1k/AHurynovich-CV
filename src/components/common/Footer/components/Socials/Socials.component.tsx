@@ -17,7 +17,7 @@ interface ISocialInfo {
     iconName: IIconName;
     link: string;
 }
-export type ISocialsInfo = ISocialInfo[];
+type ISocialsInfo = ISocialInfo[];
 const SOCIALS_GROUP_LENGTH = 3;
 
 interface ISocialsProps {
