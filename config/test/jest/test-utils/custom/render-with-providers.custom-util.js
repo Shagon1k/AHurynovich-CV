@@ -1,10 +1,10 @@
 import { Provider as ReduxStateProvider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
-import { render } from '@testing-library/react';
 
-import appReducer from '@src/store/store.reducer';
+import { configureStore } from '@reduxjs/toolkit';
 import { ServicesProvider } from '@reusables/services.context';
 import { SkipToContentProvider } from '@reusables/skip-to-content.context';
+import appReducer from '@src/store/store.reducer';
+import { render } from '@testing-library/react';
 
 const createServicesMock = (overrideServices) => ({
     i18n: {

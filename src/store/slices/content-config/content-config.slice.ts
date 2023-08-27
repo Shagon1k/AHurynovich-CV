@@ -17,7 +17,6 @@ const initialState: IContentConfigState = {
             description: {
                 en: '',
             },
-            photoUrl: '',
         },
         skills: [],
         fiveReasons: [],

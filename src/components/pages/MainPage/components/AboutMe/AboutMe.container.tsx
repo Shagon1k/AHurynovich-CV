@@ -5,9 +5,9 @@ import { selectAboutMe } from '@slices/content-config/content-config.selector';
 import AboutMe from './AboutMe.component';
 
 const AboutMeContainer = () => {
-    const { isSearchingForWork, description, photoUrl } = useSelector(selectAboutMe);
+    const { isSearchingForWork, description } = useSelector(selectAboutMe);
 
-    return <AboutMe isSearchingForWork={isSearchingForWork} aboutMeText={description} photoUrl={photoUrl} />;
+    return <AboutMe isSearchingForWork={isSearchingForWork} aboutMeText={description} />;
 };
 
 export default AboutMeContainer;

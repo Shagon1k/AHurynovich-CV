@@ -98,27 +98,29 @@ const MyExpertiseItem: React.FC<IMyExpertiseItemProps> = ({
                 <span className={styles['experience-description']}>{description}</span>
             </div>
             {hasAchievements && (
-                <ul className={styles['experience-achievements']}>
+                <>
                     <span className='visuallyhidden'>
                         {t('pages.experience.myExpertiseSection.achievementsListDescription')}
                     </span>
-                    {achievements.map(({ title, url, badgeUrl }) => (
-                        <li key={title}>
-                            <Link
-                                className={styles['achievement-badge-link']}
-                                type='external'
-                                title={title}
-                                to={url}
-                            >
-                                <img
-                                    className={styles['achievement-badge-img']}
-                                    src={badgeUrl}
-                                    alt={`"${title}" ${t('common.badge')}`}
-                                />
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+                    <ul className={styles['experience-achievements']}>
+                        {achievements.map(({ title, url, badgeUrl }) => (
+                            <li key={title}>
+                                <Link
+                                    className={styles['achievement-badge-link']}
+                                    type='external'
+                                    title={title}
+                                    to={url}
+                                >
+                                    <img
+                                        className={styles['achievement-badge-img']}
+                                        src={badgeUrl}
+                                        alt={`"${title}" ${t('common.badge')}`}
+                                    />
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </>
             )}
         </li>
     );

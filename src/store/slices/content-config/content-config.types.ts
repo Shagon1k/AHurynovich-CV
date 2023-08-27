@@ -11,7 +11,6 @@ export interface IContentConfig<TTranslatableOrTranslatedValue = ITranslatableVa
     aboutMe: {
         isSearchingForWork: boolean;
         description: TTranslatableOrTranslatedValue;
-        photoUrl: string;
     };
     skills: {
         name: string;
