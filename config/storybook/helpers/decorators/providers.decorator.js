@@ -1,9 +1,10 @@
 import { Provider as ReduxStateProvider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
 
+import { configureStore } from '@reduxjs/toolkit';
 import { ServicesProvider } from '@reusables/services.context';
 import { SkipToContentProvider } from '@reusables/skip-to-content.context';
 import appReducer from '@src/store/store.reducer';
+
 import { DEVICE_TYPES_CONTEXT_VALUES_MAP, DEFAULT_DEVICE_TYPE } from '../../constants';
 
 const DEFAULT_DEVICE_INFO = {
