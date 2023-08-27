@@ -11,9 +11,16 @@
 }
 
 .experiences-item {
+    margin-bottom: 25px;
+
+    &:has(.experience-achievements) {
+        margin-bottom: 0;
+    }
+}
+
+.experience-main {
     display: flex;
     flex-flow: row nowrap;
-    margin-bottom: 25px;
 
     @include bp.lw(m) {
         flex-flow: column nowrap;
@@ -108,5 +115,36 @@
 
     @include bp.lw(m) {
         margin: 10px 0 0;
+    }
+}
+
+.experience-achievements {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    margin-top: 3px;
+
+    @include bp.lw(m) {
+        justify-content: center;
+    }
+}
+
+.achievement-badge-link {
+    &:focus-visible,
+    &:hover {
+        .achievement-badge-img {
+            filter: none;
+        }
+    }
+}
+
+.achievement-badge-img {
+    width: 75px;
+    height: 75px;
+    filter: sepia(0.8) brightness(0.9) contrast(0.9);
+
+    @include bp.lw(m) {
+        width: 70px;
+        height: 70px;
     }
 }

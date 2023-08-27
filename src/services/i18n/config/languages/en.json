@@ -5,7 +5,8 @@
     "common": {
         "icon": "icon",
         "loading": "Loading...",
-        "logo": "logo"
+        "logo": "logo",
+        "badge": "badge"
     },
     "header": {
         "accessibilityHelper": {
@@ -84,7 +85,8 @@
                     "2": "Intermediate",
                     "3": "Advanced",
                     "4": "Expert"
-                }
+                },
+                "achievementsListDescription": "This is the list of certificates I've earned by participation on different courses."
             }
         },
         "passions": {
