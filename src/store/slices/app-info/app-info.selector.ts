@@ -21,9 +21,7 @@ export const selectIsAppScrolledDown = createSelector(
     (appInfoState) => appInfoState.isAppScrolledDown
 );
 export const selectAppBreakpoint = createSelector(selectAppViewportWidth, (viewportWidth) => {
-    const bpName = Object.entries(BP_TO_WIDTH).find(
+    return Object.entries(BP_TO_WIDTH).find(
         ([, [bpMin, bpMax]]) => bpMin <= viewportWidth && viewportWidth <= bpMax
     )?.[0] as BP;
-
-    return bpName;
 });

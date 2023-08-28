@@ -22,4 +22,4 @@ export const { makeHello, makeBye } = helloSlice.actions;
 // Note: Slice default export should always be according reducer (Code Convention)
 export default helloSlice.reducer;
 
-export type HelloState = typeof initialState;
+export type IHelloState = typeof initialState;

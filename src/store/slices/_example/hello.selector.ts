@@ -1,11 +1,11 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { HelloState } from './hello.slice';
+import { IHelloState } from './hello.slice';
 
 interface IState {
-    hello: HelloState;
+    hello: IHelloState;
 }
 
-const selectHelloState = (state: IState): HelloState => state.hello;
+const selectHelloState = (state: IState): IHelloState => state.hello;
 
 export const selectIsHello = createSelector(selectHelloState, (helloState) => helloState.isHello);

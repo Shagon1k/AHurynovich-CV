@@ -3,7 +3,5 @@ import { type IApplicationOptions, type ICreateAppFunction } from './application
 
 // Main application render function
 export const createApp: ICreateAppFunction = ({ store, services }: IApplicationOptions) => {
-    const app = <Application options={{ store, services }} />;
-
-    return app;
+    return <Application options={{ store, services }} />;
 };
