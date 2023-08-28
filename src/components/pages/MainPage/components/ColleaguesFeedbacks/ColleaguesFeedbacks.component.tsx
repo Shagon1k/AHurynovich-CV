@@ -76,7 +76,8 @@ const Feedback: React.FC<IFeedbackItemProps> = ({ author, sourceName, text }) =>
                 <img className={styles['feedback-feather']} src={featherImgUrl} alt='' aria-hidden={true} />
             </div>
             <h3 className={styles['feedback-title']}>
-                {author.name} ({sourceName})
+                {author.role}
+                <div className={styles['feedback-subtitle']}>({sourceName})</div>
             </h3>
             {/*eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex --- add ability to navigate with keyboard to scroll the content*/}
             <span tabIndex={0} className={styles['feedback-text']}>
