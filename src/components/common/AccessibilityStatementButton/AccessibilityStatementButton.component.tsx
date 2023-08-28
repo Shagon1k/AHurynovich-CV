@@ -18,6 +18,7 @@ const AccessibilityStatementButton: React.FC<IAccessibilityStatementButtonProps>
 }) => {
     const { t } = useTranslates();
     const [isA11yStatementPopupShown, setIsA11yStatementPopupShown] = useState(false);
+    const title = t('accessibilityStatement.title');
 
     const cn = clsx({
         [styles['a11y-statement-btn']]: true,
@@ -28,16 +29,16 @@ const AccessibilityStatementButton: React.FC<IAccessibilityStatementButtonProps>
         <>
             <button
                 className={cn}
-                title={t('accessibilityStatement.title')}
+                title={title}
                 onClick={() => setIsA11yStatementPopupShown(true)}
-                aria-label={t('accessibilityStatement.title')}
+                aria-label={title}
                 aria-haspopup='dialog'
             >
-                {t('accessibilityStatement.title')}
+                {title}
             </button>
             {isA11yStatementPopupShown && (
                 <Popup onClose={() => setIsA11yStatementPopupShown(false)}>
-                    <Popup.Header>{t('accessibilityStatement.title')}</Popup.Header>
+                    <Popup.Header>{title}</Popup.Header>
                     <Popup.Content>
                         <div className={styles['a11y-statement-content']}>
                             <div dangerouslySetInnerHTML={{ __html: sanitizeHTML(statementMarkup) }} />

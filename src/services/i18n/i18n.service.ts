@@ -67,9 +67,7 @@ class I18n {
             return '';
         }
 
-        const transformedBaseLanguage = baseLanguage.slice(0, 2).toLowerCase();
-
-        return transformedBaseLanguage;
+        return baseLanguage.slice(0, 2).toLowerCase();
     }
 
     private _getTranslationsOptions = async () => {
@@ -77,6 +75,7 @@ class I18n {
         const checkedSupportedLanguages = [];
 
         for (const languageCode of SUPPORTED_LANGUAGES_CODES) {
+            // eslint-disable-next-line no-unsanitized/method
             const languageTranslationsFile = await import(`./config/languages/${languageCode}.json`);
             const languageTranslations = languageTranslationsFile?.default || null;
 

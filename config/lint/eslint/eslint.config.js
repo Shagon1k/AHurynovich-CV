@@ -10,7 +10,17 @@ module.exports = {
         },
         sourceType: 'module',
     },
-    plugins: ['babel', 'react', 'prettier', 'react-hooks', 'jsx-a11y'],
+    plugins: [
+        'babel',
+        'react',
+        'prettier',
+        'react-hooks',
+        'jsx-a11y',
+        'no-unsanitized',
+        'sonarjs',
+        'optimize-regex',
+        'no-secrets',
+    ],
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
@@ -18,6 +28,8 @@ module.exports = {
         'plugin:import/warnings',
         'prettier/react',
         'plugin:jsx-a11y/strict',
+        'plugin:sonarjs/recommended',
+        'plugin:optimize-regex/recommended',
     ],
     rules: {
         'no-var': 'error',
@@ -29,6 +41,10 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'warn',
         'import/no-duplicates': 'warn',
         'import/no-cycle': 'warn',
+        'no-unsanitized/method': 'error',
+        'no-unsanitized/property': 'error',
+        'sonarjs/no-redundant-jump': 'off', // Reason: conflicts with TS noImplicitReturns
+        'no-secrets/no-secrets': ['error', { tolerance: 4.5 }],
     },
     globals: {
         /** Global environment variables */
@@ -79,7 +95,20 @@ module.exports = {
                 'plugin:@typescript-eslint/recommended',
             ],
             rules: {
-                '@typescript-eslint/consistent-type-definitions': 'warn',
+                '@typescript-eslint/consistent-type-definitions': 'error',
+                '@typescript-eslint/naming-convention': [
+                    'error',
+                    {
+                        selector: ['typeAlias', 'interface'],
+                        format: ['PascalCase'],
+                        prefix: ['I'],
+                    },
+                    {
+                        selector: 'typeParameter',
+                        format: ['PascalCase'],
+                        prefix: ['T'],
+                    },
+                ],
             },
         },
         {

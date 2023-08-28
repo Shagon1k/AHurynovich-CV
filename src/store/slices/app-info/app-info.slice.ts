@@ -1,14 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { DEFAULT_LANGUAGE_CODE, type ILanguageCodes } from '@services';
 
-export interface IAppInfoState {
-    isMobile: boolean; // Including tablet devices
-    isDesktop: boolean;
-    isAppScrolledDown: boolean;
-    language: ILanguageCodes;
-    viewportDimensions: IViewportDimensions;
-}
-
 interface IDeviceInfo {
     isMobile?: boolean; // Including tablet devices
     isDesktop?: boolean;
@@ -17,6 +9,13 @@ interface IDeviceInfo {
 export interface IViewportDimensions {
     width?: number;
     height?: number;
+}
+export interface IAppInfoState {
+    isMobile: boolean; // Including tablet devices
+    isDesktop: boolean;
+    isAppScrolledDown: boolean;
+    language: ILanguageCodes;
+    viewportDimensions: IViewportDimensions;
 }
 
 const initialState: IAppInfoState = {

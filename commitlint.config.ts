@@ -3,7 +3,7 @@ import type { UserConfig } from '@commitlint/types';
 const Configuration: UserConfig = {
     parserPreset: {
         parserOpts: {
-            headerPattern: /^\[AH-(.+)\] (.+)/,
+            headerPattern: /^\[AH-(.+)] (.+)/,
             headerCorrespondence: ['scope', 'subject'],
         },
     },
