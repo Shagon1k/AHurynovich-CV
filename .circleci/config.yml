@@ -112,6 +112,8 @@ jobs:
     steps:
       - checkout
       - cmd-restore-cache
+      - attach_workspace:
+          at: .
       - run:
           name: "Add Last Commit SHA to index.html"
           command: bash .circleci/scripts/add-last-commit-sha.sh
@@ -215,8 +217,9 @@ workflows:
           name: "[Deploy Application]"
           type: approval
           requires:
-            - test-performance
             - build-app
+            - add-last-commit-sha
+            - test-performance
       - deploy-app:
           requires:
             - "[Deploy Application]"
