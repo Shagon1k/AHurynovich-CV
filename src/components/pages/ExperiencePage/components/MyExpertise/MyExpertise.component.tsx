@@ -89,13 +89,13 @@ const MyExpertiseItem: React.FC<IMyExpertiseItemProps> = ({
                             ))}
                         </div>
                     </div>
-                    <p className='visuallyhidden'>
+                    <span className='visuallyhidden'>
                         {t('pages.experience.myExpertiseSection.expertiseLevelDescription', {
                             levelDescription,
                         })}
-                    </p>
+                    </span>
                 </div>
-                <span className={styles['experience-description']}>{description}</span>
+                <p className={styles['experience-description']}>{description}</p>
             </div>
             {hasAchievements && (
                 <>

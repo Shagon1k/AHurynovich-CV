@@ -35,10 +35,10 @@ const AboutMe: React.FC<IAboutMeProps> = ({ isSearchingForWork, aboutMeText }) =
                     <SearchingForWork isSearchingForWork={isSearchingForWork} />
                 </div>
             )}
-            <div className={styles['text']}>
+            <p className={styles['text']}>
                 {aboutMeText}
                 {!isDesktop && <div className={styles['searching-text']}>{searchingText}</div>}
-            </div>
+            </p>
             <img
                 className={styles['photo']}
                 src={aboutMePhotoUrl}
