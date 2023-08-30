@@ -117,6 +117,10 @@ jobs:
       - run:
           name: "Add Last Commit SHA to index.html"
           command: bash .circleci/scripts/add-last-commit-sha.sh
+      - persist_to_workspace:
+          root: .
+          paths:
+            - 'dist'
   deploy-app:
     executor: exec-docker-node
     steps:
