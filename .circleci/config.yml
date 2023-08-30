@@ -107,6 +107,14 @@ jobs:
           root: .
           paths:
             - 'dist'
+  add-last-commit-sha:
+    executor: exec-docker-node
+    steps:
+      - checkout
+      - cmd-restore-cache
+      - run:
+          name: "Add Last Commit SHA to index.html"
+          command: bash .circleci/scripts/add-last-commit-sha.sh
   deploy-app:
     executor: exec-docker-node
     steps:
@@ -197,6 +205,9 @@ workflows:
             - test-tsc
             - test-unit-integration-with-reports
             - test-sca
+      - add-last-commit-sha:
+          requires:
+            - build-app
       - test-performance:
           requires:
             - build-app
