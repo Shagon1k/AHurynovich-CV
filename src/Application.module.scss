@@ -17,7 +17,7 @@
     border-left: 1px solid c.$brown-dark;
     background-image: url('@assets/images/bg-image.webp');
 
-    @include bp.lw(l) {
+    @include bp.lw-app-max-width {
         border: 0;
     }
 

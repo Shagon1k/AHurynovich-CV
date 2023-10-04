@@ -117,6 +117,7 @@
         "socials": {
             "goToMy": "Go to my {{name}}"
         },
+        "projectSourceCode": "Project Source Code",
         "copyright": "© {{year}} Aliaksei Hurynovich. All Rights Reserved"
     },
     "scrollTop": {

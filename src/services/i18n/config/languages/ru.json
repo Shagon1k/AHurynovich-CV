@@ -117,6 +117,7 @@
         "socials": {
             "goToMy": "Перейти в мой {{name}}"
         },
+        "projectSourceCode": "Исходный код проекта",
         "copyright": "© {{year}} Алексей Гуринович. Все права защищены"
     },
     "scrollTop": {
