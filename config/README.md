@@ -15,7 +15,7 @@ Documentation and guidelines for application's config.
 |**[UI Components Library](/config/storybook/main.js)**|*/storybook*|general configuration for Components Library||
 |**[Search Engines traversing config](/config/robots/robots.txt)**|(*/robots*)|configuration to enhance Web Crawlers search engine (setup, restrictions, sitemap, etc.)||
 
-> 💡 ***Note**: **JS compiler config** ([Babel config](/babel.config.js)) is located in project root folder.*
+> 💡 ***Note**: **JS compiler config** ([Babel config](/babel.config.js)) and **Commit Lint config** ([Commitlint config](/commitlint.config.ts)) are located in project root folder.*
 
 ## Folder's conventions
 - Adding new **Configuration Main area**:

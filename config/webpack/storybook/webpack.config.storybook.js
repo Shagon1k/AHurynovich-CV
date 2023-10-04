@@ -1,5 +1,5 @@
-import { getWebpackProvidePlugin } from '../helpers/plugins';
 import { getWebpackCssModulesLoader, getWebpackSassLoader, getSvgRLoader } from '../helpers/loaders';
+import { getWebpackProvidePlugin } from '../helpers/plugins';
 import { getAlias } from '../helpers/resolve';
 
 export const storyBookOverrideConfig = {

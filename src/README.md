@@ -98,8 +98,11 @@ Documentation and guidelines for application's main source.
 ├───assets
 │   │
 │   ├───fonts
-│   │
-│   └───images
+|   |
+│   ├───images
+|   |
+|   |   preload.config.js
+│   └───
 │
 ├───components
 │   │
@@ -129,6 +132,7 @@ Documentation and guidelines for application's main source.
 │   ├───slices
 │   │
 │   │   store.ts
+│   │   store.types.ts
 │   │   store.reducer.ts
 │   │   store.saga.ts
 │   └───
@@ -147,9 +151,11 @@ Documentation and guidelines for application's main source.
 │   │
 │   ├───functions
 │   │
+│   ├───objects
+│   │
 │   ├───strings
 │   │
-│   └───numbers
+│   └───user
 │
 │   Application.component.tsx
 │   Application.module.scss

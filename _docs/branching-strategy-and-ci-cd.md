@@ -30,11 +30,12 @@ The following **Jobs** are configured:
 - ***test-sca*** - executing Source Code for vulnerabilities;
     > 💡 ***Note**: **Snyk secrets** environment variable set up on CircleCI side.*
 - ***test-performance*** - executing Performance tests (LightHouse, [/config/test/lighthouse.config.js](/config/test/lighthouse.config.js));
+- ***add-last-commit-sha*** - adding last commit SHA to the end of index.html to control current deployed version;
 - ***build-app*** - building Application;
 - ***deploy-app*** - deploying Application (AWS S3 hosting);
     > 💡 ***Note**: **AWS secrets** environment variables set up on CircleCI side.*
 - ***build-components-library*** - building Application's Components library (StoryBook, [/config/storybook/](/config/storybook/));
-- ***deploy-app*** - deploying Application (AWS S3 hosting);
+- ***deploy-components-library*** - deploying Application's Components library (AWS S3 hosting);
     > 💡 ***Note**: **AWS secrets** environment variables set up on CircleCI side.*
 
 

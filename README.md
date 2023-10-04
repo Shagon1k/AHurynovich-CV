@@ -8,7 +8,7 @@
 
 <br/>
 
-<div align="center">Generally <b>Application</b> follows <b>Static CSR approach</b> deploying final build to <b>AWS S3</b>. Than it is hosted using <b>AWS S3 Static Web Hosting</b> feature.</div>
+<div align="center">Generally <b>Application</b> follows <b>Static CSR approach</b> deploying final build to <b>AWS S3</b>. Than it is hosted using <b>AWS S3 Static Web Hosting</b> + <b>CloudFront</b> + <b>Route 53</b>.</div>
 
 <br/>
 
@@ -23,8 +23,9 @@
 2. [ Run tasks ](#run-tasks)
 3. [ Project structure ](#project-structure)
 4. [ Additional documentation ](#additional-documentation)
-4. [ Issues ](#issues)
-4. [ License ](#license)
+5. [ UI Components Library ](#ui-components-library)
+6. [ Issues ](#issues)
+7. [ License ](#license)
 
 ## Technology stack
 ### Project Bundling
@@ -237,15 +238,20 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 │   │   │
 │   │   ├───functions
 │   │   │
+│   │   ├───objects
+│   │   │
 │   │   ├───strings
 │   │   │
-│   │   └───numbers
+│   │   └───user
 │   │
 │   ├───assets
 │   │   │
 │   │   ├───fonts
 │   │   │
-│   │   └───images
+│   │   ├───images
+│   │   │
+│   │   │   preload.config.js
+│   │   └───
 │   │
 │   ├───components   // React components folder
 │   │   │
@@ -276,6 +282,7 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 │   │   │   store.ts   // main Store setup file
 │   │   │   store.reducer.ts   // main reducer setup file
 │   │   │   store.saga.ts   // root saga setup file (main init + watch sagas)
+│   │   │   store.types.ts   // general Store types
 │   │   └───
 │   │
 │   ├───styles   // main styles folder
@@ -312,12 +319,14 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 │   │
 │   ├───js
 │   │
+│   │   robots.txt
 │   │   index.html   // result HTML file
 │   └───
 ├───
 │
 │   .editorconfig   // editor basic setup for IDE
 │   babel.config.js   // Babel configuration
+│   commitlint.config.ts   // Commit linting configuration
 │   jsconfig.json   // JS configuration file for indicating directory root, aliases setup, etc.
 │   tsconfig.json   // TS configuration file for indicating basic setup, including directory root, aliases setup, etc.
 │   package.json
@@ -343,6 +352,9 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 |[PWA](/_docs/pwa.md)|Project's PWA support information (tech stack, build process, etc.)|
 |[Testing](/_docs/testing.md)|Project's testing approaches (Unit+Integration, E2E) + according CI/CD quality gates description|
 |[Typography](/_docs/typography.md)|Project's typography configuration and conventions|
+
+## UI Components Library
+Project's UI components library, created with StoryBook, could be found [here](http://ahurynovich-cv-components-library-s3.s3-website-eu-west-1.amazonaws.com/)
 
 ## Issues
 Find a bug or enhancement and want provide help? Please submit an issue.
