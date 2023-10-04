@@ -15,7 +15,7 @@ const initialState: IContentConfigState = {
         },
         aboutMe: {
             isSearchingForWork: false,
-            description: {
+            descriptionMarkup: {
                 en: '',
             },
         },

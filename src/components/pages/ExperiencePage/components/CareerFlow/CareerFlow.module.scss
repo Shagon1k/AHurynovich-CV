@@ -103,6 +103,7 @@
     margin-right: -(app.$scrollbar-width); // scrollbar width compensation
     padding-right: 5px;
     text-align: center;
+    white-space: pre-line;
 }
 
 .projector-wrapper {
