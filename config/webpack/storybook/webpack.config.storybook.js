@@ -8,7 +8,14 @@ export const storyBookOverrideConfig = {
         rules: [
             {
                 test: /\.module\.s?css$/,
-                use: ['style-loader', getWebpackCssModulesLoader(), getWebpackSassLoader()],
+                use: [
+                    'style-loader',
+                    getWebpackCssModulesLoader(),
+                    getWebpackSassLoader({
+                        // Note: Adding global styles
+                        additionalData: `@use "@styles/main.scss";`,
+                    }),
+                ],
             },
             // Note: Adding ability to use SVG as resource using URL (e.g. in <img> tag)
             {

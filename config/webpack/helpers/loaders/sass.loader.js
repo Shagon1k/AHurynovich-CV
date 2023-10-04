@@ -1,3 +1,4 @@
-export default () => ({
+export default (options) => ({
     loader: 'sass-loader',
+    options,
 });
