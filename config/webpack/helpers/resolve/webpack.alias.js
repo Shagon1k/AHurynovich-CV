@@ -1,4 +1,5 @@
 import path from 'path';
+
 import { SRC_DIR, CONFIG_DIR } from '../../../environment';
 
 const getAlias = () => ({
