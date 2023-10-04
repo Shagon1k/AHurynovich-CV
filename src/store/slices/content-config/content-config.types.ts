@@ -11,7 +11,7 @@ export interface IContentConfig<TTranslatableOrTranslatedValue = ITranslatableVa
     a11yStatementMarkup: TTranslatableOrTranslatedValue;
     aboutMe: {
         isSearchingForWork: boolean;
-        description: TTranslatableOrTranslatedValue;
+        descriptionMarkup: TTranslatableOrTranslatedValue;
     };
     skills: {
         name: string;

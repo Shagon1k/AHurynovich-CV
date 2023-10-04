@@ -112,6 +112,7 @@
 
 .experience-description {
     margin: 65px 0 0 35px;
+    white-space: pre-line;
 
     @include bp.lw(m) {
         margin: 10px 0 0;

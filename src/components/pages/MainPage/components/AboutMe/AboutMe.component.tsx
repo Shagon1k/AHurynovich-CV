@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
+import sanitizeHTML from 'sanitize-html';
 
 import Section from '@components/base/Section';
 import { useTranslates } from '@reusables/custom-hooks';
@@ -12,10 +13,10 @@ import styles from './AboutMe.module.scss';
 
 interface IAboutMeProps {
     isSearchingForWork: boolean;
-    aboutMeText: string;
+    aboutMeMarkup: string;
 }
 
-const AboutMe: React.FC<IAboutMeProps> = ({ isSearchingForWork, aboutMeText }) => {
+const AboutMe: React.FC<IAboutMeProps> = ({ isSearchingForWork, aboutMeMarkup }) => {
     const isDesktop = useSelector(selectIsDesktop);
     const { t } = useTranslates();
     const searchingText = isSearchingForWork
@@ -35,10 +36,10 @@ const AboutMe: React.FC<IAboutMeProps> = ({ isSearchingForWork, aboutMeText }) =
                     <SearchingForWork isSearchingForWork={isSearchingForWork} />
                 </div>
             )}
-            <p className={styles['text']}>
-                {aboutMeText}
+            <div className={styles['text']}>
+                <div dangerouslySetInnerHTML={{ __html: sanitizeHTML(aboutMeMarkup) }} />
                 {!isDesktop && <div className={styles['searching-text']}>{searchingText}</div>}
-            </p>
+            </div>
             <img
                 className={styles['photo']}
                 src={aboutMePhotoUrl}

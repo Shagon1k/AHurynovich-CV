@@ -102,6 +102,7 @@
     margin-bottom: 15px;
     padding-right: 5px;
     text-align: center;
+    white-space: pre-line;
     font-style: italic;
 
     @include bp.lw(m) {
