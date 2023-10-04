@@ -1,5 +1,6 @@
 import { memo } from 'react';
 
+import Link from '@components/base/Link';
 import AccessibilityStatementButton from '@components/common/AccessibilityStatementButton';
 import { useTranslates, useSkipToContent } from '@reusables/custom-hooks';
 
@@ -14,7 +15,11 @@ import styles from './Footer.module.scss';
 
 const SKIP_TO_ID = 'contact-me';
 
-const Footer: React.FC = () => {
+interface IFooterProps {
+    sourceCodeUrl: string;
+}
+
+const Footer: React.FC<IFooterProps> = ({ sourceCodeUrl }) => {
     const { t } = useTranslates();
     const title = t('footer.title');
 
@@ -42,8 +47,13 @@ const Footer: React.FC = () => {
             </div>
             <div className={styles['meta']}>
                 <ul className={styles['meta-list']}>
-                    <li>
-                        <AccessibilityStatementButton className={styles['meta-a11y-statement-button']} />
+                    <li className={styles['meta-item']}>
+                        <AccessibilityStatementButton className={styles['meta-item-content']} />
+                    </li>
+                    <li className={styles['meta-item']}>
+                        <Link type='external' to={sourceCodeUrl} className={styles['meta-item-content']}>
+                            {t('footer.projectSourceCode')}
+                        </Link>
                     </li>
                 </ul>
                 <div className={styles['copyright']}>

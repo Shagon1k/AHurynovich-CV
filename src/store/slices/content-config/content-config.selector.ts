@@ -51,6 +51,10 @@ const selectLocalizedContentConfig = createSelector(
 );
 
 export const selectPdfCVUrl = createSelector(selectLocalizedContentConfig, (config) => config.pdfCVUrl);
+export const selectSourceCodeUrl = createSelector(
+    selectLocalizedContentConfig,
+    (config) => config.sourceCodeUrl
+);
 export const selectA11yStatementMarkup = createSelector(
     selectLocalizedContentConfig,
     (config) => config.a11yStatementMarkup

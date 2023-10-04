@@ -24,7 +24,7 @@ class I18n {
         this._baseLanguage = this._transformBaseLanguage(baseLanguage) || DEFAULT_LANGUAGE_CODE;
     }
 
-    init = async (languageCode: string) => {
+    init = async (languageCode = '') => {
         let initLanguageCode = '';
         const translationsOptions = await this._getTranslationsOptions();
         const { languagesResources, checkedSupportedLanguages, fallbackLanguage } = translationsOptions;

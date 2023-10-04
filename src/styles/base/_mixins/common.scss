@@ -10,6 +10,8 @@
     // Note: Do NOT add text font styles here keeping it be configurable based on mixin use place
     text-decoration: underline;
     color: c.$brown-dark;
+    text-decoration-thickness: 8%; // Sets the thickness as a percentage of the font size
+    text-underline-position: under; // Places underlines below the descenders
 
     &:hover,
     &:focus-visible {

@@ -1,4 +1,4 @@
-import { memo, useRef } from 'react';
+import { memo } from 'react';
 
 import Carousel from '@components/base/Carousel';
 import Section from '@components/base/Section';
@@ -13,7 +13,7 @@ import portraitMaleImgUrl from './images/portrait_male.svg?url';
 import styles from './ColleaguesFeedbacks.module.scss';
 
 type IColleaguesFeedbacksList = {
-    author: { name: string; role: string };
+    author: { name: string; role: string; gender: 'f' | 'm' };
     sourceName: string;
     text: string;
 }[];
@@ -62,22 +62,18 @@ const ColleaguesFeedbacks: React.FC<IColleaguesFeedbacksProps> = ({ colleaguesFe
 type IFeedbackItemProps = IColleaguesFeedbacksList[number];
 
 const Feedback: React.FC<IFeedbackItemProps> = ({ author, sourceName, text }) => {
-    const portraitUrl = useRef(Math.random() < 0.5 ? portraitMaleImgUrl : portraitFemaleImgUrl);
+    const portraitUrl = author.gender === 'f' ? portraitFemaleImgUrl : portraitMaleImgUrl;
 
     return (
         <>
             <div className={styles['feedback-portrait-wrapper']}>
-                <img
-                    className={styles['feedback-portrait']}
-                    src={portraitUrl.current}
-                    alt=''
-                    aria-hidden={true}
-                />
-                <img className={styles['feedback-feather']} src={featherImgUrl} alt='' aria-hidden={true} />
+                <img className={styles['feedback-portrait']} src={portraitUrl} alt='' aria-hidden={true} />
             </div>
             <h3 className={styles['feedback-title']}>
-                {author.name} - {author.role}
-                <div className={styles['feedback-subtitle']}>({sourceName})</div>
+                <div className={styles['feedback-title-name']}>{author.name}</div>
+                <div className={styles['feedback-title-role']}>{author.role}</div>
+                <div className={styles['feedback-title-source']}>({sourceName})</div>
+                <img className={styles['feedback-feather']} src={featherImgUrl} alt='' aria-hidden={true} />
             </h3>
             {/*eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex --- add ability to navigate with keyboard to scroll the content*/}
             <span tabIndex={0} className={styles['feedback-text']}>

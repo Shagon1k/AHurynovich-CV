@@ -9,6 +9,7 @@ export interface IContentConfigState {
 const initialState: IContentConfigState = {
     config: {
         pdfCVUrl: '',
+        sourceCodeUrl: '',
         a11yStatementMarkup: {
             en: '',
         },

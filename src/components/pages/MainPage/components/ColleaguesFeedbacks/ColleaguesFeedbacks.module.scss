@@ -5,7 +5,7 @@
 .content-container {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     margin: 0 80px;
 
@@ -15,7 +15,8 @@
 }
 
 .owl {
-    width: 350px;
+    width: 280px;
+    margin-right: 70px;
     aspect-ratio: 330/500;
 
     @include bp.lw(l) {
@@ -24,9 +25,10 @@
 }
 
 .feedbacks {
-    width: 400px;
+    width: 470px;
     background-image: url('./images/old-paper.webp');
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     aspect-ratio: 400/565;
 
@@ -50,54 +52,59 @@
 }
 
 .feedback-portrait {
-    width: 135px;
-    height: 190px;
+    width: 150px;
+    aspect-ratio: 135/190;
 
     @include bp.lw(m) {
         width: 90px;
-        height: 125px;
     }
+}
+
+.feedback-title {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.feedback-title-name {
+    @include t.t2;
+}
+
+.feedback-title-role {
+    @include t.b2;
+}
+
+.feedback-title-source {
+    @include t.b3;
 }
 
 .feedback-feather {
     position: absolute;
-    right: 5px;
-    bottom: -20px;
+    right: 0;
+    bottom: -10px;
     width: 55px;
     height: 85px;
     transform: rotate(10deg);
 
     @include bp.lw(m) {
-        bottom: -10px;
         width: 36px;
         height: 56px;
     }
-}
-
-.feedback-title {
-    @include t.t2;
-
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 5px;
-    text-align: center;
-}
-
-.feedback-subtitle {
-    @include t.b2;
 }
 
 .feedback-text {
     display: inline-block;
     align-self: baseline;
     overflow-y: scroll;
-    max-height: 260px;
+    margin-top: 5px;
     margin-right: -(app.$scrollbar-width); // scrollbar width compensation
+    margin-bottom: 15px;
     padding-right: 5px;
     text-align: center;
     font-style: italic;
 
     @include bp.lw(m) {
-        max-height: 195px;
+        margin-bottom: 10px;
     }
 }

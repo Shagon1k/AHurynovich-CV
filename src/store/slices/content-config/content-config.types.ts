@@ -7,6 +7,7 @@ interface ITranslatableValue {
 
 export interface IContentConfig<TTranslatableOrTranslatedValue = ITranslatableValue> {
     pdfCVUrl: string;
+    sourceCodeUrl: string;
     a11yStatementMarkup: TTranslatableOrTranslatedValue;
     aboutMe: {
         isSearchingForWork: boolean;
@@ -32,6 +33,7 @@ export interface IContentConfig<TTranslatableOrTranslatedValue = ITranslatableVa
         author: {
             name: string;
             role: string;
+            gender: 'f' | 'm';
         };
         sourceName: string;
         text: TTranslatableOrTranslatedValue;
