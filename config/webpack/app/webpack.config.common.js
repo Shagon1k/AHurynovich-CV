@@ -9,14 +9,6 @@ import {
     SRC_ROBOTS_ENTRY,
 } from '../../environment';
 import {
-    getWebpackHtmlPlugins,
-    getWebpackDefinePlugin,
-    getWebpackProvidePlugin,
-    getWebpackMiniCssExtractPlugin,
-    getWebpackCopyPlugin,
-    getWebpackFaviconPlugin,
-} from '../helpers/plugins';
-import {
     getWebpackBabelLoader,
     getSvgRLoader,
     getWebpackSourceMapLoader,
@@ -26,6 +18,14 @@ import {
     getWebpackPostCssLoader,
     getWebpackSassLoader,
 } from '../helpers/loaders';
+import {
+    getWebpackHtmlPlugins,
+    getWebpackDefinePlugin,
+    getWebpackProvidePlugin,
+    getWebpackMiniCssExtractPlugin,
+    getWebpackCopyPlugin,
+    getWebpackFaviconPlugin,
+} from '../helpers/plugins';
 import { getAlias } from '../helpers/resolve';
 
 const commonConfig = {

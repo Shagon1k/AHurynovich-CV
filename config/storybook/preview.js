@@ -1,5 +1,5 @@
-import { getProvidersDecorator } from './helpers/decorators';
 import { getDeviceArgTypes } from './helpers/argTypes';
+import { getProvidersDecorator } from './helpers/decorators';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
