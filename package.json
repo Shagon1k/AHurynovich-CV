@@ -29,7 +29,7 @@
         "build:prod:pwa": "cross-env WITH_PWA=true npm run build:prod",
         "build:and:start:dev": "cross-env NODE_ENV=development webpack serve --config config/webpack/app/webpack.config.babel.js",
         "build:and:start:prod": "npm run build:prod && http-server dist -c-1 -p 1337",
-        "deploy:s3": "aws s3 sync ./dist/ s3://ahurynovich-cv-s3 --delete",
+        "deploy:s3": "aws s3 sync ./dist/ s3://www.ahurynovich.com --delete",
         "build:and:deploy:s3": "npm run build:clean && npm run build:prod && npm run deploy:s3",
         "rimraf": "./node_modules/rimraf/bin.js",
         "build:clean": "rimraf ./dist",
