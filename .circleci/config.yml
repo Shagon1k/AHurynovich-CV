@@ -136,6 +136,21 @@ jobs:
       - run:
           name: "Deploy Application"
           command: npm run deploy:s3
+  invalidate-app-cache:
+    executor: exec-docker-node
+    steps:
+      - aws-cli/setup:
+          profile-name: AHurynovichCV_Profile
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-region: AWS_REGION
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+      - checkout
+      - cmd-restore-cache
+      - attach_workspace:
+          at: .
+      - run:
+          name: "Invalidate Application Cache"
+          command: bash .circleci/scripts/app-cf-invalidate-cache.sh
   build-components-library:
     executor: exec-docker-node
     steps:
@@ -227,6 +242,9 @@ workflows:
       - deploy-app:
           requires:
             - "[Deploy Application]"
+      - invalidate-app-cache:
+          requires:
+            - deploy-app
       - hold-deploy-components-library:
           type: approval
           name: "[Deploy Components Lib]"
