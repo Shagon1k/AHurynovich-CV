@@ -28,9 +28,6 @@
         * not be visually "shifted" for the User once lazy-loaded content of <main> takes in place.
         * More details: https://shorturl.at/koT29
         */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         min-height: 700px;
     }
 }

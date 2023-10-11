@@ -1,0 +1,43 @@
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-mixins/bp';
+
+.not-found-page {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.yoda-with-glasses {
+    width: 560px;
+    height: 400px;
+    margin-bottom: 25px;
+
+    @include bp.lw(m) {
+        width: 300px;
+        height: 215px;
+    }
+}
+
+.heading-text {
+    @include t.h1;
+}
+
+.info-text,
+.joke-text {
+    display: inline-block;
+    text-align: center;
+
+    @include bp.lw(m) {
+        width: 300px;
+    }
+}
+
+.info-text {
+    @include t.b1;
+}
+
+.joke-text {
+    @include t.b2;
+}

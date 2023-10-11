@@ -32,6 +32,9 @@ module.exports = {
                 'color-contrast': 'off',
                 'tap-targets': 'warn',
                 'bf-cache': 'warn',
+                // As application has SPA architecture, LCP images pre-loading was setup only for Main Page as most general one.
+                // See src/assets/preload.config.js for more details.
+                'prioritize-lcp-image': 'warn',
                 // Note: Generally it is a bad practice to have a lot of different fonts in Application (performance, design and A11y reasons) - limited to 4.
                 'resource-summary:font:count': ['warn', { maxNumericValue: 4 }],
             },

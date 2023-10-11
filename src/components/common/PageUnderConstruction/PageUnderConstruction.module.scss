@@ -6,20 +6,13 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    padding-bottom: 100px;
-
-    @include bp.lw(m) {
-        padding-top: 30px;
-        padding-bottom: 50px;
-    }
+    margin-top: 50px;
 }
 
 .teddy-bear {
-    display: inline-block;
     width: 360px;
     height: 435px;
     margin-bottom: 20px;
-    fill: c.$brown-dark;
 
     @include bp.lw(m) {
         width: 250px;
@@ -43,7 +36,6 @@
 .info-text {
     @include t.b1;
 
-    display: inline-block;
     text-align: center;
 
     @include bp.lw(m) {
