@@ -11,9 +11,9 @@ const AppHead: React.FC = () => {
     const { t } = useTranslates();
     const languageCode = useSelector(selectLanguage);
 
-    const pageTitleTranslationKey = Object.values(ROUTES_CONFIG).find(
-        ({ path }) => path === pathname
-    )?.titleTranslationKey;
+    const pageConfig =
+        Object.values(ROUTES_CONFIG).find(({ path }) => path === pathname) || ROUTES_CONFIG.notFound;
+    const pageTitleTranslationKey = pageConfig?.titleTranslationKey;
 
     const title = pageTitleTranslationKey
         ? `${t('general.title')} | ${t(pageTitleTranslationKey)}`

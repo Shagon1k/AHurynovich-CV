@@ -9,6 +9,9 @@ const Experience = lazy(
 const PassionsPage = lazy(
     () => import(/* webpackChunkName: "passions-page", webpackPrefetch: true */ '@pages/PassionsPage')
 );
+const NotFoundPage = lazy(
+    () => import(/* webpackChunkName: "not-found-page", webpackPrefetch: true */ '@pages/NotFoundPage')
+);
 
 export const ROUTES_CONFIG = {
     main: {
@@ -28,5 +31,11 @@ export const ROUTES_CONFIG = {
         path: '/passions',
         titleTranslationKey: 'pages.passions.title',
         Element: PassionsPage,
+    },
+    notFound: {
+        id: 'notFound',
+        path: '*',
+        titleTranslationKey: 'pages.notFound.title',
+        Element: NotFoundPage,
     },
 } as const;

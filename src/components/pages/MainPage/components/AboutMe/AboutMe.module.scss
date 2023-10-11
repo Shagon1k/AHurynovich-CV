@@ -4,17 +4,17 @@
 .content-container {
     display: flex;
     flex-flow: row nowrap;
-    align-items: center;
+    align-items: flex-start;
     margin-right: 30px;
 
     @include bp.lw(m) {
         flex-direction: column-reverse;
+        align-items: center;
         margin: 0 20px;
     }
 }
 
 .searching {
-    align-self: flex-start;
     flex-shrink: 0;
 }
 
@@ -32,7 +32,7 @@
 .searching-text {
     @include t.t1;
 
-    margin-top: 5px;
+    margin-top: 10px;
     text-align: center;
 }
 

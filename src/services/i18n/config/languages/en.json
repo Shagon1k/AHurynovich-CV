@@ -91,6 +91,15 @@
         },
         "passions": {
             "title": "Passions"
+        },
+        "notFound": {
+            "title": "Page Not Found",
+            "mainSection": {
+                "heading": "404",
+                "info": "This is not the page you're looking for.",
+                "joke": "P.S. Unless you were looking for a page with cute baby Yoda.",
+                "imageTitle": "Baby Yoda with steampunk glasses."
+            }
         }
     },
     "footer": {
@@ -142,7 +151,7 @@
     },
     "pageUnderConstruction": {
         "heading": "Coming soon",
-        "info": "This page is under construction. Come back later :)",
-        "imageTitle": "Funny Teddy bear with gears"
+        "info": "This page is under steam-powered renovation. Come back later for new adventures!",
+        "imageTitle": "Funny Teddy bear with gears."
     }
 }
