@@ -48,10 +48,18 @@ const Footer: React.FC<IFooterProps> = ({ sourceCodeUrl }) => {
             <div className={styles['meta']}>
                 <ul className={styles['meta-list']}>
                     <li className={styles['meta-item']}>
-                        <AccessibilityStatementButton className={styles['meta-item-content']} />
+                        <AccessibilityStatementButton
+                            id='footer-a11y-statement-btn'
+                            className={styles['meta-item-content']}
+                        />
                     </li>
                     <li className={styles['meta-item']}>
-                        <Link type='external' to={sourceCodeUrl} className={styles['meta-item-content']}>
+                        <Link
+                            id='source-code-link'
+                            type='external'
+                            to={sourceCodeUrl}
+                            className={styles['meta-item-content']}
+                        >
                             {t('footer.projectSourceCode')}
                         </Link>
                     </li>

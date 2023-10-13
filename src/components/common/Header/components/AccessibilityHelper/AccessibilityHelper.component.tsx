@@ -56,7 +56,10 @@ const AccessibilityHelper: React.FC<IAccessibilityHelperProps> = ({
                     </li>
                 ))}
             </ul>
-            <AccessibilityStatementButton className={styles['a11y-statement-button']} />
+            <AccessibilityStatementButton
+                id='helper-a11y-statement-btn'
+                className={styles['a11y-statement-button']}
+            />
         </div>
     );
 };

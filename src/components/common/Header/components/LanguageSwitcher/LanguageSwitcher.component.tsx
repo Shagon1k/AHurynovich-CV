@@ -40,6 +40,7 @@ const LanguageSwitcher: React.FC<ILanguageSwitcherProps> = ({
 
     return (
         <button
+            id='language-switcher-btn'
             className={styles['language-switcher']}
             onClick={handleClick}
             title={buttonTitle}

@@ -77,6 +77,7 @@ const SocialGroup: React.FC<ISocialGroupProps> = ({
                 {socialGroupData.map(({ name, iconName, link }) => (
                     <li key={hashCode(name)} className={styles['socials-item']}>
                         <Link
+                            id={`${iconName}-social-link`}
                             className={styles['socials-item-link']}
                             type='external'
                             title={t('footer.socials.goToMy', { name })}

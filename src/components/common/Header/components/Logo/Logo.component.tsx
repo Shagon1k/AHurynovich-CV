@@ -26,6 +26,7 @@ const Logo = forwardRef<HTMLAnchorElement, ILogoProps>(({ onEnter, onLeave }, re
 
     return (
         <Link
+            id='logo-link'
             className={logoCn}
             to={ROUTES_CONFIG.main.path}
             title={t('header.navigation.homePageLinkTitle')}

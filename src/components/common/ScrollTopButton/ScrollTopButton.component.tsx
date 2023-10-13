@@ -42,6 +42,7 @@ const ScrollTopButton: React.FC<IScrollTopButtonProps> = ({ onFocusFirstElem }) 
 
     return (
         <button
+            id='scroll-top-btn'
             className={buttonCn}
             onClick={handleClick}
             title={t('scrollTop.title')}

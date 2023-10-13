@@ -7,6 +7,7 @@ import styles from './Button.module.scss';
 export type IButtonType = 'button' | 'submit';
 
 interface IButtonProps {
+    id?: string;
     title: string;
     type?: IButtonType;
     onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -14,6 +15,7 @@ interface IButtonProps {
 }
 
 const Button: React.FC<IButtonProps> = ({
+    id,
     title,
     type = 'button',
     isDisabled = false,
@@ -21,6 +23,7 @@ const Button: React.FC<IButtonProps> = ({
 }: IButtonProps) => {
     return (
         <button
+            id={id}
             className={styles['button']}
             onClick={onClick}
             title={title}
