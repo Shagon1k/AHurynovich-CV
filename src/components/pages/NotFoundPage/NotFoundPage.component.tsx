@@ -9,12 +9,12 @@ const NotFoundPage: React.FC = () => {
 
     return (
         <div className={styles['not-found-page']}>
+            <h1 className={styles['heading-text']}>{t('pages.notFound.mainSection.heading')}</h1>
             <img
                 className={styles['yoda-with-glasses']}
                 src={yodaWithGlassesImgUrl}
                 alt={t('pages.notFound.mainSection.imageTitle')}
             />
-            <h1 className={styles['heading-text']}>{t('pages.notFound.mainSection.heading')}</h1>
             <span className={styles['info-text']}>{t('pages.notFound.mainSection.info')}</span>
             <span className={styles['joke-text']}>{t('pages.notFound.mainSection.joke')}</span>
         </div>

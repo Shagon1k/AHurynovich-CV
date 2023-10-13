@@ -11,7 +11,7 @@ export default () =>
         devMode: 'webapp',
         favicons: {
             appName: 'Aliaksei-Hurynovich-CV',
-            appDescription: 'Aliaksei Hurynovichs CV app',
+            appDescription: 'Aliaksei Hurynovich, JavaScript Developer, CV app',
             developerName: 'Aliaksei Hurynovich',
             developerURL: null,
             background: '#ddd',

@@ -67,7 +67,7 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 
 ### Other
 [![CircleCI](https://img.shields.io/badge/CircleCI-CI/CD_utility-00c8e6?labelColor=grey&logo=circleci)](https://circleci.com/) [![AWS-CLI](https://img.shields.io/badge/AWS--CLI-AWS_command_line_interface-00c8e6?labelColor=grey&logo=amazonaws)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) [![Husky](https://img.shields.io/badge/Husky-Git_hooks_utility-00c8e6?labelColor=grey&logo=npm)](https://typicode.github.io/husky/#/)
-[![Robots](https://img.shields.io/badge/Robots-search_engine_configuration-00c8e6?labelColor=grey)](https://www.robotstxt.org/) [![Snyk](https://img.shields.io/badge/Snyk-code_vulnerabilities_scan-00c8e6?labelColor=grey&logo=snyk)](https://snyk.io/) [![StoryBook](https://img.shields.io/badge/StoryBook-UI_components_library-00c8e6?labelColor=grey&logo=storybook)](https://storybook.js.org/)
+[![SiteMap](https://img.shields.io/badge/SiteMap-grey)](https://www.sitemaps.org/)[![Robots](https://img.shields.io/badge/Robots-search_engine_configuration-00c8e6?labelColor=grey)](https://www.robotstxt.org/) [![Snyk](https://img.shields.io/badge/Snyk-code_vulnerabilities_scan-00c8e6?labelColor=grey&logo=snyk)](https://snyk.io/) [![StoryBook](https://img.shields.io/badge/StoryBook-UI_components_library-00c8e6?labelColor=grey&logo=storybook)](https://storybook.js.org/)
 
 [⬆️ back to top](#ah-curriculum-vitae-project)
 ## Run tasks
@@ -223,6 +223,7 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 │   ├───robots
 │   │   │
 │   │   │   robots.txt   // Robots configuration to enhance Web crawlers search
+│   │   │   sitemap.xml   // SiteMap configuration
 │   │   └───
 │   │
 │   │   README.md   // Config folder info
@@ -320,6 +321,7 @@ On the other hand, using Babel compilation results in <b>completely lose of type
 │   ├───js
 │   │
 │   │   robots.txt
+│   │   sitemap.xml
 │   │   index.html   // result HTML file
 │   └───
 ├───

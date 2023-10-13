@@ -9,12 +9,12 @@ const PageUnderConstruction: React.FC = () => {
 
     return (
         <div className={styles['page-under-construction']}>
+            <h1 className={styles['heading-text']}>{t('pageUnderConstruction.heading')}</h1>
             <img
                 className={styles['teddy-bear']}
                 src={teddyBearImgUrl}
                 alt={t('pageUnderConstruction.imageTitle')}
             />
-            <h1 className={styles['heading-text']}>{t('pageUnderConstruction.heading')}</h1>
             <span className={styles['info-text']}>{t('pageUnderConstruction.info')}</span>
         </div>
     );

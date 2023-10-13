@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import {
     SRC_APP_ENTRY,
     DIST_DIR,
@@ -7,6 +8,7 @@ import {
     DIST_IMAGES_PREFIX,
     WITH_PWA,
     SRC_ROBOTS_ENTRY,
+    SRC_SITEMAP_ENTRY,
 } from '../../environment';
 import {
     getWebpackBabelLoader,
@@ -39,10 +41,7 @@ const commonConfig = {
     optimization: {
         splitChunks: {
             chunks: 'all',
-            name: (module, chunks) => {
-                const allChunksNames = chunks.map((chunk) => chunk.name).join('-');
-                return allChunksNames;
-            },
+            name: (module, chunks) => chunks.map((chunk) => chunk.name).join('-'),
         },
     },
     target: 'web',
@@ -53,7 +52,10 @@ const commonConfig = {
             chunkFilename: `${DIST_STYLES_PREFIX}/chunks/[name].[chunkhash].css`,
         }),
         ...getWebpackHtmlPlugins(),
-        getWebpackCopyPlugin([{ from: SRC_ROBOTS_ENTRY, to: 'robots.txt' }]),
+        getWebpackCopyPlugin([
+            { from: SRC_ROBOTS_ENTRY, to: 'robots.txt' },
+            { from: SRC_SITEMAP_ENTRY, to: 'sitemap.xml' },
+        ]),
         getWebpackFaviconPlugin(),
         getWebpackDefinePlugin({
             WITH_PWA,

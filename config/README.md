@@ -13,7 +13,7 @@ Documentation and guidelines for application's config.
 |**[Code Formatting config](/config/prettier/prettier.config.js)**|*/prettier*|used for storing Code Formatter tool configuration||
 |**[Application bundler config](/config/webpack/)**|*/webpack*|used for storing Bundler configuration|**[App bundle config](/config/webpack/app/webpack.config.babel.js)** and reusable **[Webpack utilities](/config/webpack/helpers/)** ([loaders](/config/webpack/helpers/loaders/index.js), [resolvers](/config/webpack/helpers/resolve/index.js), [plugins](/config/webpack/helpers/plugins/index.js)) moved to specific folder. <br/><br/>**[StoryBook Webpack config](/config/webpack/storybook/)** is also located here. After it is used in **[StoryBook config folder](/config/storybook/)**.|
 |**[UI Components Library](/config/storybook/main.js)**|*/storybook*|general configuration for Components Library||
-|**[Search Engines traversing config](/config/robots/robots.txt)**|(*/robots*)|configuration to enhance Web Crawlers search engine (setup, restrictions, sitemap, etc.)||
+|**[Search Engines traversing config](/config/robots/)**|(*/robots*)|configuration to enhance Web Crawlers search engine (setup, restrictions, sitemap, etc.) + app sitemap||
 
 > 💡 ***Note**: **JS compiler config** ([Babel config](/babel.config.js)) and **Commit Lint config** ([Commitlint config](/commitlint.config.ts)) are located in project root folder.*
 
@@ -113,6 +113,7 @@ Documentation and guidelines for application's config.
 ├───robots
 │   │
 │   │   robots.txt
+│   │   sitemap.xml
 │   └───
 │
 │   README.md
