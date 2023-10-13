@@ -17,14 +17,15 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:creator" content="@Shagon1k" />
     <!-- -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://ahurynovich-cv-config.s3.eu-west-1.amazonaws.com/ https://www.googletagmanager.com/ *.google-analytics.com analytics.google.com *.analytics.google.com www.googletagmanager.com www.googletagservices.com 'nonce-idGTM'">
+    <!-- Note: sha256-{...} has been used for GTM inline script which assumed to not be changed further. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://ahurynovich-cv-config.s3.eu-west-1.amazonaws.com/ https://www.googletagmanager.com/ *.google-analytics.com analytics.google.com *.analytics.google.com www.googletagmanager.com www.googletagservices.com 'sha256-Gu+CzbvaIZFNepoS2Lj50HEmFBylXVO5l3HKG50Sw6c='">
     <base href="/">
     <link rel="preconnect" crossorigin="anonymous" href="https://ahurynovich-cv-config.s3.eu-west-1.amazonaws.com" />
     <link rel="preconnect" crossorigin="anonymous" href="https://www.googletagmanager.com/">
     <link rel="preload" as="style" href="./css/styles.css" media="screen" />
     <link rel="stylesheet" href="./css/styles.css" media="screen" />
     <!-- Google Tag Manager -->
-    <script nonce="idGTM">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
