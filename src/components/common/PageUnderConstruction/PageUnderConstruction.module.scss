@@ -9,27 +9,27 @@
     margin-top: 50px;
 }
 
-.teddy-bear {
-    width: 360px;
-    height: 435px;
-    margin-bottom: 20px;
-
-    @include bp.lw(m) {
-        width: 250px;
-        height: 300px;
-    }
-}
-
 .heading-text {
     @include t.t1;
 
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     font-size: 36px;
     line-height: 54px;
 
     @include bp.lw(m) {
         font-size: 30px;
         line-height: 45px;
+    }
+}
+
+.teddy-bear {
+    width: 330px;
+    height: 400px;
+    margin-bottom: 15px;
+
+    @include bp.lw(m) {
+        width: 180px;
+        height: 215px;
     }
 }
 

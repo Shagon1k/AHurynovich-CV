@@ -1,3 +1,6 @@
-# robots.txt file for Aliaksei Hurynovich's CV app
+# robots.txt file for Aliaksei Hurynovich's CV web application.
 
 User-agent: *
+Allow: /
+
+Sitemap: https://www.ahurynovich.com/sitemap.xml

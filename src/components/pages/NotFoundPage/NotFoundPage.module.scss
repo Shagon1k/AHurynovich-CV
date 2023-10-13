@@ -9,19 +9,21 @@
     margin-top: 50px;
 }
 
+.heading-text {
+    @include t.h1;
+
+    margin-bottom: 15px;
+}
+
 .yoda-with-glasses {
     width: 560px;
     height: 400px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 
     @include bp.lw(m) {
         width: 300px;
         height: 215px;
     }
-}
-
-.heading-text {
-    @include t.h1;
 }
 
 .info-text,

@@ -8,6 +8,7 @@ export const WITH_PWA = ENV_WITH_PWA === 'true';
 export const ROOT_DIR = process.cwd();
 export const CONFIG_DIR = path.resolve(ROOT_DIR, './config');
 export const SRC_ROBOTS_ENTRY = path.resolve(CONFIG_DIR, './robots/robots.txt');
+export const SRC_SITEMAP_ENTRY = path.resolve(CONFIG_DIR, './robots/sitemap.xml');
 
 export const SRC_DIR = path.resolve(ROOT_DIR, './src');
 export const SRC_ASSETS_DIR = path.resolve(SRC_DIR, './assets');
