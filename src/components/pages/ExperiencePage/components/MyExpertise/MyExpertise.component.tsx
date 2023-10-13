@@ -106,6 +106,7 @@ const MyExpertiseItem: React.FC<IMyExpertiseItemProps> = ({
                         {achievements.map(({ title, url, badgeUrl }) => (
                             <li key={title}>
                                 <Link
+                                    id={`${hashCode(url)}-achievement-link`}
                                     className={styles['achievement-badge-link']}
                                     type='external'
                                     title={title}

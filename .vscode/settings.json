@@ -22,4 +22,5 @@
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "javascript.suggest.completeFunctionCalls": true,
     "typescript.suggest.completeFunctionCalls": true,
+    "typescript.tsdk": "node_modules\\typescript\\lib",
 }

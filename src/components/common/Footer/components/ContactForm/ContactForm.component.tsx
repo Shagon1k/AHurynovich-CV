@@ -81,7 +81,7 @@ const ContactForm: React.FC<IContactFormProps> = ({ onSendEmail }) => {
                 onChange={getHandleInputChange('message')}
                 value={formValues['message']}
             />
-            <Button title={t('footer.contactForm.getInTouch')} type='submit' />
+            <Button id='get-in-touch-btn' title={t('footer.contactForm.getInTouch')} type='submit' />
         </form>
     );
 };

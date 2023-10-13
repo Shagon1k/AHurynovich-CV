@@ -7,6 +7,7 @@ import TriangleSVG from './images/triangle.svg';
 import styles from './ArrowButton.module.scss';
 
 interface IArrowButtonProps {
+    id?: string;
     modifiers: {
         direction: 'left' | 'right';
     };
@@ -19,6 +20,7 @@ interface IArrowButtonProps {
 }
 
 const ArrowButton: React.FC<IArrowButtonProps> = ({
+    id,
     title,
     modifiers,
     isDisabled = false,
@@ -31,6 +33,7 @@ const ArrowButton: React.FC<IArrowButtonProps> = ({
 
     return (
         <button
+            id={id}
             className={cn}
             onClick={onClick}
             title={title}

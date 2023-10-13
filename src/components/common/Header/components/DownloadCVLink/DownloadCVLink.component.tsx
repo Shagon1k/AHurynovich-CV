@@ -24,6 +24,7 @@ const DownloadCVLink: React.FC<IDownloadCVLinkProps> = ({ pdfCVUrl, onEnter, onL
 
     return (
         <a
+            id='download-cv-link'
             className={styles['download-cv-link']}
             title={title}
             href={pdfCVUrl}

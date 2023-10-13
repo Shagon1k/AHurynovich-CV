@@ -8,11 +8,13 @@ import { useTranslates } from '@reusables/custom-hooks';
 import styles from './AccessibilityStatementButton.module.scss';
 
 interface IAccessibilityStatementButtonProps {
+    id?: string;
     className?: string;
     statementMarkup: string;
 }
 
 const AccessibilityStatementButton: React.FC<IAccessibilityStatementButtonProps> = ({
+    id,
     className = '',
     statementMarkup,
 }) => {
@@ -28,6 +30,7 @@ const AccessibilityStatementButton: React.FC<IAccessibilityStatementButtonProps>
     return (
         <>
             <button
+                id={id}
                 className={cn}
                 title={title}
                 onClick={() => setIsA11yStatementPopupShown(true)}

@@ -6,14 +6,16 @@ import AccessibilityStatementButton from './AccessibilityStatementButton.compone
 
 interface IAccessibilityStatementButtonContainerProps {
     className?: string;
+    id?: string;
 }
 
 const AccessibilityStatementButtonContainer: React.FC<IAccessibilityStatementButtonContainerProps> = ({
+    id,
     className,
 }) => {
     const statementMarkup = useSelector(selectA11yStatementMarkup);
 
-    return <AccessibilityStatementButton className={className} statementMarkup={statementMarkup} />;
+    return <AccessibilityStatementButton id={id} className={className} statementMarkup={statementMarkup} />;
 };
 
 export default AccessibilityStatementButtonContainer;

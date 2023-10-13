@@ -5,6 +5,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import styles from './Link.module.scss';
 
 interface ILinkProps extends React.PropsWithChildren {
+    id?: string;
     className?: string;
     type?: 'router' | 'external' | 'simple';
     to: string;
@@ -14,13 +15,14 @@ interface ILinkProps extends React.PropsWithChildren {
 }
 
 const Link = forwardRef<HTMLAnchorElement, ILinkProps>(
-    ({ className = '', type = 'router', to, title, onEnter, onLeave, children }, ref) => {
+    ({ id, className = '', type = 'router', to, title, onEnter, onLeave, children }, ref) => {
         const cn = clsx({
             [className]: Boolean(className),
             [styles['link']]: true,
         });
 
         const commonProps = {
+            id,
             className: cn,
             title,
             ref,
