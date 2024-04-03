@@ -10,8 +10,8 @@
         "url": "https://ahurynovich.com/"
     },
     "engines": {
-        "node": "16.x",
-        "npm": "8.x"
+        "node": "20.x",
+        "npm": "10.x"
     },
     "browserslist": [
         "last 3 versions",
