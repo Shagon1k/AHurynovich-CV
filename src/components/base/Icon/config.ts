@@ -23,6 +23,7 @@ import GitSVG from './images/tech-skills/git.svg';
 import HTMLSVG from './images/tech-skills/html.svg';
 import JestSVG from './images/tech-skills/jest.svg';
 import JSSVG from './images/tech-skills/js.svg';
+import NodeJsSVG from './images/tech-skills/nodejs.svg';
 import ReactSVG from './images/tech-skills/react.svg';
 import ReduxSVG from './images/tech-skills/redux.svg';
 import RTLSVG from './images/tech-skills/rtl.svg';
@@ -44,6 +45,7 @@ export const ICON_NAME_TO_SVG_MAP = {
     jest: JestSVG,
     rtl: RTLSVG,
     aws: AWSSVG,
+    nodejs: NodeJsSVG,
     git: GitSVG,
     a11y: A11ySVG,
     teamplayer: TeamplayerSVG,

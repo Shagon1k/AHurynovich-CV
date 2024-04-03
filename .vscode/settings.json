@@ -5,22 +5,13 @@
     "eslint.nodeEnv": "",
     "css.validate": false,
     "scss.validate": false,
-    "stylelint.snippet": [
-        "css",
-        "less",
-        "postcss",
-        "scss"
-    ],
-    "stylelint.validate": [
-        "css",
-        "less",
-        "postcss",
-        "scss"
-    ],
+    "stylelint.snippet": ["css", "less", "postcss", "scss"],
+    "stylelint.validate": ["css", "less", "postcss", "scss"],
     "javascript.updateImportsOnFileMove.enabled": "never",
     "javascript.preferences.importModuleSpecifier": "non-relative",
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "javascript.suggest.completeFunctionCalls": true,
     "typescript.suggest.completeFunctionCalls": true,
     "typescript.tsdk": "node_modules\\typescript\\lib",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
