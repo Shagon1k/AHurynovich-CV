@@ -19,6 +19,7 @@ import YoutubeSVG from './images/socials/youtube.svg';
 import A11ySVG from './images/tech-skills/a11y.svg';
 import AWSSVG from './images/tech-skills/aws.svg';
 import CSSSVG from './images/tech-skills/css.svg';
+import GenAISVG from './images/tech-skills/gen-ai.svg';
 import GitSVG from './images/tech-skills/git.svg';
 import HTMLSVG from './images/tech-skills/html.svg';
 import JestSVG from './images/tech-skills/jest.svg';
@@ -48,6 +49,7 @@ export const ICON_NAME_TO_SVG_MAP = {
     nodejs: NodeJsSVG,
     git: GitSVG,
     a11y: A11ySVG,
+    genai: GenAISVG,
     teamplayer: TeamplayerSVG,
     experienced: ExperiencedSVG,
     knowledgethirst: KnowledgeThirstSVG,
