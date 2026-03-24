@@ -1,0 +1,7 @@
+@use '@base-styles-mixins/typography' as t;
+
+.chatbot-title {
+    @include t.h3;
+
+    margin: 0;
+}

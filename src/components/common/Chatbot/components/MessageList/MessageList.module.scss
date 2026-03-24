@@ -1,0 +1,69 @@
+@use '@base-styles-mixins/typography' as t;
+@use '@base-styles-mixins/bp';
+@use '@base-styles-variables/colors' as c;
+
+.message-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 100%;
+    min-height: 300px;
+    max-height: 500px;
+
+    @include bp.lw(m) {
+        min-height: 200px;
+        max-height: 400px;
+    }
+}
+
+.welcome-message {
+    @include t.b2;
+
+    margin: auto;
+    text-align: center;
+    color: c.$brown;
+}
+
+.message-user,
+.message-ai,
+.message-error {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.message-user {
+    background: c.$brown-dark;
+    color: c.$white;
+    align-self: flex-end;
+    max-width: 80%;
+}
+
+.message-ai {
+    background: c.$beige;
+    color: c.$brown-dark;
+    border: 1px solid c.$brown;
+    align-self: flex-start;
+    max-width: 80%;
+}
+
+.message-error {
+    background: c.$red;
+    color: c.$white;
+    align-self: center;
+}
+
+.message-label {
+    @include t.b3;
+
+    margin-bottom: 4px;
+    opacity: 0.8;
+}
+
+.message-content {
+    @include t.b2;
+
+    word-wrap: break-word;
+}

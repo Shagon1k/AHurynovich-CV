@@ -1,0 +1,28 @@
+@use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/bp';
+
+.chat-button {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 27px;
+    height: 27px;
+    line-height: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    @include bp.lw(m) {
+        width: 20px;
+        height: 20px;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        border: 1px solid c.$brown-dark;
+    }
+}

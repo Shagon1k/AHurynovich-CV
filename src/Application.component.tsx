@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Loader from '@components/base/Loader';
 import Head from '@components/common/AppHead';
+import Chatbot from '@components/common/Chatbot';
 import Footer from '@components/common/Footer';
 import Header from '@components/common/Header';
 import ScrollTopButton from '@components/common/ScrollTopButton';
@@ -68,6 +69,7 @@ const Application: React.FC<IApplicationProps> = ({ options }: IApplicationProps
                             Warning: Additionally this button includes side effect to scroll USER's view to top on route change. */}
                             <ScrollTopButton onFocusFirstElem={handleFocusFirstElem} />
                         </div>
+                        <Chatbot />
                     </BrowserRouter>
                 </SkipToContentProvider>
             </ServicesProvider>
