@@ -30,11 +30,11 @@ jobs:
               with:
                   fetch-depth: 1
 
-            - name: Run Project Setup
-              run: |
-                  echo "Install dependencies and build project"
-                  npm install
-                  npm run start
+            # - name: Run Project Setup
+            #   run: |
+            #       echo "Install dependencies and build project"
+            #       npm install
+            #       npm run start
 
             - name: Run Claude Code
               id: claude
@@ -42,20 +42,20 @@ jobs:
               with:
                   anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 
-                  custom_instructions: |
-                      The project is already set up with all dependencies.
-                      It runs on localhost:1337. If needed - use mcp__playwright to interact with the app and get any information you need.
-                  mcp_config: |
-                      {
-                        "mcpServers": {
-                          "playwright": {
-                            "command": "npx",
-                            "args": [
-                              "@playwright/mcp@latest",
-                              "--allowed-origins",
-                              "localhost:1337"
-                            ]
-                          }
-                        }
-                      }
+                  #   custom_instructions: |
+                  #       The project is already set up with all dependencies.
+                  #       It runs on localhost:1337. If needed - use mcp__playwright to interact with the app and get any information you need.
+                  #   mcp_config: |
+                  #       {
+                  #         "mcpServers": {
+                  #           "playwright": {
+                  #             "command": "npx",
+                  #             "args": [
+                  #               "@playwright/mcp@latest",
+                  #               "--allowed-origins",
+                  #               "localhost:1337"
+                  #             ]
+                  #           }
+                  #         }
+                  #       }
                   allowed_tools: "Bash(npm:*),mcp__playwright__browser_snapshot,mcp__playwright__browser_click,mcp__playwright__browser_fill,mcp__playwright__browser_navigate"
