@@ -5,6 +5,7 @@ import GearSVG from '@assets/images/gears/gear.svg';
 import { type ISkipToContentLink } from '@reusables/skip-to-content.context';
 
 import AccessibilityHelper from './components/AccessibilityHelper';
+import ChatButton from './components/ChatButton';
 import DownloadCVLink from './components/DownloadCVLink';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import Logo from './components/Logo';
@@ -49,6 +50,7 @@ const Header: React.FC<IHeaderProps> = ({ firstFocusableElemRef, skipToContentLi
                 />
                 <Navigation onEnter={handleHeaderElemEnter} onLeave={handleHeaderElemLeave} />
                 <div className={styles['header-meta']}>
+                    <ChatButton onEnter={handleHeaderElemEnter} onLeave={handleHeaderElemLeave} />
                     <DownloadCVLink onEnter={handleHeaderElemEnter} onLeave={handleHeaderElemLeave} />
                     <LanguageSwitcher onEnter={handleHeaderElemEnter} onLeave={handleHeaderElemLeave} />
                 </div>

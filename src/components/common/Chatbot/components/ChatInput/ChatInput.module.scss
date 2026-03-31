@@ -1,0 +1,13 @@
+@use '@base-styles-mixins/bp';
+
+.chat-input-form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100%;
+    gap: 12px;
+
+    @include bp.lw(m) {
+        gap: 8px;
+    }
+}

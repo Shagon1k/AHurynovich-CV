@@ -1,4 +1,5 @@
 // General
+import ChatSVG from './images/chat.svg';
 import CrossSVG from './images/cross.svg';
 import DownloadSVG from './images/download.svg';
 // Reasons
@@ -33,6 +34,7 @@ import TSSVG from './images/tech-skills/ts.svg';
 import WebpackSVG from './images/tech-skills/webpack.svg';
 
 export const ICON_NAME_TO_SVG_MAP = {
+    chat: ChatSVG,
     cross: CrossSVG,
     download: DownloadSVG,
     js: JSSVG,

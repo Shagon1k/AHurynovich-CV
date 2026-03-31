@@ -35,6 +35,9 @@
                 "switchToEn": "Switch language to English",
                 "switchToRu": "Switch language to Russian"
             }
+        },
+        "chatButton": {
+            "title": "Open AI chat assistant"
         }
     },
     "pages": {
@@ -153,5 +156,17 @@
         "heading": "Coming soon",
         "info": "This page is under steam-powered renovation. Come back later for new adventures!",
         "imageTitle": "Funny Teddy bear with gears."
+    },
+    "chatbot": {
+        "title": "AI Assistant",
+        "welcomeMessage": "Hello! I'm your AI assistant. How can I help you today?",
+        "inputPlaceholder": "Type your message...",
+        "inputLabel": "Chat message input",
+        "sendButton": "Send message",
+        "loadingMessage": "Thinking...",
+        "errorMessage": "Sorry, I encountered an error. Please try again.",
+        "userLabel": "You",
+        "aiLabel": "AI Assistant",
+        "closeButton": "Close chat"
     }
 }
