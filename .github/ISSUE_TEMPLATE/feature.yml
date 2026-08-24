@@ -1,0 +1,43 @@
+name: Feature
+description: Propose a user-facing capability or meaningful product improvement.
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the desired outcome, not a predetermined implementation. Keep the work small enough for one focused pull request when practical.
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Who benefits, what should become possible, and why does it matter?
+      placeholder: As a ..., I want ..., so that ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-experience
+    attributes:
+      label: Current experience
+      description: What can visitors do today, and what gap does that leave?
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: List observable conditions that prove the outcome is delivered.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints and evidence
+      description: Optional approved constraints, references, content sources, screenshots, or accessibility expectations.
+
