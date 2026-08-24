@@ -50,9 +50,9 @@ Configured **Font Weights** are:
 > ⚠️***Warn:** Please do not use any other Font Weights except currently set up!*
 
 ### Custom Fonts declarations
-**Custom fonts** files: [/src/client/assets/fonts/](/src/client/assets/fonts/)
+**Custom fonts** files: [/src/assets/fonts/](/src/assets/fonts/)
 
-**Custom fonts** declarations: [/src/client/styles/fonts-declarations.scss](/src/client/styles/fonts-declarations.scss)
+**Custom fonts** declarations: [/src/styles/fonts-declarations.scss](/src/styles/fonts-declarations.scss)
 
 In order to have ability to use custom fonts, it is declared using ***special mixin***: ['font-face'](/src/styles/base/_mixins/font-face.scss). It takes 3 arguments: *'name' (Font Family name)*, *'src' (src to custom Font files)*, *'weight' (default Font weight)*. Src to custom Font files should include needed custom Font extensions in order to have all browser(s) capabilities support: TTF, WOFF, WOFF2.
 

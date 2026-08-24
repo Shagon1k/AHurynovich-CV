@@ -13,29 +13,28 @@ Documentation and guidelines for application's main source.
 - App main application's Component - *Application.component.tsx*;
 - App main styles file - *Application.module.scss*;
 - App Global State main file - */store/store.ts*;
-- Application's Root element ID (APP_ROOT_ID) is configured and comes from **[Application's configuration](/config/application/application.config.js)**;
+- Application's Root element ID (APP_ROOT_ID) is configured and comes from **[Application's configuration](/config/application/application.config.ts)**;
 
 ## Main areas
 |Area name|Path|Description|Notes|
 |---|---|---|---|
-|**[API](/src/api/index.ts)**|*/api*|used to handle different API calls||
+|**[API](/src/api/app-content-config.api.ts)**|*/api*|used to handle the public content configuration request||
 |**[Assets](/src/assets/)**|*/assets*|used to collect application's assets (fonts, images, favicon, etc.)|**- [Fonts](/src/assets/fonts/)** - (*/assets/fonts*)<br/>**- [Images](/src/assets/images/)** - (*/assets/images*)|
 |**[Components](/src/components/)**|*/components*|used to collect View React Components|**- [Base](/src/components/base/)** - (*/components/base*)<br/>**- [Pages](/src/components/pages/)** - (*/components/pages*)<br/>**- [Routes](/src/components/routes/routes.component.tsx)** - (*/components/routes*)<br/><br/>Covering Component with **Unit/Integration Tests** or adding Component to **UI Component Library** should follow according conventions (see below).|
 |**[Reusables](/src/reusables/)**|*/reusables*|used to collect React reusable entities (Custom Hooks, HOCs)|**- [Custom Hooks](/src/reusables/custom-hooks/)** - (*/reusables/custom-hooks*)<br/>**- [HOCs](/src/reusables/hocs/)** - (*/reusables/hocs*)<br/>**- [some-name]** - (*/reusables/[some-name].ts*) - reusables common, for example, React Context files reused both for Custom Hook and HOC|
 |**[Store](/src/store/store.ts)**|*/store*|used to handle Global State Management (Redux)|**- [Middlewares](/src/store/middlewares/index.ts)** - (*/store/middlewares*)<br/>**- [Slices](/src/store/slices/)** - (*/store/slices*) - Redux (Redux-Toolkit) slices with according Reducers/Actions/Sagas/Selectors|
 |**[Styles](/src/styles/)**|*/styles*|used to collect general styles||
 |**[Services](/src/services/index.ts)**|*/services*|used for storing application services like i18n, Device Detect, etc|As application uses Redux, some of services **could be used on State Management side** (e.g. Redux-Saga's side effects). For example, i18n service is used to correctly update Application language. Thus they were **moved to separate Facade entity** which is injected to Redux-Saga's context OR for specific Component (using Custom Hook/HOC).<br/><br/>Services are **initiated with User specific config** (base language, userAgent, etc) and potentially could depend one on each other (so main Facade could be used as **IoC container**).|
-|**[Utils](/src/utils/index.ts)**|*/utils*|used for storing application utils||
+|**[Utils](/src/utils/)**|*/utils*|used for storing application utils||
 
 ## Folder's Conventions
 - Adding new **App source Main area**:
     - add it in new specific folder;
     - once finished - update this README with new area;
 - Adding new **API endpoint**:
-    - add it in */api* subfolder;
-    - new folder name should be consistent with according main file name;
-    - do not forget to add index export file;
-    - do not forget to update *api/api.ts*;
+    - add it under */api* using the established `[name].api.ts` pattern;
+    - introduce a subfolder and index export only when multiple related files justify that structure;
+    - update direct consumers and this README when the API area changes materially;
 - Adding new **Assets**:
     - no specific rules;
 - Adding new **Components**:
