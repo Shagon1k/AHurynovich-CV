@@ -1,0 +1,37 @@
+name: Technical debt
+description: Track a known maintainability, reliability, security, build, or operational cost.
+title: "[Tech debt]: "
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and current cost
+      description: What is the debt, where is it, and what observable pain or risk does it create today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired-outcome
+    attributes:
+      label: Desired outcome
+      description: What should be simpler, safer, faster, or more reliable when the work is complete?
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: List observable conditions that prove the debt has been reduced.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and constraints
+      description: Optional logs, measurements, affected files, failure examples, operational constraints, or relevant documentation.
+

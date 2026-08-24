@@ -1,0 +1,62 @@
+name: Bug report
+description: Report behavior that differs from what the public CV promises.
+title: "[Bug]: "
+body:
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Give the smallest reliable sequence of actions.
+      placeholder: |
+        1. Go to ...
+        2. Interact with ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-result
+    attributes:
+      label: Actual result
+      description: What happened, including any visible or console error?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: Expected result
+      description: What observable behavior should have happened instead?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Where was the behavior observed?
+      options:
+        - Local development
+        - Static preview
+        - Production
+        - Other / unknown
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: List observable conditions that prove the bug is fixed without prescribing an unapproved implementation.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Optional screenshots, recordings, console output, route, browser/device details, or an exact preview URL.
+
