@@ -10,6 +10,7 @@ Code and configuration are authoritative for current behavior. Update affected d
 | Understand current architecture and environments | [Architecture](../ARCHITECTURE.md) |
 | Review visual, responsive, localization, and accessibility expectations | [Design contract](../DESIGN.md) |
 | Understand post-MVP product direction | [Roadmap](../ROADMAP.md) |
+| Verify the disposable Kurami onboarding run | [Kurami onboarding smoke artifact](kurami-onboarding-smoke.md) |
 | Run or write tests | [Testing](testing.md) |
 | Follow TypeScript conventions | [TypeScript](typescript.md) |
 | Understand branching, CI/CD, previews, and production deployment | [Branching strategy and CI/CD](branching-strategy-and-ci-cd.md) |
