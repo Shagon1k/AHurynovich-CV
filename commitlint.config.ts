@@ -1,27 +1,19 @@
 import type { UserConfig } from '@commitlint/types';
 
+const COMMIT_TYPES = ['feat', 'fix', 'docs', 'test', 'refactor', 'perf', 'build', 'ci', 'chore', 'style'];
+
 const Configuration: UserConfig = {
     parserPreset: {
         parserOpts: {
-            headerPattern: /^\[AH-(.+)] (.+)/,
-            headerCorrespondence: ['scope', 'subject'],
+            headerPattern: /^(\w+)(?:\(([^)]+)\))?(!)?: (.+)$/,
+            headerCorrespondence: ['type', 'scope', 'breaking', 'subject'],
         },
     },
-    plugins: [
-        {
-            rules: {
-                'header-match-pattern': (parsed) => {
-                    const { scope, subject } = parsed;
-                    if (scope === null && subject === null) {
-                        return [false, "Commit header must be in format: '[AH-X] Commit message'"];
-                    }
-                    return [true, ''];
-                },
-            },
-        },
-    ],
     rules: {
-        'header-match-pattern': [2, 'always'],
+        'type-empty': [2, 'never'],
+        'type-enum': [2, 'always', COMMIT_TYPES],
+        'subject-empty': [2, 'never'],
+        'subject-full-stop': [2, 'never', '.'],
     },
 };
 
