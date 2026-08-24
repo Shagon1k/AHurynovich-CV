@@ -1,49 +1,76 @@
 # Branching Strategy and CI/CD
-1. [ General information ](#general-information)
-2. [ Branching strategy ](#branching-strategy)
-3. [ CI CD Configuration ](#ci-cd-configuration)
-4. [ CI CD Workflows ](#ci-cd-workflows)
 
-## General information
-Project follows [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow) branching strategy.
-Project includes [CI/CD](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment) pipeline to manage automate development steps reproduce and Application deployment.
-CI/CD processes are handled by [CircleCI](https://circleci.com/).
+This guide preserves the repository's GitHub Flow and existing CircleCI production model. The detailed agent workflow is in [`AGENTS.md`](../AGENTS.md) and [`.agent-docs/rules/git.md`](../.agent-docs/rules/git.md).
 
-## Branching strategy
-[**GitHub flow**](https://docs.github.com/en/get-started/quickstart/github-flow) is relatively lightweight and simple workflow.
-This strategy (unlike, for example, GitFlow) has simple **branches setup**: `main`(`master`) (*which reflects current production state*) and `feature`s \ `bugfix`s (*which handle upcoming changes*), **NO additional branches** like `release` presented.
-> ⚠️***Warn**:`main`(`master`) branch should **include only ready-to-deploy state**.*
+## GitHub Flow
 
-<img src="/_docs/assets/github-flow-branching-model.svg" alt="GitHub flow git model" style="width:300px;"/>
+- `main` is the production-ready integration branch.
+- Work happens on short-lived branches and returns through a reviewed pull request.
+- Issue delivery branches use `AH-<github-issue-number>_<short-slug>`.
+- Commits and pull-request titles follow Conventional Commits.
+- Pull requests are squash-merged by the owner.
+- Every delivery pull request links its GitHub Issue from [Project 1](https://github.com/users/Shagon1k/projects/1).
 
-Such strategy is friendly for handling Continuos Integration and Continuos Delivery support.
+Do not use the historical `[AH-X]` commit header or manual Issue-number placeholder. Do not bypass Husky/commitlint hooks with `--no-verify`.
 
-## CI CD configuration
-**CI/CD Configuuration** could be found here: [/.circleci/config.yml](/.circleci/config.yml).
-The following **Jobs** are configured:
-- ***install-packages*** - installing NPM packages. Uses cache based on `package-lock.json` file checksum;
-- ***lint*** - linting of Source Code ([ESLint](/config/lint/eslint/eslint.config.js) + [Stylelint](/config/lint/stylelint/stylelint.config.js));
-- ***test-tsc*** - checking TypeScript files ([/tsconfig.json](/tsconfig.json));
-    > ⚠️***Warn**: This is a **vital** step. TypeScript transpilation is handled by Babel, so type checking are NOT presented during that time.*
-- ***test-unit-integration*** - executing Unit/Integration tests (Jest+RTL, [/config/test/jest.config.js](/config/test/jest.config.js));
-- ***test-unit-integration-with-reports*** - executing Unit/Integration tests + preparing of Reports artifacts (Results + Coverage);
-- ***test-sca*** - executing Source Code for vulnerabilities;
-    > 💡 ***Note**: **Snyk secrets** environment variable set up on CircleCI side.*
-- ***test-performance*** - executing Performance tests (LightHouse, [/config/test/lighthouse.config.js](/config/test/lighthouse.config.js));
-- ***add-last-commit-sha*** - adding last commit SHA to the end of index.html to control current deployed version;
-- ***build-app*** - building Application;
-- ***deploy-app*** - deploying Application (AWS S3 hosting);
-    > 💡 ***Note**: **AWS secrets** environment variables set up on CircleCI side.*
-- ***build-components-library*** - building Application's Components library (StoryBook, [/config/storybook/](/config/storybook/));
-- ***deploy-components-library*** - deploying Application's Components library (AWS S3 hosting);
-    > 💡 ***Note**: **AWS secrets** environment variables set up on CircleCI side.*
+![GitHub Flow branching model](assets/github-flow-branching-model.svg)
 
+## Local quality gates
 
-## CI CD Workflows
-There are two workflows available: **Common** (for `feature` branches) and **Commitment** (for `main` branch).
+The usual verification sequence is:
 
-#### Common (feature) workflow
-<img src="/_docs/assets/pipeline-common-workflow.jpg" alt="GitHub flow git model" style="width:700px;"/>
+```bash
+npm ci
+npm run lint
+npm run test:tsc
+npm run test:ci
+npm run preview:build
+npm run test:analytics
+```
 
-#### Commitment (main) workflow
-<img src="/_docs/assets/pipeline-commitment-workflow.jpg" alt="GitHub flow git model" style="width:1200px;"/>
+Webpack uses Babel to transpile TypeScript, so `npm run test:tsc` is a separate required type-safety gate. Select additional Cypress, Lighthouse, PWA, or Storybook checks according to the changed behavior.
+
+## Static preview
+
+`npm run preview:build` cleans and creates the production-style `dist` artifact. The static preview host does not run a build command, so the current worktree must retain an ignored `dist/index.html` built from the exact revision under review.
+
+The host must serve `index.html` for client-side deep links such as `/experience` and `/passions`. Preview analytics is disabled by hostname and `npm run test:analytics` verifies the built guard without network requests.
+
+Preview readiness is not production acceptance or deployment.
+
+## CircleCI
+
+The authoritative pipeline is [`.circleci/config.yml`](../.circleci/config.yml).
+
+| Job | Responsibility |
+| --- | --- |
+| `install-packages` | Install npm dependencies and cache `node_modules` by lockfile checksum |
+| `lint` | Run ESLint and Stylelint |
+| `test-tsc` | Run TypeScript checking without emit |
+| `test-unit-integration` | Run Jest on feature branches |
+| `test-unit-integration-with-reports` | Run Jest with JUnit and coverage reports on `main` |
+| `test-sca` | Run the configured Snyk dependency scan on `main` |
+| `build-app` | Create production `dist` and persist it to the CircleCI workspace |
+| `add-last-commit-sha` | Add the built revision to `dist/index.html` |
+| `test-performance` | Run Lighthouse CI against `dist` |
+| `deploy-app` | Sync `dist` to the production S3 website after manual approval |
+| `invalidate-app-cache` | Invalidate the production CloudFront caches after deployment |
+| Storybook jobs | Build and, after separate manual approval, deploy `storybook-static` |
+
+Feature workflow:
+
+![Feature branch CircleCI workflow](assets/pipeline-common-workflow.jpg)
+
+`main` workflow:
+
+![Main branch CircleCI workflow](assets/pipeline-commitment-workflow.jpg)
+
+GitHub Actions additionally provide CodeQL scanning and the repository's Claude Code integration. They do not replace CircleCI as the CI/CD or release pipeline.
+
+## Production boundary
+
+Production remains S3 Static Website + CloudFront + Route 53. CircleCI pauses at explicit approval jobs before application or Storybook deployment.
+
+Release readiness, owner acceptance, production deployment, and cache invalidation are separate actions. Agents must not run application/Storybook deploy scripts, invoke CloudFront invalidation, change AWS/CircleCI settings, or access production credentials without separate explicit owner approval.
+
+No Dockerfile, Docker Compose setup, or container deployment is required for this project.
