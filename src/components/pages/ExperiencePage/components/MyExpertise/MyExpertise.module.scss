@@ -121,9 +121,10 @@
 
 .experience-achievements {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: flex-end;
     margin-top: 3px;
+    gap: 2px;
 
     @include bp.lw(m) {
         justify-content: center;

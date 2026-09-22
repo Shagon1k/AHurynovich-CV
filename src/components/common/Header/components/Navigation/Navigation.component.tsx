@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 
 import Link from '@components/base/Link';
 import { ROUTES_CONFIG } from '@components/routes/routes.config';
+import { BP } from '@config/application';
 import { useTranslates } from '@reusables/custom-hooks';
-import { selectIsMobile } from '@slices/app-info/app-info.selector';
+import { selectAppBreakpoint, selectIsMobile } from '@slices/app-info/app-info.selector';
 
 import NavigationDesktop from './components/NavigationDesktop';
 import NavigationMobile from './components/NavigationMobile';
@@ -23,6 +24,8 @@ interface INavigationProps {
 
 const Navigation: React.FC<INavigationProps> = ({ onEnter, onLeave }) => {
     const isMobile = useSelector(selectIsMobile);
+    const breakpointName = useSelector(selectAppBreakpoint);
+    const isCompactNavigation = isMobile || [BP.XS, BP.S].includes(breakpointName);
     const { t } = useTranslates();
     const navItemsData = useMemo(
         () => [
@@ -59,7 +62,7 @@ const Navigation: React.FC<INavigationProps> = ({ onEnter, onLeave }) => {
 
     return (
         <nav aria-label={t('header.navigation.title')}>
-            {isMobile ? (
+            {isCompactNavigation ? (
                 <NavigationMobile
                     navItemsData={navItemsData}
                     renderNavItems={renderNavItems}
