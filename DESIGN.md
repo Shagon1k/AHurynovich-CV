@@ -48,9 +48,13 @@ The shared shell contains an accessibility helper, header/navigation, main conte
 ## Interaction and accessibility
 
 - All core actions must remain keyboard reachable with visible focus.
+- Pointer controls provide a 44 by 44 pixel target or an equivalent hit area. Adjacent targets must not
+  overlap.
 - Preserve the accessibility helper and skip-to-section behavior, focus return after dialogs/mobile navigation, focus locking, semantic landmarks, live regions, and route-change scroll/focus behavior.
 - Hover-only information must also be available through keyboard focus or another non-hover interaction.
 - Touch layouts must not depend on hover. Interactive targets need accessible names and correct expanded/current state where applicable.
+- Narrow viewports, including desktop browsers at increased zoom, use compact navigation and must not
+  introduce page-level horizontal scrolling.
 - Accessibility automation supports Jest Axe and Cypress Axe, but automated checks do not replace keyboard, focus, screen-reader semantics, contrast, and reduced-motion review.
 
 ## Loading, empty, error, and unavailable states
@@ -74,4 +78,3 @@ Visible changes should be reviewed against the implementation source at represen
 - no unintended layout overflow or reliance on hover-only interaction.
 
 When a visual or interaction change is accepted, update this contract in the same task if it changes a durable expectation.
-

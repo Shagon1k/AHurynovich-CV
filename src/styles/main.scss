@@ -2,6 +2,9 @@
 @use './fonts-declarations';
 @use './scrollbar';
 @use '@base-styles-variables/colors' as c;
+@use '@base-styles-mixins/bp';
+
+$minimum-target-size: 44px;
 
 body {
     // Replacing scroll from body element to achieve fixed address bar.
@@ -34,4 +37,46 @@ body {
 // Outline padding (A11y purposes)
 * {
     outline-offset: 3px;
+}
+
+// Keep pointer targets usable without changing the visual size of their contents.
+:is(
+a[href]:not([id='download-cv-link']),
+button:not([id='language-switcher-btn']),
+input:not([type='hidden']),
+textarea,
+select
+) {
+    min-width: $minimum-target-size;
+    min-height: $minimum-target-size;
+}
+
+a[href]:not([id='download-cv-link']) {
+    display: inline-flex;
+    align-items: center;
+}
+
+// The header has limited horizontal space, so expand only the clickable area of its icon controls.
+:is([id='download-cv-link'], [id='language-switcher-btn']) {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: $minimum-target-size;
+        height: $minimum-target-size;
+        transform: translate(-50%, -50%);
+    }
+}
+
+:root [id='language-switcher-btn'] {
+    margin-left: 22px;
+}
+
+@include bp.lw(m) {
+    footer {
+        padding-bottom: 72px;
+    }
 }

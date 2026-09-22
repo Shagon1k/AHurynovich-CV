@@ -17,6 +17,52 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 5px;
+
+    & > ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        flex: 0 1 188px; // Four 44px targets and three 4px gaps
+        max-width: 188px;
+        gap: 4px;
+    }
+
+    & > ul > li {
+        margin-right: 0;
+    }
+
+    & > ul button[aria-current] {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+
+        &::after {
+            content: '';
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: c.$beige;
+
+            @include bp.lw(m) {
+                width: 13px;
+                height: 13px;
+            }
+        }
+
+        &:hover::after,
+        &:focus-visible::after {
+            background-color: c.$brown;
+        }
+
+        &:active::after {
+            background-color: c.$red;
+        }
+
+        &[aria-current='true']::after {
+            background-color: c.$brown-dark;
+        }
+    }
 }
 
 .slides {
