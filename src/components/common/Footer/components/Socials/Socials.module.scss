@@ -1,5 +1,6 @@
 @use '@base-styles-variables/colors' as c;
 @use '@base-styles-mixins/bp';
+@use '@base-styles-mixins/common' as cmn;
 
 .socials {
     position: relative;
@@ -26,7 +27,8 @@
 .socials-list {
     position: absolute;
     top: 38px;
-    left: 45px;
+    left: 39px;
+    display: flex;
 
     @include bp.lw(l) {
         position: relative;
@@ -36,25 +38,56 @@
 }
 
 .socials-item {
-    display: inline-block;
-    margin-right: 8px;
+    flex: 0 0 cmn.$minimum-target-size;
 
-    &:last-child {
-        margin: 0;
+    &:nth-child(2) .socials-item-link {
+        --social-icon-offset: -4px;
+
+        @include bp.lw(l) {
+            --social-icon-offset: 0;
+        }
+    }
+
+    &:nth-child(3) .socials-item-link {
+        --social-icon-offset: -8px;
+
+        @include bp.lw(l) {
+            --social-icon-offset: 0;
+        }
     }
 }
 
 .socials-item-link {
+    --social-icon-offset: 0;
+
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 32px;
+    width: cmn.$minimum-target-size;
     border-radius: 50%;
-    background: c.$beige;
+    background: transparent;
     aspect-ratio: 1;
 
-    &:hover,
-    &:focus-visible {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 32px;
+        border-radius: 50%;
+        transform: translate(calc(-50% + var(--social-icon-offset)), -50%);
+        background: c.$beige;
+        aspect-ratio: 1;
+    }
+
+    & > svg {
+        z-index: 1;
+        transform: translateX(var(--social-icon-offset));
+    }
+
+    &:hover::before,
+    &:focus-visible::before {
         background: c.$yellow;
     }
 }

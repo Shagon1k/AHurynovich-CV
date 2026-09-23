@@ -11,11 +11,14 @@ $btn-right-padding: 10px;
     @include cmn.button-reset;
 
     position: fixed;
-    bottom: 45px;
+    bottom: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid transparent;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(calc(app.$app-max-width - $btn-right-padding - $btn-image-width));
+    transform: translateX(calc(app.$app-max-width - $btn-right-padding - cmn.$minimum-target-size));
     transition: visibility 0.3s, opacity 0.3s linear;
 
     @media screen and (max-width: #{app.$app-max-width}) {
