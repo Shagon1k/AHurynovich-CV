@@ -26,11 +26,11 @@ $nav-button-dimension: 30px;
 
     .nav-button-inner {
         position: absolute;
-        top: math.div($nav-button-dimension, 2);
-        left: 0;
+        top: 50%;
+        left: 50%;
         width: $nav-button-dimension;
         height: 3px;
-        transform: translateY(-50%);
+        transform: translate(-50%, -50%);
         background: c.$brown-dark;
 
         &::before,

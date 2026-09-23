@@ -28,6 +28,22 @@
         min-width: 0;
         max-width: calc(100% - cmn.$minimum-target-size * 2);
         overscroll-behavior-inline: contain;
+        scrollbar-color: transparent transparent;
+
+        &::-webkit-scrollbar-thumb {
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        &:hover,
+        &:focus-within {
+            scrollbar-color: c.$brown-dark transparent;
+
+            &::-webkit-scrollbar-thumb {
+                border-color: c.$brown-dark;
+                background-color: c.$beige;
+            }
+        }
     }
 
     & > ul > li {

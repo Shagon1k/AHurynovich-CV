@@ -27,7 +27,7 @@
 .socials-list {
     position: absolute;
     top: 38px;
-    left: 39px;
+    left: 35px;
     display: flex;
 
     @include bp.lw(l) {
@@ -39,27 +39,9 @@
 
 .socials-item {
     flex: 0 0 cmn.$minimum-target-size;
-
-    &:nth-child(2) .socials-item-link {
-        --social-icon-offset: -4px;
-
-        @include bp.lw(l) {
-            --social-icon-offset: 0;
-        }
-    }
-
-    &:nth-child(3) .socials-item-link {
-        --social-icon-offset: -8px;
-
-        @include bp.lw(l) {
-            --social-icon-offset: 0;
-        }
-    }
 }
 
 .socials-item-link {
-    --social-icon-offset: 0;
-
     position: relative;
     display: flex;
     justify-content: center;
@@ -76,14 +58,13 @@
         left: 50%;
         width: 32px;
         border-radius: 50%;
-        transform: translate(calc(-50% + var(--social-icon-offset)), -50%);
+        transform: translate(-50%, -50%);
         background: c.$beige;
         aspect-ratio: 1;
     }
 
     & > svg {
         z-index: 1;
-        transform: translateX(var(--social-icon-offset));
     }
 
     &:hover::before,
