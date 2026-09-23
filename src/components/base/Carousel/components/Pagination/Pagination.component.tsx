@@ -5,6 +5,21 @@ import { hashCode } from '@utils/strings';
 
 import styles from './Pagination.module.scss';
 
+const FOCUS_OUTLINE_OFFSET = 3;
+
+const keepPageButtonVisible = (pagination: HTMLUListElement, pageButton: HTMLButtonElement) => {
+    const paginationRect = pagination.getBoundingClientRect();
+    const pageButtonRect = pageButton.getBoundingClientRect();
+    const visibleLeft = paginationRect.left + FOCUS_OUTLINE_OFFSET;
+    const visibleRight = paginationRect.right - FOCUS_OUTLINE_OFFSET;
+
+    if (pageButtonRect.left < visibleLeft) {
+        pagination.scrollLeft -= visibleLeft - pageButtonRect.left;
+    } else if (pageButtonRect.right > visibleRight) {
+        pagination.scrollLeft += pageButtonRect.right - visibleRight;
+    }
+};
+
 interface IPaginationProps {
     count: number;
     currentPageIndex: number;
@@ -35,14 +50,7 @@ const Pagination: React.FC<IPaginationProps> = ({
 
         if (!pagination || !currentPageButton) return;
 
-        const paginationRect = pagination.getBoundingClientRect();
-        const currentPageButtonRect = currentPageButton.getBoundingClientRect();
-
-        if (currentPageButtonRect.left < paginationRect.left) {
-            pagination.scrollLeft -= paginationRect.left - currentPageButtonRect.left;
-        } else if (currentPageButtonRect.right > paginationRect.right) {
-            pagination.scrollLeft += currentPageButtonRect.right - paginationRect.right;
-        }
+        keepPageButtonVisible(pagination, currentPageButton);
     }, [currentPageIndex]);
 
     const handleKeybordNavigation = (e: React.KeyboardEvent) => {
@@ -55,9 +63,17 @@ const Pagination: React.FC<IPaginationProps> = ({
             return;
         }
 
+        e.preventDefault();
         const offset = e.code === 'ArrowLeft' ? -1 : 1;
         currFocusedIndexRef.current = (currFocusedIndexRef.current + offset + count) % count;
-        pagesButtonsRef.current[currFocusedIndexRef.current]?.focus();
+        const focusedPageButton = pagesButtonsRef.current[currFocusedIndexRef.current];
+        const pagination = paginationRef.current;
+
+        focusedPageButton?.focus({ preventScroll: true });
+
+        if (pagination && focusedPageButton) {
+            keepPageButtonVisible(pagination, focusedPageButton);
+        }
     };
 
     return (
