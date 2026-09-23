@@ -1,3 +1,5 @@
-$popup-close-btn-dimension: 25px;
+@use '@base-styles-mixins/common' as cmn;
+
+$popup-close-btn-dimension: cmn.$minimum-target-size;
 $popup-close-btn-margin: 7px;
 $popup-close-btn-space-dimension: $popup-close-btn-dimension + $popup-close-btn-margin * 2;

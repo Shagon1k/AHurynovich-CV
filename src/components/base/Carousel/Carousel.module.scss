@@ -1,5 +1,6 @@
 @use '@base-styles-variables/colors' as c;
 @use '@base-styles-mixins/bp';
+@use '@base-styles-mixins/common' as cmn;
 @use './variables.scss' as v;
 
 .carousel {
@@ -20,14 +21,17 @@
 
     & > ul {
         display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        flex: 0 1 188px; // Four 44px targets and three 4px gaps
-        max-width: 188px;
-        gap: 4px;
+        flex-flow: row nowrap;
+        justify-content: safe center;
+        flex: 0 1 auto;
+        overflow-x: auto;
+        min-width: 0;
+        max-width: calc(100% - cmn.$minimum-target-size * 2);
+        overscroll-behavior-inline: contain;
     }
 
     & > ul > li {
+        flex: 0 0 cmn.$minimum-target-size;
         margin-right: 0;
     }
 

@@ -6,8 +6,8 @@
 .arrow-btn {
     @include cmn.button-reset;
 
-    width: v.$button-width;
-    height: v.$button-height;
+    width: cmn.$minimum-target-size;
+    height: cmn.$minimum-target-size;
     fill: c.$brown-dark;
 
     &.m-left {
@@ -60,7 +60,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
+    left: calc((cmn.$minimum-target-size - v.$button-width) / 2);
     display: inline-block;
     width: v.$gear-dimension;
     height: v.$gear-dimension;
@@ -70,7 +70,7 @@
 .triangle-img {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: calc((cmn.$minimum-target-size - v.$button-width) / 2);
     display: inline-block;
     width: v.$triangle-width;
     height: v.$triangle-height;

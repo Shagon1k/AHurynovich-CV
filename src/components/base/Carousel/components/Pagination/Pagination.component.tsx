@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { hashCode } from '@utils/strings';
 
@@ -22,11 +22,28 @@ const Pagination: React.FC<IPaginationProps> = ({
     onPageChange,
     ariaControls,
 }) => {
+    const paginationRef = useRef<HTMLUListElement | null>(null);
     const currFocusedIndexRef = useRef(currentPageIndex);
     const pagesButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
     const getOnPageChange = (i: number) => () => {
         onPageChange(i);
     };
+
+    useEffect(() => {
+        const pagination = paginationRef.current;
+        const currentPageButton = pagesButtonsRef.current[currentPageIndex];
+
+        if (!pagination || !currentPageButton) return;
+
+        const paginationRect = pagination.getBoundingClientRect();
+        const currentPageButtonRect = currentPageButton.getBoundingClientRect();
+
+        if (currentPageButtonRect.left < paginationRect.left) {
+            pagination.scrollLeft -= paginationRect.left - currentPageButtonRect.left;
+        } else if (currentPageButtonRect.right > paginationRect.right) {
+            pagination.scrollLeft += currentPageButtonRect.right - paginationRect.right;
+        }
+    }, [currentPageIndex]);
 
     const handleKeybordNavigation = (e: React.KeyboardEvent) => {
         if (!['ArrowLeft', 'ArrowRight', 'Tab'].includes(e.code)) {
@@ -45,7 +62,12 @@ const Pagination: React.FC<IPaginationProps> = ({
 
     return (
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- Key down event delegation
-        <ul className={styles['pagination']} aria-label={paginationTitle} onKeyDown={handleKeybordNavigation}>
+        <ul
+            ref={paginationRef}
+            className={styles['pagination']}
+            aria-label={paginationTitle}
+            onKeyDown={handleKeybordNavigation}
+        >
             {Array.from({ length: count }).map((_, i) => {
                 const isCurrentPage = i === currentPageIndex;
                 const pageCn = clsx({

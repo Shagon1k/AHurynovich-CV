@@ -4,6 +4,9 @@
 
 .language-switcher {
     @include cmn.button-reset;
+    @include cmn.expanded-interactive-target;
+
+    margin-left: 22px;
 
     &:active {
         .language-switcher-img {

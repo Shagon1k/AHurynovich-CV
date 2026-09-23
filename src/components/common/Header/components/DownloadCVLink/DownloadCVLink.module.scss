@@ -1,7 +1,10 @@
 @use '@base-styles-variables/colors' as c;
 @use '@base-styles-mixins/bp';
+@use '@base-styles-mixins/common' as cmn;
 
 .download-cv-link {
+    @include cmn.expanded-interactive-target;
+
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
