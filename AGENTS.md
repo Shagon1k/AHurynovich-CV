@@ -1,5 +1,24 @@
 # AHurynovich CV
 
+## Simplicity and scope
+
+Implement the requested behavior with the simplest clear solution that fits the existing codebase. Optimize for maintainers reading and changing the code, not for hypothetical future requirements.
+
+- Prefer straightforward control flow, concrete functions, and existing conventions. Add abstractions only when they simplify a current requirement or remove meaningful existing duplication.
+- Do not introduce generic frameworks, extension points, configuration, dependencies, or extra layers for a single bounded use case unless current requirements justify them.
+- Handle expected failures and validate untrusted input at system boundaries. Inside trusted code, rely on established contracts instead of repeating defensive checks.
+- Add retries, fallbacks, recovery paths, and compatibility behavior only for an identified requirement or a demonstrated failure mode. Prefer a clear, actionable error over speculative recovery.
+- Match edge-case handling to both likelihood and impact. Do not add substantial complexity for low-impact hypothetical cases. Preserve security, authorization, data integrity, and explicit acceptance requirements.
+- Keep changes focused. Do not combine the task with unrelated cleanup, restructuring, or future-proofing.
+- Test required behavior, meaningful failure paths, and observed regressions. Do not invent new product requirements merely to cover more cases.
+
+For non-trivial changes, briefly state the simplest approach, what existing code it reuses, and what is intentionally out of scope. Do not create a separate design document or wait for additional approval unless a material trade-off or repository-specific rule requires it.
+
+Before finishing, remove unnecessary indirection, redundant checks, and speculative branches introduced by your change. If a rare case would require disproportionate complexity, disclose the limitation rather than silently expanding the implementation. Simplicity means fewer unnecessary mechanisms, not compressed or cryptic code.
+
+These guidelines do not override repository-specific approval requirements, architecture constraints, or verification gates.
+
+
 ## Core contract
 
 - The owner provides intent, constraints, and acceptance criteria. The agent chooses the smallest safe route, executes it, and proves the result.
